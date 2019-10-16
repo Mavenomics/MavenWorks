@@ -1,0 +1,35 @@
+:root {
+    /**
+     * Variable naming scheme:
+     * - All vars begin with the prefix `m`
+     * - Last word indicates the intended use (eg, `color`, `font`, `width`)
+     * - UI colors are backgrounds or otherwise dominant colors of UI elements
+     *      `-ui-color`
+     * - Font colors are font colors or secondary colors of UI elements
+     *      `-font-color`
+     * - Border colors are used either as callouts or to soften a visual transition
+     *      `-border-color`
+     */
+    --m-active-ui-color: hsl(0, 0%, 48%);
+    --m-active-font-color: white;
+    --m-border-color: #bdbdbd;
+    --m-inactive-ui-color: hsl(0, 0%, 90%);
+    --m-inactive-font-color: black;
+
+    /** All these should have active-font-color */
+    --m-selected-ui-color: hsl(199, 98%, 38%);
+    --m-valid-ui-color: hsl(199, 98%, 58%);
+    --m-neutral-ui-color: hsl(0, 0%, 48%);
+    /* warn is 20% darker to ensure that it has a perceptibly different luminance */
+    --m-warn-ui-color: hsl(0, 98%, 38%);
+    /* a subtle callout color for inline examples */
+    --m-callout-ui-color: hsl(199, 98%, 98%);
+
+    /** A hover should darken by 10% */
+    --m-hover-active-ui-color: hsl(0, 0%, 38%);
+    --m-hover-ui-color: hsl(0, 0%, 90%);
+    --m-hover-selected-ui-color: hsl(199, 98%, 28%);
+    --m-hover-valid-ui-color: hsl(199, 98%, 48%);
+    --m-hover-neutral-ui-color: hsl(0, 0%, 38%);
+    --m-hover-warn-ui-color: hsl(0, 98%, 28%);
+}

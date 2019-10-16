@@ -1,0 +1,20 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/*.js": {
+            "when": "$(basename).ts"
+        },
+        "**/**.js": {
+            // use a different key to fool VSCode
+            // into thinking this is different
+            "when": "$(basename).tsx"
+        },
+        "**/*.js.map": true,
+        "**/.DS_Store": true,
+        "**/__pycache__": true,
+        "**/*.egg-info": true,
+    },
+    "python.linting.pydocstyleEnabled": true,
+    "python.linting.flake8Enabled": true,
+    "typescript.tsdk": "./node_modules/typescript/lib",
+}

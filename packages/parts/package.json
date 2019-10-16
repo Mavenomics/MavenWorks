@@ -1,0 +1,40 @@
+{
+  "name": "@mavenomics/parts",
+  "version": "0.1.0",
+  "description": "The Part class and helpers for writing your own parts",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "repository": "https://github.com/Mavenomics/MavenKernel",
+  "author": "Mavenomics, Inc",
+  "license": "GPL-3.0",
+  "files": [
+    "lib",
+    "style"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "build:ci": "echo pass",
+    "clean": "rimraf ./lib *.tsbuildinfo",
+    "lint": "tslint --project .",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@mavenomics/coreutils": "^0.1.0",
+    "@mavenomics/ui": "^0.1.0",
+    "@phosphor/application": "^1.6.0",
+    "@phosphor/coreutils": "^1.3.0",
+    "@phosphor/disposable": "^1.1.2",
+    "@phosphor/messaging": "^1.2.2",
+    "@phosphor/widgets": "^1.6.0",
+    "lodash": "^4.17.11",
+    "rxjs": "^6.4.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@jupyterlab/apputils": "~1.1.3",
+    "@jupyterlab/rendermime": "~1.1.3",
+    "rimraf": "^2.6.3"
+  }
+}

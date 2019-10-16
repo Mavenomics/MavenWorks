@@ -1,0 +1,7 @@
+select #DateTime'2010-04-26T11:47:31.1234567-04:00' from dual
+// these two below fail on MQLjs
+// select #DateTime'2010-04-26T00:00:00.0000000Z' from dual=>SELECT #DateTime'2010-04-25T20:00:00.0000000-04:00' FROM dual
+// select #DateTime'2010-04-26T00:00:00.0000000-04:00' from dual=>select #DateTime'2010-04-26' from dual
+select #DateTime'2010-04-26' from dual
+select #TimeSpan'00:02:03' from dual
+select #TimeStamp'12-34-56-78-9A-BC-DE-F0' from dual

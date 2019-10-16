@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Username Password</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        label {
+            width: 100px;
+            display: inline-block
+        }
+        input {
+            width: 200px;
+        }
+        .error {
+            background: darkblue;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    {{#if message}}
+        <div class="error">
+            {{message}}
+        </div>
+    {{/if}}
+    <form action="/login{{#if next}}?next={{next}}{{/if}}" method="post">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" name="username"/>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" autocomplete="current-password"/>
+        </div>
+        <div>
+            <input type="submit" value="Log In"/>
+        </div>
+    </form>
+</body>
+</html>

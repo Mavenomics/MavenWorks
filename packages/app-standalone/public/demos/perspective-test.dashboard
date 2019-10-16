@@ -1,0 +1,343 @@
+{
+	"layout": {
+		"properties": {
+			"flexSize": 1
+		},
+		"typeName": 0,
+		"uuid": "84f9e3ae-d6df-4bf8-aed8-5ef1c8abb47f",
+		"children": [{
+				"properties": {
+					"horizontal": true,
+					"flexSize": 1
+				},
+				"typeName": 0,
+				"uuid": "e2c78e82-9a5c-4278-96a8-c7625b447799",
+				"children": [{
+						"properties": {
+							"horizontal": false,
+							"flexSize": 1.41
+						},
+						"typeName": 0,
+						"uuid": "400335e7-b405-45e8-b448-a19e9080e841",
+						"children": [{
+								"properties": {
+									"horizontal": true,
+									"flexSize": 1
+								},
+								"typeName": 0,
+								"uuid": "5e73759f-002d-40d0-830a-4ff72de99c9a",
+								"children": [{
+										"properties": {
+											"horizontal": true,
+											"flexSize": 1.3
+										},
+										"typeName": 0,
+										"uuid": "b1835579-9fdf-43a0-a01b-ed56ef4aa3fa",
+										"children": [{
+												"properties": {},
+												"typeName": 1,
+												"uuid": "26d8173e-426f-4f2a-ba0c-f910b26a1f86",
+												"guid": "df00e917-f187-425b-8923-9295d7b17f3e"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	"parts": {
+		"df00e917-f187-425b-8923-9295d7b17f3e": {
+			"application/vnd.maven.part+json": {
+				"name": "PivotPart",
+				"id": "df00e917-f187-425b-8923-9295d7b17f3e",
+				"options": {
+					"Input Table": {
+						"type": "Mql",
+						"expr": "/* @StartDate,@EndDate */\nset @Data = Cache( 'Data1', Subselect( <<mql\n\tset @Pnl5MipWeeklyPath = WorkerCache('pnl5_weekly', Fetch('https://dl.dropboxusercontent.com/s/ktez6tnglllde8z/PNL_Export_MIP_16Y_weekly.csv'))\n\tset @Pnl5MipExpPath = WorkerCache('pnl5_exposures', Fetch('https://dl.dropboxusercontent.com/s/fj9xltj4f5azde6/PNL_Export_MIP_Exposures.csv'))\n\tset @rawTable = ExcelCsvToTable( @Pnl5MipWeeklyPath )\n\tset @tableWithFakeDates = Cache( 'TWFD', AddComputedColumn( @rawTable, 'Fake Date', AddTime(Date(2012,06,14), 0, 0, -(858-[Scenario Index])*7 )))\n\tSELECT \n\t\t\tCurrency,\n\t\t\t[Book Value] as BookValue,\n\t\t\tVectorsToSparkline( DateTimeVectorFromTable( 'Fake Date', @tableWithFakeDates ), FloatVectorFromTable( Currency, @rawTable ) ) as Scenarios \n\tFROM \n\t\t\tExcelCsvToTable( @Pnl5MipExpPath )\nmql\n\t) )\nset @FilteredData1 = Cache( Rand( ), Subselect( <<mql\nset @NumDate = GetYears( Date ) * 10000 + GetMonths( Date ) * 100 + GetDays( Date )\nSELECT First(Currency) as Currency,\n First(BookValue) as BookValue, \n Sparkline(Scenarios, Date) as Scenarios\nFROM Explode(@Data)\nWHERE @NumDate >= @StartDate and @NumDate <= @EndDate\nGROUP BY Currency\nHAVING GetLevel() = 1\nmql\n, 'Data', @Data , 'StartDate', @StartDate, 'EndDate', @EndDate ) )\nset @FilteredData2 = Cache( Rand( ), Subselect( <<mql\nSELECT Currency as Currency2,\n Scenarios as Scenarios2\nFROM @FilteredData1\nmql\n, 'FilteredData1', @FilteredData1 ) )\nset @MinThreshold = 65\nset @FilterToUse = IfElse( @ExposureSelectionType = 'Use Sliders', True, @Filter )\nset @ExposureSelectionType = 'Use Sliders'\nset @MinThresholdScaled = 0.65\nset @ShowGrid = False\nset @ShowSliders = True\nset @Filter = Coalesce( Currency, 'Grand Total' ) in ( 'AUD', 'CAD', 'CHF', 'DKK', 'EUR', 'GBP', 'ILS', 'JPY', 'NOK', 'USD' )\nset @RowPath = '/root/AUD'\nset @RowName = 'AUD'\nset @CellContents = 'AUD'\nset @MessageType = 'SelectedCellChanged'\nset @tailLength = 123\nset @PNLVector = SparklineToFloatVector( SparklineSum( Scenarios ) )\nSELECT \n\tCurrency format { General.ColumnWidthPixels := 84 } , \n\tCurrency2 format { General.ColumnWidthPixels := 74 } , \n\tVectorCorrelation( SparklineToFloatVector( Scenarios ), SparklineToFloatVector( Scenarios2 ) ) as Correlation format { [Heatmap. Enable] := True; Number.FormatString := '#.00'; General.ColumnWidthPixels := 118 } \nFROM \n\tCrossJoin( @FilteredData1, @FilteredData2 )",
+						"globals": ["StartDate", "EndDate"]
+					},
+					"Config": {
+						"typeName": "String",
+						"value": {
+							"val": "{\"class\":\"p-Widget\",\"view\":\"d3_heatmap\",\"row-pivots\":\"[\\\"Currency\\\"]\",\"column-pivots\":\"[\\\"Currency2\\\"]\",\"filters\":\"[]\",\"sort\":\"[]\",\"style\":\"position: absolute; z-index: 0; top: 0px; left: 0px; width: 1919px; height: 981px;\",\"columns\":\"[\\\"Correlation\\\"]\",\"aggregates\":\"{\\\"Currency\\\":\\\"distinct count\\\",\\\"Currency2\\\":\\\"distinct count\\\",\\\"Correlation\\\":\\\"avg\\\"}\",\"render_time\":\"0.3349999897181988\",\"settings\":\"true\",\"updating\":\"true\"}",
+							"boxed": false
+						}
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		}
+	},
+	"globals": [{
+			"name": "ConfidenceLevelPct",
+			"type": "Number",
+			"value": {
+				"typeName": "Number",
+				"value": {
+					"val": 0.63,
+					"boxed": false
+				}
+			}
+		}, {
+			"name": "DevMode",
+			"type": "Boolean",
+			"value": {
+				"typeName": "Boolean",
+				"value": {
+					"val": false,
+					"boxed": false
+				}
+			}
+		}, {
+			"name": "StartDate",
+			"type": "Number",
+			"value": {
+				"typeName": "Number",
+				"value": {
+					"val": 19981126,
+					"boxed": false
+				}
+			}
+		}, {
+			"name": "EndDate",
+			"type": "Number",
+			"value": {
+				"typeName": "Number",
+				"value": {
+					"val": 20100711,
+					"boxed": false
+				}
+			}
+		}, {
+			"name": "Threshold",
+			"type": "Number",
+			"value": {
+				"typeName": "Number",
+				"value": {
+					"val": 0.71,
+					"boxed": false
+				}
+			}
+		}, {
+			"name": "sliderNames",
+			"type": "Array",
+			"value": {
+				"typeName": "Array",
+				"value": [{
+						"typeName": "String",
+						"value": {
+							"val": "AUD",
+							"boxed": false
+						}
+					}, {
+						"typeName": "String",
+						"value": {
+							"val": "CAD",
+							"boxed": false
+						}
+					}, {
+						"typeName": "String",
+						"value": {
+							"val": "CHF",
+							"boxed": false
+						}
+					}, {
+						"typeName": "String",
+						"value": {
+							"val": "DKK",
+							"boxed": false
+						}
+					}, {
+						"typeName": "String",
+						"value": {
+							"val": "EUR",
+							"boxed": false
+						}
+					}, {
+						"typeName": "String",
+						"value": {
+							"val": "GBP",
+							"boxed": false
+						}
+					}, {
+						"typeName": "String",
+						"value": {
+							"val": "HKD",
+							"boxed": false
+						}
+					}, {
+						"typeName": "String",
+						"value": {
+							"val": "ILS",
+							"boxed": false
+						}
+					}, {
+						"typeName": "String",
+						"value": {
+							"val": "JPY",
+							"boxed": false
+						}
+					}, {
+						"typeName": "String",
+						"value": {
+							"val": "NOK",
+							"boxed": false
+						}
+					}, {
+						"typeName": "String",
+						"value": {
+							"val": "NZD",
+							"boxed": false
+						}
+					}, {
+						"typeName": "String",
+						"value": {
+							"val": "SEK",
+							"boxed": false
+						}
+					}, {
+						"typeName": "String",
+						"value": {
+							"val": "SGD",
+							"boxed": false
+						}
+					}, {
+						"typeName": "String",
+						"value": {
+							"val": "USD",
+							"boxed": false
+						}
+					}
+				]
+			}
+		}, {
+			"name": "sliderValues",
+			"type": "Array",
+			"value": {
+				"typeName": "Array",
+				"value": [{
+						"typeName": "Number",
+						"value": {
+							"val": 0.42,
+							"boxed": false
+						}
+					}, {
+						"typeName": "Number",
+						"value": {
+							"val": 0.03,
+							"boxed": false
+						}
+					}, {
+						"typeName": "Number",
+						"value": {
+							"val": 0.04,
+							"boxed": false
+						}
+					}, {
+						"typeName": "Number",
+						"value": {
+							"val": 0.11,
+							"boxed": false
+						}
+					}, {
+						"typeName": "Number",
+						"value": {
+							"val": 0.11,
+							"boxed": false
+						}
+					}, {
+						"typeName": "Number",
+						"value": {
+							"val": 0.1,
+							"boxed": false
+						}
+					}, {
+						"typeName": "Number",
+						"value": {
+							"val": 0.01,
+							"boxed": false
+						}
+					}, {
+						"typeName": "Number",
+						"value": {
+							"val": 0,
+							"boxed": false
+						}
+					}, {
+						"typeName": "Number",
+						"value": {
+							"val": 0.43,
+							"boxed": false
+						}
+					}, {
+						"typeName": "Number",
+						"value": {
+							"val": 0.12,
+							"boxed": false
+						}
+					}, {
+						"typeName": "Number",
+						"value": {
+							"val": 0,
+							"boxed": false
+						}
+					}, {
+						"typeName": "Number",
+						"value": {
+							"val": 0.21,
+							"boxed": false
+						}
+					}, {
+						"typeName": "Number",
+						"value": {
+							"val": 0.12,
+							"boxed": false
+						}
+					}, {
+						"typeName": "Number",
+						"value": {
+							"val": 0.12,
+							"boxed": false
+						}
+					}
+				]
+			}
+		}, {
+			"name": "SliderValues",
+			"type": "String",
+			"value": {
+				"typeName": "String",
+				"value": {
+					"val": "value,label\n0.42,AUD\n0.03,CAD\n0.04,CHF\n0.11,DKK\n0.11,EUR\n0.1,GBP\n0.01,HKD\n0,ILS\n0.43,JPY\n0.12,NOK\n0,NZD\n0.21,SEK\n0.12,SGD\n0.12,USD\n",
+					"boxed": false
+				}
+			}
+		}, {
+			"name": "PivotGridConfig",
+			"type": "Any",
+			"value": {
+				"typeName": "Any",
+				"value": {
+					"aggregatorName": "Average",
+					"autoSortUnusedAttrs": false,
+					"cols": ["Currency2"],
+					"derivedAttributes": {},
+					"exclusions": {},
+					"hiddenAttributes": [],
+					"inclusions": {},
+					"inclusionsInfo": {},
+					"menuLimit": 200,
+					"rendererName": "Heatmap",
+					"rows": ["Currency"],
+					"unusedAttrsVertical": 85,
+					"vals": ["Correlation"]
+				}
+			}
+		}
+	],
+	"localParts": {}
+}

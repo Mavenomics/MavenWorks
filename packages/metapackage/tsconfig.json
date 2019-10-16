@@ -1,0 +1,27 @@
+{
+  "extends": "../../base.tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./lib",
+    "rootDir": "./src"
+  },
+  "files": ["./src/index.ts"],
+  "references": [
+    { "path": "../apputils" },
+    { "path": "../bindings" },
+    { "path": "../coreutils" },
+    { "path": "../dashboard" },
+    { "path": "../dashboard-devtools" },
+    { "path": "../default-parts" },
+    { "path": "../help" },
+    { "path": "../layout" },
+    { "path": "../mql" },
+    { "path": "../mql-worker" },
+    { "path": "../parts" },
+    { "path": "../table" },
+    { "path": "../ui" },
+    { "path": "../app-jupyter" },
+    { "path": "../app-viewer" },
+    { "path": "../app-standalone" },
+    { "path": "../config-server" }
+  ]
+}

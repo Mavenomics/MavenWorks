@@ -1,0 +1,79 @@
+.m-Part {
+    padding: 0;
+    margin: 0;
+}
+
+.m-PartOverlay {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    animation: m-overlay-fadein 0.25s ease-in;
+}
+
+@keyframes m-overlay-fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.m-PartOverlay-Header {
+    display: flex;
+    flex-direction: row;
+}
+
+.m-PartOverlay .m-PartOverlay-Button {
+    background: transparent;
+    color: white;
+    /* approx stroke width of fa-times symbol */
+    border: 5px solid white;
+    padding: 0.25em;
+    font-size: 1.5em;
+    opacity: 0.75;
+    min-width: 125px;
+    width: 30%;
+    display: block;
+    margin: auto;
+    margin-top: 0.5em;
+}
+
+.m-PartOverlay .m-PartOverlay-center {
+    width: 100%;
+    text-align: center;
+}
+
+.m-PartOverlay .errorDetail {
+    background: white;
+    color: red;
+    padding: 10px;
+}
+
+.m-PartOverlay .m-PartOverlay-BigButton {
+    font-size: 3em;
+    min-width: 256px;
+}
+
+.m-PartOverlay .m-PartOverlay-Button:hover {
+    opacity: 1;
+}
+
+.m-PartOverlay .m-PartOverlay-ButtonContent {
+    margin-left: 0.25em;
+}
+
+.m-PartOverlay-State {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.m-PartOverlay > * {
+    text-align: left;
+    overflow: auto;
+    padding: 0.25em;
+}

@@ -1,0 +1,17 @@
+node_modules/
+*.js
+*.d.ts
+!client/plotlywidget.d.ts
+*.d.ts.map
+!webpack.config.js
+
+# client files
+static/*.js
+static/**.js
+
+# less files
+/styles/light-theme.css
+/styles/index.css
+
+# yarn
+yarn-error.log

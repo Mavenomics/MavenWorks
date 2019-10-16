@@ -1,0 +1,67 @@
+.m-FallbackDetailEditor {
+    height: 100%;
+    width: 100%;
+}
+
+.m-TypeEditor {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: -1px;
+}
+
+.m-TypeEditor>:first-child {
+    margin-right: 24px;
+}
+
+.m-TypeEditor>input[type="text"] {
+    width: 0; /* Force unset the width so that the flexbox can set the width */
+}
+
+.m-TypeEditor .m-TypeEditor-DetailEditorBtn {
+    position: relative;
+    width: 18px;
+    height: 15px;
+    background: none;
+    border: 1px solid grey;
+    padding: 2px;
+    margin: 3px;
+    margin-left: -21px;
+    display: none;
+    box-sizing: border-box;
+}
+
+.m-TypeEditor:focus-within {
+    z-index: 1; /* move up in the stacking order to make the callout visible */
+}
+
+.m-TypeEditor:hover .m-TypeEditor-DetailEditorBtn,
+.m-TypeEditor:focus-within .m-TypeEditor-DetailEditorBtn  {
+    display: inline;
+}
+
+.m-TypeEditor .m-TypeEditor-DetailEditorBtn:hover {
+    background: rgb(201, 201, 201);
+}
+
+.m-TypeEditor .m-TypeEditor-DetailEditorBtn:active {
+    background: grey;
+    color: white;
+}
+
+.m-TypeEditor>*:not(button) {
+    flex-grow: 1;
+}
+
+.m-FallbackEditor-Number {
+    text-align: right;
+}
+
+.m-TypeEditor-Unsupported {
+    background-color: whitesmoke;
+    color: grey;
+}
+
+.m-FallbackEditor-invalid {
+    border-color: red;
+    --jp-content-font-color1: red;
+}

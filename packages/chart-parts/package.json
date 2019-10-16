@@ -1,0 +1,54 @@
+{
+  "name": "@mavenomics/chart-parts",
+  "version": "0.1.0",
+  "description": "A palette of pivoted chart parts included in MavenWorks",
+  "main": "./build/chartpart.bundle.js",
+  "types": "./lib/index.d.ts",
+  "repository": "https://github.com/Mavenomics/MavenKernel",
+  "author": "Mavenomics, Inc",
+  "license": "GPL-3.0",
+  "files": [
+    "lib",
+    "build",
+    "style",
+    "SlickGrid/*"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "build:ci": "webpack && lessc ./style/index.less ./style/index.css",
+    "analyze-bundle": "webpack --analyze",
+    "clean": "rimraf ./lib *.tsbuildinfo",
+    "lint": "tslint --project .",
+    "test": "echo No tests for @mavenomics/chart-parts"
+  },
+  "devDependencies": {
+    "@finos/perspective-webpack-plugin": "0.3.6",
+    "@types/d3": "^3.5.12",
+    "@types/numeral": "^0.0.25",
+    "@types/slickgrid": "^2.1.27",
+    "raw-loader": "^2.0.0",
+    "rimraf": "^2.6.3",
+    "typescript": "*",
+    "webpack": "*"
+  },
+  "dependencies": {
+    "@finos/perspective": "0.3.6",
+    "@finos/perspective-viewer": "0.3.6",
+    "@finos/perspective-viewer-d3fc": "0.3.6",
+    "@finos/perspective-viewer-hypergrid": "0.3.6",
+    "@mavenomics/coreutils": "^0.1.0",
+    "@mavenomics/parts": "^0.1.0",
+    "@mavenomics/table": "^0.1.0",
+    "@phosphor/application": "^1.6.0",
+    "@phosphor/widgets": "^1.6.0",
+    "arraybuffer-loader": "^1.0.7",
+    "d3": "^3.5.12",
+    "jquery": "1.11.0",
+    "numeral": "^2.0.6",
+    "stable": "^0.1.8",
+    "worker-loader": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  }
+}

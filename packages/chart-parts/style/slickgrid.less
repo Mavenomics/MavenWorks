@@ -1,0 +1,349 @@
+.m-SlickGridPart {
+    // Default theme for the SlickGrid
+    font-size: 12px;
+    font-family: sans-serif;
+    background-color:white;
+
+    .column-group-level0 {
+        background-color: orange;
+        color: white;
+    }
+
+    .column-group-level1 {
+        background-color: green;
+        color: white;
+    }
+
+    .slick-viewport {
+        background-color: #e4e4e4;
+    }
+
+    .toggle {
+        height: 9px;
+        width: 9px;
+        display: inline-block;
+    }
+
+    .toggle.expand {
+        background: no-repeat center center url(data:image/gif;base64,R0lGODlhCQAJAPcAAAFGeoCAgNXz/+v5/+v6/+z5/+36//L7//X8//j9/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAACQAJAAAIOAADCBxIUIDBgwIEChgwAECBAgQUFjAAQIABAwoBaNSIMYCAAwIqGlSIAEHFkiQTIBCgkqDLAAEBADs=);
+    }
+
+    .toggle.collapse {
+        background: no-repeat center center url(data:image/gif;base64,R0lGODlhCQAJAPcAAAFGeoCAgNXz/+v5/+v6/+z5/+36//L7//X8//j9/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAACQAJAAAIMwADCBxIUIDBgwIEChgwwECBAgQUFjBAkaJCABgxGlB4AGHCAAIQiBypEEECkScJqgwQEAA7);
+    }
+
+    .slick-header-column {
+        font-family: 'Arial', sans-serif !important;
+    }
+
+    .slick-header-column:hover {
+        transition: 0.3s;
+    }
+
+    .slick-header-columns-left:first-child {
+        font-style: italic;
+    }
+
+    .slick-row {
+        background: #dddddd !important;
+        transition: 0.09s;
+    }
+
+    .cell-hover {
+        position: fixed;
+        background: rgba(221, 221, 221, 0.2) !important;
+        outline: solid rgba(0, 0, 0, 0.2) 1px;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        right: 0;
+        pointer-events: none;
+        display: none;
+    }
+
+    .slick-range-decorator {
+        background-color: rgba(162, 199, 255, 0.2);
+        /*transition: 0.05s;*/
+        z-index: 9999;
+    }
+
+    .grid-canvas .flashing {
+        background-color: rgba(255, 149, 148, 0.5);
+    }
+
+    .tree-spacer {
+        content: "";
+        z-index: 1;
+        top: 50%;
+        border: 1px dotted #AAA;
+    }
+
+    .spark-line {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 1.5px;
+    }
+
+    .row-detail-image {
+        background: url(./images/fields2.png) no-repeat left center;
+        width: 25px;
+        height: 100%;
+        float: left;
+    }
+
+    .table-hover-image {
+        background: url(./images/GridHoverIcon_14.png) no-repeat left center;
+        width: 25px;
+        height: 100%;
+        float: left;
+        padding-left: 16px;
+    }
+
+    .dashboard-link-image {
+        // TODO: Find the source for this image
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAABVElEQVR42qSTvUpDQRCFv927MSIKNjYhja8gNqKFICiIsRUkpT5BQLBSrK210ErzABILSSOCaBHBl9AIElAQkvu3PxYXr/khmpCp5jCz55yd3RHOOUYJkSs9FYAKiD4dIITAWIcnBc4YFBYtvM368fy1mnp/qUwuLg+t/Pb4VAGEAvis3WGt62cA5UmMc3hC4KxBCctEow6soqIvw/3Jwr+KxkJsIbIQatguXQGgAHK5HGfnz2nz7s4cmcPXFDf288xcqhTXCpowigCQg9zXj3uxEKI/QWw7cbOLIDS/uWq3bV1y2I+hvpcn1NDS0IrhYV0TGIhNp0BKoEtrAHiAf1RldqOcNt2Wi2RvsmR+ZrISpjU5iOXA9J+PhORZ2qPVRRD9QaAAfA0fB1V8DYGGIIbqRZHIgHG9tpMflsxfjckmS1unDLNUQkrU+HSSj7qNkhHjewCTLY4jzXD4MwAAAABJRU5ErkJggg==) no-repeat left center;
+        width: 25px;
+        height: 100%;
+        float: left;
+    }
+
+    #search-frame {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #e2e2e2;
+        border-top: 1px solid #c6c6c6;
+        font-size: 12px;
+        z-index: 500;
+        display: none;
+    }
+
+    .slick-cell-checkbox {
+        padding-right: 2px;
+        margin-top: 1px;
+        height: 1.2em;
+    }
+
+    .slick-cell-radio {
+        padding-right: 2px;
+        margin-top: 1px;
+        height: 1.2em;
+    }
+
+    .slick-header-columns {
+        border-bottom: 1px solid silver;
+    }
+
+    .slick-header-column {
+        border-right: 1px solid silver;
+    }
+
+    .slick-headerrow {
+        background: #fafafa;
+    }
+
+    .slick-headerrow-column {
+        background: #fafafa;
+        border-bottom: 0;
+        height: 100%;
+    }
+
+    .slick-row {
+        background: white;
+        transition: 0.09s;
+        font-family: 'Arial', sans-serif !important;
+    }
+
+    .slick-row.ui-state-active {
+        background: #F5F7D7;
+    }
+
+    .slick-row.selected {
+        z-index: 10;
+        background: #DFE8F6;
+    }
+
+    .slick-cell {
+        padding-left: 4px;
+        padding-right: 4px;
+        font-size: 11px;
+    }
+
+    .slick-cell.selected {
+        color: white !important;
+        background: #77abed !important;
+        transition: 0.08s;
+    }
+
+    .slick-cell.editable {
+        background: white;
+        border: 1px solid black;
+    }
+
+    .slick-cell.flashing {
+        border: 1px solid red !important;
+    }
+
+    .slick-cell.active {
+        outline: dotted gray 1px;
+    }
+
+    .slick-cell.search-match {
+        background: yellow !important;
+        color: black !important;
+    }
+
+    .slick-cell.invalid {
+        border-color: red;
+        animation-duration: 0.2s;
+        animation-name: slickgrid-invalid-hilite;
+    }
+
+    .slick-row.odd {
+        background: #fafafa;
+    }
+
+    .slick-row.ui-state-active {
+        background: #F5F7D7;
+    }
+
+    .slick-row.loading {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+
+    .slick-group {
+        border-bottom: 2px solid silver;
+    }
+
+    .slick-group-toggle {
+        width: 9px;
+        height: 9px;
+        margin-right: 5px;
+    }
+
+    .slick-resizable-handle-hover {
+        background-color: #ccc;
+    }
+
+    .slick-sortable-placeholder {
+        background: silver;
+    }
+
+    .slick-group-toggle.expanded {
+        background: url(./images/collapse.gif) no-repeat center center;
+    }
+
+    .slick-group-toggle.collapsed {
+        background: url(./images/expand.gif) no-repeat center center;
+    }
+
+    .slick-group-totals {
+        color: gray;
+        background: white;
+    }
+
+    .slick-sortable-placeholder {
+        background: silver !important;
+    }
+
+    @keyframes fadeitup {
+        0% {
+            background-color: green;
+        }
+        100% {
+        }
+    }
+    @keyframes fadeitdown {
+        0% {
+            background-color: red;
+        }
+        100% {
+        }
+    }
+    .changeup {
+        animation: fadeitup 5s ease-out;
+    }
+    .changedown {
+        animation: fadeitdown 5s ease-out;
+    }
+    @keyframes fadeituparrow {
+        0% {
+            color: green;
+            content: "\25B2";
+        }
+        100% {
+            color: transparent;
+            content: "\25B2";
+        }
+    }
+    @keyframes fadeitdownarrow {
+        0% {
+            color: red;
+            content: "\25BC";
+        }
+        100% {
+            color: transparent;
+            content: "\25B2";
+        }
+    }
+    .changeuparrow::before {
+        content: "";
+        animation: fadeituparrow 5s ease-out;
+    }
+    .changedownarrow::before {
+        content: "";
+        animation: fadeitdownarrow 5s ease-out;
+    }
+
+    &.m-TableEditorPart {
+        .slick-row {
+            // ugh, we need to clean up the CSS
+            background-color: #ffffff !important;
+        }
+
+        .slick-cell.active.editable {
+            margin: 0;
+            padding: 0;
+        }
+
+        .slick-cell {
+            font-size: 13px;
+        }
+
+        .m-TypeEditor input {
+            font-size: 13px;
+        }
+    }
+
+    &.m-TableHover {
+        border: 1px solid black;
+
+        .slick-viewport {
+            overflow:hidden !important; //Disable the viewports overflow when in hover mode
+        }
+    }
+    &.m-TablePopup {
+        padding: 0 !important; //Disable the dialog padding
+    }
+
+    .m-cell-error {
+        left: 0;
+        right: 0;
+        position: absolute;
+        font-size: 17px;
+        color: red;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+
+.m-error-detail-hover {
+    margin: 0;
+}
+
+.m-Hover pre.p-Widget.m-error-detail-hover {
+    overflow: auto;
+    margin: 0;
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@mavenomics/help-mql",
+  "version": "0.1.0",
+  "description": "Help for the MQL Engine",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "repository": "https://github.com/Mavenomics/MavenKernel",
+  "author": "Mavenomics, Inc",
+  "license": "GPL-3.0",
+  "files": [
+    "lib",
+    "mql-ref-template.md"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "build:ci": "echo pass",
+    "clean": "rimraf ./lib *.tsbuildinfo",
+    "lint": "tslint --project .",
+    "test": "echo pass"
+  },
+  "devDependencies": {
+    "typescript": "*",
+    "rimraf": "^2.6.3"
+  },
+  "dependencies": {
+    "@mavenomics/coreutils": "^0.1.0",
+    "@mavenomics/help": "^0.1.0",
+    "@mavenomics/mql-worker": "^0.1.0",
+    "@phosphor/application": "^1.6.4",
+    "rxjs": "^6.4.0"
+  }
+}

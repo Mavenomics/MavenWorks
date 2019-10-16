@@ -1,0 +1,13 @@
+{
+  "extends": "../../base.tsconfig.json",
+  "include": ["./client/*", "./client/**/*"],
+  "references": [
+    { "path": "../app-jupyter" },
+    { "path": "../bindings" },
+    { "path": "../chart-parts" },
+    { "path": "../dashboard" },
+    { "path": "../default-parts" },
+    { "path": "../parts" },
+    { "path": "../ui" },
+  ]
+}

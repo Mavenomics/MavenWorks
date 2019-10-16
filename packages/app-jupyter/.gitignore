@@ -1,0 +1,5 @@
+# ignore compiled output and dependencies
+/lib
+/node_modules
+/style/index.css
+yarn-error.log

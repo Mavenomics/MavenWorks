@@ -1,0 +1,89 @@
+// main: index.less
+@import '~@phosphor/dragdrop/style/index.css';
+
+@border-size: 10px;
+@dropzone-size: 40px;
+@half-dropzone: @dropzone-size / 2;
+
+.temp-disable-pointer {
+  pointer-events: none;
+}
+
+.m-DragShadow {
+  font-size: 1em;
+  background-color: var(--jp-layout-color4, "darkgrey");
+  color: var(--jp-ui-inverse-font-color0, "white");
+  padding: 5px;
+  padding-left: 20px; // move it away from the mouse
+}
+
+.m-DockPreview {
+  pointer-events: none;
+
+  .m-DockPreview__overlay {
+    background-color: rgba(54, 194, 246, 0.25);
+    border: 1px dashed white;
+    position: absolute;
+  }
+}
+
+div.dropzone {
+  width: @dropzone-size + 2 * @border-size;
+  height: @dropzone-size + 2 * @border-size;
+  background: white;
+  padding: @border-size;
+  position: absolute;
+  left: calc(50% - @half-dropzone);
+  top: calc(50% - @half-dropzone);
+  z-index: 5;
+
+  & .dropzone__preview {
+    border: 2px dashed lightblue;
+    width: @dropzone-size - 4px;
+    height: @dropzone-size - 4px;
+    pointer-events: none;
+  }
+
+  &:hover {
+    .dropzone__preview {
+      border-color: darkblue;
+    }
+  }
+}
+
+.dropzone[data-zone^="inner"] {
+  @modsize: -1 * (@dropzone-size + @border-size);
+  --mod: @modsize;
+}
+.dropzone[data-zone^="outer"] {
+  @modsize: -2 * (@dropzone-size + @border-size);
+  --mod: @modsize;
+}
+
+@zones: left, right, top, bottom;
+
+each(@zones, {
+  @is-horizontal: boolean(@value = left or @value = right);
+
+  .dropzone[data-zone$="@{value}"] {
+    @sign: if(@value = left or @value = top, -1, 1);
+    & when (@is-horizontal) {
+      left: calc(50% - (@sign * var(--mod) + @half-dropzone));
+    };
+    & when not (@is-horizontal) {
+      top: calc(50% - (@sign * var(--mod) + @half-dropzone));
+    }
+
+    & .dropzone__preview {
+      border-@{value}-width: @half-dropzone;
+      border-@{value}-style: solid;
+      @size: @dropzone-size - 4px;
+      width: if(@is-horizontal, @size / 2, @size);
+      height: if(@is-horizontal, @size, @size / 2);
+    }
+  }
+
+  .dropzone[data-zone="far-outer-@{value}"] {
+    @{value}: 0;
+  }
+});

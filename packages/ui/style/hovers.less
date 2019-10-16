@@ -1,0 +1,92 @@
+.p-Widget.m-Hover {
+    position: absolute;
+    background-color: white;
+    z-index: 3; /* create a new stacking context and move this to the top of it */
+
+    &[data-mode="dialog"] {
+        box-shadow: var(--jp-elevation-z12);
+    }
+}
+
+.m-HoverManager {
+    z-index: 3;
+    position: absolute;
+    isolation: isolate;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+.m-HoverManager > * {
+    pointer-events: auto;
+}
+
+.m-Dialog-titlebar {
+    background-color: var(--jp-layout-color4);
+    border-bottom: 1px solid var(--m-border-color, lightgrey);
+    color: var(--m-active-font-color, white);
+    user-select: none;
+    font-size: 12pt;
+
+    span {
+        pointer-events: none;
+        padding-left: 5px;
+    }
+
+    .m-Button {
+        border: none;
+        background: none;
+        padding: 0;
+        border-radius: 100px;
+        color: var(--m-active-font-color, white);
+
+        .m-Button:hover {
+            background-color: var(--m-hover-active-ui-color, grey);
+        }
+    }
+}
+
+.m-Dialog-Btn {
+
+    button {
+        border: none;
+        background-color: var(--m-neutral-ui-color);
+        color: var(--m-active-font-color, white);
+
+        &:hover {
+            background-color: var(--m-hover-neutral-ui-color);
+        }
+
+        &:focus {
+            border: 5px solid var(--m-hover-neutral-ui-color);
+        }
+    }
+
+    &[data-type="accept"] button {
+        background-color: var(--m-valid-ui-color);
+        &:hover {
+            background-color: var(--m-hover-valid-ui-color);
+        }
+        &:focus {
+            border-color: var(--m-hover-valid-ui-color);
+        }
+    }
+    &[data-type="warn"] button {
+        background-color: var(--m-warn-ui-color);
+        &:hover {
+            background-color: var(--m-hover-warn-ui-color);
+        }
+        &:focus {
+            border-color: var(--m-hover-valid-ui-color);
+        }
+    }
+}
+
+.m-Hover:not([data-mode="dialog"]) .p-Widget {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+body {
+    height: 100vh;
+}

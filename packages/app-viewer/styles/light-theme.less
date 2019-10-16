@@ -1,0 +1,86 @@
+/* Taken from the Dashbook proposal mockup: https://codepen.io/anon/pen/LmMzNv?editors=1100 */
+
+@padding-normal: 0.5em;
+@padding-narrow: 0.25em;
+
+@ui-font: "Segoe UI", "sans-serif";
+@code-font: "Roboto Mono", "Consolas", "monospace";
+
+@background-color: whitesmoke;
+@foreground-color: white;
+
+@primary-color: rgb(101, 193, 232);
+@accent-color: rgb(246, 183, 49);
+@error-color: rgb(188, 44, 26);
+
+@toolbar-height: 1.875em;
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: @ui-font;
+  background-color: @foreground-color;
+}
+
+mainapp > .m-Viewer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.m-Viewer[data-display="compressed"] {
+  .m-OutputPanel-Wrapper {
+    padding: 0;
+    .m-OutputPanel {
+      box-shadow: unset;
+    }
+  }
+}
+
+.m-OutputPanel-Wrapper {
+  padding: @padding-normal;
+}
+
+.m-OutputPanel {
+  box-shadow: 3px 3px @padding-narrow 0 rgba(0, 0, 0, 0.5);
+}
+
+.maven_toolbar {
+  background: @primary-color;
+  height: @toolbar-height;
+  color: white;
+  line-height: @toolbar-height;
+  padding: 0 @padding-normal;
+
+  .kernel_status {
+    float: right;
+  }
+
+  &.state_kernel_busy {
+    background: @accent-color;
+  }
+
+  &.state_kernel_error {
+    background: @error-color;
+  }
+}
+
+.m-StatusToolbar-Overlay {
+  color: white;
+  font-size: 3em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100vh;
+}
+
+.m-RenderedLayout {
+  height: 100%;
+}

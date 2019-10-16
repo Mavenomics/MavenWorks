@@ -1,0 +1,6 @@
+include README.md
+include screenshot.png
+include mavenworks/server/static/*.js
+include mavenworks/server/static/viewer.html
+include mavenworks/server/static/index.html
+include mavenworks/MavenWorksServerConf.json

@@ -1,0 +1,19 @@
+{
+    "extends": "../../base.tsconfig.json",
+    "compilerOptions": {
+      "outDir": "./lib",
+      "rootDir": "./src"
+    },
+    "include": [
+      "./src/*",
+      "./src/**/*"
+    ],
+    "references": [
+      { "path": "../bindings" },
+      { "path": "../coreutils" },
+      { "path": "../chart-parts" },
+      { "path": "../dashboard" },
+      { "path": "../parts" },
+      { "path": "../ui" },
+    ]
+  }

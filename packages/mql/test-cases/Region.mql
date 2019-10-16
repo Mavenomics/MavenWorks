@@ -1,0 +1,7 @@
+#region a set @a = 1 #endregion select a from b
+#REGION a set @a = 1 #ENDREGION select #REGION a a #ENDREGION from b
+set @a = 1 select #region a a #endregion from b
+set @a = 1 select #REGION a a #ENDREGION from b
+#region a set @a = 1 #endregion select #region a a #endregion from b
+#REGION a set @a = 1 #ENDREGION select a from b
+select #region test a, #endregion x from b

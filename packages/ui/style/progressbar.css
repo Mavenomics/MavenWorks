@@ -1,0 +1,75 @@
+.m-Progress {
+    width: 100%;
+    position: relative;
+}
+
+.m-Progress-flavorText {
+    width: 100%;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.m-Progress-bar {
+    -webkit-appearance: none;
+    background-color: lightgrey;
+    border-radius: 50px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.m-Progress-bar::-webkit-progress-bar {
+    background-color: lightgrey;
+    border-radius: 50px;
+}
+
+.m-Progress-bar::-moz-progress-bar {
+    background-color: #03A9F4;
+    border-radius: 50px;
+}
+
+.m-Progress-bar.m-Progress-failure::-moz-progress-bar {
+    background-color: red;
+}
+
+.m-Progress-bar.m-Progress-ok::-moz-progress-bar {
+    background-color: green;
+}
+
+/* Webkit needs this in a separate rule */
+.m-Progress-bar::-webkit-progress-value {
+    background-color: #03A9F4;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+/* Webkit doesn't let us animate pseudo elements. So instead, display a static
+ barber pole and leave it at that for now. */
+.m-Progress-bar-fake-indeterminate {
+    width: 100%;
+    height: 1em;
+    display: inline-block;
+    border-radius: 50px;
+    animation: m-Progress-indeterminate-bounce 10s linear 0s infinite;
+    background: repeating-linear-gradient(
+        -45deg,
+        #02A8F5,
+        #02A8F5 10px,
+        #027CB5 10px,
+        #027CB5 20px
+    );
+    background-size: 200% 200%;
+}
+
+.m-Progress-bar.m-Progress-failure::-webkit-progress-value {
+    background-color: red;
+}
+
+.m-Progress-bar.m-Progress-ok::-webkit-progress-value {
+    background-color: green;
+}
+
+@keyframes m-Progress-indeterminate-bounce {
+    to {
+        background-size: 100% 100%;
+    }
+}

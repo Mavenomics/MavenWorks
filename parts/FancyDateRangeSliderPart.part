@@ -1,0 +1,58 @@
+{
+	"typeName": "Part",
+	"id": "3ba3a4e4-f10e-750c-fd2b-052b07a5b757",
+	"name": "DateRangeSlider2",
+	"path": "/Parts/DateRangeSlider2",
+	"lastModified": "2018-06-11T17:00:17.074Z",
+	"data": {
+		"htmlText": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jQRangeSlider/5.7.2/jQRangeSliderMouseTouch.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jQRangeSlider/5.7.2/jQRangeSliderDraggable.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jQRangeSlider/5.7.2/jQRangeSliderBar.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jQRangeSlider/5.7.2/jQRangeSliderHandle.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jQRangeSlider/5.7.2/jQRangeSliderLabel.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jQRangeSlider/5.7.2/jQRangeSlider.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jQRangeSlider/5.7.2/jQDateRangeSliderHandle.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jQRangeSlider/5.7.2/jQDateRangeSlider.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jQRangeSlider/5.7.2/jQRuler.js\"></script>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/jQRangeSlider/5.7.2/css/iThing.css\" />\n\n<div id=\"slider\"></div>",
+		"jsText": "this.render = function(args) {\n    let rangeStart = args[0],\n        rangeEnd = args[1],\n        selectedStart = convertMavenDate(args[2]),\n        selectedEnd = convertMavenDate(args[3]);\n        \n    $(\"#slider\").dateRangeSlider({\n        symmetricPositionning: true,\n        range: { min: 0 },\n        bounds: {\n            min: new Date(rangeStart),\n            max: new Date(rangeEnd)\n        },\n        defaultValues:{\n            min: selectedStart,\n            max: selectedEnd\n        } \n    });\n} \nthis.initialize = function() {\n    $(\"#slider\").bind(\"valuesChanged\", sliderValsChanged.bind(this));\n\n    return Promise.resolve();\n}\n\nfunction convertMavenDate(dateNum) {\n    let strDate = dateNum.toString();\n    return new Date(strDate.substr(4, 2) + \"-\" + strDate.substr(6, 2) + \"-\" + strDate.substr(0, 4));\n}\n\nfunction contextTimeStyle(_date){\n    return _date.getFullYear() * 10000 + _date.getMonth() * 100 + 100 + _date.getDate();\n}\n\nfunction sliderValsChanged(e, data){\n    this.context.set(\"SelectedStart\", contextTimeStyle(data.values.min));\n    this.context.set(\"SelectedEnd\", contextTimeStyle(data.values.max));\n}",
+		"cssText": "body {\n    padding: 15px;\n    overflow: hidden;\n}\ndiv {\n    font-family: \"Arial\", sans-serif;\n} "
+	},
+	"functionType": "UserDefinedEvalPart",
+	"arguments": [
+		{
+			"typeAnnotation": "Date",
+			"name": "RangeStart",
+			"metadata": null,
+			"defaultValue": {
+				"typeName": "Date",
+				"value": 821336400000
+			}
+		},
+		{
+			"typeAnnotation": "Date",
+			"name": "RangeEnd",
+			"metadata": null,
+			"defaultValue": {
+				"typeName": "Date",
+				"value": 1339473600000
+			}
+		},
+		{
+			"typeAnnotation": "Number",
+			"name": "SelectedStart",
+			"metadata": null,
+			"defaultValue": {
+				"typeName": "Number",
+				"value": {
+					"val": 19981020,
+					"boxed": false
+				}
+			}
+		},
+		{
+			"typeAnnotation": "Number",
+			"name": "SelectedEnd",
+			"metadata": null,
+			"defaultValue": {
+				"typeName": "Number",
+				"value": {
+					"val": 20110423,
+					"boxed": false
+				}
+			}
+		}
+	],
+	"returnType": "Any"
+}

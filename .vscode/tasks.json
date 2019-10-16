@@ -1,0 +1,62 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build JupyterLab (jupyter lab build)",
+            "type": "shell",
+            "windows": {
+                "options": {
+                    "shell": {
+                        "executable": "CMD.exe",
+                        "args": [
+                            "/d",
+                            "/c"
+                        ]
+                    }
+                }
+            },
+            "command": "activate maven-kernel && jupyter lab build --dev",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "label": "Build Typescript Sources",
+            "group": "build",
+            "script": "build:watch",
+            "isBackground": true,
+            "path": "packages/metapackage/",
+            "problemMatcher": [
+                "$tsc-watch"
+            ]
+        },
+        {
+            "type": "npm",
+            "script": "lint",
+            "problemMatcher": [
+                "$tslint5"
+            ],
+            "group": "build"
+        },
+        {
+            "type": "npm",
+            "label": "Webpack Bundle Dashbook Viewer",
+            "script": "build:watch",
+            "group": "build",
+            "path": "DashbookViewer/",
+            "isBackground": true,
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "label": "Webpack Bundle Kitchen Sink",
+            "script": "bundle",
+            "group": "build",
+            "isBackground": true,
+            "path": "examples/kitchen-sink/",
+            "problemMatcher": []
+        }
+    ]
+}

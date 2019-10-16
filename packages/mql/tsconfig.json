@@ -1,0 +1,16 @@
+{
+  "extends": "../../base.tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./lib",
+    "rootDir": "./src",
+    // Temporarily disabling strict mode
+    "strict": false
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "references": [
+    { "path": "../coreutils" },
+    { "path": "../table" }
+  ]
+}

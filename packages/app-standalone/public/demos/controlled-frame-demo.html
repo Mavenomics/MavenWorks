@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Controlled Frame Demo</title>
+    <script>
+    setTimeout(() => {
+        const input = document.getElementById("global-override");
+        const apply = document.getElementById("apply-to-frame");
+        /** @type {HTMLIFrameElement} */
+        const frame = document.getElementById("frame");
+
+        apply.onclick = () => {
+            const url = new URL(frame.src);
+            url.hash = `text="${encodeURIComponent(input.value)}"`;
+            frame.src = url.href;
+        };
+    })
+    </script>
+</head>
+<body>
+    <p>
+        This demo uses an <code>&lt;iframe&gt;</code> element to host the sink
+        inside another webpage. The control on this page will set a dashboard
+        global named <code>@text</code> to the value of the textbox when you
+        press "apply".
+    </p>
+    <fieldset>
+        <label for="global-override"><code>@text:</code></label>
+        <input type="text" id="global-override" placeholder="@text value" />
+        <br />
+        <button id="apply-to-frame">Apply</button>
+    </fieldset>
+    <iframe id="frame"
+        src="../index.html?src:url=demos%2FInput%20Parts%20Playground.dashboard"
+        style="width:99vw;height:700px;"></iframe>
+</body>
+</html>

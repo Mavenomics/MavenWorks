@@ -1,0 +1,35 @@
+select a from b
+select a, b from c
+select a, b, c from d
+select a, b, c from d
+select a, b, c from d
+select a, b, c, d, e, f, g, h, i, j, k, l, m, n, o from p
+select a from b()
+select a from b(c)
+select a from b(c(), d)
+select a from b(c := c(), d := 'foo', e:= 39)
+SELECT a, b, c FROM d
+seLECt a, b, c fRoM d
+SeLect a, b, c FRom d
+select A, B, C from D
+select A, b, C from d
+select a,b,c from d
+select a,b, c from d
+select a,b,    c from d
+select a	,b,	c from d
+select a,b,c from d
+select [∑a] from b
+select [a∑] from b
+select [aệ] from b
+select a as [ДД] from b
+select '€3' from b
+select a as [null] from b
+select a as [select] from b
+select [from] from b
+select a as [as] from b
+select [group] from b
+select [xor] from b
+select a as [with] from b
+select [by] from b
+select a as [true] from b
+select a as [note] from b

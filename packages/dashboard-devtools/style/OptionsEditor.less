@@ -1,0 +1,46 @@
+.m-OptionsEditor {
+    min-width: 700px;
+    min-height: 500px;
+
+    .m-OptionsEditor-Field {
+        flex: 0 0 33%;
+    }
+
+    .m-OptionsEditor-Header {
+        height: 3em;
+        font-weight: var(--jp-ui-font-size2);
+        color: var(--jp-ui-font-color0);
+        display: flex;
+        flex-direction: row;
+    }
+
+    @body-row-height: 2em;
+
+    .m-OptionsEditor-Body {
+        .m-OptionsEditor-Row {
+            height: @body-row-height;
+            display: flex;
+            flex-direction: row;
+            margin: 2px;
+            margin-bottom: 4px;
+
+            .m-OptionsEditor-ValueField {
+                display: flex;
+                .m-TypeEditor {
+                    flex: 1 0;
+                    width: 100%;
+                }
+            }
+
+            .m-OptionsEditor-icon {
+                flex: 0 1 @body-row-height;
+                width: @body-row-height;
+                height: @body-row-height;
+                padding: 0;
+                margin: 0;
+                text-align: center;
+                line-height: 2em;
+            }
+        }
+    }
+}

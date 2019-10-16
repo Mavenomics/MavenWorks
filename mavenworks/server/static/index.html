@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashbook Viewer Index</title>
+</head>
+<body>
+    <h1>Viewer Index</h1>
+    <h2>Folders</h2>
+    <ul>
+        {% for listing in folders %}
+            <li><a href="{{baseUrl}}viewindex/{{listing['path']}}">{{listing['name']}}</a></li>
+        {% end %}
+    </ul>
+    <h2>Notebooks</h2>
+    <ul>
+        {% for listing in notebooks %}
+            <li><a href="{{baseUrl}}view/{{listing['path']}}">{{listing['name']}}</a></li>
+        {% end %}
+    </ul>
+</body>
+</html>

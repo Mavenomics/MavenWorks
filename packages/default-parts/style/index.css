@@ -1,0 +1,22 @@
+@import "~rc-calendar/assets/index.css";
+@import "~rc-select/assets/index.css";
+@import "~rc-slider/assets/index.css";
+@import "~@jupyterlab/codemirror/style/index.css";
+@import "~codemirror/addon/lint/lint.css";
+@import "~codemirror/addon/hint/show-hint.css";
+
+/* Repeat the selectors to bump up the specificity.
+ *
+ * Yes. This works.
+ */
+.cm-s-jupyter.cm-s-jupyter .CodeMirror-cursor.CodeMirror-cursor {
+    border-left: var(--jp-code-cursor-width0, 1px) solid var(--jp-editor-cursor-color, black)
+}
+
+/* Codemirror autocomplete styles */
+.CodeMirror-hint-container { 
+    display:flex;
+}
+.CodeMirror-hint-signature { 
+    color:lightgray;
+}

@@ -1,0 +1,48 @@
+{
+	"typeName": "Part",
+	"id": "9b130a67-050a-c3e2-dfe7-345b731a5b20",
+	"name": "GetKittenPart",
+	"path": "/Parts/GetKittenPart",
+	"data": {
+		"htmlText": "<div>hi</div>\n<img id=\"kitten\" alt=\"no kittens :(\" />",
+		"cssText": "div {\n    color: green;\n}",
+		"jsText": "this.render = function(args) {\n    console.log(args);\n    let kitten = document.getElementById(\"kitten\");\n    kitten.setAttribute(\"src\", `https://placekitten.com/${\n        args[2] ? '' : 'g/'}${args[0]}/${args[1]}`);\n} \nthis.initialize = function() { \n    return Promise.resolve();\n}\n"
+	},
+	"functionType": "UserDefinedEvalPart",
+	"arguments": [
+		{
+			"name": "x",
+			"defaultValue": {
+				"typeName": "Number",
+				"value": {
+					"val": 200,
+					"boxed": false
+				}
+			},
+			"typeAnnotation": "Number"
+		},
+		{
+			"name": "y",
+			"defaultValue": {
+				"typeName": "Number",
+				"value": {
+					"val": 200,
+					"boxed": false
+				}
+			},
+			"typeAnnotation": "Number"
+		},
+		{
+			"name": "Color",
+			"defaultValue": {
+				"typeName": "Boolean",
+				"value": {
+					"val": false,
+					"boxed": false
+				}
+			},
+			"typeAnnotation": "Boolean"
+		}
+	],
+	"returnType": "Any"
+}

@@ -1,0 +1,34 @@
+select a from b
+select a() from b
+select a(), b from c
+select b, a() from c
+select a(), b, c from d
+select b, a(), c from d
+select c, b, a() from d
+select a(e) from b
+select a(e), b from c
+select b, a(e) from c
+select a(e), b, c from d
+select b, a(e), c from d
+select c, b, a(e) from d
+select a(e,f) from b
+select a(e,f), b from c
+select b, a(e,f) from c
+select a(e,f), b, c from d
+select b, a(e,f), c from d
+select c, b, a(e,f) from d
+select 1 + a(e,f) from b
+select 2 + a(e,f), b / 3 from c
+select b, a(e,f) * 4 from c
+select a(e,f) * h, b, c from d
+select b, a(e,f) + f, c from d
+select c, b, a(e,f) || g from d
+select b, 'foo ' + a(e/f), c from d
+select c, b, a(e*f) + 'gu' from d
+select a( b := 'c' ) from d
+SELECT a(a:=a, b:='b') from b
+SELECT a(a:=a, b:='b'), f(a, 'b') from b
+select a(b), f(a:= f() + 10 / b()), 'd' from r
+select f('}b', '{c') from a
+select f('a{0}') from a
+select f('{b', '}c') from a

@@ -1,0 +1,36 @@
+{
+  "name": "@mavenomics/bindings",
+  "version": "0.1.0",
+  "description": "Utilities for globals, data binding and binding evaluation",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "repository": "https://github.com/Mavenomics/MavenKernel",
+  "author": "Mavenomics, Inc",
+  "license": "GPL-3.0",
+  "files": [
+    "lib",
+    "mql.worker.js"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "build:ci": "echo pass",
+    "clean": "rimraf ./lib *.tsbuildinfo",
+    "lint": "tslint --project .",
+    "test": "echo No tests for @mavenomics/bindings"
+  },
+  "devDependencies": {
+    "typescript": "*",
+    "rimraf": "^2.6.3"
+  },
+  "dependencies": {
+    "@mavenomics/coreutils": "^0.1.0",
+    "@mavenomics/mql-worker": "^0.1.0",
+    "@phosphor/application": "^1.6.0",
+    "@phosphor/disposable": "^1.1.2",
+    "lodash": "^4.17.11",
+    "rxjs": "^6.4.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  }
+}

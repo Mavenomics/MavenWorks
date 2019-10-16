@@ -1,0 +1,149 @@
+{
+	"layout": {
+		"properties": {
+			"flexSize": 1,
+			"horizontal": true
+		},
+		"typeName": 0,
+		"uuid": "c1a9db8a-a9a5-4200-9bb6-ee52e399aa80",
+		"attachedProperties": [
+			{
+				"Fixed Size (px)": null,
+				"Stretch": 0.9386629910406616
+			},
+			{
+				"Fixed Size (px)": null,
+				"Stretch": 1.059958649207443
+			}
+		],
+		"children": [
+			{
+				"properties": {
+					"caption": "SlickGrid"
+				},
+				"typeName": 1,
+				"uuid": "12ea614a-2769-42c0-b101-9d8151a10493",
+				"guid": "c00d166d-2e47-4f9d-b86e-2a9599549348"
+			},
+			{
+				"properties": {},
+				"typeName": 0,
+				"uuid": "b9b42717-81f0-49cb-9d23-74b693cd1b2f",
+				"attachedProperties": [
+					{
+						"Fixed Size (px)": null,
+						"Stretch": 1
+					},
+					{
+						"Fixed Size (px)": null,
+						"Stretch": 1
+					}
+				],
+				"children": [
+					{
+						"properties": {
+							"caption": "CheckboxPart"
+						},
+						"typeName": 1,
+						"uuid": "5db2b56b-a556-4e04-bcee-ab656014aeee",
+						"guid": "9b7be467-cced-4dda-ac1f-42794da65786"
+					},
+					{
+						"properties": {
+							"caption": "CodeEditorPart"
+						},
+						"typeName": 1,
+						"uuid": "4757a887-e793-41de-8f92-0583579ea8c8",
+						"guid": "1db89765-197a-4b81-b406-df25fb043dc9"
+					}
+				]
+			}
+		]
+	},
+	"parts": {
+		"c00d166d-2e47-4f9d-b86e-2a9599549348": {
+			"application/vnd.maven.part+json": {
+				"name": "SlickGrid",
+				"id": "c00d166d-2e47-4f9d-b86e-2a9599549348",
+				"options": {
+					"Input Table": {
+						"type": "JavaScript",
+						"expr": "/* @code */ return RunMql(globals.code)",
+						"globals": [
+							"code"
+						]
+					},
+					"Formatting": {
+						"typeName": "String",
+						"value": "{\"Scenario\":{\"Data Table Hovers.Show Single Row Detail Hover\":\"False\",\"Data Table Hovers.Row Detail Formatting Query\":\"\",\"FlexGridHoverTakeOver\":\"False\",\"Row Detail.Show Row Detail Button\":\"False\",\"Data Table Hovers.TableData Hover Redirection\":\"\",\"Data Table Hovers.TableData Open Redirection\":\"\",\"Data Table Hovers.Pivoted Sub-Table Columns\":\"\",\"ChangeHighlighting.Enabled\":\"False\",\"ChangeHighlighting.Style\":\"GlobalDefault\",\"ChangeHighlighting.Minimum Change\":\"0\",\"User Defined Values.Type\":\"\",\"User Defined Values.Allow Nulls\":\"True\",\"ConditionalFormatting.Simple\":\"None\",\"ConditionalFormatting.Condition1. Condition\":\"null\",\"ConditionalFormatting.Condition1.ForeColor\":\"\",\"ConditionalFormatting.Condition1.BackColor\":\"\",\"ConditionalFormatting.Condition1.IsBold\":\"False\",\"ConditionalFormatting.Condition1.IsItalic\":\"False\",\"ConditionalFormatting.Condition1.Icon\":\"\",\"ConditionalFormatting.Condition2. Condition\":\"null\",\"ConditionalFormatting.Condition2.ForeColor\":\"\",\"ConditionalFormatting.Condition2.BackColor\":\"\",\"ConditionalFormatting.Condition2.IsBold\":\"False\",\"ConditionalFormatting.Condition2.IsItalic\":\"False\",\"ConditionalFormatting.Condition2.Icon\":\"\",\"ConditionalFormatting.Condition3. Condition\":\"null\",\"ConditionalFormatting.Condition3.ForeColor\":\"\",\"ConditionalFormatting.Condition3.BackColor\":\"\",\"ConditionalFormatting.Condition3.IsBold\":\"False\",\"ConditionalFormatting.Condition3.IsItalic\":\"False\",\"ConditionalFormatting.Condition3.Icon\":\"\",\"ConditionalFormatting.Condition4. Condition\":\"null\",\"ConditionalFormatting.Condition4.ForeColor\":\"\",\"ConditionalFormatting.Condition4.BackColor\":\"\",\"ConditionalFormatting.Condition4.IsBold\":\"False\",\"ConditionalFormatting.Condition4.IsItalic\":\"False\",\"ConditionalFormatting.Condition4.Icon\":\"\",\"ConditionalFormatting.Condition5. Condition\":\"null\",\"ConditionalFormatting.Condition5.ForeColor\":\"\",\"ConditionalFormatting.Condition5.BackColor\":\"\",\"ConditionalFormatting.Condition5.IsBold\":\"False\",\"ConditionalFormatting.Condition5.IsItalic\":\"False\",\"ConditionalFormatting.Condition5.Icon\":\"\",\"ConditionalFormatting.Condition6. Condition\":\"null\",\"ConditionalFormatting.Condition6.ForeColor\":\"\",\"ConditionalFormatting.Condition6.BackColor\":\"\",\"ConditionalFormatting.Condition6.IsBold\":\"False\",\"ConditionalFormatting.Condition6.IsItalic\":\"False\",\"ConditionalFormatting.Condition6.Icon\":\"\",\"ConditionalFormatting.Condition7. Condition\":\"null\",\"ConditionalFormatting.Condition7.ForeColor\":\"\",\"ConditionalFormatting.Condition7.BackColor\":\"\",\"ConditionalFormatting.Condition7.IsBold\":\"False\",\"ConditionalFormatting.Condition7.IsItalic\":\"False\",\"ConditionalFormatting.Condition7.Icon\":\"\",\"ConditionalFormatting.Condition8. Condition\":\"null\",\"ConditionalFormatting.Condition8.ForeColor\":\"\",\"ConditionalFormatting.Condition8.BackColor\":\"\",\"ConditionalFormatting.Condition8.IsBold\":\"False\",\"ConditionalFormatting.Condition8.IsItalic\":\"False\",\"ConditionalFormatting.Condition8.Icon\":\"\",\"ConditionalFormatting.Condition9. Condition\":\"null\",\"ConditionalFormatting.Condition9.ForeColor\":\"\",\"ConditionalFormatting.Condition9.BackColor\":\"\",\"ConditionalFormatting.Condition9.IsBold\":\"False\",\"ConditionalFormatting.Condition9.IsItalic\":\"False\",\"ConditionalFormatting.Condition9.Icon\":\"\",\"ColumnHeader.ForeColor\":\"\",\"ColumnHeader.BackColor\":\"\",\"ColumnHeader.Rotation\":\"0\",\"ColumnHeader.Suggested Maximum Height\":\"1000\",\"ColumnHeader.Horizontal Alignment\":\"Default\",\"ColumnHeader.Vertical Alignment\":\"Default\",\"Heatmap.Minimum.Value\":\"-1\",\"Heatmap.Center.Value\":\"0\",\"Heatmap.Maximum.Value\":\"1\",\"Heatmap.Minimum.Color\":\"Red\",\"Heatmap.Center.Color\":\"White\",\"Heatmap.Maximum.Color\":\"Blue\",\"Heatmap. Enable\":\"False\",\"General.DisplayStyle\":\"SparkLine\",\"General.NullRule\":\"Hide\",\"General.ColumnWidthPixels\":\"160\",\"Number.FormatString\":\"\",\"Date.FormatString\":\"yyyyMMdd\",\"General.Base BackColor\":\"White\",\"ColumnHeader.Grouping BackColors\":\"\",\"ColumnHeader.Grouping ForeColors\":\"\",\"ProgressBar.StartColor\":\"\",\"ProgressBar.EndColor\":\"\",\"ProgressBar.ShowValue\":\"True\",\"ProgressBar.Minimum\":\"0\",\"ProgressBar.Maximum\":\"1\",\"User Defined Values.Show Editable Cells\":\"False\",\"Mini Charts.Bar Charts.Color Bars\":\"True\",\"Mini Charts.Bar Charts.Horizontal Stacked\":\"False\",\"Mini Charts.Bar Charts.Show Missing Buckets\":\"False\",\"Mini Charts.Bar Charts.Transparency (0-255)\":\"150\",\"Mini Charts.Bar Charts.Minimum % Threshold to Bucket\":\"0\",\"Mini Charts.Bar Charts.Top N Only\":\"0\",\"User Defined Values.Autocomplete.Enable\":\"True\",\"User Defined Values.Require Refresh After Commit\":\"True\",\"User Defined Values.Auto Commit\":\"False\",\"Data Table Hovers.Enable Hover\":\"True\",\"DataSource.Column Key\":\"\"},\"Description\":{\"Data Table Hovers.Show Single Row Detail Hover\":\"False\",\"Data Table Hovers.Row Detail Formatting Query\":\"\",\"FlexGridHoverTakeOver\":\"False\",\"Row Detail.Show Row Detail Button\":\"False\",\"Data Table Hovers.TableData Hover Redirection\":\"\",\"Data Table Hovers.TableData Open Redirection\":\"\",\"Data Table Hovers.Pivoted Sub-Table Columns\":\"\",\"ChangeHighlighting.Enabled\":\"False\",\"ChangeHighlighting.Style\":\"GlobalDefault\",\"ChangeHighlighting.Minimum Change\":\"0\",\"User Defined Values.Type\":\"\",\"User Defined Values.Allow Nulls\":\"True\",\"ConditionalFormatting.Simple\":\"None\",\"ConditionalFormatting.Condition1. Condition\":\"null\",\"ConditionalFormatting.Condition1.ForeColor\":\"\",\"ConditionalFormatting.Condition1.BackColor\":\"\",\"ConditionalFormatting.Condition1.IsBold\":\"False\",\"ConditionalFormatting.Condition1.IsItalic\":\"False\",\"ConditionalFormatting.Condition1.Icon\":\"\",\"ConditionalFormatting.Condition2. Condition\":\"null\",\"ConditionalFormatting.Condition2.ForeColor\":\"\",\"ConditionalFormatting.Condition2.BackColor\":\"\",\"ConditionalFormatting.Condition2.IsBold\":\"False\",\"ConditionalFormatting.Condition2.IsItalic\":\"False\",\"ConditionalFormatting.Condition2.Icon\":\"\",\"ConditionalFormatting.Condition3. Condition\":\"null\",\"ConditionalFormatting.Condition3.ForeColor\":\"\",\"ConditionalFormatting.Condition3.BackColor\":\"\",\"ConditionalFormatting.Condition3.IsBold\":\"False\",\"ConditionalFormatting.Condition3.IsItalic\":\"False\",\"ConditionalFormatting.Condition3.Icon\":\"\",\"ConditionalFormatting.Condition4. Condition\":\"null\",\"ConditionalFormatting.Condition4.ForeColor\":\"\",\"ConditionalFormatting.Condition4.BackColor\":\"\",\"ConditionalFormatting.Condition4.IsBold\":\"False\",\"ConditionalFormatting.Condition4.IsItalic\":\"False\",\"ConditionalFormatting.Condition4.Icon\":\"\",\"ConditionalFormatting.Condition5. Condition\":\"null\",\"ConditionalFormatting.Condition5.ForeColor\":\"\",\"ConditionalFormatting.Condition5.BackColor\":\"\",\"ConditionalFormatting.Condition5.IsBold\":\"False\",\"ConditionalFormatting.Condition5.IsItalic\":\"False\",\"ConditionalFormatting.Condition5.Icon\":\"\",\"ConditionalFormatting.Condition6. Condition\":\"null\",\"ConditionalFormatting.Condition6.ForeColor\":\"\",\"ConditionalFormatting.Condition6.BackColor\":\"\",\"ConditionalFormatting.Condition6.IsBold\":\"False\",\"ConditionalFormatting.Condition6.IsItalic\":\"False\",\"ConditionalFormatting.Condition6.Icon\":\"\",\"ConditionalFormatting.Condition7. Condition\":\"null\",\"ConditionalFormatting.Condition7.ForeColor\":\"\",\"ConditionalFormatting.Condition7.BackColor\":\"\",\"ConditionalFormatting.Condition7.IsBold\":\"False\",\"ConditionalFormatting.Condition7.IsItalic\":\"False\",\"ConditionalFormatting.Condition7.Icon\":\"\",\"ConditionalFormatting.Condition8. Condition\":\"null\",\"ConditionalFormatting.Condition8.ForeColor\":\"\",\"ConditionalFormatting.Condition8.BackColor\":\"\",\"ConditionalFormatting.Condition8.IsBold\":\"False\",\"ConditionalFormatting.Condition8.IsItalic\":\"False\",\"ConditionalFormatting.Condition8.Icon\":\"\",\"ConditionalFormatting.Condition9. Condition\":\"null\",\"ConditionalFormatting.Condition9.ForeColor\":\"\",\"ConditionalFormatting.Condition9.BackColor\":\"\",\"ConditionalFormatting.Condition9.IsBold\":\"False\",\"ConditionalFormatting.Condition9.IsItalic\":\"False\",\"ConditionalFormatting.Condition9.Icon\":\"\",\"ColumnHeader.ForeColor\":\"\",\"ColumnHeader.BackColor\":\"\",\"ColumnHeader.Rotation\":\"0\",\"ColumnHeader.Suggested Maximum Height\":\"1000\",\"ColumnHeader.Horizontal Alignment\":\"Default\",\"ColumnHeader.Vertical Alignment\":\"Default\",\"Heatmap.Minimum.Value\":\"-1\",\"Heatmap.Center.Value\":\"0\",\"Heatmap.Maximum.Value\":\"1\",\"Heatmap.Minimum.Color\":\"Red\",\"Heatmap.Center.Color\":\"White\",\"Heatmap.Maximum.Color\":\"Blue\",\"Heatmap. Enable\":\"False\",\"General.DisplayStyle\":\"Quantity\",\"General.NullRule\":\"Hide\",\"General.ColumnWidthPixels\":\"150\",\"Number.FormatString\":\"\",\"Date.FormatString\":\"yyyyMMdd\",\"General.Base BackColor\":\"White\",\"ColumnHeader.Grouping BackColors\":\"\",\"ColumnHeader.Grouping ForeColors\":\"\",\"ProgressBar.StartColor\":\"\",\"ProgressBar.EndColor\":\"\",\"ProgressBar.ShowValue\":\"True\",\"ProgressBar.Minimum\":\"0\",\"ProgressBar.Maximum\":\"1\",\"User Defined Values.Show Editable Cells\":\"False\",\"Mini Charts.Bar Charts.Color Bars\":\"True\",\"Mini Charts.Bar Charts.Horizontal Stacked\":\"False\",\"Mini Charts.Bar Charts.Show Missing Buckets\":\"False\",\"Mini Charts.Bar Charts.Transparency (0-255)\":\"150\",\"Mini Charts.Bar Charts.Minimum % Threshold to Bucket\":\"0\",\"Mini Charts.Bar Charts.Top N Only\":\"0\",\"User Defined Values.Autocomplete.Enable\":\"True\",\"User Defined Values.Require Refresh After Commit\":\"True\",\"User Defined Values.Auto Commit\":\"False\",\"Data Table Hovers.Enable Hover\":\"True\",\"DataSource.Column Key\":\"\"},\"Adjusted Close\":{\"Data Table Hovers.Show Single Row Detail Hover\":\"False\",\"Data Table Hovers.Row Detail Formatting Query\":\"\",\"FlexGridHoverTakeOver\":\"False\",\"Row Detail.Show Row Detail Button\":\"False\",\"Data Table Hovers.TableData Hover Redirection\":\"\",\"Data Table Hovers.TableData Open Redirection\":\"\",\"Data Table Hovers.Pivoted Sub-Table Columns\":\"\",\"ChangeHighlighting.Enabled\":\"False\",\"ChangeHighlighting.Style\":\"GlobalDefault\",\"ChangeHighlighting.Minimum Change\":\"0\",\"User Defined Values.Type\":\"\",\"User Defined Values.Allow Nulls\":\"True\",\"ConditionalFormatting.Simple\":\"None\",\"ConditionalFormatting.Condition1. Condition\":\"data.col3 > 100\",\"ConditionalFormatting.Condition1.ForeColor\":\"green\",\"ConditionalFormatting.Condition1.BackColor\":\"\",\"ConditionalFormatting.Condition1.IsBold\":\"True\",\"ConditionalFormatting.Condition1.IsItalic\":\"False\",\"ConditionalFormatting.Condition1.Icon\":\"\",\"ConditionalFormatting.Condition2. Condition\":\"data.col3 < 10\",\"ConditionalFormatting.Condition2.ForeColor\":\"white\",\"ConditionalFormatting.Condition2.BackColor\":\"red\",\"ConditionalFormatting.Condition2.IsBold\":\"False\",\"ConditionalFormatting.Condition2.IsItalic\":\"False\",\"ConditionalFormatting.Condition2.Icon\":\"\",\"ConditionalFormatting.Condition3. Condition\":\"null\",\"ConditionalFormatting.Condition3.ForeColor\":\"\",\"ConditionalFormatting.Condition3.BackColor\":\"\",\"ConditionalFormatting.Condition3.IsBold\":\"False\",\"ConditionalFormatting.Condition3.IsItalic\":\"False\",\"ConditionalFormatting.Condition3.Icon\":\"\",\"ConditionalFormatting.Condition4. Condition\":\"null\",\"ConditionalFormatting.Condition4.ForeColor\":\"\",\"ConditionalFormatting.Condition4.BackColor\":\"\",\"ConditionalFormatting.Condition4.IsBold\":\"False\",\"ConditionalFormatting.Condition4.IsItalic\":\"False\",\"ConditionalFormatting.Condition4.Icon\":\"\",\"ConditionalFormatting.Condition5. Condition\":\"null\",\"ConditionalFormatting.Condition5.ForeColor\":\"\",\"ConditionalFormatting.Condition5.BackColor\":\"\",\"ConditionalFormatting.Condition5.IsBold\":\"False\",\"ConditionalFormatting.Condition5.IsItalic\":\"False\",\"ConditionalFormatting.Condition5.Icon\":\"\",\"ConditionalFormatting.Condition6. Condition\":\"null\",\"ConditionalFormatting.Condition6.ForeColor\":\"\",\"ConditionalFormatting.Condition6.BackColor\":\"\",\"ConditionalFormatting.Condition6.IsBold\":\"False\",\"ConditionalFormatting.Condition6.IsItalic\":\"False\",\"ConditionalFormatting.Condition6.Icon\":\"\",\"ConditionalFormatting.Condition7. Condition\":\"null\",\"ConditionalFormatting.Condition7.ForeColor\":\"\",\"ConditionalFormatting.Condition7.BackColor\":\"\",\"ConditionalFormatting.Condition7.IsBold\":\"False\",\"ConditionalFormatting.Condition7.IsItalic\":\"False\",\"ConditionalFormatting.Condition7.Icon\":\"\",\"ConditionalFormatting.Condition8. Condition\":\"null\",\"ConditionalFormatting.Condition8.ForeColor\":\"\",\"ConditionalFormatting.Condition8.BackColor\":\"\",\"ConditionalFormatting.Condition8.IsBold\":\"False\",\"ConditionalFormatting.Condition8.IsItalic\":\"False\",\"ConditionalFormatting.Condition8.Icon\":\"\",\"ConditionalFormatting.Condition9. Condition\":\"null\",\"ConditionalFormatting.Condition9.ForeColor\":\"\",\"ConditionalFormatting.Condition9.BackColor\":\"\",\"ConditionalFormatting.Condition9.IsBold\":\"False\",\"ConditionalFormatting.Condition9.IsItalic\":\"False\",\"ConditionalFormatting.Condition9.Icon\":\"\",\"ColumnHeader.ForeColor\":\"\",\"ColumnHeader.BackColor\":\"\",\"ColumnHeader.Rotation\":\"0\",\"ColumnHeader.Suggested Maximum Height\":\"1000\",\"ColumnHeader.Horizontal Alignment\":\"Default\",\"ColumnHeader.Vertical Alignment\":\"Default\",\"Heatmap.Minimum.Value\":\"-1\",\"Heatmap.Center.Value\":\"0\",\"Heatmap.Maximum.Value\":\"1\",\"Heatmap.Minimum.Color\":\"Red\",\"Heatmap.Center.Color\":\"White\",\"Heatmap.Maximum.Color\":\"Blue\",\"Heatmap. Enable\":\"False\",\"General.DisplayStyle\":\"Quantity\",\"General.NullRule\":\"Hide\",\"General.ColumnWidthPixels\":\"59\",\"Number.FormatString\":\"$#,#.00\",\"Date.FormatString\":\"yyyyMMdd\",\"General.Base BackColor\":\"White\",\"ColumnHeader.Grouping BackColors\":\"\",\"ColumnHeader.Grouping ForeColors\":\"\",\"ProgressBar.StartColor\":\"\",\"ProgressBar.EndColor\":\"\",\"ProgressBar.ShowValue\":\"True\",\"ProgressBar.Minimum\":\"0\",\"ProgressBar.Maximum\":\"1\",\"User Defined Values.Show Editable Cells\":\"False\",\"Mini Charts.Bar Charts.Color Bars\":\"True\",\"Mini Charts.Bar Charts.Horizontal Stacked\":\"False\",\"Mini Charts.Bar Charts.Show Missing Buckets\":\"False\",\"Mini Charts.Bar Charts.Transparency (0-255)\":\"150\",\"Mini Charts.Bar Charts.Minimum % Threshold to Bucket\":\"0\",\"Mini Charts.Bar Charts.Top N Only\":\"0\",\"User Defined Values.Autocomplete.Enable\":\"True\",\"User Defined Values.Require Refresh After Commit\":\"True\",\"User Defined Values.Auto Commit\":\"False\",\"Data Table Hovers.Enable Hover\":\"True\",\"DataSource.Column Key\":\"\"},\"Volume\":{\"Data Table Hovers.Show Single Row Detail Hover\":\"False\",\"Data Table Hovers.Row Detail Formatting Query\":\"\",\"FlexGridHoverTakeOver\":\"False\",\"Row Detail.Show Row Detail Button\":\"False\",\"Data Table Hovers.TableData Hover Redirection\":\"\",\"Data Table Hovers.TableData Open Redirection\":\"\",\"Data Table Hovers.Pivoted Sub-Table Columns\":\"\",\"ChangeHighlighting.Enabled\":\"False\",\"ChangeHighlighting.Style\":\"GlobalDefault\",\"ChangeHighlighting.Minimum Change\":\"0\",\"User Defined Values.Type\":\"\",\"User Defined Values.Allow Nulls\":\"True\",\"ConditionalFormatting.Simple\":\"None\",\"ConditionalFormatting.Condition1. Condition\":\"null\",\"ConditionalFormatting.Condition1.ForeColor\":\"\",\"ConditionalFormatting.Condition1.BackColor\":\"\",\"ConditionalFormatting.Condition1.IsBold\":\"False\",\"ConditionalFormatting.Condition1.IsItalic\":\"False\",\"ConditionalFormatting.Condition1.Icon\":\"\",\"ConditionalFormatting.Condition2. Condition\":\"null\",\"ConditionalFormatting.Condition2.ForeColor\":\"\",\"ConditionalFormatting.Condition2.BackColor\":\"\",\"ConditionalFormatting.Condition2.IsBold\":\"False\",\"ConditionalFormatting.Condition2.IsItalic\":\"False\",\"ConditionalFormatting.Condition2.Icon\":\"\",\"ConditionalFormatting.Condition3. Condition\":\"null\",\"ConditionalFormatting.Condition3.ForeColor\":\"\",\"ConditionalFormatting.Condition3.BackColor\":\"\",\"ConditionalFormatting.Condition3.IsBold\":\"False\",\"ConditionalFormatting.Condition3.IsItalic\":\"False\",\"ConditionalFormatting.Condition3.Icon\":\"\",\"ConditionalFormatting.Condition4. Condition\":\"null\",\"ConditionalFormatting.Condition4.ForeColor\":\"\",\"ConditionalFormatting.Condition4.BackColor\":\"\",\"ConditionalFormatting.Condition4.IsBold\":\"False\",\"ConditionalFormatting.Condition4.IsItalic\":\"False\",\"ConditionalFormatting.Condition4.Icon\":\"\",\"ConditionalFormatting.Condition5. Condition\":\"null\",\"ConditionalFormatting.Condition5.ForeColor\":\"\",\"ConditionalFormatting.Condition5.BackColor\":\"\",\"ConditionalFormatting.Condition5.IsBold\":\"False\",\"ConditionalFormatting.Condition5.IsItalic\":\"False\",\"ConditionalFormatting.Condition5.Icon\":\"\",\"ConditionalFormatting.Condition6. Condition\":\"null\",\"ConditionalFormatting.Condition6.ForeColor\":\"\",\"ConditionalFormatting.Condition6.BackColor\":\"\",\"ConditionalFormatting.Condition6.IsBold\":\"False\",\"ConditionalFormatting.Condition6.IsItalic\":\"False\",\"ConditionalFormatting.Condition6.Icon\":\"\",\"ConditionalFormatting.Condition7. Condition\":\"null\",\"ConditionalFormatting.Condition7.ForeColor\":\"\",\"ConditionalFormatting.Condition7.BackColor\":\"\",\"ConditionalFormatting.Condition7.IsBold\":\"False\",\"ConditionalFormatting.Condition7.IsItalic\":\"False\",\"ConditionalFormatting.Condition7.Icon\":\"\",\"ConditionalFormatting.Condition8. Condition\":\"null\",\"ConditionalFormatting.Condition8.ForeColor\":\"\",\"ConditionalFormatting.Condition8.BackColor\":\"\",\"ConditionalFormatting.Condition8.IsBold\":\"False\",\"ConditionalFormatting.Condition8.IsItalic\":\"False\",\"ConditionalFormatting.Condition8.Icon\":\"\",\"ConditionalFormatting.Condition9. Condition\":\"null\",\"ConditionalFormatting.Condition9.ForeColor\":\"\",\"ConditionalFormatting.Condition9.BackColor\":\"\",\"ConditionalFormatting.Condition9.IsBold\":\"False\",\"ConditionalFormatting.Condition9.IsItalic\":\"False\",\"ConditionalFormatting.Condition9.Icon\":\"\",\"ColumnHeader.ForeColor\":\"\",\"ColumnHeader.BackColor\":\"\",\"ColumnHeader.Rotation\":\"0\",\"ColumnHeader.Suggested Maximum Height\":\"1000\",\"ColumnHeader.Horizontal Alignment\":\"Default\",\"ColumnHeader.Vertical Alignment\":\"Default\",\"Heatmap.Minimum.Value\":\"0\",\"Heatmap.Center.Value\":\"1000000\",\"Heatmap.Maximum.Value\":\"150000000\",\"Heatmap.Minimum.Color\":\"Red\",\"Heatmap.Center.Color\":\"White\",\"Heatmap.Maximum.Color\":\"Blue\",\"Heatmap. Enable\":\"True\",\"General.DisplayStyle\":\"Quantity\",\"General.NullRule\":\"Hide\",\"General.ColumnWidthPixels\":\"70\",\"Number.FormatString\":\"#,#\",\"Date.FormatString\":\"yyyyMMdd\",\"General.Base BackColor\":\"White\",\"ColumnHeader.Grouping BackColors\":\"\",\"ColumnHeader.Grouping ForeColors\":\"\",\"ProgressBar.StartColor\":\"\",\"ProgressBar.EndColor\":\"\",\"ProgressBar.ShowValue\":\"True\",\"ProgressBar.Minimum\":\"0\",\"ProgressBar.Maximum\":\"1\",\"User Defined Values.Show Editable Cells\":\"False\",\"Mini Charts.Bar Charts.Color Bars\":\"True\",\"Mini Charts.Bar Charts.Horizontal Stacked\":\"False\",\"Mini Charts.Bar Charts.Show Missing Buckets\":\"False\",\"Mini Charts.Bar Charts.Transparency (0-255)\":\"150\",\"Mini Charts.Bar Charts.Minimum % Threshold to Bucket\":\"0\",\"Mini Charts.Bar Charts.Top N Only\":\"0\",\"User Defined Values.Autocomplete.Enable\":\"True\",\"User Defined Values.Require Refresh After Commit\":\"True\",\"User Defined Values.Auto Commit\":\"False\",\"Data Table Hovers.Enable Hover\":\"True\",\"DataSource.Column Key\":\"\"}}"
+					},
+					"Show Path Column": {
+						"type": "Global",
+						"expr": "showpath",
+						"globals": [
+							"showpath"
+						]
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"9b7be467-cced-4dda-ac1f-42794da65786": {
+			"application/vnd.maven.part+json": {
+				"name": "CheckboxPart",
+				"id": "9b7be467-cced-4dda-ac1f-42794da65786",
+				"options": {
+					"Checked": {
+						"type": "Global",
+						"expr": "showpath",
+						"globals": [
+							"showpath"
+						]
+					},
+					"Label": {
+						"typeName": "String",
+						"value": "Show Path Column on grid?"
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"1db89765-197a-4b81-b406-df25fb043dc9": {
+			"application/vnd.maven.part+json": {
+				"name": "CodeEditorPart",
+				"id": "1db89765-197a-4b81-b406-df25fb043dc9",
+				"options": {
+					"Code": {
+						"type": "Global",
+						"expr": "code",
+						"globals": [
+							"code"
+						]
+					},
+					"Language type": {
+						"typeName": "String",
+						"value": "mql"
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		}
+	},
+	"metadata": {},
+	"globals": [
+		{
+			"name": "showpath",
+			"type": "Boolean",
+			"value": true
+		},
+		{
+			"name": "code",
+			"type": "String",
+			"value": "set @positionTable = WorkerCache('position_history', CsvToTable(Fetch('https://dl.dropboxusercontent.com/s/5xlr22jszzgb5zb/historicalData.csv')))\nset @securitiesTable = WorkerCache('securities', CsvToTable(Fetch('https://dl.dropboxusercontent.com/s/hyw2xiszh2p258w/SecurityWithFlags.csv')))\n\nSELECT TOP 100\n    IfElse(GetLevel() = 3, first(description), null) as [Description],\n    avg(volume) as [Volume],\n    avg(price_adjclose) as [Adjusted Close],\n    IfElse(GetLevel() = 3, Sparkline(price_adjclose, trade_date), null) as [Scenario]\nFROM InnerNaturalJoin('symbol', @positionTable, @securitiesTable)\nGROUP BY\n    sector, industry, symbol\nWITH ROLLUP NO LEAVEs"
+		}
+	],
+	"localParts": {},
+	"init": [
+		""
+	]
+}

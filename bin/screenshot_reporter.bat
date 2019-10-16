@@ -1,0 +1,1 @@
+jupyter lab --NotebookApp.token='' --NotebookApp.port=8889 --NotebookApp.disable_check_xsrf=True

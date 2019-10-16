@@ -1,0 +1,99 @@
+@tree-indent: 20px;
+@flippy-width: 16px;
+@row-height: 24px;
+
+.m-TreeView {
+    padding-right: 3px;
+
+    &>.m-TreeView-Level>.m-TreeView-Node {
+        margin-left: 0;
+
+        &[data-children="0"] {
+            margin-left: @flippy-width; // arrow correction
+        }
+    }
+
+    .m-TreeView-Level {
+        padding-inline-start: 0px;
+        list-style-type: none;
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+
+    .m-TreeView-Node-row {
+        display: inline-block;
+        width: 100%;
+        height: @row-height;
+        padding: 0;
+        padding-left: 3px;
+        user-select: none;
+
+        .m-TreeView-Node-content {
+            overflow: hidden;
+        }
+
+        &:hover {
+            &:not(.m-selected) {
+                background: var(--m-inactive-ui-color);
+                color: var(--m-inactive-font-color);
+            }
+            &.m-selected {
+                background: var(--m-hover-selected-ui-color);
+            }
+        }
+        &.m-selected {
+            background: var(--m-selected-ui-color);
+            color: var(--m-active-font-color);
+
+            .m-FlippyTriangle {
+                border-left-color: var(--m-active-font-color);
+            }
+        }
+    }
+
+    .m-TreeView-Node {
+        margin-left: @tree-indent;
+
+        &[data-children="0"] {
+            margin-left: @flippy-width + @tree-indent; // correct for the arrow on non-leaf rows
+        }
+
+        &[data-preview-validity="valid"] {
+            border-color: var(--m-valid-ui-color);
+        }
+
+        &[data-preview-validity="invalid"] {
+            border-color: var(--m-warn-ui-color);
+        }
+
+        &[data-preview="insert-above"] {
+            border-top-width: 2px;
+            border-top-style: solid;
+        }
+        &[data-preview="insert-below"] {
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+        }
+        &[data-preview="insert-into"] {
+            & > .m-TreeView-Node-row::after {
+                content: "...";
+                padding-left: 3px;
+                height: @row-height;
+                margin-left: @flippy-width + @tree-indent;
+                display: block;
+                color: var(--m-active-font-color);
+            }
+            &[data-preview-validity="valid"] > .m-TreeView-Node-row::after {
+                background: var(--m-valid-ui-color);
+            }
+            &[data-preview-validity="invalid"] > .m-TreeView-Node-row::after {
+                background: var(--m-warn-ui-color);
+            }
+        }
+    }
+}
+
+.m-TreeList-drag {
+    background: var(--m-active-ui-color);
+    color: var(--m-active-font-color);
+}

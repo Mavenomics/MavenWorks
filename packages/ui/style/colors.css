@@ -1,0 +1,33 @@
+.m-InlineColorEditor {
+    display: flex;
+    flex-direction: row;
+}
+
+.m-InlineColorEditor .m-InlineColorEditor__colorSwatch {
+    flex: 0 0 30px;
+    margin: 3px;
+    border: 1px solid black;
+}
+
+.m-InlineColorEditor .m-InlineColorEditor__input {
+    flex: 1 0;
+}
+
+.m-InlineColorEditor__invalid {
+    border: 1px solid red;
+}
+
+.m-ColorPicker .m-ValueSlider {
+    background-image: linear-gradient(to right, black, white);
+    color: white;
+    display: flex;
+    padding: 2px;
+    vertical-align: middle;
+    line-height: 26px;
+}
+
+.m-ColorPicker .m-ValueSlider input {
+    flex-grow: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+}

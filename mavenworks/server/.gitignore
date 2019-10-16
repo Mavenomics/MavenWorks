@@ -1,0 +1,9 @@
+static/*.js
+static/**/*.js
+static/*.gif
+static/*.png
+static/*.woff
+static/*.woff2
+static/*.ttf
+static/*.eot
+static/*.svg

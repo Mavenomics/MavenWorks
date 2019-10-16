@@ -1,0 +1,18 @@
+.m-GlobalsEditor {
+    min-width: 20vw;
+    min-height: 20vh;
+}
+
+.m-GlobalsEditor-header {
+    display: flex;
+}
+
+.m-GlobalsEditor-headerCell {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+}
+
+.m-GlobalsEditor .m-PropertiesEditor .m-PropertiesEditor-Property {
+    margin-top: 5px;
+}

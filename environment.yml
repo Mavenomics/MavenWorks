@@ -1,0 +1,19 @@
+name: maven-kernel
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - rx=1.6 # cf. https://github.com/ReactiveX/RxPY/issues/435
+  - ipywidgets
+  - ipykernel>=5.1
+  - jupyter
+  - jupyterlab=1.0
+  - numpy
+  - pandas
+  - pyarrow
+  - python>=3.6
+  - requests
+  - widgetsnbextension
+  - matplotlib
+  # dependencies for Volatility3D example
+  - plotly=3.3

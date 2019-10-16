@@ -1,0 +1,567 @@
+{
+	"layout": {
+		"properties": {},
+		"typeName": 0,
+		"uuid": "da38b1ad-74b4-4adc-a5a8-7b5baf6137f9",
+		"attachedProperties": [
+			{
+				"Fixed Size (px)": null,
+				"Stretch": 1.8838930725875684
+			},
+			{
+				"Fixed Size (px)": null,
+				"Stretch": 0.7464481985724328
+			},
+			{
+				"Fixed Size (px)": null,
+				"Stretch": 1.5510425499764684
+			},
+			{
+				"Fixed Size (px)": null,
+				"Stretch": 1
+			}
+		],
+		"children": [
+			{
+				"properties": {
+					"prunable": true,
+					"horizontal": false,
+					"flexSize": 1.8838930725875684
+				},
+				"typeName": 0,
+				"uuid": "227a9699-f3e3-4fb3-8078-0ce28e00c576",
+				"attachedProperties": [
+					{
+						"Fixed Size (px)": null,
+						"Stretch": 1.166954417779688
+					},
+					{
+						"Fixed Size (px)": null,
+						"Stretch": 0.9865623770504588
+					},
+					{
+						"Fixed Size (px)": null,
+						"Stretch": 0.824069750242148
+					}
+				],
+				"children": [
+					{
+						"properties": {
+							"flexSize": 1.166954417779688,
+							"caption": "AnimationSliderPart"
+						},
+						"typeName": 1,
+						"uuid": "d13d8789-f9f5-4d5d-9c8d-192d0cfbc580",
+						"guid": "277d9f4c-41e0-48e8-ae27-94cff8269293"
+					},
+					{
+						"properties": {
+							"showRegion": true,
+							"flexSize": 0.9865623770504588,
+							"caption": "RangeSliderPart"
+						},
+						"typeName": 1,
+						"uuid": "eb3283b4-1f0a-4554-b465-b3a7e570363d",
+						"guid": "41bbdfb2-4932-4fce-b729-252a1ca471eb"
+					},
+					{
+						"properties": {
+							"showRegion": true,
+							"flexSize": 0.824069750242148,
+							"caption": "SliderPart"
+						},
+						"typeName": 1,
+						"uuid": "c209caf4-2f08-41d5-ad3a-dae926704cbb",
+						"guid": "12c41326-c30b-4b09-a5db-f216378eab7c"
+					}
+				]
+			},
+			{
+				"properties": {
+					"prunable": true,
+					"horizontal": true,
+					"flexSize": 0.7464481985724328
+				},
+				"typeName": 0,
+				"uuid": "16657d27-01e2-46f2-92fb-49b3f87305b3",
+				"attachedProperties": [
+					{
+						"Fixed Size (px)": null,
+						"Stretch": 1
+					},
+					{
+						"Fixed Size (px)": null,
+						"Stretch": 1
+					},
+					{
+						"Fixed Size (px)": null,
+						"Stretch": 1
+					}
+				],
+				"children": [
+					{
+						"properties": {
+							"prunable": true
+						},
+						"typeName": 0,
+						"uuid": "a93cb267-db5c-459d-8cf2-be172658ce74",
+						"attachedProperties": [
+							{
+								"Fixed Size (px)": null,
+								"Stretch": 0.6134592439722585
+							},
+							{
+								"Fixed Size (px)": null,
+								"Stretch": 0.8318091443691641
+							}
+						],
+						"children": [
+							{
+								"properties": {
+									"showRegion": true,
+									"flexSize": 0.6134592439722585,
+									"caption": "RadioButtonPart"
+								},
+								"typeName": 1,
+								"uuid": "7f22bb18-0400-469e-a944-becc99c0674b",
+								"guid": "64ee49bb-3748-40d2-aa97-a9b96000c250"
+							},
+							{
+								"properties": {
+									"flexSize": 0.8318091443691641,
+									"showRegion": true,
+									"caption": "SelectPart"
+								},
+								"typeName": 1,
+								"uuid": "8cb444f7-55b7-4735-b0c1-46cc45b69218",
+								"guid": "c8341ef4-3974-42e6-967b-f7476e6c620f"
+							}
+						]
+					},
+					{
+						"properties": {
+							"showRegion": true,
+							"caption": "DatePickerPart"
+						},
+						"typeName": 1,
+						"uuid": "57ab30b7-f9eb-4e31-bc1b-5b90bd800fbf",
+						"guid": "484dc2ee-c690-42c6-82a7-1afc2dc8e4cc"
+					},
+					{
+						"properties": {
+							"showRegion": true,
+							"caption": "CheckboxPart"
+						},
+						"typeName": 1,
+						"uuid": "71c5b83f-1398-49d0-ae06-30bcbd767fcf",
+						"guid": "edc3f508-cbbf-4468-a77b-9a92828fd237"
+					}
+				]
+			},
+			{
+				"properties": {
+					"flexSize": 1.5510425499764684,
+					"horizontal": true,
+					"prunable": true
+				},
+				"typeName": 0,
+				"uuid": "38afd64c-eb27-4cd4-a8ab-02180b3d1d93",
+				"attachedProperties": [
+					{
+						"Fixed Size (px)": null,
+						"Stretch": 0.7569070768055399
+					},
+					{
+						"Fixed Size (px)": null,
+						"Stretch": 0.5926991169399061
+					}
+				],
+				"children": [
+					{
+						"properties": {
+							"flexSize": 0.7569070768055399,
+							"showRegion": true,
+							"caption": "LabelPart"
+						},
+						"typeName": 1,
+						"uuid": "3b48dd54-fd40-4a94-999a-29b5d6102c5d",
+						"guid": "d1ea5452-c00b-436d-b52a-4c99d3671f24"
+					},
+					{
+						"properties": {
+							"flexSize": 0.5926991169399061,
+							"caption": "RowViewPart"
+						},
+						"typeName": 1,
+						"uuid": "be95c249-43d7-42f7-b318-790a7935e0d4",
+						"guid": "ae96d79a-dd9a-4f39-b619-3a9ea493ab26"
+					}
+				]
+			},
+			{
+				"properties": {
+					"prunable": true,
+					"horizontal": true
+				},
+				"typeName": 0,
+				"uuid": "ba2b7e07-403a-445e-b86d-377c29198950",
+				"attachedProperties": [
+					{
+						"Fixed Size (px)": null,
+						"Stretch": 1
+					},
+					{
+						"Fixed Size (px)": null,
+						"Stretch": 1
+					}
+				],
+				"children": [
+					{
+						"properties": {
+							"caption": "TextInputPart"
+						},
+						"typeName": 1,
+						"uuid": "bc185ea9-3f43-4b08-880e-b0852d580380",
+						"guid": "945cde5a-ff2e-47c9-a24f-bfe9544b14b6"
+					},
+					{
+						"properties": {
+							"showRegion": true,
+							"caption": "TextAreaPart"
+						},
+						"typeName": 1,
+						"uuid": "227f3949-2b03-4dca-9568-694a5652a0d5",
+						"guid": "d09993da-8146-43e7-8e3c-42a0daa0f08d"
+					}
+				]
+			}
+		]
+	},
+	"parts": {
+		"182c8200-3069-4141-9a71-1357a1fb67c5": {
+			"application/vnd.maven.part+json": {
+				"name": "LabelPart",
+				"id": "182c8200-3069-4141-9a71-1357a1fb67c5",
+				"options": {
+					"Value": {
+						"type": "Global",
+						"expr": "x",
+						"globals": [
+							"x"
+						]
+					},
+					"Caption": {
+						"typeName": "String",
+						"value": "@x value"
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"3e8f132d-9096-4a74-9201-562a6a94adbf": {
+			"application/vnd.maven.part+json": {
+				"name": "RowViewPart",
+				"id": "3e8f132d-9096-4a74-9201-562a6a94adbf",
+				"options": {
+					"Table": {
+						"type": "Mql",
+						"expr": "SELECT * from Lattice('x = 1 to 10 step 1, y = 1 to 10 step 1')",
+						"globals": []
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"381f2618-6058-402a-8ad5-e09dea2c2edc": {
+			"application/vnd.maven.part+json": {
+				"name": "AnimationSliderPart",
+				"id": "381f2618-6058-402a-8ad5-e09dea2c2edc",
+				"options": {
+					"Value": {
+						"type": "Global",
+						"expr": "x",
+						"globals": [
+							"x"
+						]
+					},
+					"Max": {
+						"typeName": "Number",
+						"value": 1
+					},
+					"Step": {
+						"typeName": "Number",
+						"value": 0.01
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"9212d3b3-c71a-43e9-9701-b8384de2a05d": {
+			"application/vnd.maven.part+json": {
+				"name": "CheckboxPart",
+				"id": "9212d3b3-c71a-43e9-9701-b8384de2a05d",
+				"options": {}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"52d55bf3-312d-47db-b615-5a956f78621c": {
+			"application/vnd.maven.part+json": {
+				"name": "LabelPart",
+				"id": "52d55bf3-312d-47db-b615-5a956f78621c",
+				"options": {}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"277d9f4c-41e0-48e8-ae27-94cff8269293": {
+			"application/vnd.maven.part+json": {
+				"name": "AnimationSliderPart",
+				"id": "277d9f4c-41e0-48e8-ae27-94cff8269293",
+				"options": {
+					"Value": {
+						"type": "Global",
+						"expr": "lower",
+						"globals": [
+							"lower"
+						]
+					},
+					"Max": {
+						"type": "Global",
+						"expr": "upper",
+						"globals": [
+							"upper"
+						]
+					},
+					"Timestep (ms)": {
+						"typeName": "Number",
+						"value": 300
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"edc3f508-cbbf-4468-a77b-9a92828fd237": {
+			"application/vnd.maven.part+json": {
+				"name": "CheckboxPart",
+				"id": "edc3f508-cbbf-4468-a77b-9a92828fd237",
+				"options": {
+					"Checked": {
+						"type": "Global",
+						"expr": "checked",
+						"globals": [
+							"checked"
+						]
+					},
+					"Label": {
+						"typeName": "String",
+						"value": "checkbox"
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"484dc2ee-c690-42c6-82a7-1afc2dc8e4cc": {
+			"application/vnd.maven.part+json": {
+				"name": "DatePickerPart",
+				"id": "484dc2ee-c690-42c6-82a7-1afc2dc8e4cc",
+				"options": {
+					"Value": {
+						"type": "Global",
+						"expr": "date",
+						"globals": [
+							"date"
+						]
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"d1ea5452-c00b-436d-b52a-4c99d3671f24": {
+			"application/vnd.maven.part+json": {
+				"name": "LabelPart",
+				"id": "d1ea5452-c00b-436d-b52a-4c99d3671f24",
+				"options": {
+					"Value": {
+						"type": "Global",
+						"expr": "date",
+						"globals": [
+							"date"
+						]
+					},
+					"Caption": {
+						"typeName": "String",
+						"value": "Selected Date"
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"64ee49bb-3748-40d2-aa97-a9b96000c250": {
+			"application/vnd.maven.part+json": {
+				"name": "RadioButtonPart",
+				"id": "64ee49bb-3748-40d2-aa97-a9b96000c250",
+				"options": {
+					"Value": {
+						"type": "Global",
+						"expr": "selection",
+						"globals": [
+							"selection"
+						]
+					},
+					"Options": {
+						"type": "JavaScript",
+						"expr": "return [1, 2, 3]",
+						"globals": []
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"41bbdfb2-4932-4fce-b729-252a1ca471eb": {
+			"application/vnd.maven.part+json": {
+				"name": "RangeSliderPart",
+				"id": "41bbdfb2-4932-4fce-b729-252a1ca471eb",
+				"options": {
+					"Start": {
+						"type": "Global",
+						"expr": "lower",
+						"globals": [
+							"lower"
+						]
+					},
+					"End": {
+						"type": "Global",
+						"expr": "upper",
+						"globals": [
+							"upper"
+						]
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"ae96d79a-dd9a-4f39-b619-3a9ea493ab26": {
+			"application/vnd.maven.part+json": {
+				"name": "RowViewPart",
+				"id": "ae96d79a-dd9a-4f39-b619-3a9ea493ab26",
+				"options": {
+					"Table": {
+						"type": "Mql",
+						"expr": "/* @lower,@upper,@checked */\nSELECT\n    @lower as lower,\n    @upper as upper,\n    IfElse(@checked, 'checked', 'unchecked') as [IsChecked]\nfrom dual",
+						"globals": [
+							"lower",
+							"upper",
+							"checked"
+						]
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"c8341ef4-3974-42e6-967b-f7476e6c620f": {
+			"application/vnd.maven.part+json": {
+				"name": "SelectPart",
+				"id": "c8341ef4-3974-42e6-967b-f7476e6c620f",
+				"options": {
+					"Value": {
+						"type": "Global",
+						"expr": "selection",
+						"globals": [
+							"selection"
+						]
+					},
+					"Options": {
+						"type": "JavaScript",
+						"expr": "return [1, 2, 3]",
+						"globals": []
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"12c41326-c30b-4b09-a5db-f216378eab7c": {
+			"application/vnd.maven.part+json": {
+				"name": "SliderPart",
+				"id": "12c41326-c30b-4b09-a5db-f216378eab7c",
+				"options": {
+					"Value": {
+						"type": "Global",
+						"expr": "upper",
+						"globals": [
+							"upper"
+						]
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"d09993da-8146-43e7-8e3c-42a0daa0f08d": {
+			"application/vnd.maven.part+json": {
+				"name": "TextAreaPart",
+				"id": "d09993da-8146-43e7-8e3c-42a0daa0f08d",
+				"options": {
+					"Value": {
+						"type": "Global",
+						"expr": "text",
+						"globals": [
+							"text"
+						]
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		},
+		"945cde5a-ff2e-47c9-a24f-bfe9544b14b6": {
+			"application/vnd.maven.part+json": {
+				"name": "TextInputPart",
+				"id": "945cde5a-ff2e-47c9-a24f-bfe9544b14b6",
+				"options": {
+					"Value": {
+						"type": "Global",
+						"expr": "text",
+						"globals": [
+							"text"
+						]
+					}
+				}
+			},
+			"text/plain": "VisualEditorPart"
+		}
+	},
+	"metadata": {},
+	"globals": [
+		{
+			"name": "date",
+			"type": "Date",
+			"value": 1552688544000
+		},
+		{
+			"name": "text",
+			"type": "String",
+			"value": "test"
+		},
+		{
+			"name": "selection",
+			"type": "String",
+			"value": "3"
+		},
+		{
+			"name": "lower",
+			"type": "Number",
+			"value": 4
+		},
+		{
+			"name": "upper",
+			"type": "Number",
+			"value": 8
+		},
+		{
+			"name": "checked",
+			"type": "Boolean",
+			"value": true
+		}
+	],
+	"localParts": {},
+	"init": [
+		""
+	]
+}

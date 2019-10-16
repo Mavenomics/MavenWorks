@@ -1,0 +1,27 @@
+.m-Notebook-ContentMaximized .jp-Notebook::after {
+    min-height: 0;
+    background-color: var(--jp-layout-color2);
+    transition: background-color 600ms ease-in;
+}
+
+.m-Notebook-ContentMaximized .jp-Notebook {
+    background-color: transparent;
+}
+
+.m-NotebookCell-Maximized {
+    position: relative;
+    box-shadow: var(--jp-elevation-z8);
+    background-color: var(--jp-layout-color0);
+    transition: box-shadow 600ms ease-in, background-color 600ms ease-in;
+}
+
+.m-NotebookCell-Maximized .jp-Cell-outputWrapper {
+    height: calc(100% - 2 * var(--jp-notebook-padding) - var(--jp-cell-padding));
+}
+
+.m-NotebookCell-Maximized,
+.m-NotebookCell-Maximized .jp-OutputArea,
+.m-NotebookCell-Maximized .jp-OutputArea-output,
+.m-NotebookCell-Maximized .jp-OutputArea-child {
+    height: 100%;
+}

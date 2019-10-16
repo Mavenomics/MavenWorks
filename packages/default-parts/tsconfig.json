@@ -1,0 +1,18 @@
+{
+    "extends": "../../base.tsconfig.json",
+    "compilerOptions": {
+      "outDir": "./lib",
+      "rootDir": "./src"
+    },
+    "include": [
+      "./src/*",
+      "./src/**/*"
+    ],
+    "references": [
+      { "path": "../coreutils" },
+      { "path": "../bindings" },
+      { "path": "../parts" },
+      { "path": "../table" },
+      { "path": "../mql-worker" }
+    ]
+  }

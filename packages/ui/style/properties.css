@@ -1,0 +1,50 @@
+.m-PropertiesEditor {
+    width: 100%;
+    position: relative;
+    --indent-width: 14px;
+    margin-bottom: 1px;
+}
+
+.m-PropertiesEditor-Property {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.m-PropertiesEditor-PropertyLabel {
+    display: inline-block;
+    padding-left: calc(var(--indent-width) * (var(--indent) + 1));
+    flex: 0 0 calc(35% - (var(--indent-width) * (var(--indent) + 1)));
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.m-PropertiesEditor-PropertyLabel.m-PropertiesEditor-PropertyGroup {
+    font-weight: bold;
+    padding-left: calc(var(--indent-width) * var(--indent));
+}
+
+.m-PropertiesEditor-Property>:last-child {
+    flex: 1 0 auto;
+}
+
+.m-FlippyTriangle {
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 8px solid transparent;
+    border-left: 8px solid black;
+    position: relative;
+    top: -4px;
+}
+
+.m-FlippyTriangle[data-collapsed="true"] {
+    transform: rotate(0)
+}
+
+.m-FlippyTriangle[data-collapsed="false"] {
+    transform: rotate(0.25turn)
+}

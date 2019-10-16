@@ -1,0 +1,38 @@
+{
+    "name": "@mavenomics/metapackage",
+    "description": "A fake package meant to help Typescript Project Refs",
+    "version": "0.1.0",
+    "private": true,
+    "license": "GPL-3.0",
+    "scripts": {
+        "build": "tsc --build",
+        "build:ci": "echo No building for @mavenomics/metapackage",
+        "build:watch": "tsc --build --watch",
+        "clean": "rimraf ./lib *.tsbuildinfo",
+        "lint": "echo No linting for @mavenomics/metapackage",
+        "test": "echo No tests for @mavenomics/metapackage"
+    },
+    "dependencies": {
+        "@mavenomics/apputils": "^0.1.0",
+        "@mavenomics/bindings": "^0.1.0",
+        "@mavenomics/chart-parts": "^0.1.0",
+        "@mavenomics/coreutils": "^0.1.0",
+        "@mavenomics/dashboard": "^0.1.0",
+        "@mavenomics/dashboard-devtools": "^0.1.0",
+        "@mavenomics/default-parts": "^0.1.0",
+        "@mavenomics/help": "^0.1.0",
+        "@mavenomics/config-server": "^0.1.0",
+        "@mavenomics/layout": "^0.1.0",
+        "@mavenomics/mql": "^0.1.0",
+        "@mavenomics/parts": "^0.1.0",
+        "@mavenomics/table": "^0.1.0",
+        "@mavenomics/ui": "^0.1.0",
+        "jupyterlab-mavenworks": "^0.1.0",
+        "@mavenomics/viewer": "^0.1.0",
+        "@mavenomics/standalone": "^0.1.0"
+    },
+    "devDependencies": {
+        "typescript": "*",
+        "rimraf": "^2.6.3"
+    }
+}
