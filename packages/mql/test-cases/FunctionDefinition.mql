@@ -1,5 +1,0 @@
-﻿fun(  ) 1
-fun( @a ) @a
-fun(  ) set @foo = 1 @foo
-fun( @a, @b, @c ) set @foo = 1 set @bar = @b ifelse( @a, 1, @foo + @bar + @c )
-fun(  ) set @foo = 1 def @bar() = 123 @foo + @bar(  )

@@ -1,6 +1,0 @@
-select a format{option:='value'} from b
-SELECT a, b format {color:='blue'} from c
-SELECT b format{color:='blue'}, a from c
-SELECT a, b format{color:='blue'; color2:='yellow'; myOptions := value < 0 } from c
-SELECT b format{color:='blue'}, c format{color:='yellow'} from c
-select a format{[option name with spaces and !0ther ch4racters@#@$!]:='value'} from b
