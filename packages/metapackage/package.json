@@ -22,6 +22,8 @@
         "@mavenomics/dashboard-devtools": "^0.1.0",
         "@mavenomics/default-parts": "^0.1.0",
         "@mavenomics/help": "^0.1.0",
+        "@mavenomics/help-mql": "^0.1.0",
+        "@mavenomics/jupyterutils": "^0.1.0",
         "@mavenomics/config-server": "^0.1.0",
         "@mavenomics/layout": "^0.1.0",
         "@mavenomics/mql": "^0.1.0",
