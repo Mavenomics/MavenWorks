@@ -13,8 +13,13 @@ from pandas import DataFrame
 from numbers import Real
 import math
 __supports_pyarrow = False
+__use_legacy_export = True
 try:
     import pyarrow as pa
+    [major, minor, _] = pa.__version__.split(".")
+    if int(major) == 0 and int(minor) < 15:
+        # The JS library doesn't need extra support here
+        __use_legacy_export = False
     from io import BytesIO
     __supports_pyarrow = True
 except ImportError:
@@ -36,7 +41,11 @@ def _serialize_table(obj):
         try:
             f = BytesIO()
             data = pa.Table.from_pandas(obj, preserve_index=False)
-            with pa.RecordBatchFileWriter(f, data.schema) as writer:
+            if __use_legacy_export:
+                batch_writer = pa.RecordBatchFileWriter(f, data.schema, use_legacy_format=True)
+            else:
+                batch_writer = pa.RecordBatchFileWriter(f, data.schema)
+            with batch_writer as writer:
                 writer.write_table(data)
             return {
                 "arrow": True,
