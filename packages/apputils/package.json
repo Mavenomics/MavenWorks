@@ -15,7 +15,8 @@
     "build:ci": "echo pass",
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
-    "test": "jest"
+    "test": "jest",
+    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/apputils"
   },
   "dependencies": {
     "@jupyterlab/coreutils": "^3.1.0",

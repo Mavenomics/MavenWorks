@@ -16,7 +16,8 @@
     "build:ci": "lessc ./style/index.less ./style/index.css",
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
-    "test": "echo pass"
+    "test": "echo pass",
+    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/dashboard-devtools"
   },
   "devDependencies": {
     "typescript": "*",

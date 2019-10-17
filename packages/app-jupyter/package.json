@@ -18,7 +18,8 @@
     "build:ci": "lessc ./style/index.less ./style/index.css",
     "lint": "tslint --project .",
     "clean": "rimraf lib *.tsbuildinfo",
-    "test": "echo No tests for jupyterlab-mavenworks"
+    "test": "echo No tests for jupyterlab-mavenworks",
+    "docs": "echo No docs for jupyterlab-mavenworks"
   },
   "repository": {
     "type": "git",

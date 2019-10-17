@@ -19,7 +19,8 @@
     "analyze-bundle": "webpack --analyze",
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
-    "test": "echo No tests for @mavenomics/chart-parts"
+    "test": "echo No tests for @mavenomics/chart-parts",
+    "docs": "echo No docs for @mavenomics/chart-parts"
   },
   "devDependencies": {
     "@finos/perspective-webpack-plugin": "0.3.6",

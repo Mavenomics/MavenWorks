@@ -16,7 +16,8 @@
     "build:ci": "echo pass",
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
-    "test": "echo No tests for @mavenomics/default-parts"
+    "test": "echo No tests for @mavenomics/default-parts",
+    "docs": "echo No docs for @mavenomics/default-parts"
   },
   "devDependencies": {
     "rimraf": "^2.6.3",

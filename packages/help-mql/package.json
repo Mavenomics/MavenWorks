@@ -16,7 +16,8 @@
     "build:ci": "echo pass",
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
-    "test": "echo pass"
+    "test": "echo pass",
+    "docs": "echo No docs for @mavenomics/help-mql"
   },
   "devDependencies": {
     "typescript": "*",

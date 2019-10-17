@@ -16,7 +16,8 @@
     "build:ci": "lessc ./style/index.less ./style/index.css",
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
-    "test": "echo No tests for @mavenomics/ui"
+    "test": "echo No tests for @mavenomics/ui",
+    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/ui"
   },
   "devDependencies": {
     "@types/react-widgets": "^4.3.3",

@@ -18,7 +18,8 @@
     "analyze-bundle": "webpack --analyze",
     "clean": "rimraf ./lib ./mql.worker.js *.tsbuildinfo",
     "lint": "tslint",
-    "test": "echo No tests for @mavenomics/mql"
+    "test": "echo No tests for @mavenomics/mql-worker",
+    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/mql-worker"
   },
   "dependencies": {
     "@mavenomics/coreutils": "^0.1.0",

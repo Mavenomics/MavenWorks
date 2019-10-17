@@ -9,7 +9,8 @@
     "bundle:ci": "webpack",
     "clean": "rimraf ./client/*.js ./client/*.js.map ./client/*.d.ts ./client/*.d.ts.map *.tsbuildinfo",
     "lint": "tslint --project .",
-    "test": "echo No tests for Viewer"
+    "test": "echo No tests for Viewer",
+    "docs": "echo No docs for @mavenomics/viewer"
   },
   "repository": {
     "type": "git",

@@ -15,7 +15,8 @@
     "build:ci": "echo pass",
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
-    "test": "echo No tests for @mavenomics/coreutils"
+    "test": "echo No tests for @mavenomics/coreutils",
+    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/coreutils"
   },
   "dependencies": {
     "@phosphor/coreutils": "^1.3.0",

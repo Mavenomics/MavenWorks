@@ -15,7 +15,8 @@
     "bundle": "webpack --watch",
     "bundle:ci": "webpack",
     "analyze-bundle": "webpack --analyze",
-    "serve": "http-server -p 9090"
+    "serve": "http-server -p 9090",
+    "docs": "webpack --docs"
   },
   "dependencies": {
     "@jupyterlab/codemirror": "~1.1.3",

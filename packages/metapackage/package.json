@@ -10,7 +10,8 @@
         "build:watch": "tsc --build --watch",
         "clean": "rimraf ./lib *.tsbuildinfo",
         "lint": "echo No linting for @mavenomics/metapackage",
-        "test": "echo No tests for @mavenomics/metapackage"
+        "test": "echo No tests for @mavenomics/metapackage",
+        "docs": "echo No docs for @mavenomics/metapackage"
     },
     "dependencies": {
         "@mavenomics/apputils": "^0.1.0",

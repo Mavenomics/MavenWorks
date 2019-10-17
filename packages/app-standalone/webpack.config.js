@@ -2,11 +2,15 @@ const path = require("path");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const { DefinePlugin } = require("webpack");
 
+const outDir = path.resolve(__dirname,
+    process.argv.includes("--docs") ? "../../docs/app" : "public",
+);
+
 const config = {
     entry: "./lib/index.js",
     mode: process.env.NODE_ENV || "development",
     output: {
-        path: path.resolve(__dirname, "public"),
+        path: outDir,
         filename: "[name].bundle.js"
     },
     resolveLoader: {

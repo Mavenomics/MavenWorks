@@ -17,7 +17,8 @@
     "build:ci": "cd ../.. && yarn licenses generate-disclaimer --prod > ./packages/help/licenses",
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
-    "test": "echo pass"
+    "test": "echo pass",
+    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/help"
   },
   "devDependencies": {
     "typescript": "*",

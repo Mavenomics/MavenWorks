@@ -16,7 +16,8 @@
     "build:ci": "lessc ./style/index.less ./style/index.css",
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
-    "test": "jest"
+    "test": "jest",
+    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/layout"
   },
   "dependencies": {
     "@mavenomics/coreutils": "^0.1.0",

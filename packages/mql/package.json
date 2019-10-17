@@ -19,7 +19,8 @@
     "build:ci": "cd mqlparser_src && java -jar antlr4.jar -Dlanguage=JavaScript -visitor MqlLexer.g4 MqlParser.g4",
     "clean": "rimraf ./lib ./mql_parser/*.interp ./mql_parser/*.tokens ./mql_parser/.antlr *.tsbuildinfo",
     "lint": "echo Linting temporarily disabled in @mavenomics/mql",
-    "test": "jest"
+    "test": "jest",
+    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/mql"
   },
   "dependencies": {
     "@mavenomics/coreutils": "^0.1.0",

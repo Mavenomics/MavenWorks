@@ -6,7 +6,8 @@
         "serve": "node ./lib/app.js",
         "clean": "rimraf ./lib && rimraf *.tsbuildinfo",
         "users": "node ./lib/admin/users",
-        "populate": "node ./lib/admin/populate"
+        "populate": "node ./lib/admin/populate",
+        "docs": "echo No docs for @mavenomics/config-server"
     },
     "author": "Mavenomics, Inc",
     "license": "GPL-3.0",
