@@ -5,8 +5,7 @@ import { Dashboard } from "@mavenomics/dashboard";
 import { IPartFactory } from "@mavenomics/parts";
 import { CommandRegistry } from "@phosphor/commands";
 import { PromiseDelegate } from "@phosphor/coreutils";
-import { registerUDPs } from "../../util/register-udps";
-import { KernelExpressionEvaluator } from "../../framework/KernelExpressionEvaluator";
+import { registerUDPs, KernelExpressionEvaluator } from "@mavenomics/jupyterutils";
 import { URLExt, PageConfig } from "@jupyterlab/coreutils";
 
 /**

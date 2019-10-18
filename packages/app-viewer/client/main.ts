@@ -10,21 +10,16 @@ import { INotebookModel, Notebook, NotebookModelFactory } from "@jupyterlab/note
 import { nbformat } from "@jupyterlab/coreutils";
 import UrlResolver = RenderMimeRegistry.UrlResolver;
 import { KernelStatus, StatusToolbar } from "./StatusToolbar";
-import { RenderedLayout, MAVEN_LAYOUT_MIME_TYPE } from "jupyterlab-mavenworks/lib/rendermime/MimeLayoutRenderer";
-import { SyncMetadata } from "jupyterlab-mavenworks/lib/framework/SyncMetadata";
-import { DocumentRegistry } from "@jupyterlab/docregistry";
 import { MathJaxTypesetter } from "@jupyterlab/mathjax2";
-import IWidgetExtension = DocumentRegistry.IWidgetExtension;
 import { UrlParametersManager } from "@mavenomics/dashboard";
 import { UUID } from "@phosphor/coreutils";
-import { registerUDPs } from "jupyterlab-mavenworks/lib/util/register-udps";
 import { PartFactory } from "@mavenomics/parts";
 import "@mavenomics/table";
 import { DashboardSerializer } from "@mavenomics/dashboard";
 import { default as partsPlugins } from "@mavenomics/default-parts";
 import { default as chartPlugin } from "@mavenomics/chart-parts";
 import { typeEditorFactoryPlugin, defaultTypeEditors } from "@mavenomics/ui";
-import { DisplayHandleManager } from "jupyterlab-mavenworks/lib/framework/displayhandle/handlemanager";
+import { DisplayHandleManager, SyncMetadata, registerUDPs, RenderedDashboard } from "@mavenomics/jupyterutils";
 
 /**
  * Main entry point for the DashboardViewer
@@ -126,10 +121,10 @@ export class MainApp extends Widget {
         ]).then(() => void 0 as void);
         rendermime.addFactory({
             safe: false,
-            mimeTypes: [MAVEN_LAYOUT_MIME_TYPE],
+            mimeTypes: [DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE],
             defaultRank: 75,
             createRenderer: () => {
-                return new RenderedLayout({
+                return new RenderedDashboard({
                     factory: this.factory,
                     rendermime,
                     session,
@@ -141,7 +136,7 @@ export class MainApp extends Widget {
             },
         });
         this.disposed.connect(() => {
-            rendermime.removeMimeType(MAVEN_LAYOUT_MIME_TYPE);
+            rendermime.removeMimeType(DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE);
             syncMetadata.dispose();
         });
 
@@ -248,7 +243,7 @@ export class MainApp extends Widget {
         const dashboardCell: nbformat.ICodeCell = {
             cell_type: "code",
             execution_count: null,
-            source: RenderedLayout.getPythonCode(data),
+            source: RenderedDashboard.getPythonCode(data),
             metadata: {
                 showinviewer: "true"
             },
@@ -257,7 +252,7 @@ export class MainApp extends Widget {
                     output_type: "execute_result",
                     execution_count: null,
                     data: {
-                        [MAVEN_LAYOUT_MIME_TYPE]: DashboardSerializer.DEFAULT_DASHBOARD as any
+                        [DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE]: DashboardSerializer.DEFAULT_DASHBOARD as any
                     },
                     metadata: {}
                 }
@@ -331,13 +326,13 @@ export class MainApp extends Widget {
         }).then(() => {
             this.toolbar.setKernelStatus(KernelStatus.Idle);
             for (const child of this.outputPanel.widgets) {
-                if (child instanceof RenderedLayout) {
+                if (child instanceof RenderedDashboard) {
                     this.params.applyParameters(child.dashboard.globals);
                 }
             }
             this.params.paramsDidChange.subscribe(() => {
                 for (const child of this.outputPanel.widgets) {
-                    if (child instanceof RenderedLayout) {
+                    if (child instanceof RenderedDashboard) {
                         this.params.applyParameters(child.dashboard.globals);
                     }
                 }

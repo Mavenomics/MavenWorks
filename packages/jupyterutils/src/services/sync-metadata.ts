@@ -1,11 +1,11 @@
+import { IClientSession } from "@jupyterlab/apputils";
 import { JSONObject as SerializedJSONObject, Types, Converters } from "@mavenomics/coreutils";
+import { PartFactory, Part } from "@mavenomics/parts";
 import { JSONObject, PromiseDelegate } from "@phosphor/coreutils";
 import { IDisposable } from "@phosphor/disposable";
-import { IClientSession } from "@jupyterlab/apputils";
-import { KernelProxyPart } from "../parts/KernelProxyPart";
-import { PartFactory, Part } from "@mavenomics/parts";
-import { DisplayHandleManager } from "./displayhandle/handlemanager";
-import { CommManager } from "../util/CommManager";
+import { DisplayHandleManager } from "../handles";
+import { KernelProxyPart } from "./kernelpart";
+import { CommManager } from "../utils";
 
 export class SyncMetadata implements IDisposable {
     private _isDisposed = false;

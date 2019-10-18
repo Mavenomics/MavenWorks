@@ -1,5 +1,5 @@
-import { renderText } from "@jupyterlab/rendermime";
 import { defaultSanitizer } from "@jupyterlab/apputils";
+import { renderText } from "@jupyterlab/rendermime";
 
 export class KernelError extends Error {
     /** Create a new kernel error with a pretty stacktrace */

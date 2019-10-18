@@ -1,10 +1,10 @@
+import { IClientSession, ISanitizer } from "@jupyterlab/apputils";
+import { IRenderMimeRegistry } from "@jupyterlab/rendermime";
+import { Session, Kernel, KernelMessage } from "@jupyterlab/services";
 import { IDisposable } from "@phosphor/disposable";
 import { AttachedProperty } from "@phosphor/properties";
-import { IClientSession, ISanitizer } from "@jupyterlab/apputils";
 import { Subject, Observable } from "rxjs";
-import { Session, Kernel, KernelMessage } from "@jupyterlab/services";
 import { DisplayHandle } from "./handle";
-import { IRenderMimeRegistry } from "@jupyterlab/rendermime";
 
 export class DisplayHandleManager implements IDisposable {
     public static GetManager(session: IClientSession) {

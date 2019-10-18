@@ -4,8 +4,7 @@ import { NotebookPanel } from "@jupyterlab/notebook";
 import { DashboardEditor } from "../editors/DashboardEditor/editor";
 import { CodeCell } from "@jupyterlab/cells";
 import { Panel } from "@phosphor/widgets";
-import { Dashboard } from "@mavenomics/dashboard";
-import { MAVEN_LAYOUT_MIME_TYPE } from "../rendermime/MimeLayoutRenderer";
+import { Dashboard, DashboardSerializer } from "@mavenomics/dashboard";
 
 export class JupyterDashboardTracker implements IDashboardTracker {
     constructor(
@@ -39,7 +38,7 @@ export class JupyterDashboardTracker implements IDashboardTracker {
         return panel.content.activeCell != null
             && panel.content.activeCell instanceof CodeCell
             && panel.content.activeCell.outputArea.model.length > 0
-            && MAVEN_LAYOUT_MIME_TYPE in panel.content.activeCell.outputArea.model.get(0).data;
+            && DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE in panel.content.activeCell.outputArea.model.get(0).data;
     }
 }
 

@@ -1,10 +1,10 @@
-import { JSONValue } from "@phosphor/coreutils";
 import { IClientSession } from "@jupyterlab/apputils";
+import { Kernel, KernelMessage } from "@jupyterlab/services";
+import { AsyncTools } from "@mavenomics/coreutils";
+import { JSONValue } from "@phosphor/coreutils";
 import { IDisposable } from "@phosphor/disposable";
 import { AttachedProperty } from "@phosphor/properties";
 import { Observable, Subject, race, TimeoutError } from "rxjs";
-import { Kernel, KernelMessage } from "@jupyterlab/services";
-import { AsyncTools } from "@mavenomics/coreutils";
 import { first, timeout } from "rxjs/operators";
 
 /**

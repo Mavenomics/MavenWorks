@@ -61,6 +61,9 @@ export namespace DashboardSerializer {
         visual: true
     };
 
+    /** The MIME type associated with serialzied dashboards */
+    export const MAVEN_LAYOUT_MIME_TYPE = "application/vnd.maven.layout+json";
+
     /** A serialized dashboard model, as used by the notebook dashboards */
     export interface ISerializedDashboard {
         parts: {

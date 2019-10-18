@@ -13,6 +13,8 @@
     { "path": "../dashboard-devtools" },
     { "path": "../default-parts" },
     { "path": "../help" },
+    { "path": "../help-mql" },
+    { "path": "../jupyterutils" },
     { "path": "../layout" },
     { "path": "../mql" },
     { "path": "../mql-worker" },
