@@ -1,33 +1,24 @@
-import { Dashboard, DashboardSerializer } from "@mavenomics/dashboard";
-import { Widget, BoxLayout, Panel } from "@phosphor/widgets";
-import { IRenderMime } from "@jupyterlab/rendermime-interfaces";
-import { IRenderMimeRegistry } from "@jupyterlab/rendermime";
-import { JupyterFrontEndPlugin } from "@jupyterlab/application";
-import { CommandToolbarButton, showDialog, Dialog } from "@jupyterlab/apputils";
-import { INotebookTracker, NotebookActions } from "@jupyterlab/notebook";
+import { IClientSession } from "@jupyterlab/apputils";
 import { CodeCell } from "@jupyterlab/cells";
-import { IClientSession, ICommandPalette } from "@jupyterlab/apputils";
-import { IPartFactory, PartFactory } from "@mavenomics/parts";
-import { registerUDPs } from "../util/register-udps";
-import { KernelExpressionEvaluator } from "../framework/KernelExpressionEvaluator";
-import { SyncMetadata } from "../framework/SyncMetadata";
 import { PageConfig, URLExt, nbformat } from "@jupyterlab/coreutils";
-import { DisplayHandleManager } from "../framework/displayhandle/handlemanager";
-import { JSONObject, JSONValue } from "@phosphor/coreutils";
-import { DisplayHandle } from "../framework/displayhandle/handle";
-import { RegisterActions, IDashboardTracker } from "@mavenomics/dashboard-devtools";
-import { AsyncTools } from "@mavenomics/coreutils";
+import { IRenderMime, IRenderMimeRegistry } from "@jupyterlab/rendermime";
+import { DashboardSerializer, Dashboard } from "@mavenomics/dashboard";
+import { PartFactory } from "@mavenomics/parts";
+import { JSONValue, JSONObject } from "@phosphor/coreutils";
+import { Widget, BoxLayout, Panel } from "@phosphor/widgets";
+import { DisplayHandleManager, DisplayHandle } from "./handles";
+import { KernelExpressionEvaluator } from "./services/expressioneval";
 
-export const MAVEN_LAYOUT_MIME_TYPE = "application/vnd.maven.layout+json";
-
-export class RenderedLayout extends Widget implements IRenderMime.IRenderer {
+export class RenderedDashboard extends Widget implements IRenderMime.IRenderer {
     static isEditableCell(cell: CodeCell) {
         const model = cell.outputArea.model;
         for (let i = 0; i < model.length; i++) {
             const output = model.get(i);
-            if (MAVEN_LAYOUT_MIME_TYPE in output.data) {
+            if (DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE in output.data) {
                 // TODO: Make SerializedDashboards extend JSONObject
-                const layout = output.data[MAVEN_LAYOUT_MIME_TYPE] as any as DashboardSerializer.ISerializedDashboard;
+                const layout = output.data[
+                    DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE
+                ] as any as DashboardSerializer.ISerializedDashboard;
                 if (!!layout.visual) {
                     return true;
                 } else {
@@ -42,8 +33,10 @@ export class RenderedLayout extends Widget implements IRenderMime.IRenderer {
         const model = cell.outputArea.model;
         for (let i = 0; i < model.length; i++) {
             const output = model.get(i);
-            if (MAVEN_LAYOUT_MIME_TYPE in output.data) {
-                return output.data[MAVEN_LAYOUT_MIME_TYPE] as any as DashboardSerializer.ISerializedDashboard;
+            if (DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE in output.data) {
+                return output.data[
+                    DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE
+                ] as any as DashboardSerializer.ISerializedDashboard;
             }
         }
         return null;
@@ -77,7 +70,9 @@ export class RenderedLayout extends Widget implements IRenderMime.IRenderer {
         // whereas `\\"` != `"`
         return `# Auto-generated code, do not edit!
 _json = __import__("json")
-display(_json.loads(${JSON.stringify(`{"${MAVEN_LAYOUT_MIME_TYPE}": ${JSON.stringify(dashboard)}}`)}), raw=True)
+display(_json.loads(${
+    JSON.stringify(`{"${DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE}": ${JSON.stringify(dashboard)}}`)
+}), raw=True)
 del _json`;
     }
 
@@ -86,7 +81,7 @@ del _json`;
     private mimeTypeRegistry: IRenderMimeRegistry;
     private ready: Promise<void>;
 
-    constructor({rendermime, session, factory, ready}: RenderedLayout.IOptions) {
+    constructor({rendermime, session, factory, ready}: RenderedDashboard.IOptions) {
         super();
         this.mimeTypeRegistry = rendermime;
         this.ready = ready;
@@ -100,7 +95,7 @@ del _json`;
             rendermime,
             session,
             evaluator,
-            externalPartRenderer: new RenderedLayout.ExternalPartRenderer(
+            externalPartRenderer: new RenderedDashboard.ExternalPartRenderer(
                 rendermime,
                 handleManager
             ),
@@ -118,7 +113,7 @@ del _json`;
 
     async renderModel(model: IRenderMime.IMimeModel): Promise<void> {
         await this.ready;
-        const temp = model.data[MAVEN_LAYOUT_MIME_TYPE] as unknown;
+        const temp = model.data[DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE] as unknown;
         const dashboardModel = temp as DashboardSerializer.ISerializedDashboard;
         this.node.style.height = `${(dashboardModel.dims || {height: 500}).height}px`;
         this.dashboard.fit();
@@ -130,12 +125,12 @@ del _json`;
     public saveLayout() {
         let cur = this.parent;
         while (cur != null) {
-            if (cur instanceof CodeCell && RenderedLayout.isEditableCell(cur)) {
+            if (cur instanceof CodeCell && RenderedDashboard.isEditableCell(cur)) {
                 let dash = DashboardSerializer.toJson(this.dashboard);
                 dash.visual = true;
-                let id = RenderedLayout.getCellLayoutGuid(cur);
+                let id = RenderedDashboard.getCellLayoutGuid(cur);
                 if (!!dash && id === this.dashboard.uuid) {
-                    cur.model.value.text = RenderedLayout.getPythonCode(dash);
+                    cur.model.value.text = RenderedDashboard.getPythonCode(dash);
                     cur.inputHidden = true;
                     return;
                 }
@@ -155,7 +150,7 @@ del _json`;
     }
 }
 
-export namespace RenderedLayout {
+export namespace RenderedDashboard {
     export interface IOptions {
         session: IClientSession;
         rendermime: IRenderMimeRegistry;
@@ -230,111 +225,3 @@ export namespace RenderedLayout {
         }
     }
 }
-
-
-export const mavenLayoutRendererPlugin: JupyterFrontEndPlugin<void> = {
-    id: "jupyterlab-mavenworks:layout-renderer",
-    autoStart: true,
-    requires: [
-        IPartFactory,
-        INotebookTracker,
-        IDashboardTracker
-    ],
-    optional: [
-        ICommandPalette
-    ],
-    activate: (
-        app,
-        factory: IPartFactory,
-        nbTracker: INotebookTracker,
-        dashboardTracker: IDashboardTracker,
-        palette?: ICommandPalette
-    ) => {
-        const { commands } = app;
-
-        // Label-less proxy commands for the toolbar buttons.
-        // The Viewer "proxy" also implements the maybeInsert functionality of
-        // the old VisualEditorTracker
-        commands.addCommand("mavenworks:open-cell-dashboard-visual-editor", {
-            iconClass: "fa fa-desktop",
-            execute: async () => {
-                const nbPanel = nbTracker.currentWidget;
-                if (nbPanel == null) return;
-                if (dashboardTracker.getCurrentDashboard() == null) {
-                    const res = await showDialog({
-                        title: "Add new dashboard?",
-                        body: "It looks like you haven't selected a dashboard cell. Would you like to add one?",
-                        buttons: [Dialog.okButton(), Dialog.cancelButton()]
-                    });
-                    if (!res.button.accept) return; // cancelled
-                    NotebookActions.insertBelow(nbPanel.content);
-                    NotebookActions.hideCode(nbPanel.content);
-                    const cellModel = nbTracker.activeCell!.model;
-                    cellModel.value.text = RenderedLayout.getPythonCode(DashboardSerializer.DEFAULT_DASHBOARD);
-                    cellModel.metadata.set("showinviewer", "true");
-                    await NotebookActions.run(nbPanel.content, nbPanel.session);
-                    await AsyncTools.waitUntil(() => dashboardTracker.getCurrentDashboard() != null, 1000, 100);
-                }
-                return commands.execute("visual-editor:open");
-            }
-        });
-        commands.addCommand("mavenworks:open-cell-dashboard-globals-editor", {
-            iconClass: "fa fa-globe",
-            execute: () => commands.execute("@mavenomics/dashboard-devtools:GlobalsEditor:openEditor")
-        });
-
-        nbTracker.widgetAdded.connect((_tracker, panel) => {
-            const { context, session } = panel;
-            const rendermime = panel.content.rendermime;
-            const partFactory = factory.get(context);
-            const handleManager = DisplayHandleManager.GetManager(session);
-            const syncMetadata = new SyncMetadata(session, partFactory, handleManager);
-            const registerUDPsPromise = registerUDPs(partFactory, session.path);
-            const ready = Promise.all([
-                syncMetadata.ready,
-                registerUDPsPromise
-            ]).then(() => void 0 as void);
-            rendermime.addFactory({
-                safe: false,
-                mimeTypes: [MAVEN_LAYOUT_MIME_TYPE],
-                defaultRank: 75,
-                createRenderer: () => {
-                    return new RenderedLayout({
-                        factory: partFactory,
-                        rendermime,
-                        session,
-                        ready
-                    });
-                },
-            });
-
-            const openDesigner = new CommandToolbarButton({
-                commands,
-                id: "mavenworks:open-cell-dashboard-visual-editor"
-            });
-
-            const openGlobals = new CommandToolbarButton({
-                commands,
-                id: "mavenworks:open-cell-dashboard-globals-editor"
-            });
-
-            panel.toolbar.insertItem(0, "Open Editor", openGlobals);
-            panel.toolbar.insertItem(0, "add-visual-cell", openDesigner);
-            panel.disposed.connect(() => {
-                rendermime.removeMimeType(MAVEN_LAYOUT_MIME_TYPE);
-                syncMetadata.dispose();
-                handleManager.dispose();
-                partFactory.dispose();
-            });
-        });
-
-        RegisterActions(
-            app,
-            () => dashboardTracker.getCurrentDashboard(),
-            "cell-dashboard",
-            ".jp-Notebook.jp-mod-commandMode:not(.p-mod-hidden) .m-RenderedLayout",
-            "Cell",
-            palette
-        );
-    }
-};

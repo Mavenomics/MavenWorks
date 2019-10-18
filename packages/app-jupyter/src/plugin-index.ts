@@ -3,7 +3,7 @@
 import "@mavenomics/table";
 import "../style/index.css";
 import { JupyterFrontEnd, JupyterFrontEndPlugin } from "@jupyterlab/application";
-import { mavenLayoutRendererPlugin } from "./rendermime/MimeLayoutRenderer";
+import { mavenLayoutRendererPlugin } from "./editors/rendered-dashboard-plugin";
 import { NotebookTools, INotebookTools, INotebookTracker } from "@jupyterlab/notebook";
 import { partEditorPlugin } from "./editors/PartEditor/PartEditorPlugin";
 import { HoverManager, typeEditorFactoryPlugin, defaultTypeEditors } from "@mavenomics/ui";

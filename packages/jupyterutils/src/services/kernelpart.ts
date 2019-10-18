@@ -1,10 +1,9 @@
-import { JSONObject, JSONExt } from "@phosphor/coreutils";
-import { filter } from "rxjs/operators";
-import { KernelError } from "../util/PythonError";
+import { MimeModel, IRenderMime } from "@jupyterlab/rendermime";
 import { Converters, JSONObject as SerializedObject } from "@mavenomics/coreutils";
 import { Part, OptionsBag } from "@mavenomics/parts";
-import { CommManager } from "../util/CommManager";
-import { MimeModel, IRenderMime } from "@jupyterlab/rendermime";
+import { JSONObject, JSONExt } from "@phosphor/coreutils";
+import { filter } from "rxjs/operators";
+import { CommManager, KernelError } from "../utils";
 
 /**
  * This part is a proxy/wrapper around kernel parts that live on the Kernel.

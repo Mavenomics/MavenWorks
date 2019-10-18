@@ -1,10 +1,9 @@
-import { IDisposable } from "@phosphor/disposable";
-import { JSONObject as JSONDataObject, UUID } from "@phosphor/coreutils";
 import { IClientSession } from "@jupyterlab/apputils";
-import { CommManager } from "../util/CommManager";
-import { JSONObject, Converters } from "@mavenomics/coreutils";
-import { KernelError } from "../util/PythonError";
 import { GlobalsService, IExpressionEvaluator } from "@mavenomics/bindings";
+import { JSONObject, Converters } from "@mavenomics/coreutils";
+import { JSONObject as JSONDataObject, UUID } from "@phosphor/coreutils";
+import { IDisposable } from "@phosphor/disposable";
+import { CommManager, KernelError } from "../utils";
 
 export class KernelExpressionEvaluator implements IDisposable, IExpressionEvaluator {
     private readonly session: IClientSession;

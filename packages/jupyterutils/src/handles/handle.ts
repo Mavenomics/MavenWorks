@@ -1,10 +1,10 @@
+import { ISanitizer } from "@jupyterlab/apputils";
+import { nbformat } from "@jupyterlab/coreutils";
+import { IRenderMimeRegistry, MimeModel, renderText } from "@jupyterlab/rendermime";
+import { JSONObject } from "@phosphor/coreutils";
 import { Widget, BoxLayout } from "@phosphor/widgets";
 import { Observable } from "rxjs";
-import { JSONObject } from "@phosphor/coreutils";
-import { nbformat } from "@jupyterlab/coreutils";
 import { filter, takeWhile } from "rxjs/operators";
-import { IRenderMimeRegistry, MimeModel, renderText } from "@jupyterlab/rendermime";
-import { ISanitizer } from "@jupyterlab/apputils";
 
 export class DisplayHandle extends Widget {
     // re-types the definition in Widget#layout

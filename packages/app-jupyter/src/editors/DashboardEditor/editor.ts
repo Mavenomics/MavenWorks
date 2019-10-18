@@ -3,7 +3,7 @@ import { ToolbarButton, CommandToolbarButton, Toolbar } from "@jupyterlab/apputi
 import { IRenderMimeRegistry } from "@jupyterlab/rendermime";
 import { CommandRegistry } from "@phosphor/commands";
 import { KernelMessage, Session } from "@jupyterlab/services";
-import { KernelError } from "../../util/PythonError";
+import { KernelError } from "@mavenomics/jupyterutils";
 import { PromiseDelegate } from "@phosphor/coreutils";
 import { Dashboard, DashboardSerializer } from "@mavenomics/dashboard";
 import { HoverManager } from "@mavenomics/ui";
