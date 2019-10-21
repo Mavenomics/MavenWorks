@@ -47,8 +47,8 @@ const [auth, authRoute] = useAuth();
 
 app.use("/user", authRoute);
 
-app.use("/app", express.static("../kitchen-sink/public"));
-app.get("/app/*", (_req, res) => res.sendFile(join(__dirname, "../../kitchen-sink/public/index.html")));
+app.use("/app", express.static("../app-standalone/public"));
+app.get("/app/*", (_req, res) => res.sendFile(join(__dirname, "../../app-standalone/public/index.html")));
 
 setup();
 
