@@ -1,10 +1,12 @@
 import * as React from "react";
 import { ITypeEditorProps } from "../editorfactory/interfaces";
 import * as DropdownList from "react-widgets/lib/DropdownList";
+import { UncontrolledInput, useIntermediate } from "../components";
 
 export const StringEditor: React.FunctionComponent<ITypeEditorProps<string>> = ({
     value, onValueChanged, schema
 }) => {
+    const [val, key, setVal] = useIntermediate(value, onValueChanged);
     if (schema != null) {
         return (<span className="m-rw-inline-hack">
             <DropdownList value={value}
@@ -15,12 +17,10 @@ export const StringEditor: React.FunctionComponent<ITypeEditorProps<string>> = (
             </span>
         );
     } else {
-        return (<input type="text"
+        return (<UncontrolledInput key={key}
             className="m-FallbackEditor-String"
-            value={value}
-            onChange={(ev) => onValueChanged(ev.currentTarget.value)}
-            autoCorrect="off"
-            spellCheck={false}
-            autoCapitalize={"off"} />);
+            value={val}
+            valueChanged={newVal => setVal(newVal)} />
+        );
     }
 };

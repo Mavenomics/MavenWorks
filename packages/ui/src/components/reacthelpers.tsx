@@ -51,6 +51,38 @@ export function usePrevious<T>(this: void, value: T): T | undefined {
 }
 
 /**
+ * Helper for working with UncontrolledInput.
+ *
+ * For usage info, refer to the documentation for [[UncontrolledInput]].
+ *
+ * @export
+ * @template T A value that can be compared using strict equality (`===`)
+ */
+export function useIntermediate<T>(
+    this: void,
+    value: T,
+    onValueChanged: (this: void, arg: T) => void
+): [T, number, React.Dispatch<T>] {
+    const [key, setKey] = React.useState(0);
+    const prev = usePrevious(value);
+    const [lastValue, setLastValue] = React.useState(value);
+
+    if (value !== lastValue && value !== prev) {
+        setLastValue(value);
+        if (key !== Number.MAX_SAFE_INTEGER) {
+            setKey(key + 1);
+        } else {
+            setKey(0);
+        }
+    }
+
+    return [value, key, (arg: T) => {
+        setLastValue(arg);
+        onValueChanged.call(void 0, arg);
+    }];
+}
+
+/**
  * Rerender a react component whenever an observable emits.
  *
  * This is useful for components that use Observables as a dirtiness signal,

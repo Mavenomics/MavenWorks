@@ -5,42 +5,37 @@ import { Widget, BoxLayout } from "@phosphor/widgets";
 import { IEditorFactoryService, CodeEditorWrapper, CodeEditor } from "@jupyterlab/codeeditor";
 import { CodeMirrorEditorFactory } from "@jupyterlab/codemirror";
 import * as _ from "lodash";
+import { UncontrolledInput, useIntermediate } from "../components";
 
 export const FallbackEditor: React.FC<ITypeEditorProps<any>> = ({
     type, value, onValueChanged
 }) => {
-    const toEdit = Private.toEditableFormat(value, type);
-    const [editableValue, setEditableValue] = React.useState<string>(toEdit || "");
+    const toEdit = Private.toEditableFormat(value, type)
     const [lastValue, setLastValue] = React.useState(value);
     const [isValid, setIsValid] = React.useState(true);
     if (Private.toEditableFormat(lastValue, type) !== toEdit) {
         // this occurs on outside changes
         setLastValue(value);
-        setEditableValue(toEdit || "");
         setIsValid(true);
     }
     let className = "m-FallbackEditor-" + type.serializableName;
     if (!isValid) {
         className += " m-FallbackEditor-invalid";
     }
-
-    return (<input type="text"
-        value={editableValue}
+    const [val, key, setVal] = useIntermediate(toEdit || "", val => {
+        try {
+            const newVal = Private.fromEditableFormat(val, type);
+            onValueChanged.call(void 0, newVal);
+            setIsValid(true);
+            setLastValue(newVal);
+        } catch {
+            setIsValid(false);
+        }
+    })
+    return (<UncontrolledInput key={key}
         className={className}
-        onChange={(ev) => {
-            setEditableValue(ev.target.value);
-            try {
-                const newVal = Private.fromEditableFormat(ev.target.value, type);
-                onValueChanged.call(void 0, newVal);
-                setIsValid(true);
-                setLastValue(newVal);
-            } catch {
-                setIsValid(false);
-            }
-        }}
-        autoCorrect="off"
-        spellCheck={false}
-        autoCapitalize={"off"} />);
+        value={val}
+        valueChanged={setVal} />);
 };
 
 export class FallbackDetailEditor extends Widget {
