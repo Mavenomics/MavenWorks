@@ -5,7 +5,9 @@ import {
     getFormattingMetadata,
     getFormattingWithDefaults,
     IColumnFormatting,
-    stripDefaultsFromFormatting
+    stripDefaultsFromFormatting,
+    serializeFormatting,
+    parseFormatting
 } from "./grid/helpers";
 import { ReactWrapperWidget, PropertiesEditor, TypeEditor, HoverManager } from "@mavenomics/ui";
 import { Widget, BoxLayout } from "@phosphor/widgets";
@@ -124,7 +126,9 @@ export function RegisterGridCommands(
                 return;
             }
             const colFormatting = focusedPart.getColumnFormatting(name);
-            localStorage.setItem("mavenworks:column-properties", JSON.stringify(colFormatting));
+            localStorage.setItem("mavenworks:column-properties", serializeFormatting(
+                {buffer: colFormatting}
+            ));
         }
     });
     contextMenu.addItem({
@@ -156,7 +160,8 @@ export function RegisterGridCommands(
             if (colFormatting == null) {
                 return;
             }
-            focusedPart.setColumnFormatting(name, JSON.parse(colFormatting));
+            const formatting = parseFormatting(colFormatting)["buffer"];
+            focusedPart.setColumnFormatting(name, formatting);
         }
     });
     contextMenu.addItem({
