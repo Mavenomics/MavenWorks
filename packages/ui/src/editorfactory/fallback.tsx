@@ -10,7 +10,7 @@ import { UncontrolledInput, useIntermediate } from "../components";
 export const FallbackEditor: React.FC<ITypeEditorProps<any>> = ({
     type, value, onValueChanged
 }) => {
-    const toEdit = Private.toEditableFormat(value, type)
+    const toEdit = Private.toEditableFormat(value, type);
     const [lastValue, setLastValue] = React.useState(value);
     const [isValid, setIsValid] = React.useState(true);
     if (Private.toEditableFormat(lastValue, type) !== toEdit) {
@@ -31,7 +31,7 @@ export const FallbackEditor: React.FC<ITypeEditorProps<any>> = ({
         } catch {
             setIsValid(false);
         }
-    })
+    });
     return (<UncontrolledInput key={key}
         className={className}
         value={val}
