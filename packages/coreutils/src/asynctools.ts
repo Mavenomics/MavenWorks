@@ -15,6 +15,15 @@ export namespace AsyncTools {
     }
 
     /**
+     * Like [[wait]], except it will wait for the next frame paint before resolving.
+     *
+     * @export
+     */
+    export function waitForFrame() {
+        return new Promise(resolve => requestAnimationFrame(resolve));
+    }
+
+    /**
      * Wait until a predicate returns true.
      *
      * Like `wait`, this returns a promise that resolves when at least 1 VM turn

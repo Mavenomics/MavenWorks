@@ -1,6 +1,6 @@
 import { Part, OptionsBag, PartServices } from "@mavenomics/parts";
 import { Table } from "@mavenomics/table";
-import { Types } from "@mavenomics/coreutils";
+import { Types, AsyncTools } from "@mavenomics/coreutils";
 import { Widget } from "@phosphor/widgets";
 import { SlickGridWidget } from "./grid/widget";
 import { HoverManager } from "@mavenomics/ui";
@@ -113,6 +113,11 @@ with the same parent, they will be grouped together.`;
         this.gridContainer.show();
         const formatting = parseFormatting("" + bag.get("Formatting"));
         this.gridContext._setBag(bag);
+        // yield a tick to the UI to ensure it can update, since we're about to
+        // lock it
+        await AsyncTools.waitForFrame();
+        // Wait an additional tick so that other handlers have had a chance to run
+        await AsyncTools.wait();
         await this.gridContainer.Render(tbl, formatting);
     }
 
