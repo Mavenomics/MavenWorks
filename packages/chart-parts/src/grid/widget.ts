@@ -104,6 +104,12 @@ export class SlickGridWidget extends Widget {
             }
         }
 
+        let coldiff = -1;
+        coldiff += this.gridContext.get("Show Row Selectors") ? 1 : 0;
+        coldiff += this.gridContext.get("Show Path Column") ? 1 : 0;
+
+        const nFrozenCols = this.gridContext.get("Number of Frozen Columns");
+
         const slickGridOpts = {
             enableCellNavigation: true,
             enableColumnReorder: false,
@@ -111,7 +117,8 @@ export class SlickGridWidget extends Widget {
             asyncEditorLoading: false,
             enableAsyncPostRender: true,
             rowHeight: 17,
-            cellHighlightCssClass: "changed"
+            cellHighlightCssClass: "changed",
+            frozenColumn: nFrozenCols + coldiff
         };
 
         this.grid = new Slick.Grid<RowData>(
