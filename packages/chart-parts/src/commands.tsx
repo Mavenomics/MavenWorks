@@ -27,11 +27,13 @@ export function RegisterGridCommands(
 
     const CommandIds = {
         EditColumnProperties: namespace + "mavenworks:edit-column-properties",
+        CopyColumnProperties: namespace + "mavenworks:copy-column-properties",
+        PasteColumnProperties: namespace + "mavenworks:paste-column-properties",
         AddNewColumn: namespace + "mavenworks:table-editor:add-new",
         EditColumn: namespace + "mavenworks:table-editor:edit-name",
         DeleteColumn: namespace + "mavenworks:table-editor:delete-column",
         DeleteRow: namespace + "mavenworks:table-editor:delete-row",
-        EditTableAsCsv: namespace + "mavenworks:table-editor:edit-as-csv"
+        EditTableAsCsv: namespace + "mavenworks:table-editor:edit-as-csv",
     };
 
     commands.addCommand(CommandIds.EditColumnProperties, {
@@ -98,6 +100,67 @@ export function RegisterGridCommands(
     });
     contextMenu.addItem({
         command: CommandIds.EditColumnProperties,
+        selector: regionSelector + " .m-SlickGridPart:not(.m-TableEditorPart) .slick-header-column"
+    });
+
+    commands.addCommand(CommandIds.CopyColumnProperties, {
+        label: "Copy Column Properties",
+        isEnabled: () => {
+            const focusedPart = getFocusedPart();
+            return focusedPart != null
+                && focusedPart instanceof SlickGridPart
+                && focusedPart.lastColumn != null;
+        },
+        execute: async () => {
+            const focusedPart = getFocusedPart();
+            if (focusedPart == null
+                || !(focusedPart instanceof SlickGridPart)
+                || focusedPart.lastColumn == null
+            ) {
+                return;
+            }
+            const name = focusedPart.lastColumn;
+            if (!name) {
+                return;
+            }
+            const colFormatting = focusedPart.getColumnFormatting(name);
+            localStorage.setItem("mavenworks:column-properties", JSON.stringify(colFormatting));
+        }
+    });
+    contextMenu.addItem({
+        command: CommandIds.CopyColumnProperties,
+        selector: regionSelector + " .m-SlickGridPart:not(.m-TableEditorPart) .slick-header-column"
+    });
+
+    commands.addCommand(CommandIds.PasteColumnProperties, {
+        label: "Paste Column Properties",
+        isEnabled: () => {
+            const focusedPart = getFocusedPart();
+            return focusedPart != null
+                && focusedPart instanceof SlickGridPart
+                && focusedPart.lastColumn != null;
+        },
+        execute: async () => {
+            const focusedPart = getFocusedPart();
+            if (focusedPart == null
+                || !(focusedPart instanceof SlickGridPart)
+                || focusedPart.lastColumn == null
+            ) {
+                return;
+            }
+            const name = focusedPart.lastColumn;
+            if (!name) {
+                return;
+            }
+            const colFormatting = localStorage.getItem("mavenworks:column-properties");
+            if (colFormatting == null) {
+                return;
+            }
+            focusedPart.setColumnFormatting(name, JSON.parse(colFormatting));
+        }
+    });
+    contextMenu.addItem({
+        command: CommandIds.PasteColumnProperties,
         selector: regionSelector + " .m-SlickGridPart:not(.m-TableEditorPart) .slick-header-column"
     });
 
