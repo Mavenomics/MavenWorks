@@ -275,6 +275,10 @@ export class QueryEngine {
 
     private _startGroupNodes(nodes: TempNode[], cb: MqlCallback<void>) {
         let settledRows = 0;
+        if (nodes.length === 0) {
+            // nothing to do, we're working with an empty table
+            return cb(void 0, void 0);
+        }
         for (let i = 0; i < nodes.length; i++) {
             let cur = nodes[i];
             cur.groupKeys = this.groupByClause ? Array(this.groupByClause.resultSelectors.length) : null;
