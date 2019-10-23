@@ -226,7 +226,7 @@ export function formatColumns(mavenColumnArray: any[], webMavenHost: IGridContex
         slickGridFormat[0].formatters.push(Formatters.BasicValueFormatter);
 
     slickGridFormat.forEach(function (c) {
-        if (c.formatters.every((formatter) => !formatter.styleFormatter))
+        if (c.formatters.every((formatter) => formatter.styleFormatter))
             c.formatters.push(Formatters.BasicValueFormatter);
     });
 

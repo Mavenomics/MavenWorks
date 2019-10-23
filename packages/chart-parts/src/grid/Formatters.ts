@@ -85,7 +85,7 @@ export const CheckBoxColumnFormatter = Formatter(function (row: any, cell: numbe
         return '<input type="checkbox" class="slick-cell-checkbox indeterminate"/>';
     else
         return '<input type="checkbox" class="slick-cell-checkbox"/>';
-});
+}, true);
 
 export const RadioButtonColumnFormatter = Formatter(function (row: any, cell: number, value: any, columnDef: any, dataContext: any, data: any) {
     var radio = dataContext["_radio"];
@@ -96,7 +96,7 @@ export const RadioButtonColumnFormatter = Formatter(function (row: any, cell: nu
     else if (radio === false) {
         return '<input type="radio" class="slick-cell-radio"/>';
     }
-});
+}, true);
 
 export const HeatmapColumnFormatter = Formatter(function (row: any, cell: number, value: any, columnDef: any, dataContext: any, data: any) {
     if (value instanceof Error)
@@ -135,7 +135,7 @@ export const NumberFormatter = Formatter(function (row: any, cell: number, value
 
         return '<span style="float:right">' + numeral(value).format(columnDef.numberFormat) + '</span>';
     }
-}, true);
+});
 
 export const ConditionalFormatter = Formatter(function (row: any, cell: number, value: any, columnDef: any, dataContext: any, data: any) {
     if (value === null) {
