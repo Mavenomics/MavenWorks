@@ -93,17 +93,27 @@ export class RunEmbeddedMql extends IFunction {
                         if (val.passExprs) {
                             o[name] = (row: Row, args: any[], cb: MqlCallback) => {
                                 try {
-                                    cb(void 0, val.call(void 0, row, ...(args || [])));
+                                    const value = val.call(void 0, row, ...(args || []));
+                                    if (value instanceof Promise) {
+                                        return Callbacks.AsCallback(value)(cb);
+                                    } else {
+                                        return cb(void 0, value);
+                                    }
                                 } catch (err) {
                                     cb(err);
                                 }
                             };
                         } else {
                             o[name] = (row: Row, args: any[], cb: MqlCallback) => {
-                                Callbacks.All(args.map(i => i.bind(row)), (err, args) => {
+                                Callbacks.All(args.map(i => i.bind(void 0, row)), (err, args) => {
                                     if (err) return cb(err);
                                     try {
-                                        cb(void 0, val.call(void 0, row, ...(args || [])));
+                                        const value = val.call(void 0, row, ...(args || []));
+                                        if (value instanceof Promise) {
+                                            return Callbacks.AsCallback(value)(cb);
+                                        } else {
+                                            return cb(void 0, value);
+                                        }
                                     } catch (err) {
                                         cb(err);
                                     }
