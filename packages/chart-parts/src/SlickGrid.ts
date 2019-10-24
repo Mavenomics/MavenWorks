@@ -1,4 +1,4 @@
-import { Part, OptionsBag, PartServices } from "@mavenomics/parts";
+import { Part, OptionsBag, PartServices, PartUtils } from "@mavenomics/parts";
 import { Table } from "@mavenomics/table";
 import { Types, AsyncTools } from "@mavenomics/coreutils";
 import { Widget } from "@phosphor/widgets";
@@ -40,7 +40,7 @@ which means a column named "Foo.Bar.Baz" will have 2 collapsible levels "Foo"
 and "Bar", with a third level having just "Baz". If you have adjacent columns
 with the same parent, they will be grouped together.`;
 
-        metadata.addOption("Input Table", Types.Table, Table.NullTable(), {
+        metadata.addOption(PartUtils.INPUT_OPTION, Types.Table, Table.NullTable(), {
             description: "The input table for this part. Defaults to a null table."
         });
         metadata.addOption("Formatting", Types.String, "{}", {
@@ -72,13 +72,18 @@ with the same parent, they will be grouped together.`;
         metadata.addOption("RadioButtonList.Last Selection", Types.Any, "", {
             description: "If [RadioButtonList. Enabled] is true, the most recently selected radio value."
         });
-        // TODO: Frozen columns are not currently enabled.
         metadata.addOption("Number of Frozen Columns", Types.Number, 0);
         metadata.addOption("Show Row Selectors", Types.Boolean, false, {
             description: "Whether to show Excel-style row numbers on the far left of the grid."
         });
-        metadata.addOption("Show Path Column", Types.Boolean, false, {
-            description: "Whether to show the path of each row on the far left."
+        metadata.addOption("Show Path Column", Types.String, "Automatic", {
+            description: "Whether to show the path of each row on the far left. One of `Always`, `Never`," +
+            " or `Automatic`. When set to Auto, the Path column will be hidden for flat tables but" +
+            " visible for grouped tables.",
+            schema: {
+                "type": "string",
+                "enum": ["Always", "Never", "Automatic"]
+            }
         });
 
         return metadata;
@@ -95,7 +100,7 @@ with the same parent, they will be grouped together.`;
     }
 
     public async render(bag: OptionsBag) {
-        const tbl: any = bag.get("Input Table");
+        const tbl: any = bag.get(PartUtils.INPUT_OPTION);
         if (tbl == null) {
             throw new Error("Input Table must not be null");
         }
@@ -163,6 +168,20 @@ class GridContext implements IGridContext {
 
     public get(name: string) {
         if (this.bag == null) return;
+        if (name === "Show Path Column") {
+            const val = this.bag.get("Show Path Column") as boolean | string;
+            if (typeof val === "boolean") return val;
+            if (val === "Automatic") {
+                const tbl = this.bag.get(PartUtils.INPUT_OPTION);
+                if (!(tbl instanceof Table)) return false;
+                if (tbl.length === tbl.rows.length) {
+                    // flat table
+                    return false;
+                }
+                return true;
+            }
+            return val === "Always";
+        }
         // console.trace("FIXME");
         return this.bag.get(name);
     }
@@ -209,7 +228,7 @@ class GridContext implements IGridContext {
         const context = new GridContext(this.services, this.owner);
 
         const bag = new OptionsBag(SlickGridPart.GetMetadata());
-        bag.set("Input Table", table);
+        bag.set(PartUtils.INPUT_OPTION, table);
         bag.set("Formatting", formatting);
         context._setBag(bag);
 
