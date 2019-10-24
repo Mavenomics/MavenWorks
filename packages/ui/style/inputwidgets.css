@@ -1,5 +1,7 @@
 div.rc-select-dropdown {
     z-index: 100000;
+    max-height: 300px;
+    overflow-y: scroll;
 }
 
 .m-Button {
