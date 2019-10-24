@@ -45,7 +45,6 @@ export const UncontrolledInput: React.FC<InputProps> = ({value, valueChanged, cl
         spellCheck={false}
         autoCapitalize="off"
         autoCorrect="off"
-        style={{width: "100%"}}
         value={val}
         onChange={(ev) => {
             setVal(ev.target.value);
