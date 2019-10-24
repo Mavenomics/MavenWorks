@@ -6,10 +6,14 @@ import { ColorPicker } from "../widgets/colorpicker";
 import * as names from "color-name";
 import * as Combobox from "react-widgets/lib/Combobox";
 
+const colors = Object.freeze([
+    ...Object.keys(names),
+    "transparent"
+].sort());
+
 export const InlineColor: React.FunctionComponent<ITypeEditorProps<Color | string>> = ({
     value, onValueChanged
 }) => {
-    let rawValue = value;
     if (!(value instanceof Color)) {
         try {
             value = new Color(value);
@@ -36,7 +40,7 @@ export const InlineColor: React.FunctionComponent<ITypeEditorProps<Color | strin
             <Combobox
                 defaultValue={value.color}
                 value={intermediate}
-                data={Object.keys(names)}
+                data={[...colors]}
                 itemComponent={ColorSwatch}
                 onChange={(color) => {
                     const newStr = color;
