@@ -44,11 +44,15 @@ Commit: <code>${_COMMIT.substr(0, 5)}</code>
 <br />
 `;
 
+// just big enough to show everything
+const DIALOG_HEIGHT = _USE_GPL ? 520 : 300;
+
 export function openAbout() {
     const hover = HoverManager.GetManager();
     const widget = new Widget();
     widget.title.label = "About MavenWorks";
     widget.node.innerHTML = text;
+    widget.node.style.overflowY = "auto";
     const button = new Interactions.Button();
     button.onClicked.subscribe(async () => {
         // I'd love to use `await import()` here, but TS will actually transform
@@ -78,7 +82,7 @@ export function openAbout() {
         hover: widget,
         owner: new Widget(),
         width: 400,
-        height: 200
+        height: DIALOG_HEIGHT
     }).onClosed.then(() => {
         button.dispose();
     });
