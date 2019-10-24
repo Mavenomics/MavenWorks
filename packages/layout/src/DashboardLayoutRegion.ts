@@ -365,7 +365,7 @@ export abstract class DashboardLayoutRegion<LayoutProps extends IDashboardLayout
 
     /** Focus this region. */
     public focus() {
-        this.content.node.focus();
+        this.content.node.focus({preventScroll: true});
     }
 
     /**

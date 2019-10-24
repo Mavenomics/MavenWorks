@@ -199,7 +199,7 @@ chart.
 
     protected onActivateRequest(msg: Message) {
         if (this.isAttached) {
-            this.chart.node.focus();
+            this.chart.node.focus({preventScroll: true});
         }
         super.onActivateRequest(msg);
     }
