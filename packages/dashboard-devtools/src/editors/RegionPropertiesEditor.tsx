@@ -47,6 +47,7 @@ function PartPropertiesEditor({region, dashboard}: RegionPropertiesEditor.IProps
                         prettyName: i.name,
                         type: optMetadata!.type,
                         default: optMetadata!.value,
+                        schema: optMetadata!.schema
                     }] as [string, PropertiesEditor.IPropertyMetadata];
                 })]}
                 renderEditor={(optionName: string, metadata: PropertiesEditor.IPropertyMetadata) => {
@@ -55,6 +56,7 @@ function PartPropertiesEditor({region, dashboard}: RegionPropertiesEditor.IProps
                         key={partId + optionName + opt.binding}
                         option={opt}
                         bindingsProv={bindings}
+                        schema={metadata.schema}
                         onOptionChanged={handleOptionChanged} />;
                 }}
             />

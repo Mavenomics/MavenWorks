@@ -1,7 +1,7 @@
 import { Widget, StackedLayout } from "@phosphor/widgets";
 import { Type } from "@mavenomics/coreutils";
 import { ReactWrapperWidget } from "@mavenomics/ui";
-import { UUID } from "@phosphor/coreutils";
+import { UUID, JSONObject } from "@phosphor/coreutils";
 import { OptionsBag } from "./OptionsBag";
 import { PartServices } from "./PartServices";
 import { Observable, Subject } from "rxjs";
@@ -575,6 +575,8 @@ export namespace Part {
 
     export interface IPartOptionMetadata {
         description?: string;
+        /** An optional JSON schema to enhance editing experience with. */
+        schema?: JSONObject;
     }
 
     export class PartMetadata implements Iterable<OptionsBag.PartOption & IPartOptionMetadata> {
@@ -589,13 +591,33 @@ export namespace Part {
          * @param type The type of the option, which will be used for serialization and type checking
          * @param value The default value. New instances of the part will have their options set to defaults.
          * @param metadata Metadata about this option, such as a short description of what it does
+         *
+         * > #### A note on types and schema
+         * >
+         * > Types and schema are not currently validated in the framework,
+         * > except to provide additional UI features in editors. Providing a
+         * > type will not guarantee that all values match that type, it will
+         * > merely document that the option _should_ be a particular type and
+         * > make the Part Properties dialog show a more appropriate type editor.
+         * >
+         * > In a similar vein, providing an 'enum' schema for a String option
+         * > will make the Part Properties dialog show a dropdown with each enum
+         * > value, instead of the usual string editor.
+         * >
+         * > At some point in the future, we will be tightening up the Type
+         * > annotations system and hope to offer this guarantee to parts.
          */
-        public addOption(name: string, type: Type, value: unknown, metadata: IPartOptionMetadata = {}) {
+        public addOption(
+            name: string,
+            type: Type,
+            value: unknown,
+            metadata: IPartOptionMetadata = {}
+        ) {
             this.options.set(name, {
                 name,
                 type,
                 value,
-                ...metadata
+                ...metadata,
             });
         }
 

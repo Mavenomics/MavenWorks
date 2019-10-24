@@ -3,6 +3,7 @@ import { Converters, Types } from "@mavenomics/coreutils";
 import { OptionsBag } from "@mavenomics/parts";
 import { BindingsProvider } from "@mavenomics/bindings";
 import { TypeEditor } from "@mavenomics/ui";
+import { JSONObject } from "@phosphor/coreutils";
 
 export class PartPropertyEditor extends React.Component<PartPropertyEditor.IProps, PartPropertyEditor.IState> {
     constructor(props: PartPropertyEditor.IProps) {
@@ -27,6 +28,7 @@ export class PartPropertyEditor extends React.Component<PartPropertyEditor.IProp
                 value={this.state.isBinding ? this.state.expression : this.props.option.value}
                 type={this.state.isBinding ? Types.String : this.props.option.type}
                 metadata={this.state.editorMetadata}
+                schema={this.props.schema as {enum: string[]} | undefined}
                 onValueChanged={this.handleOptionChange.bind(this)}/>
         </span>;
     }
@@ -116,6 +118,7 @@ export namespace PartPropertyEditor {
 
     export interface IProps {
         option: OptionsBag.PartOption;
+        schema?: JSONObject;
         bindingsProv: BindingsProvider;
         onOptionChanged: (this: void, opt: OptionsBag.PartOption) => void;
 
