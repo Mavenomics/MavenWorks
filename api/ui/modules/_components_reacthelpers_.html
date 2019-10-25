@@ -74,6 +74,7 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_components_reacthelpers_.html#renderonemit" class="tsd-kind-icon">render<wbr>OnEmit</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_components_reacthelpers_.html#useintermediate" class="tsd-kind-icon">use<wbr>Intermediate</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_components_reacthelpers_.html#useprevious" class="tsd-kind-icon">use<wbr>Previous</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_components_reacthelpers_.html#userender" class="tsd-kind-icon">use<wbr>Render</a></li>
 							</ul>
@@ -93,7 +94,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/229719f/packages/ui/src/components/reacthelpers.tsx#L59">components/reacthelpers.tsx:59</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/ui/src/components/reacthelpers.tsx#L91">components/reacthelpers.tsx:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -117,6 +118,75 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+					<a name="useintermediate" class="tsd-anchor"></a>
+					<h3>use<wbr>Intermediate</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">use<wbr>Intermediate&lt;T&gt;<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, onValueChanged<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">React.Dispatch</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/ui/src/components/reacthelpers.tsx#L61">components/reacthelpers.tsx:61</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Helper for working with UncontrolledInput.</p>
+								</div>
+								<p>For usage info, refer to the documentation for <a href="_components_uncontrolled_input_.html#uncontrolledinput">UncontrolledInput</a>.</p>
+								<dl class="tsd-comment-tags">
+									<dt>export</dt>
+									<dd></dd>
+									<dt>template</dt>
+									<dd><p>T A value that can be compared using strict equality (<code>===</code>)</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>this: <span class="tsd-signature-type">void</span></h5>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">T</span></h5>
+								</li>
+								<li>
+									<h5>onValueChanged: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span>, arg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>this: <span class="tsd-signature-type">void</span></h5>
+														</li>
+														<li>
+															<h5>arg: <span class="tsd-signature-type">T</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">React.Dispatch</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="useprevious" class="tsd-anchor"></a>
 					<h3>use<wbr>Previous</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
@@ -126,7 +196,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/229719f/packages/ui/src/components/reacthelpers.tsx#L45">components/reacthelpers.tsx:45</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/ui/src/components/reacthelpers.tsx#L45">components/reacthelpers.tsx:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -185,7 +255,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/229719f/packages/ui/src/components/reacthelpers.tsx#L17">components/reacthelpers.tsx:17</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/ui/src/components/reacthelpers.tsx#L17">components/reacthelpers.tsx:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -229,6 +299,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_components_reacthelpers_.html#renderonemit" class="tsd-kind-icon">render<wbr>OnEmit</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_components_reacthelpers_.html#useintermediate" class="tsd-kind-icon">use<wbr>Intermediate</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="_components_reacthelpers_.html#useprevious" class="tsd-kind-icon">use<wbr>Previous</a>

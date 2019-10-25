@@ -117,7 +117,7 @@
 					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/229719f/packages/parts/src/Part.ts#L581">Part.ts:581</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/parts/src/Part.ts#L583">Part.ts:583</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -127,7 +127,7 @@
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_optionsbag_.optionsbag.partoption.html" class="tsd-signature-type">PartOption</a><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_part_.part.ipartoptionmetadata.html" class="tsd-signature-type">IPartOptionMetadata</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Map&lt;string, OptionsBag.PartOption &amp; IPartOptionMetadata&gt;()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/229719f/packages/parts/src/Part.ts#L584">Part.ts:584</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/parts/src/Part.ts#L586">Part.ts:586</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -137,7 +137,7 @@
 					<div class="tsd-signature tsd-kind-icon">remarks<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/229719f/packages/parts/src/Part.ts#L582">Part.ts:582</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/parts/src/Part.ts#L584">Part.ts:584</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -154,7 +154,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/229719f/packages/parts/src/Part.ts#L602">Part.ts:602</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/parts/src/Part.ts#L624">Part.ts:624</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_optionsbag_.optionsbag.partoption.html" class="tsd-signature-type">PartOption</a><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_part_.part.ipartoptionmetadata.html" class="tsd-signature-type">IPartOptionMetadata</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -171,7 +171,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/229719f/packages/parts/src/Part.ts#L593">Part.ts:593</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/parts/src/Part.ts#L610">Part.ts:610</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -203,6 +203,21 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> metadata: <a href="../interfaces/_part_.part.ipartoptionmetadata.html" class="tsd-signature-type">IPartOptionMetadata</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Metadata about this option, such as a short description of what it does</p>
+										<blockquote>
+											<a href="#a-note-on-types-and-schema" id="a-note-on-types-and-schema" style="color: inherit; text-decoration: none;">
+												<h4>A note on types and schema</h4>
+											</a>
+											<p>Types and schema are not currently validated in the framework,
+												except to provide additional UI features in editors. Providing a
+												type will not guarantee that all values match that type, it will
+												merely document that the option <em>should</em> be a particular type and
+											make the Part Properties dialog show a more appropriate type editor.</p>
+											<p>In a similar vein, providing an &#39;enum&#39; schema for a String option
+												will make the Part Properties dialog show a dropdown with each enum
+											value, instead of the usual string editor.</p>
+											<p>At some point in the future, we will be tightening up the Type
+											annotations system and hope to offer this guarantee to parts.</p>
+										</blockquote>
 									</div>
 								</li>
 							</ul>
@@ -220,7 +235,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/229719f/packages/parts/src/Part.ts#L606">Part.ts:606</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/parts/src/Part.ts#L628">Part.ts:628</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>

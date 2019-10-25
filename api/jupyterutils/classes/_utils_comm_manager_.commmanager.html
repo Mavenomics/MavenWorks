@@ -1,0 +1,984 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>CommManager | @mavenomics/jupyterutils</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">@mavenomics/jupyterutils</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_utils_comm_manager_.html">&quot;utils/comm-manager&quot;</a>
+				</li>
+				<li>
+					<a href="_utils_comm_manager_.commmanager.html">CommManager</a>
+				</li>
+			</ul>
+			<h1>Class CommManager&lt;MsgType, ResponseType&gt;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Manage a comm for a session, reconnecting when necessary.</p>
+					</div>
+					<p>MsgType - A type describing the shape of messages sent to the kernel
+					ResponseType - A type describing the shape of messages sent to the client</p>
+					<dl class="tsd-comment-tags">
+						<dt>remarks</dt>
+						<dd><p>Comm management is a very complex topic, covered here in some detail:
+							<a href="https://docs.google.com/document/d/1Wg6LHCb9aesxZ-WjHenZHejKbX-J6LeBktThsz2G87E/edit#">https://docs.google.com/document/d/1Wg6LHCb9aesxZ-WjHenZHejKbX-J6LeBktThsz2G87E/edit#</a></p>
+							<p>A CommManager connects to a comm channel and handles the cross-cutting
+								concerns of keeping that comm alive and handling what to do when it dies.
+							This class only works for client-initiated, kernel-side comms.</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>MsgType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">JSONValue</span></h4>
+					</li>
+					<li>
+						<h4>ResponseType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">JSONValue</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">CommManager</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><span class="tsd-signature-type">IDisposable</span></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-class"><a href="../interfaces/_utils_comm_manager_.commmanager.ioptions.html" class="tsd-kind-icon">IOptions</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private-protected">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-protected"><a href="_utils_comm_manager_.commmanager.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#_commclosed" class="tsd-kind-icon">_comm<wbr>Closed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#_commclosedsrc_" class="tsd-kind-icon">_comm<wbr>Closed<wbr>Src$</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#_commname" class="tsd-kind-icon">_comm<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#_commopened" class="tsd-kind-icon">_comm<wbr>Opened</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#_commopenedsrc_" class="tsd-kind-icon">_comm<wbr>Opened<wbr>Src$</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#_isdisposed" class="tsd-kind-icon">_is<wbr>Disposed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#_msgrecieved" class="tsd-kind-icon">_msg<wbr>Recieved</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#_msgrecievedsrc_" class="tsd-kind-icon">_msg<wbr>Recieved<wbr>Src$</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#awaitingsetup" class="tsd-kind-icon">awaiting<wbr>Setup</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#comm" class="tsd-kind-icon">comm</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#connectionlock" class="tsd-kind-icon">connection<wbr>Lock</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#session" class="tsd-kind-icon">session</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_utils_comm_manager_.commmanager.html#commclosed" class="tsd-kind-icon">comm<wbr>Closed</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_utils_comm_manager_.commmanager.html#commname" class="tsd-kind-icon">comm<wbr>Name</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_utils_comm_manager_.commmanager.html#commopened" class="tsd-kind-icon">comm<wbr>Opened</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_utils_comm_manager_.commmanager.html#isdisposed" class="tsd-kind-icon">is<wbr>Disposed</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_utils_comm_manager_.commmanager.html#isopen" class="tsd-kind-icon">is<wbr>Open</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_utils_comm_manager_.commmanager.html#msgrecieved" class="tsd-kind-icon">msg<wbr>Recieved</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#connecttocomm" class="tsd-kind-icon">connect<wbr>ToComm</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_utils_comm_manager_.commmanager.html#dispose" class="tsd-kind-icon">dispose</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#oniopubmsg" class="tsd-kind-icon">on<wbr>Iopub<wbr>Msg</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#onkernelchanged" class="tsd-kind-icon">on<wbr>Kernel<wbr>Changed</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_utils_comm_manager_.commmanager.html#onkernelstatuschanged" class="tsd-kind-icon">on<wbr>Kernel<wbr>Status<wbr>Changed</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_utils_comm_manager_.commmanager.html#send" class="tsd-kind-icon">send</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_utils_comm_manager_.commmanager.html#sendandawaitresponse" class="tsd-kind-icon">send<wbr>And<wbr>Await<wbr>Response</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="_utils_comm_manager_.commmanager.html#create" class="tsd-kind-icon">Create</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-protected">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Comm<wbr>Manager<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_utils_comm_manager_.commmanager.html" class="tsd-signature-type">CommManager</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L64">utils/comm-manager.ts:64</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>__namedParameters: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>comm<wbr>Name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>session<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IClientSession</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_utils_comm_manager_.commmanager.html" class="tsd-signature-type">CommManager</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_commclosed" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _comm<wbr>Closed</h3>
+					<div class="tsd-signature tsd-kind-icon">_comm<wbr>Closed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L46">utils/comm-manager.ts:46</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_commclosedsrc_" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _comm<wbr>Closed<wbr>Src$</h3>
+					<div class="tsd-signature tsd-kind-icon">_comm<wbr>Closed<wbr>Src$<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Subject</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Subject&lt;never&gt;()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L45">utils/comm-manager.ts:45</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_commname" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _comm<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">_comm<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L49">utils/comm-manager.ts:49</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_commopened" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _comm<wbr>Opened</h3>
+					<div class="tsd-signature tsd-kind-icon">_comm<wbr>Opened<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L48">utils/comm-manager.ts:48</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_commopenedsrc_" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _comm<wbr>Opened<wbr>Src$</h3>
+					<div class="tsd-signature tsd-kind-icon">_comm<wbr>Opened<wbr>Src$<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Subject</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Subject&lt;never&gt;()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L47">utils/comm-manager.ts:47</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_isdisposed" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Disposed</h3>
+					<div class="tsd-signature tsd-kind-icon">_is<wbr>Disposed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L52">utils/comm-manager.ts:52</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_msgrecieved" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _msg<wbr>Recieved</h3>
+					<div class="tsd-signature tsd-kind-icon">_msg<wbr>Recieved<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ResponseType</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L44">utils/comm-manager.ts:44</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_msgrecievedsrc_" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _msg<wbr>Recieved<wbr>Src$</h3>
+					<div class="tsd-signature tsd-kind-icon">_msg<wbr>Recieved<wbr>Src$<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Subject</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ResponseType</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Subject&lt;ResponseType&gt;()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L43">utils/comm-manager.ts:43</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="awaitingsetup" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> awaiting<wbr>Setup</h3>
+					<div class="tsd-signature tsd-kind-icon">awaiting<wbr>Setup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L64">utils/comm-manager.ts:64</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This is a flag to check for kernel setup.</p>
+						</div>
+						<p>If this comm attempts to connect and fails, then <code>#connectToComm()</code> will
+							set this to <code>true</code> and wait for a special blob to arrive on the kernel
+							IOPub channel. This blob has a <code>mavenomics_state_ok</code> key in it&#39;s
+							<code>transient</code> dict, and is sent by the library <code>__init__</code> to signal that
+							the kernel is now setup and ready to accept connections. When that
+							happens, this will be cleared and the CommManager will again call
+						<code>#connectToComm()</code> to setup the channel.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="comm" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> comm</h3>
+					<div class="tsd-signature tsd-kind-icon">comm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IComm</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L51">utils/comm-manager.ts:51</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="connectionlock" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> connection<wbr>Lock</h3>
+					<div class="tsd-signature tsd-kind-icon">connection<wbr>Lock<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Mutex</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L53">utils/comm-manager.ts:53</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="session" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> session</h3>
+					<div class="tsd-signature tsd-kind-icon">session<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IClientSession</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L50">utils/comm-manager.ts:50</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="commclosed" class="tsd-anchor"></a>
+					<h3>comm<wbr>Closed</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> commClosed<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L111">utils/comm-manager.ts:111</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Throws an error whenever the comm has closed.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>This can happen if the comm is disposed (on either side), the
+											kernel-side of the comm encounters an unhandled exception, or if the
+										kernel itself crashes.</p>
+										<p>If you don&#39;t want errors, pipe this observable through catchError.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="commname" class="tsd-anchor"></a>
+					<h3>comm<wbr>Name</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> commName<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L96">utils/comm-manager.ts:96</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The name of the comm channel that this manager communicates with</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="commopened" class="tsd-anchor"></a>
+					<h3>comm<wbr>Opened</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> commOpened<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L124">utils/comm-manager.ts:124</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Emits when the comm has opened.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Usually, the comm is only opened when needed. However, it can also be
+											opened via a push message from the kernel, signaling to the client that
+											the kernel can accept comms. When either of those events happen, this
+											observable will emit to signal that the comm is now open and ready for
+											communication. This observable exists to handle cases where the client
+											may need to eagerly sync state with the kernel, such as the SyncMetadata
+										comm.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="isdisposed" class="tsd-anchor"></a>
+					<h3>is<wbr>Disposed</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> isDisposed<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L98">utils/comm-manager.ts:98</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Whether this manager has been cleaned up</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="isopen" class="tsd-anchor"></a>
+					<h3>is<wbr>Open</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> isOpen<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L126">utils/comm-manager.ts:126</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Whether this comm is online and ready to communicate.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="msgrecieved" class="tsd-anchor"></a>
+					<h3>msg<wbr>Recieved</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> msgRecieved<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ResponseType</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L100">utils/comm-manager.ts:100</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>An Observable that emits whenever a message is sent by the kernel</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ResponseType</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="connecttocomm" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> connect<wbr>ToComm</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">connect<wbr>ToComm<span class="tsd-signature-symbol">(</span>_hasRerun<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L189">utils/comm-manager.ts:189</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> _hasRerun: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="dispose" class="tsd-anchor"></a>
+					<h3>dispose</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">dispose<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L78">utils/comm-manager.ts:78</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="oniopubmsg" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> on<wbr>Iopub<wbr>Msg</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Iopub<wbr>Msg<span class="tsd-signature-symbol">(</span>session<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IClientSession</span>, __namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L243">utils/comm-manager.ts:243</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>session: <span class="tsd-signature-type">IClientSession</span></h5>
+								</li>
+								<li>
+									<h5>__namedParameters: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>content<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">__type</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ICommInfoReply</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IReplyErrorContent</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IReplyAbortContent</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ICompleteReply</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IReplyErrorContent</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">IExecuteCount</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IReplyAbortContent</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">IExecuteCount</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IExecuteReply</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">IExecuteCount</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IHistoryReply</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IHistoryRequestRange</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IHistoryRequestSearch</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IHistoryRequestTail</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IInfoReply</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IInputReply</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IInspectReply</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IIsCompleteReplyIncomplete</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IIsCompleteReplyOther</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>header<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IHeader</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"clear_output"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"comm_close"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"comm_msg"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"comm_open"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"display_data"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"error"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"execute_input"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"execute_result"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"status"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"stream"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"update_display_data"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"debug_event"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"comm_info_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"comm_info_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"complete_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"complete_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"execute_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"execute_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"history_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"history_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"inspect_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"inspect_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"interrupt_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"interrupt_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"is_complete_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"is_complete_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"kernel_info_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"kernel_info_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"shutdown_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"shutdown_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"debug_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"debug_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"input_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"input_reply"</span><span class="tsd-signature-symbol">&gt;</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="onkernelchanged" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> on<wbr>Kernel<wbr>Changed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Kernel<wbr>Changed<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L267">utils/comm-manager.ts:267</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="onkernelstatuschanged" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> on<wbr>Kernel<wbr>Status<wbr>Changed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Kernel<wbr>Status<wbr>Changed<span class="tsd-signature-symbol">(</span>_<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IClientSession</span>, status<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Kernel.Status</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L274">utils/comm-manager.ts:274</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_: <span class="tsd-signature-type">IClientSession</span></h5>
+								</li>
+								<li>
+									<h5>status: <span class="tsd-signature-type">Kernel.Status</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="send" class="tsd-anchor"></a>
+					<h3>send</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">send<span class="tsd-signature-symbol">(</span>msg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MsgType</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IShellMessage</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"comm_close"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"comm_msg"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"comm_open"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"comm_info_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"comm_info_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"complete_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"complete_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"execute_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"execute_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"history_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"history_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"inspect_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"inspect_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"interrupt_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"interrupt_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"is_complete_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"is_complete_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"kernel_info_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"kernel_info_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"shutdown_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"shutdown_request"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L142">utils/comm-manager.ts:142</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Send a message without expecting a response.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>msg: <span class="tsd-signature-type">MsgType</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The message to send to the kernel</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IShellMessage</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"comm_close"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"comm_msg"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"comm_open"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"comm_info_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"comm_info_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"complete_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"complete_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"execute_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"execute_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"history_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"history_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"inspect_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"inspect_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"interrupt_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"interrupt_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"is_complete_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"is_complete_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"kernel_info_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"kernel_info_request"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"shutdown_reply"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"shutdown_request"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="sendandawaitresponse" class="tsd-anchor"></a>
+					<h3>send<wbr>And<wbr>Await<wbr>Response</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">send<wbr>And<wbr>Await<wbr>Response&lt;Resp&gt;<span class="tsd-signature-symbol">(</span>msg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MsgType</span>, responsePredicate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, timeoutMs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Resp</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L161">utils/comm-manager.ts:161</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Send a message and wait for a response from the kernel.</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>Resp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ResponseType</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>msg: <span class="tsd-signature-type">MsgType</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The message to send to the kernel</p>
+									</div>
+								</li>
+								<li>
+									<h5>responsePredicate: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A predicate to select the desired response from the kernel</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>msg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ResponseType</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>msg: <span class="tsd-signature-type">ResponseType</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> timeoutMs: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;20000</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A timeout to reject if no response is recieved in.</p>
+										<p>Note: The timeout is <em>not</em> optional. Various things may cause comm death
+											and while this function will try it&#39;s best, not all cases can be
+										accounted for (such as the network disconnecting or the kernel freezing)</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Resp</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+					<a name="create" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Create</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">Create&lt;T, U&gt;<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_utils_comm_manager_.commmanager.html" class="tsd-signature-type">CommManager</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/jupyterutils/src/utils/comm-manager.ts#L30">utils/comm-manager.ts:30</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a new CommManager, or recycle an already-instantiated manager</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">JSONValue</span></h4>
+								</li>
+								<li>
+									<h4>U<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">JSONValue</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>__namedParameters: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>comm<wbr>Name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>session<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IClientSession</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_utils_comm_manager_.commmanager.html" class="tsd-signature-type">CommManager</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_handles_handle_.html">"handles/handle"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_handles_handlemanager_.html">"handles/handlemanager"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_handles_index_.html">"handles/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_index_.html">"index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_rendered_dashboard_.html">"rendered-<wbr>dashboard"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_services_expressioneval_.html">"services/expressioneval"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_services_index_.html">"services/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_services_kernelpart_.html">"services/kernelpart"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_services_register_udps_.html">"services/register-<wbr>udps"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_services_sync_metadata_.html">"services/sync-<wbr>metadata"</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_utils_comm_manager_.html">"utils/comm-<wbr>manager"</a>
+						<ul>
+							<li class=" tsd-kind-module tsd-parent-kind-external-module tsd-is-not-exported">
+								<a href="../modules/_utils_comm_manager_.private.html">Private</a>
+							</li>
+						</ul>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_utils_index_.html">"utils/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_utils_kernel_error_.html">"utils/kernel-<wbr>error"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_utils_comm_manager_.commmanager.html" class="tsd-kind-icon">Comm<wbr>Manager</a>
+						<ul>
+							<li class=" tsd-kind-interface tsd-parent-kind-class">
+								<a href="../interfaces/_utils_comm_manager_.commmanager.ioptions.html" class="tsd-kind-icon">IOptions</a>
+							</li>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-protected">
+								<a href="_utils_comm_manager_.commmanager.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#_commclosed" class="tsd-kind-icon">_comm<wbr>Closed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#_commclosedsrc_" class="tsd-kind-icon">_comm<wbr>Closed<wbr>Src$</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#_commname" class="tsd-kind-icon">_comm<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#_commopened" class="tsd-kind-icon">_comm<wbr>Opened</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#_commopenedsrc_" class="tsd-kind-icon">_comm<wbr>Opened<wbr>Src$</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#_isdisposed" class="tsd-kind-icon">_is<wbr>Disposed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#_msgrecieved" class="tsd-kind-icon">_msg<wbr>Recieved</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#_msgrecievedsrc_" class="tsd-kind-icon">_msg<wbr>Recieved<wbr>Src$</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#awaitingsetup" class="tsd-kind-icon">awaiting<wbr>Setup</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#comm" class="tsd-kind-icon">comm</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#connectionlock" class="tsd-kind-icon">connection<wbr>Lock</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#session" class="tsd-kind-icon">session</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_utils_comm_manager_.commmanager.html#commclosed" class="tsd-kind-icon">comm<wbr>Closed</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_utils_comm_manager_.commmanager.html#commname" class="tsd-kind-icon">comm<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_utils_comm_manager_.commmanager.html#commopened" class="tsd-kind-icon">comm<wbr>Opened</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_utils_comm_manager_.commmanager.html#isdisposed" class="tsd-kind-icon">is<wbr>Disposed</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_utils_comm_manager_.commmanager.html#isopen" class="tsd-kind-icon">is<wbr>Open</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_utils_comm_manager_.commmanager.html#msgrecieved" class="tsd-kind-icon">msg<wbr>Recieved</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#connecttocomm" class="tsd-kind-icon">connect<wbr>ToComm</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_utils_comm_manager_.commmanager.html#dispose" class="tsd-kind-icon">dispose</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#oniopubmsg" class="tsd-kind-icon">on<wbr>Iopub<wbr>Msg</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#onkernelchanged" class="tsd-kind-icon">on<wbr>Kernel<wbr>Changed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_utils_comm_manager_.commmanager.html#onkernelstatuschanged" class="tsd-kind-icon">on<wbr>Kernel<wbr>Status<wbr>Changed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_utils_comm_manager_.commmanager.html#send" class="tsd-kind-icon">send</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="_utils_comm_manager_.commmanager.html#sendandawaitresponse" class="tsd-kind-icon">send<wbr>And<wbr>Await<wbr>Response</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+								<a href="_utils_comm_manager_.commmanager.html#create" class="tsd-kind-icon">Create</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

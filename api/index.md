@@ -12,6 +12,8 @@
 
 [`@mavenomics/help`](./help/globals.html)
 
+[`@mavenomics/jupyterutils`](./help/jupyterutils.html)
+
 [`@mavenomics/layout`](./layout/globals.html)
 
 [`@mavenomics/mql`](./mql/globals.html)

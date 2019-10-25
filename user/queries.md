@@ -59,17 +59,37 @@ and set it's value to 42.
 
 <!-- TODO: it'd be nice to have a true aside -->
 > #### Referencing globals in bindings
-> To reference a global, you'll need to add a comment as the very first
-> line of your binding that describes all the globals referenced.
-> The format of this comment must be a multi-line quote, with a comma-separated
-> list of globals preceeded by at-signs (`@`).
 >
-> For this example below, use `/* @MyGlobalAnswer */`.
+> To reference a global, you can reference it as a normal variable. Just prepend
+> the global name with an at-sign (`@`), like so:
+>
+> ```mql
+> SELECT @MyGlobalAnswer from dual
+> ```
+>
+> MQL will automatically detect these globals, and re-run your query whenever
+> the global changes.
+>
+> ##### Alternate syntax
+>
+> You can alternatively specify global subscriptions more explicitly, using a
+> magic comment. These are block comments on the very first line of the binding
+> that have a comma-separated list of globals preceeded by at-signs (`@`). These
+> work regardless of what binding type you're using. For instance, you could use
+> this instead:
+>
+> ```mql
+> /* @MyGlobalAnswer */
+>
+> SELECT @MyGlobalAnswer from dual
+> ```
+>
+> You shouldn't normally need to use this format in MQL or JS bindings.
+>
 
 Now, change the query of the SlickGrid we created above to:
 
 ```mql
-/* @MyGlobalAnswer */
 
 SELECT
     @MyGlobalAnswer,
@@ -211,7 +231,6 @@ and add a new global named "MyFoo". Set the type to "String", and set the value
 to "Gnorts, Mr. Alien". Now, in the label part binding, enter the following:
 
 ```js
-/* @MyFoo */
 return [...globals.MyFoo.replace(/[,\.\s]/g, '')]
     .reverse()
     .join('');

@@ -23,7 +23,7 @@ Let's outline the requirements:
 3. An expression editor
 
 Requirement 1 is simple- we'll use a PivotPart for this. 2. can be met with an
-Animation Slider, and for 3 we can use a text box part. Now that we've
+Animation Slider, and for 3 we can use a Text Input part. Now that we've
 identified the parts we want to use, let's add them to our dashboard.
 
 Re-arrange them until they look good to you. Remember that you can open the
@@ -83,10 +83,10 @@ FROM
 ```
 
 Now we're getting somewhere! Now, let's use that time global and integrate it
-with our query:
+with our query. Recall that MQL lets you bind to globals [(just by referencing
+them)](./queries#referencing-globals-in-bindings):
 
 ```mql
-/* @Time */
 DEF @f(@x, @t) = @x * @x + @t
 
 SELECT
@@ -98,29 +98,20 @@ FROM
 
 Now when you hit "Play" on the animation slider, the SlickGrid should update.
 
-### JsMql
+### MqlEval
 
-At this point, MQL does not yet have a way of evaluating a string as a language
-expression. So we must use Javascript to run the query. Luckily for us there's
-a simple wrapper to do this, so we won't have to do much to integrate the
-text box.
+Now that we've got a function, let's make it editable! For this, we'll use the
+MqlEval function. MqlEval lets you turn a string into the body of a DEF. Let's
+see how it works:
 
-In the Query Editor, switch the language type to "JavaScript" and add this as
-your binding:
-
-```jsmql
-/* @Time,@GraphFunction */
-
-const query = `
-DEF @f(@x, @t) = (${globals.GraphFunction | 'null'})
+```mql
+DEF @f(@x, @t) = MqlEval(@GraphFunction, 'x', @x, 't', @t)
 
 SELECT
     x,
-    @f(x, ${globals.Time}) as [f(x)]
+    @f(x, @Time) as [f(x)]
 FROM
-    Lattice('x = -10 to 10 step 0.1')`;
-
-return RunMql(query)
+    Lattice('x = -10 to 10 step 0.1')
 ```
 
 At this point, you should be able to edit the expression in the text box and
@@ -135,13 +126,13 @@ have the SlickGrid update. Set it to something like the following:
 Now, close the Query Editor and let's shift our focus back to the Pivot Part.
 There's a convenient shortcut to copy options from one part to another, let's
 use that to save us some time. Click on the SlickGrid and press <kbd>Ctrl</kbd>+
-<kbd>Shift</kbd>+<kbd>C</kbd>. This copies the SlickGrid options to an internal
-buffer.
+<kbd>Shift</kbd>+<kbd>C</kbd>. This copies the MQL binding to an internal buffer
+that we can paste from.
 
 Now, switch to the PivotPart and press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.
-This pastes the options from that buffer, skipping options that don't match. In
-this case, all that'll get pasted is the "Input Table" option, which is exactly
-what we want. Close the SlickGrid tab, since we don't need it anymore.
+This pastes the binding from that buffer, which in this case is the MQL query
+that we had on the SlickGrid. Close the SlickGrid tab, since we don't need it
+anymore.
 
 You should now see this in the pivot part:
 
