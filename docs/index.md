@@ -1,18 +1,29 @@
+# Standalone Demos
+
+ - [App](./app)
+ - [Demos listing](./app/demos/index.html)
+ - [Controlled Frame demo](./app/demos/controlled-frame-demo.html)
+
 # User Documentation
 
- - Getting Started <!-- TODO -->
  - [Dashboarding 101](./user/dashboarding-101.md)
  - [Queries and Bindings](./user/queries.md)
  - [Build a Graphing Calculator](./user/graphing-calculator.md)
- - Advanced Parts <!-- TODO -->
- - MQL Reference <!-- TODO -->
+ <!-- TODO
+ - Getting Started
+ - Advanced Parts
+ - MQL Reference
+ -->
 
 # Developer Reference
 
- - UDPs <!-- TODO -->
- - Writing MavenWorks plugins <!-- TODO -->
- - DI Token Reference <!-- TODO -->
- - API Documentation <!-- TODO -->
+ - [API Documentation](./api)
+ <!-- TODO
+ - UDPs
+ - Writing MavenWorks plugins
+ - DI Token Reference
+ - API Documentation
+ -->
 
 # Contributor Documentation
 
