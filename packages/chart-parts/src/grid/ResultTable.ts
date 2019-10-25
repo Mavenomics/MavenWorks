@@ -8,7 +8,7 @@ import { AsyncPostRenderers } from "./AsyncPostRenderers";
 import { ConditionalFormatting } from "./ConditionalFormatting";
 import { MqlResultTable } from "@mavenomics/table";
 import { IGridContext } from "./interfaces";
-import d3 = require("d3");
+import * as d3 from "d3";
 import { Color } from "@mavenomics/coreutils";
 
 export function formatColumns(mavenColumnArray: any[], webMavenHost: IGridContext, resultTable: MqlResultTable) {
@@ -147,6 +147,7 @@ export function formatColumns(mavenColumnArray: any[], webMavenHost: IGridContex
             };
 
             c.heatmap.func = d3.scale.linear()
+                .clamp(true)
                 .domain([c.heatmap.minValue, c.heatmap.midValue, c.heatmap.maxValue])
                 .range([c.heatmap.minColor, c.heatmap.midColor, c.heatmap.maxColor]);
 
@@ -165,6 +166,7 @@ export function formatColumns(mavenColumnArray: any[], webMavenHost: IGridContex
             };
 
             c.progressBar.func = d3.scale.linear()
+                .clamp(true)
                 .domain([c.progressBar.minValue, c.progressBar.maxValue])
                 .range([0, 100]);
 

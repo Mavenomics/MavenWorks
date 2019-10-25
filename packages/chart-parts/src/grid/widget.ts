@@ -761,7 +761,8 @@ export class SlickGridWidget extends Widget {
         // Create the depth function for coloring rows
         this.depthColorFunction = d3.scale.linear<string, string>()
             .domain([-1, this.maxDepth])
-            .range([rowDepthColors.from, rowDepthColors.to]);
+            .range([rowDepthColors.from, rowDepthColors.to])
+            .clamp(true);
 
         var style = $("<style>").attr("type", "text/css")
             .attr("id", this.id + "row-depth-styles");
