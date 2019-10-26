@@ -40,8 +40,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -68,17 +66,124 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>External modules</h3>
+							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-external-module"><a href="modules/_bindingsprovider_.html" class="tsd-kind-icon">"<wbr>Bindings<wbr>Provider"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_disposable_.html" class="tsd-kind-icon">"<wbr>Disposable"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_globalsservice_.html" class="tsd-kind-icon">"<wbr>Globals<wbr>Service"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_mqlworkerpool_.html" class="tsd-kind-icon">"<wbr>Mql<wbr>Worker<wbr>Pool"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_evaluator_.html" class="tsd-kind-icon">"evaluator"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_index_.html" class="tsd-kind-icon">"index"</a></li>
+								<li class="tsd-kind-class"><a href="classes/basebindingsevaluator.html" class="tsd-kind-icon">Base<wbr>Bindings<wbr>Evaluator</a></li>
+								<li class="tsd-kind-class"><a href="classes/bindingsprovider.html" class="tsd-kind-icon">Bindings<wbr>Provider</a></li>
+								<li class="tsd-kind-class"><a href="classes/disposable.html" class="tsd-kind-icon">Disposable</a></li>
+								<li class="tsd-kind-class"><a href="classes/errorbindingsevaluator.html" class="tsd-kind-icon">Error<wbr>Bindings<wbr>Evaluator</a></li>
+								<li class="tsd-kind-class"><a href="classes/globalsservice.html" class="tsd-kind-icon">Globals<wbr>Service</a></li>
+								<li class="tsd-kind-class"><a href="classes/mqlworkerpool.html" class="tsd-kind-icon">Mql<wbr>Worker<wbr>Pool</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface"><a href="interfaces/ibindingsevaluator.html" class="tsd-kind-icon">IBindings<wbr>Evaluator</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/iexpressionevaluator.html" class="tsd-kind-icon">IExpression<wbr>Evaluator</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#getcommentline" class="tsd-kind-icon">get<wbr>Comment<wbr>Line</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#getglobalsfromcomment" class="tsd-kind-icon">get<wbr>Globals<wbr>From<wbr>Comment</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getcommentline" class="tsd-anchor"></a>
+					<h3>get<wbr>Comment<wbr>Line</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Comment<wbr>Line<span class="tsd-signature-symbol">(</span>src<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, lineComment<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, blockStart<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, blockEnd<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/bindings/src/BindingsProvider.ts#L23">BindingsProvider.ts:23</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Helper function to retrieve the leading comment from a string.</p>
+								</div>
+								<p>This function uses C-style comments by default, but can be overridden with
+								different characters or no support at all.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>src: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The full text of the binding</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> lineComment: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> =&nbsp;&quot;\/\/&quot;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The style of line comments to use. Must be regex-escaped.
+										Defaults to C-style, set to &#39;null&#39; to disable line comments.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> blockStart: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> =&nbsp;&quot;\/\*&quot;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The style of block comment start tokens. Must be regex-
+										escaped. Defaults to C-style, set to &#39;null&#39; to disable block comments entirely.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> blockEnd: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> =&nbsp;&quot;\*\/&quot;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The style of block comment end tokens. Must be regex-escaped.
+										Defaults to C-style, set to &#39;null&#39; to disable block comments entirely.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">null</span>
+							</h4>
+							<p>A string containing the comment text, or null if there wasn&#39;t a comment</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getglobalsfromcomment" class="tsd-anchor"></a>
+					<h3>get<wbr>Globals<wbr>From<wbr>Comment</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Globals<wbr>From<wbr>Comment<span class="tsd-signature-symbol">(</span>src<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/bindings/src/BindingsProvider.ts#L59">BindingsProvider.ts:59</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Helper function to fetch globals from a leading comment string</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>src: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The content of the magic comment</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>A list of globals found in the string.</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -88,28 +193,40 @@
 					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_bindingsprovider_.html">"<wbr>Bindings<wbr>Provider"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_disposable_.html">"<wbr>Disposable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_globalsservice_.html">"<wbr>Globals<wbr>Service"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_mqlworkerpool_.html">"<wbr>Mql<wbr>Worker<wbr>Pool"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_evaluator_.html">"evaluator"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_index_.html">"index"</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/basebindingsevaluator.html" class="tsd-kind-icon">Base<wbr>Bindings<wbr>Evaluator</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/bindingsprovider.html" class="tsd-kind-icon">Bindings<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/disposable.html" class="tsd-kind-icon">Disposable</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/errorbindingsevaluator.html" class="tsd-kind-icon">Error<wbr>Bindings<wbr>Evaluator</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/globalsservice.html" class="tsd-kind-icon">Globals<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mqlworkerpool.html" class="tsd-kind-icon">Mql<wbr>Worker<wbr>Pool</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ibindingsevaluator.html" class="tsd-kind-icon">IBindings<wbr>Evaluator</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iexpressionevaluator.html" class="tsd-kind-icon">IExpression<wbr>Evaluator</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getcommentline" class="tsd-kind-icon">get<wbr>Comment<wbr>Line</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getglobalsfromcomment" class="tsd-kind-icon">get<wbr>Globals<wbr>From<wbr>Comment</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

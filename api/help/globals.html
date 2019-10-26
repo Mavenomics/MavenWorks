@@ -40,8 +40,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -68,17 +66,366 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>External modules</h3>
+							<h3>Modules</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-external-module"><a href="modules/_about_.html" class="tsd-kind-icon">"about"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_browser_.html" class="tsd-kind-icon">"browser"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_docprovider_.html" class="tsd-kind-icon">"docprovider"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_help_generator_.html" class="tsd-kind-icon">"help-<wbr>generator"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_index_.html" class="tsd-kind-icon">"index"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_plugin_.html" class="tsd-kind-icon">"plugin"</a></li>
+								<li class="tsd-kind-module"><a href="modules/dochelpers.html" class="tsd-kind-icon">Doc<wbr>Helpers</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class"><a href="classes/defaulthelpdocprovider.html" class="tsd-kind-icon">Default<wbr>Help<wbr>Doc<wbr>Provider</a></li>
+								<li class="tsd-kind-class"><a href="classes/helpbrowser.html" class="tsd-kind-icon">Help<wbr>Browser</a></li>
+								<li class="tsd-kind-class"><a href="classes/helpdocrenderer.html" class="tsd-kind-icon">Help<wbr>Doc<wbr>Renderer</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface"><a href="interfaces/ihelpdocprovider.html" class="tsd-kind-icon">IHelp<wbr>Doc<wbr>Provider</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="globals.html#ihelpdocprovider" class="tsd-kind-icon">IHelp<wbr>Doc<wbr>Provider</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#openabout" class="tsd-kind-icon">open<wbr>About</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal"><a href="globals.html#browserplugin" class="tsd-kind-icon">browser<wbr>Plugin</a></li>
+								<li class="tsd-kind-object-literal"><a href="globals.html#docproviderplugin" class="tsd-kind-icon">doc<wbr>Provider<wbr>Plugin</a></li>
+								<li class="tsd-kind-object-literal"><a href="globals.html#helppartsplugin" class="tsd-kind-icon">help<wbr>Parts<wbr>Plugin</a></li>
+								<li class="tsd-kind-object-literal"><a href="globals.html#layoutplugin" class="tsd-kind-icon">layout<wbr>Plugin</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="ihelpdocprovider" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> IHelp<wbr>Doc<wbr>Provider</h3>
+					<div class="tsd-signature tsd-kind-icon">IHelp<wbr>Doc<wbr>Provider<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Token</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/ihelpdocprovider.html" class="tsd-signature-type">IHelpDocProvider</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Token&lt;IHelpDocProvider&gt;(&quot;MavenWorks Help Document Provider&quot;)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/docprovider.ts#L8">docprovider.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="openabout" class="tsd-anchor"></a>
+					<h3>open<wbr>About</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">open<wbr>About<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/about.ts#L50">about.ts:50</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal">
+					<a name="browserplugin" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> browser<wbr>Plugin</h3>
+					<div class="tsd-signature tsd-kind-icon">browser<wbr>Plugin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/plugin.ts#L13">plugin.ts:13</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="browserplugin.autostart" class="tsd-anchor"></a>
+						<h3>auto<wbr>Start</h3>
+						<div class="tsd-signature tsd-kind-icon">auto<wbr>Start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/plugin.ts#L15">plugin.ts:15</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="browserplugin.id" class="tsd-anchor"></a>
+						<h3>id</h3>
+						<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;mavenworks-help-browser-plugin&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/plugin.ts#L14">plugin.ts:14</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="browserplugin.requires" class="tsd-anchor"></a>
+						<h3>requires</h3>
+						<div class="tsd-signature tsd-kind-icon">requires<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Token</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/ihelpdocprovider.html" class="tsd-signature-type">IHelpDocProvider</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[IHelpDocProvider, IPartFactory]</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/plugin.ts#L16">plugin.ts:16</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+						<a name="browserplugin.activate" class="tsd-anchor"></a>
+						<h3>activate</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+							<li class="tsd-signature tsd-kind-icon">activate<span class="tsd-signature-symbol">(</span>app<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Application</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, doc<span class="tsd-signature-symbol">: </span><a href="interfaces/ihelpdocprovider.html" class="tsd-signature-type">IHelpDocProvider</a>, factory<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPartFactory</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/plugin.ts#L17">plugin.ts:17</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>app: <span class="tsd-signature-type">Application</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									</li>
+									<li>
+										<h5>doc: <a href="interfaces/ihelpdocprovider.html" class="tsd-signature-type">IHelpDocProvider</a></h5>
+									</li>
+									<li>
+										<h5>factory: <span class="tsd-signature-type">IPartFactory</span></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal">
+					<a name="docproviderplugin" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> doc<wbr>Provider<wbr>Plugin</h3>
+					<div class="tsd-signature tsd-kind-icon">doc<wbr>Provider<wbr>Plugin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/docprovider.ts#L135">docprovider.ts:135</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="docproviderplugin.autostart" class="tsd-anchor"></a>
+						<h3>auto<wbr>Start</h3>
+						<div class="tsd-signature tsd-kind-icon">auto<wbr>Start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/docprovider.ts#L137">docprovider.ts:137</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="docproviderplugin.id" class="tsd-anchor"></a>
+						<h3>id</h3>
+						<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;mavenworks:help-doc-provider&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/docprovider.ts#L136">docprovider.ts:136</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="docproviderplugin.optional" class="tsd-anchor"></a>
+						<h3>optional</h3>
+						<div class="tsd-signature tsd-kind-icon">optional<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Token</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ILatexTypesetter</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[ILatexTypesetter,IRenderMimeRegistry]</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/docprovider.ts#L139">docprovider.ts:139</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="docproviderplugin.provides" class="tsd-anchor"></a>
+						<h3>provides</h3>
+						<div class="tsd-signature tsd-kind-icon">provides<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Token</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/ihelpdocprovider.html" class="tsd-signature-type">IHelpDocProvider</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;IHelpDocProvider</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/docprovider.ts#L138">docprovider.ts:138</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+						<a name="docproviderplugin.activate" class="tsd-anchor"></a>
+						<h3>activate</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+							<li class="tsd-signature tsd-kind-icon">activate<span class="tsd-signature-symbol">(</span>_app<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span>, typesetter<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ILatexTypesetter</span>, rendermime<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">IRenderMimeRegistry</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/defaulthelpdocprovider.html" class="tsd-signature-type">DefaultHelpDocProvider</a><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/docprovider.ts#L143">docprovider.ts:143</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>_app: <span class="tsd-signature-type">unknown</span></h5>
+									</li>
+									<li>
+										<h5><span class="tsd-flag ts-flagOptional">Optional</span> typesetter: <span class="tsd-signature-type">ILatexTypesetter</span></h5>
+									</li>
+									<li>
+										<h5><span class="tsd-flag ts-flagOptional">Optional</span> rendermime: <span class="tsd-signature-type">IRenderMimeRegistry</span></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/defaulthelpdocprovider.html" class="tsd-signature-type">DefaultHelpDocProvider</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal">
+					<a name="helppartsplugin" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> help<wbr>Parts<wbr>Plugin</h3>
+					<div class="tsd-signature tsd-kind-icon">help<wbr>Parts<wbr>Plugin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/help-generator.ts#L14">help-generator.ts:14</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="helppartsplugin.autostart" class="tsd-anchor"></a>
+						<h3>auto<wbr>Start</h3>
+						<div class="tsd-signature tsd-kind-icon">auto<wbr>Start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/help-generator.ts#L16">help-generator.ts:16</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="helppartsplugin.id" class="tsd-anchor"></a>
+						<h3>id</h3>
+						<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;mavenworks-help-parts-browser-plugin&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/help-generator.ts#L15">help-generator.ts:15</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="helppartsplugin.requires" class="tsd-anchor"></a>
+						<h3>requires</h3>
+						<div class="tsd-signature tsd-kind-icon">requires<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Token</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/ihelpdocprovider.html" class="tsd-signature-type">IHelpDocProvider</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[IHelpDocProvider, IPartFactory]</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/help-generator.ts#L17">help-generator.ts:17</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+						<a name="helppartsplugin.activate" class="tsd-anchor"></a>
+						<h3>activate</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+							<li class="tsd-signature tsd-kind-icon">activate<span class="tsd-signature-symbol">(</span>_app<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Application</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, doc<span class="tsd-signature-symbol">: </span><a href="interfaces/ihelpdocprovider.html" class="tsd-signature-type">IHelpDocProvider</a>, factory<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPartFactory</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/help-generator.ts#L18">help-generator.ts:18</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>_app: <span class="tsd-signature-type">Application</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									</li>
+									<li>
+										<h5>doc: <a href="interfaces/ihelpdocprovider.html" class="tsd-signature-type">IHelpDocProvider</a></h5>
+									</li>
+									<li>
+										<h5>factory: <span class="tsd-signature-type">IPartFactory</span></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal">
+					<a name="layoutplugin" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> layout<wbr>Plugin</h3>
+					<div class="tsd-signature tsd-kind-icon">layout<wbr>Plugin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/help-generator.ts#L36">help-generator.ts:36</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="layoutplugin.autostart" class="tsd-anchor"></a>
+						<h3>auto<wbr>Start</h3>
+						<div class="tsd-signature tsd-kind-icon">auto<wbr>Start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/help-generator.ts#L38">help-generator.ts:38</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="layoutplugin.id" class="tsd-anchor"></a>
+						<h3>id</h3>
+						<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;mavenworks-help-generator-layout&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/help-generator.ts#L37">help-generator.ts:37</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="layoutplugin.requires" class="tsd-anchor"></a>
+						<h3>requires</h3>
+						<div class="tsd-signature tsd-kind-icon">requires<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Token</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/ihelpdocprovider.html" class="tsd-signature-type">IHelpDocProvider</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[IHelpDocProvider]</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/help-generator.ts#L39">help-generator.ts:39</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+						<a name="layoutplugin.activate" class="tsd-anchor"></a>
+						<h3>activate</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+							<li class="tsd-signature tsd-kind-icon">activate<span class="tsd-signature-symbol">(</span>_app<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Application</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, doc<span class="tsd-signature-symbol">: </span><a href="interfaces/ihelpdocprovider.html" class="tsd-signature-type">IHelpDocProvider</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/help/src/help-generator.ts#L40">help-generator.ts:40</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>_app: <span class="tsd-signature-type">Application</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									</li>
+									<li>
+										<h5>doc: <a href="interfaces/ihelpdocprovider.html" class="tsd-signature-type">IHelpDocProvider</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
 				</section>
 			</section>
 		</div>
@@ -88,28 +435,49 @@
 					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_about_.html">"about"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/dochelpers.html">Doc<wbr>Helpers</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_browser_.html">"browser"</a>
+					<li class=" tsd-kind-module tsd-parent-kind-class">
+						<a href="modules/helpbrowser.msg.html">Help<wbr>Browser.<wbr>Msg</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_docprovider_.html">"docprovider"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_help_generator_.html">"help-<wbr>generator"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_index_.html">"index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_plugin_.html">"plugin"</a>
+					<li class=" tsd-kind-module tsd-parent-kind-class">
+						<a href="modules/helpdocrenderer.msg.html">Help<wbr>Doc<wbr>Renderer.<wbr>Msg</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/defaulthelpdocprovider.html" class="tsd-kind-icon">Default<wbr>Help<wbr>Doc<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/helpbrowser.html" class="tsd-kind-icon">Help<wbr>Browser</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/helpdocrenderer.html" class="tsd-kind-icon">Help<wbr>Doc<wbr>Renderer</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ihelpdocprovider.html" class="tsd-kind-icon">IHelp<wbr>Doc<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#ihelpdocprovider" class="tsd-kind-icon">IHelp<wbr>Doc<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#openabout" class="tsd-kind-icon">open<wbr>About</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#browserplugin" class="tsd-kind-icon">browser<wbr>Plugin</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#docproviderplugin" class="tsd-kind-icon">doc<wbr>Provider<wbr>Plugin</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#helppartsplugin" class="tsd-kind-icon">help<wbr>Parts<wbr>Plugin</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#layoutplugin" class="tsd-kind-icon">layout<wbr>Plugin</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

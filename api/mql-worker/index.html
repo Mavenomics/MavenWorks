@@ -40,8 +40,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -64,34 +62,14 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#mavenworks" id="mavenworks" style="color: inherit; text-decoration: none;">
-					<h1>MavenWorks</h1>
+				<a href="#codemavenomicsmql-workercode" id="codemavenomicsmql-workercode" style="color: inherit; text-decoration: none;">
+					<h1><code>@mavenomics/mql-worker</code></h1>
 				</a>
-				<p><img src="./screenshot.png" alt="MavenWorks screenshot depicting the Volatility3D demo notebook, in /demos/Volatility3d.ipynb">
-				_<center><sup>Bond Portfolio demo on MavenWorks Viewer 0.1.0-alpha</sup></center>_</p>
-				<p><em>MavenWorks</em> is an open-source dashboarding framework, for Jupyter and
-					beyond! MavenWorks includes a JupyterLab plugin, a read-only dashboard viewer
-				(pictured above), and a standalone app (codenamed &quot;Kitchen Sink&quot;).</p>
-				<p>Dashboards are flexible- you can use the same old charting libraries and
-					interactive widgets that you&#39;ve used elsewhere. Anything that can be displayed
-				in a Jupyter output, can also be put into a Dashboard.</p>
-				<p>MavenWorks also supplies a data binding framework and a query engine. You can mix
-				SQL, Javascript, and Python right from within your dashboard!</p>
-				<p>For easier interactivity, MavenWorks also provides Parts. Parts are reusable
-					components of a dashboard that can be written in Python or Javascript, and allow
-					you to &quot;bind&quot; your visualizations to data. MavenWorks will take care of keeping your
-					visualizations in sync with the data, meaning you won&#39;t need to worry about
-				plumbing.</p>
-				<p>MavenWorks is under heavy development, and much of the internal APIs are unstable.</p>
-				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
-					<h2>Getting Started</h2>
-				</a>
-				<p>Regular deployments come with a host of demos and built-in Parts that
-					demonstrate parts of the API. Use the <a href="./demos/StartHere.ipynb">Start Here</a>
-				notebook to access these demos.</p>
-				<p>You can read our documentation <a href="./docs/index.md">here</a>. We have tutorials,
-					reference docs, and contributor documentation. These are accessible in-app using
-				the <kbd>F1</kbd> key.</p>
+				<p>RPC runner for an MQL engine running in a WebWorker.</p>
+				<p>The MQL engine can be a bit hairy to work with directly, but if you want to use
+					MQL in your app, this package is the best way to do it. It includes the MQL
+					worker pre-built, so you can just import the worker wrapper and hit the ground
+				running.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -100,25 +78,37 @@
 					<li class="globals  ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_index_.html">"index"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/staticcachemsg.html">Static<wbr>Cache<wbr>Msg</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_interfaces_.html">"interfaces"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/workermessage.html">Worker<wbr>Message</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_worker_wrapper_.html">"worker-<wbr>wrapper"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_worker_functions_.html">"worker/functions"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_worker_index_.html">"worker/index"</a>
+					<li class=" tsd-kind-module">
+						<a href="modules/workerresponse.html">Worker<wbr>Response</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/fetchfunction.html" class="tsd-kind-icon">Fetch<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/kernelevalfunction.html" class="tsd-kind-icon">Kernel<wbr>Eval<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/staticcachefunction.html" class="tsd-kind-icon">Static<wbr>Cache<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/workerwrapper.html" class="tsd-kind-icon">Worker<wbr>Wrapper</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/imqlfunctionmetadata.html" class="tsd-kind-icon">IMql<wbr>Function<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iparsedquery.html" class="tsd-kind-icon">IParsed<wbr>Query</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

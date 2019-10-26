@@ -1,0 +1,2589 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MqlTreeCompiler | @mavenomics/mql</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">@mavenomics/mql</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="mqltreecompiler.html">MqlTreeCompiler</a>
+				</li>
+			</ul>
+			<h1>Class MqlTreeCompiler</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<a href="mqlparservisitor.html" class="tsd-signature-type">MqlParserVisitor</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">MqlTreeCompiler</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="mqltreecompiler.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mqltreecompiler.html#defs" class="tsd-kind-icon">defs</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mqltreecompiler.html#functionstoinline" class="tsd-kind-icon">functions<wbr>ToInline</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mqltreecompiler.html#prepend" class="tsd-kind-icon">prepend</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mqltreecompiler.html#sets" class="tsd-kind-icon">sets</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="mqltreecompiler.html#binoptext" class="tsd-kind-icon">bin<wbr>OpText</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="mqltreecompiler.html#getvalueornulltext" class="tsd-kind-icon">get<wbr>Value<wbr>OrNull<wbr>Text</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="mqltreecompiler.html#inexprtext" class="tsd-kind-icon">in<wbr>Expr<wbr>Text</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="mqltreecompiler.html#unoptext" class="tsd-kind-icon">un<wbr>OpText</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqltreecompiler.html#binaryexprtoexpression" class="tsd-kind-icon">binary<wbr>Expr<wbr>ToExpression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqltreecompiler.html#getprepends" class="tsd-kind-icon">get<wbr>Prepends</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqltreecompiler.html#groupbytoarray" class="tsd-kind-icon">group<wbr>ByTo<wbr>Array</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqltreecompiler.html#inlinefunction" class="tsd-kind-icon">inline<wbr>Function</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqltreecompiler.html#parseexpression" class="tsd-kind-icon">parse<wbr>Expression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqltreecompiler.html#parseexpressionlist" class="tsd-kind-icon">parse<wbr>Expression<wbr>List</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqltreecompiler.html#parsequery" class="tsd-kind-icon">parse<wbr>Query</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqltreecompiler.html#unaryexprtoexpression" class="tsd-kind-icon">unary<wbr>Expr<wbr>ToExpression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="mqltreecompiler.html#visit" class="tsd-kind-icon">visit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitadditionexpression" class="tsd-kind-icon">visit<wbr>Addition<wbr>Expression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitandexpression" class="tsd-kind-icon">visit<wbr>And<wbr>Expression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitassignment" class="tsd-kind-icon">visit<wbr>Assignment</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitassignment_list_comma_separated" class="tsd-kind-icon">visit<wbr>Assignment_<wbr>list_<wbr>comma_<wbr>separated</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitassignment_list_semicolon_separated" class="tsd-kind-icon">visit<wbr>Assignment_<wbr>list_<wbr>semicolon_<wbr>separated</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitat_identifier" class="tsd-kind-icon">visit<wbr>At_<wbr>identifier</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="mqltreecompiler.html#visitchildren" class="tsd-kind-icon">visit<wbr>Children</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitcontextual_keywords" class="tsd-kind-icon">visit<wbr>Contextual_<wbr>keywords</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitcustom_literal" class="tsd-kind-icon">visit<wbr>Custom_<wbr>literal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitdef_statement" class="tsd-kind-icon">visit<wbr>Def_<wbr>statement</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitdefinition_list" class="tsd-kind-icon">visit<wbr>Definition_<wbr>list</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitdisplayed_column" class="tsd-kind-icon">visit<wbr>Displayed_<wbr>column</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitendregion_statement" class="tsd-kind-icon">visit<wbr>Endregion_<wbr>statement</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitequalityexpression" class="tsd-kind-icon">visit<wbr>Equality<wbr>Expression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visiterrornode" class="tsd-kind-icon">visit<wbr>Error<wbr>Node</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitescaped_identifier" class="tsd-kind-icon">visit<wbr>Escaped_<wbr>identifier</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitexpression" class="tsd-kind-icon">visit<wbr>Expression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitexpression_list" class="tsd-kind-icon">visit<wbr>Expression_<wbr>list</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitexpression_standalone" class="tsd-kind-icon">visit<wbr>Expression_<wbr>standalone</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitfalseliteral" class="tsd-kind-icon">visit<wbr>False<wbr>Literal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitfloat_vector" class="tsd-kind-icon">visit<wbr>Float_<wbr>vector</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitformat" class="tsd-kind-icon">visit<wbr>Format</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitfunctionexpression" class="tsd-kind-icon">visit<wbr>Function<wbr>Expression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitfunction_definition" class="tsd-kind-icon">visit<wbr>Function_<wbr>definition</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitgroup_clause" class="tsd-kind-icon">visit<wbr>Group_<wbr>clause</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visithash_statement" class="tsd-kind-icon">visit<wbr>Hash_<wbr>statement</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visithaving_clause" class="tsd-kind-icon">visit<wbr>Having_<wbr>clause</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visithere_document" class="tsd-kind-icon">visit<wbr>Here_<wbr>document</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitidentifier" class="tsd-kind-icon">visit<wbr>Identifier</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitimport_statement" class="tsd-kind-icon">visit<wbr>Import_<wbr>statement</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitinexpression" class="tsd-kind-icon">visit<wbr>InExpression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitliteral_double" class="tsd-kind-icon">visit<wbr>Literal_<wbr>double</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitliteral_string" class="tsd-kind-icon">visit<wbr>Literal_<wbr>string</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitliteral_table" class="tsd-kind-icon">visit<wbr>Literal_<wbr>table</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitliteral_table_column" class="tsd-kind-icon">visit<wbr>Literal_<wbr>table_<wbr>column</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitliteral_table_row" class="tsd-kind-icon">visit<wbr>Literal_<wbr>table_<wbr>row</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitmql_literal" class="tsd-kind-icon">visit<wbr>Mql_<wbr>literal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitmql_query" class="tsd-kind-icon">visit<wbr>Mql_<wbr>query</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitmultiplicativeexpression" class="tsd-kind-icon">visit<wbr>Multiplicative<wbr>Expression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitnegationexpression" class="tsd-kind-icon">visit<wbr>Negation<wbr>Expression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitnegative_literal_double" class="tsd-kind-icon">visit<wbr>Negative_<wbr>literal_<wbr>double</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitnon_at_param_set_statement" class="tsd-kind-icon">visit<wbr>Non_<wbr>at_<wbr>param_<wbr>set_<wbr>statement</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitnon_at_param_set_statement_list" class="tsd-kind-icon">visit<wbr>Non_<wbr>at_<wbr>param_<wbr>set_<wbr>statement_<wbr>list</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitnon_function_non_at_identifier" class="tsd-kind-icon">visit<wbr>Non_<wbr>function_<wbr>non_<wbr>at_<wbr>identifier</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitnormal_identifier" class="tsd-kind-icon">visit<wbr>Normal_<wbr>identifier</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitnotexpression" class="tsd-kind-icon">visit<wbr>Not<wbr>Expression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitnullliteral" class="tsd-kind-icon">visit<wbr>Null<wbr>Literal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitorexpression" class="tsd-kind-icon">visit<wbr>OrExpression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitorder_clause" class="tsd-kind-icon">visit<wbr>Order_<wbr>clause</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitparenthesisexpression" class="tsd-kind-icon">visit<wbr>Parenthesis<wbr>Expression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitprimaryexpression" class="tsd-kind-icon">visit<wbr>Primary<wbr>Expression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitquery_sets_defs" class="tsd-kind-icon">visit<wbr>Query_<wbr>sets_<wbr>defs</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitquery_sets_defs_regions" class="tsd-kind-icon">visit<wbr>Query_<wbr>sets_<wbr>defs_<wbr>regions</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitregion_or_displayed_column" class="tsd-kind-icon">visit<wbr>Region_<wbr>or_<wbr>displayed_<wbr>column</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitregion_statement" class="tsd-kind-icon">visit<wbr>Region_<wbr>statement</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitrelationexpression" class="tsd-kind-icon">visit<wbr>Relation<wbr>Expression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitselect_list" class="tsd-kind-icon">visit<wbr>Select_<wbr>list</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitselect_statement" class="tsd-kind-icon">visit<wbr>Select_<wbr>statement</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitset_statement" class="tsd-kind-icon">visit<wbr>Set_<wbr>statement</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitset_statement_list" class="tsd-kind-icon">visit<wbr>Set_<wbr>statement_<wbr>list</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitsorted_def" class="tsd-kind-icon">visit<wbr>Sorted_<wbr>def</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitstring_vector" class="tsd-kind-icon">visit<wbr>String_<wbr>vector</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitterminal" class="tsd-kind-icon">visit<wbr>Terminal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visittrueliteral" class="tsd-kind-icon">visit<wbr>True<wbr>Literal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mqltreecompiler.html#visitwhere_clause" class="tsd-kind-icon">visit<wbr>Where_<wbr>clause</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mqltreecompiler.html#visitxorexpression" class="tsd-kind-icon">visit<wbr>Xor<wbr>Expression</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="mqltreecompiler.html#binaryopiscond" class="tsd-kind-icon">binary<wbr>OpIs<wbr>Cond</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="mqltreecompiler.html#escapedoublequoted" class="tsd-kind-icon">escape<wbr>Double<wbr>Quoted</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="mqltreecompiler.html#mapbinaryoperation" class="tsd-kind-icon">map<wbr>Binary<wbr>Operation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="mqltreecompiler.html#mapunaryoperation" class="tsd-kind-icon">map<wbr>Unary<wbr>Operation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="mqltreecompiler.html#unescapeidentifier" class="tsd-kind-icon">unescape<wbr>Identifier</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Mql<wbr>Tree<wbr>Compiler<span class="tsd-signature-symbol">(</span>sets<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, defs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="mqltreecompiler.html" class="tsd-signature-type">MqlTreeCompiler</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L263">querying/MqlCompiler.ts:263</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sets: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> defs: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="mqltreecompiler.html" class="tsd-signature-type">MqlTreeCompiler</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="defs" class="tsd-anchor"></a>
+					<h3>defs</h3>
+					<div class="tsd-signature tsd-kind-icon">defs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L262">querying/MqlCompiler.ts:262</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>idx: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">boolean</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="functionstoinline" class="tsd-anchor"></a>
+					<h3>functions<wbr>ToInline</h3>
+					<div class="tsd-signature tsd-kind-icon">functions<wbr>ToInline<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L260">querying/MqlCompiler.ts:260</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="prepend" class="tsd-anchor"></a>
+					<h3>prepend</h3>
+					<div class="tsd-signature tsd-kind-icon">prepend<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L263">querying/MqlCompiler.ts:263</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="sets" class="tsd-anchor"></a>
+					<h3>sets</h3>
+					<div class="tsd-signature tsd-kind-icon">sets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L261">querying/MqlCompiler.ts:261</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>idx: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">boolean</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="binoptext" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> bin<wbr>OpText</h3>
+					<div class="tsd-signature tsd-kind-icon">bin<wbr>OpText<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"let __binopNull &#x3D; (isCond, opFunc, left, right) &#x3D;&gt; {return !isCond &amp;&amp; (left &#x3D;&#x3D;&#x3D; null || right &#x3D;&#x3D;&#x3D; null) ? null : opFunc(left, right);};let __binop &#x3D; (isCond, left, right, opFunc, cb) &#x3D;&gt; {return Callbacks.Reduce([left, right],([left, right]) &#x3D;&gt; __binopNull(isCond, opFunc, left, right),cb);};"</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;let __binopNull &#x3D; (isCond, opFunc, left, right) &#x3D;&gt; {return !isCond &amp;&amp; (left &#x3D;&#x3D;&#x3D; null || right &#x3D;&#x3D;&#x3D; null) ? null : opFunc(left, right);};let __binop &#x3D; (isCond, left, right, opFunc, cb) &#x3D;&gt; {return Callbacks.Reduce([left, right],([left, right]) &#x3D;&gt; __binopNull(isCond, opFunc, left, right),cb);};&#x60;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L177">querying/MqlCompiler.ts:177</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="getvalueornulltext" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Value<wbr>OrNull<wbr>Text</h3>
+					<div class="tsd-signature tsd-kind-icon">get<wbr>Value<wbr>OrNull<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"let __getValueOrNull &#x3D; (row, col) &#x3D;&gt; {let value &#x3D; row.getValue(col);return typeof value !&#x3D;&#x3D; &#x27;undefined&#x27; ? value : null;};"</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;let __getValueOrNull &#x3D; (row, col) &#x3D;&gt; {let value &#x3D; row.getValue(col);return typeof value !&#x3D;&#x3D; &#x27;undefined&#x27; ? value : null;};&#x60;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L209">querying/MqlCompiler.ts:209</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="inexprtext" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> in<wbr>Expr<wbr>Text</h3>
+					<div class="tsd-signature tsd-kind-icon">in<wbr>Expr<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"let __inExpr &#x3D; (row, isNot, needle, haystack, cb) &#x3D;&gt; {Callbacks.All([...haystack.map(i &#x3D;&gt; i.bind(void 0, row)), needle.bind(void 0, row)], (err, res) &#x3D;&gt; {if (err) return cb(err);const needle &#x3D; res[0];const haystack &#x3D; res.slice(1);return cb(void 0, !!(+(haystack.indexOf(needle) !&#x3D;&#x3D; -1) ^ (+isNot)));})};let __inExprFast &#x3D; (row, isNot, needleFunc, haystack, cb) &#x3D;&gt; {needleFunc(row, (err, needle) &#x3D;&gt; {if (err) return cb(err);return cb(void 0, !!(+(haystack.has(needle)) ^ (+isNot)));});};"</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;let __inExpr &#x3D; (row, isNot, needle, haystack, cb) &#x3D;&gt; {Callbacks.All([...haystack.map(i &#x3D;&gt; i.bind(void 0, row)), needle.bind(void 0, row)], (err, res) &#x3D;&gt; {if (err) return cb(err);const needle &#x3D; res[0];const haystack &#x3D; res.slice(1);return cb(void 0, !!(+(haystack.indexOf(needle) !&#x3D;&#x3D; -1) ^ (+isNot)));})};let __inExprFast &#x3D; (row, isNot, needleFunc, haystack, cb) &#x3D;&gt; {needleFunc(row, (err, needle) &#x3D;&gt; {if (err) return cb(err);return cb(void 0, !!(+(haystack.has(needle)) ^ (+isNot)));});};&#x60;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L195">querying/MqlCompiler.ts:195</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="unoptext" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> un<wbr>OpText</h3>
+					<div class="tsd-signature tsd-kind-icon">un<wbr>OpText<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"let __unOpNull &#x3D; (opFunc, left) &#x3D;&gt; {return left &#x3D;&#x3D;&#x3D; null ? null : opFunc(left);};let __unop &#x3D; (left, opFunc, cb) &#x3D;&gt; {left((err, res) &#x3D;&gt; {if (err) return cb(err);return cb(void 0, __unOpNull(opFunc, res));})};"</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;let __unOpNull &#x3D; (opFunc, left) &#x3D;&gt; {return left &#x3D;&#x3D;&#x3D; null ? null : opFunc(left);};let __unop &#x3D; (left, opFunc, cb) &#x3D;&gt; {left((err, res) &#x3D;&gt; {if (err) return cb(err);return cb(void 0, __unOpNull(opFunc, res));})};&#x60;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L186">querying/MqlCompiler.ts:186</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="binaryexprtoexpression" class="tsd-anchor"></a>
+					<h3>binary<wbr>Expr<wbr>ToExpression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">binary<wbr>Expr<wbr>ToExpression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L594">querying/MqlCompiler.ts:594</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getprepends" class="tsd-anchor"></a>
+					<h3>get<wbr>Prepends</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Prepends<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L279">querying/MqlCompiler.ts:279</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="groupbytoarray" class="tsd-anchor"></a>
+					<h3>group<wbr>ByTo<wbr>Array</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">group<wbr>ByTo<wbr>Array<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L306">querying/MqlCompiler.ts:306</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="inlinefunction" class="tsd-anchor"></a>
+					<h3>inline<wbr>Function</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">inline<wbr>Function<span class="tsd-signature-symbol">(</span>funcName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L453">querying/MqlCompiler.ts:453</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>funcName: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="parseexpression" class="tsd-anchor"></a>
+					<h3>parse<wbr>Expression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Expression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L300">querying/MqlCompiler.ts:300</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="parseexpressionlist" class="tsd-anchor"></a>
+					<h3>parse<wbr>Expression<wbr>List</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Expression<wbr>List<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L296">querying/MqlCompiler.ts:296</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="parsequery" class="tsd-anchor"></a>
+					<h3>parse<wbr>Query</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Query<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L287">querying/MqlCompiler.ts:287</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="unaryexprtoexpression" class="tsd-anchor"></a>
+					<h3>unary<wbr>Expr<wbr>ToExpression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">unary<wbr>Expr<wbr>ToExpression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L619">querying/MqlCompiler.ts:619</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="visit" class="tsd-anchor"></a>
+					<h3>visit</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visit">visit</a></p>
+								<p>Overrides ParseTreeVisitor.visit</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L18">querying/MqlParserVisitor.ts:18</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitadditionexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>Addition<wbr>Expression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Addition<wbr>Expression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitadditionexpression">visitAdditionExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L566">querying/MqlCompiler.ts:566</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitandexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>And<wbr>Expression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>And<wbr>Expression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitandexpression">visitAndExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L582">querying/MqlCompiler.ts:582</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitassignment" class="tsd-anchor"></a>
+					<h3>visit<wbr>Assignment</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Assignment<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitassignment">visitAssignment</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L151">querying/MqlParserVisitor.ts:151</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitassignment_list_comma_separated" class="tsd-anchor"></a>
+					<h3>visit<wbr>Assignment_<wbr>list_<wbr>comma_<wbr>separated</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Assignment_<wbr>list_<wbr>comma_<wbr>separated<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitassignment_list_comma_separated">visitAssignment_list_comma_separated</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L443">querying/MqlCompiler.ts:443</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitassignment_list_semicolon_separated" class="tsd-anchor"></a>
+					<h3>visit<wbr>Assignment_<wbr>list_<wbr>semicolon_<wbr>separated</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Assignment_<wbr>list_<wbr>semicolon_<wbr>separated<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitassignment_list_semicolon_separated">visitAssignment_list_semicolon_separated</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L143">querying/MqlParserVisitor.ts:143</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitat_identifier" class="tsd-anchor"></a>
+					<h3>visit<wbr>At_<wbr>identifier</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>At_<wbr>identifier<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitat_identifier">visitAt_identifier</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L489">querying/MqlCompiler.ts:489</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="visitchildren" class="tsd-anchor"></a>
+					<h3>visit<wbr>Children</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Children<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitchildren">visitChildren</a></p>
+								<p>Overrides ParseTreeVisitor.visitChildren</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L22">querying/MqlParserVisitor.ts:22</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitcontextual_keywords" class="tsd-anchor"></a>
+					<h3>visit<wbr>Contextual_<wbr>keywords</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Contextual_<wbr>keywords<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitcontextual_keywords">visitContextual_keywords</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L243">querying/MqlParserVisitor.ts:243</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitcustom_literal" class="tsd-anchor"></a>
+					<h3>visit<wbr>Custom_<wbr>literal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Custom_<wbr>literal<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitcustom_literal">visitCustom_literal</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L540">querying/MqlCompiler.ts:540</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitdef_statement" class="tsd-anchor"></a>
+					<h3>visit<wbr>Def_<wbr>statement</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Def_<wbr>statement<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitdef_statement">visitDef_statement</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L426">querying/MqlCompiler.ts:426</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitdefinition_list" class="tsd-anchor"></a>
+					<h3>visit<wbr>Definition_<wbr>list</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Definition_<wbr>list<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitdefinition_list">visitDefinition_list</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L43">querying/MqlParserVisitor.ts:43</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitdisplayed_column" class="tsd-anchor"></a>
+					<h3>visit<wbr>Displayed_<wbr>column</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Displayed_<wbr>column<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitdisplayed_column">visitDisplayed_column</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L379">querying/MqlCompiler.ts:379</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitendregion_statement" class="tsd-anchor"></a>
+					<h3>visit<wbr>Endregion_<wbr>statement</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Endregion_<wbr>statement<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitendregion_statement">visitEndregion_statement</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L99">querying/MqlParserVisitor.ts:99</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitequalityexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>Equality<wbr>Expression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Equality<wbr>Expression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitequalityexpression">visitEqualityExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L574">querying/MqlCompiler.ts:574</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visiterrornode" class="tsd-anchor"></a>
+					<h3>visit<wbr>Error<wbr>Node</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Error<wbr>Node<span class="tsd-signature-symbol">(</span>node<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ErrorNode</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from ParseTreeVisitor.visitErrorNode</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/tree/Tree.d.ts:48</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>node: <span class="tsd-signature-type">ErrorNode</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitescaped_identifier" class="tsd-anchor"></a>
+					<h3>visit<wbr>Escaped_<wbr>identifier</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Escaped_<wbr>identifier<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitescaped_identifier">visitEscaped_identifier</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L481">querying/MqlCompiler.ts:481</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>Expression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Expression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitexpression">visitExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L163">querying/MqlParserVisitor.ts:163</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitexpression_list" class="tsd-anchor"></a>
+					<h3>visit<wbr>Expression_<wbr>list</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Expression_<wbr>list<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitexpression_list">visitExpression_list</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L439">querying/MqlCompiler.ts:439</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitexpression_standalone" class="tsd-anchor"></a>
+					<h3>visit<wbr>Expression_<wbr>standalone</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Expression_<wbr>standalone<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitexpression_standalone">visitExpression_standalone</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L155">querying/MqlParserVisitor.ts:155</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitfalseliteral" class="tsd-anchor"></a>
+					<h3>visit<wbr>False<wbr>Literal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>False<wbr>Literal<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitfalseliteral">visitFalseLiteral</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L502">querying/MqlCompiler.ts:502</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitfloat_vector" class="tsd-anchor"></a>
+					<h3>visit<wbr>Float_<wbr>vector</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Float_<wbr>vector<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitfloat_vector">visitFloat_vector</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L271">querying/MqlParserVisitor.ts:271</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitformat" class="tsd-anchor"></a>
+					<h3>visit<wbr>Format</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Format<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitformat">visitFormat</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L139">querying/MqlParserVisitor.ts:139</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitfunctionexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>Function<wbr>Expression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Function<wbr>Expression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitfunctionexpression">visitFunctionExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L459">querying/MqlCompiler.ts:459</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitfunction_definition" class="tsd-anchor"></a>
+					<h3>visit<wbr>Function_<wbr>definition</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Function_<wbr>definition<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitfunction_definition">visitFunction_definition</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L59">querying/MqlParserVisitor.ts:59</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitgroup_clause" class="tsd-anchor"></a>
+					<h3>visit<wbr>Group_<wbr>clause</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Group_<wbr>clause<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitgroup_clause">visitGroup_clause</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L115">querying/MqlParserVisitor.ts:115</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visithash_statement" class="tsd-anchor"></a>
+					<h3>visit<wbr>Hash_<wbr>statement</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Hash_<wbr>statement<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visithash_statement">visitHash_statement</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L375">querying/MqlCompiler.ts:375</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visithaving_clause" class="tsd-anchor"></a>
+					<h3>visit<wbr>Having_<wbr>clause</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Having_<wbr>clause<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visithaving_clause">visitHaving_clause</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L119">querying/MqlParserVisitor.ts:119</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visithere_document" class="tsd-anchor"></a>
+					<h3>visit<wbr>Here_<wbr>document</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Here_<wbr>document<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visithere_document">visitHere_document</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L524">querying/MqlCompiler.ts:524</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitidentifier" class="tsd-anchor"></a>
+					<h3>visit<wbr>Identifier</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Identifier<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitidentifier">visitIdentifier</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L231">querying/MqlParserVisitor.ts:231</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitimport_statement" class="tsd-anchor"></a>
+					<h3>visit<wbr>Import_<wbr>statement</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Import_<wbr>statement<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitimport_statement">visitImport_statement</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L87">querying/MqlParserVisitor.ts:87</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitinexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>InExpression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>InExpression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitinexpression">visitInExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L396">querying/MqlCompiler.ts:396</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitliteral_double" class="tsd-anchor"></a>
+					<h3>visit<wbr>Literal_<wbr>double</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Literal_<wbr>double<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitliteral_double">visitLiteral_double</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L544">querying/MqlCompiler.ts:544</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitliteral_string" class="tsd-anchor"></a>
+					<h3>visit<wbr>Literal_<wbr>string</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Literal_<wbr>string<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitliteral_string">visitLiteral_string</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L515">querying/MqlCompiler.ts:515</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitliteral_table" class="tsd-anchor"></a>
+					<h3>visit<wbr>Literal_<wbr>table</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Literal_<wbr>table<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitliteral_table">visitLiteral_table</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L47">querying/MqlParserVisitor.ts:47</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitliteral_table_column" class="tsd-anchor"></a>
+					<h3>visit<wbr>Literal_<wbr>table_<wbr>column</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Literal_<wbr>table_<wbr>column<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitliteral_table_column">visitLiteral_table_column</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L51">querying/MqlParserVisitor.ts:51</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitliteral_table_row" class="tsd-anchor"></a>
+					<h3>visit<wbr>Literal_<wbr>table_<wbr>row</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Literal_<wbr>table_<wbr>row<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitliteral_table_row">visitLiteral_table_row</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L55">querying/MqlParserVisitor.ts:55</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitmql_literal" class="tsd-anchor"></a>
+					<h3>visit<wbr>Mql_<wbr>literal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Mql_<wbr>literal<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitmql_literal">visitMql_literal</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L511">querying/MqlCompiler.ts:511</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitmql_query" class="tsd-anchor"></a>
+					<h3>visit<wbr>Mql_<wbr>query</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Mql_<wbr>query<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitmql_query">visitMql_query</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L35">querying/MqlParserVisitor.ts:35</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitmultiplicativeexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>Multiplicative<wbr>Expression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Multiplicative<wbr>Expression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitmultiplicativeexpression">visitMultiplicativeExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L570">querying/MqlCompiler.ts:570</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitnegationexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>Negation<wbr>Expression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Negation<wbr>Expression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitnegationexpression">visitNegationExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L615">querying/MqlCompiler.ts:615</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitnegative_literal_double" class="tsd-anchor"></a>
+					<h3>visit<wbr>Negative_<wbr>literal_<wbr>double</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Negative_<wbr>literal_<wbr>double<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitnegative_literal_double">visitNegative_literal_double</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L535">querying/MqlCompiler.ts:535</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitnon_at_param_set_statement" class="tsd-anchor"></a>
+					<h3>visit<wbr>Non_<wbr>at_<wbr>param_<wbr>set_<wbr>statement</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Non_<wbr>at_<wbr>param_<wbr>set_<wbr>statement<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitnon_at_param_set_statement">visitNon_at_param_set_statement</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L67">querying/MqlParserVisitor.ts:67</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitnon_at_param_set_statement_list" class="tsd-anchor"></a>
+					<h3>visit<wbr>Non_<wbr>at_<wbr>param_<wbr>set_<wbr>statement_<wbr>list</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Non_<wbr>at_<wbr>param_<wbr>set_<wbr>statement_<wbr>list<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitnon_at_param_set_statement_list">visitNon_at_param_set_statement_list</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L63">querying/MqlParserVisitor.ts:63</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitnon_function_non_at_identifier" class="tsd-anchor"></a>
+					<h3>visit<wbr>Non_<wbr>function_<wbr>non_<wbr>at_<wbr>identifier</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Non_<wbr>function_<wbr>non_<wbr>at_<wbr>identifier<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitnon_function_non_at_identifier">visitNon_function_non_at_identifier</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L235">querying/MqlParserVisitor.ts:235</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitnormal_identifier" class="tsd-anchor"></a>
+					<h3>visit<wbr>Normal_<wbr>identifier</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Normal_<wbr>identifier<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitnormal_identifier">visitNormal_identifier</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L477">querying/MqlCompiler.ts:477</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitnotexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>Not<wbr>Expression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Not<wbr>Expression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitnotexpression">visitNotExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L611">querying/MqlCompiler.ts:611</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitnullliteral" class="tsd-anchor"></a>
+					<h3>visit<wbr>Null<wbr>Literal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Null<wbr>Literal<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitnullliteral">visitNullLiteral</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L498">querying/MqlCompiler.ts:498</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitorexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>OrExpression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>OrExpression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitorexpression">visitOrExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L578">querying/MqlCompiler.ts:578</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitorder_clause" class="tsd-anchor"></a>
+					<h3>visit<wbr>Order_<wbr>clause</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Order_<wbr>clause<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitorder_clause">visitOrder_clause</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L363">querying/MqlCompiler.ts:363</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitparenthesisexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>Parenthesis<wbr>Expression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Parenthesis<wbr>Expression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitparenthesisexpression">visitParenthesisExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L227">querying/MqlParserVisitor.ts:227</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitprimaryexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>Primary<wbr>Expression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Primary<wbr>Expression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitprimaryexpression">visitPrimaryExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L211">querying/MqlParserVisitor.ts:211</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitquery_sets_defs" class="tsd-anchor"></a>
+					<h3>visit<wbr>Query_<wbr>sets_<wbr>defs</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Query_<wbr>sets_<wbr>defs<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitquery_sets_defs">visitQuery_sets_defs</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L75">querying/MqlParserVisitor.ts:75</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitquery_sets_defs_regions" class="tsd-anchor"></a>
+					<h3>visit<wbr>Query_<wbr>sets_<wbr>defs_<wbr>regions</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Query_<wbr>sets_<wbr>defs_<wbr>regions<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitquery_sets_defs_regions">visitQuery_sets_defs_regions</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L71">querying/MqlParserVisitor.ts:71</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitregion_or_displayed_column" class="tsd-anchor"></a>
+					<h3>visit<wbr>Region_<wbr>or_<wbr>displayed_<wbr>column</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Region_<wbr>or_<wbr>displayed_<wbr>column<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitregion_or_displayed_column">visitRegion_or_displayed_column</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L131">querying/MqlParserVisitor.ts:131</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitregion_statement" class="tsd-anchor"></a>
+					<h3>visit<wbr>Region_<wbr>statement</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Region_<wbr>statement<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitregion_statement">visitRegion_statement</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L95">querying/MqlParserVisitor.ts:95</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitrelationexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>Relation<wbr>Expression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Relation<wbr>Expression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitrelationexpression">visitRelationExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L590">querying/MqlCompiler.ts:590</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitselect_list" class="tsd-anchor"></a>
+					<h3>visit<wbr>Select_<wbr>list</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Select_<wbr>list<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitselect_list">visitSelect_list</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L107">querying/MqlParserVisitor.ts:107</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitselect_statement" class="tsd-anchor"></a>
+					<h3>visit<wbr>Select_<wbr>statement</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Select_<wbr>statement<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitselect_statement">visitSelect_statement</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L312">querying/MqlCompiler.ts:312</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitset_statement" class="tsd-anchor"></a>
+					<h3>visit<wbr>Set_<wbr>statement</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Set_<wbr>statement<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitset_statement">visitSet_statement</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L420">querying/MqlCompiler.ts:420</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitset_statement_list" class="tsd-anchor"></a>
+					<h3>visit<wbr>Set_<wbr>statement_<wbr>list</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Set_<wbr>statement_<wbr>list<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitset_statement_list">visitSet_statement_list</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L39">querying/MqlParserVisitor.ts:39</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitsorted_def" class="tsd-anchor"></a>
+					<h3>visit<wbr>Sorted_<wbr>def</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Sorted_<wbr>def<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitsorted_def">visitSorted_def</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L127">querying/MqlParserVisitor.ts:127</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitstring_vector" class="tsd-anchor"></a>
+					<h3>visit<wbr>String_<wbr>vector</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>String_<wbr>vector<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitstring_vector">visitString_vector</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L275">querying/MqlParserVisitor.ts:275</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitterminal" class="tsd-anchor"></a>
+					<h3>visit<wbr>Terminal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Terminal<span class="tsd-signature-symbol">(</span>node<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TerminalNode</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from ParseTreeVisitor.visitTerminal</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/tree/Tree.d.ts:46</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>node: <span class="tsd-signature-type">TerminalNode</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visittrueliteral" class="tsd-anchor"></a>
+					<h3>visit<wbr>True<wbr>Literal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>True<wbr>Literal<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visittrueliteral">visitTrueLiteral</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L506">querying/MqlCompiler.ts:506</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="visitwhere_clause" class="tsd-anchor"></a>
+					<h3>visit<wbr>Where_<wbr>clause</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Where_<wbr>clause<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitwhere_clause">visitWhere_clause</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L111">querying/MqlParserVisitor.ts:111</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="visitxorexpression" class="tsd-anchor"></a>
+					<h3>visit<wbr>Xor<wbr>Expression</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">visit<wbr>Xor<wbr>Expression<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#visitxorexpression">visitXorExpression</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L586">querying/MqlCompiler.ts:586</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="binaryopiscond" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> binary<wbr>OpIs<wbr>Cond</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">binary<wbr>OpIs<wbr>Cond<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L235">querying/MqlCompiler.ts:235</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>token: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="escapedoublequoted" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> escape<wbr>Double<wbr>Quoted</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">escape<wbr>Double<wbr>Quoted<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#escapedoublequoted">escapeDoubleQuoted</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L9">querying/MqlParserVisitor.ts:9</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>str: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="mapbinaryoperation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> map<wbr>Binary<wbr>Operation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">map<wbr>Binary<wbr>Operation<span class="tsd-signature-symbol">(</span>op<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L214">querying/MqlCompiler.ts:214</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>op: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="mapunaryoperation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> map<wbr>Unary<wbr>Operation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">map<wbr>Unary<wbr>Operation<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlCompiler.ts#L250">querying/MqlCompiler.ts:250</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>token: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">null</span>
+							</h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="unescapeidentifier" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> unescape<wbr>Identifier</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">unescape<wbr>Identifier<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mqlparservisitor.html">MqlParserVisitor</a>.<a href="mqlparservisitor.html#unescapeidentifier">unescapeIdentifier</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/mql/src/querying/MqlParserVisitor.ts#L4">querying/MqlParserVisitor.ts:4</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="mqltreecompiler.html" class="tsd-kind-icon">Mql<wbr>Tree<wbr>Compiler</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="mqltreecompiler.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="mqltreecompiler.html#defs" class="tsd-kind-icon">defs</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="mqltreecompiler.html#functionstoinline" class="tsd-kind-icon">functions<wbr>ToInline</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="mqltreecompiler.html#prepend" class="tsd-kind-icon">prepend</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="mqltreecompiler.html#sets" class="tsd-kind-icon">sets</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="mqltreecompiler.html#binoptext" class="tsd-kind-icon">bin<wbr>OpText</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="mqltreecompiler.html#getvalueornulltext" class="tsd-kind-icon">get<wbr>Value<wbr>OrNull<wbr>Text</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="mqltreecompiler.html#inexprtext" class="tsd-kind-icon">in<wbr>Expr<wbr>Text</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="mqltreecompiler.html#unoptext" class="tsd-kind-icon">un<wbr>OpText</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mqltreecompiler.html#binaryexprtoexpression" class="tsd-kind-icon">binary<wbr>Expr<wbr>ToExpression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mqltreecompiler.html#getprepends" class="tsd-kind-icon">get<wbr>Prepends</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mqltreecompiler.html#groupbytoarray" class="tsd-kind-icon">group<wbr>ByTo<wbr>Array</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mqltreecompiler.html#inlinefunction" class="tsd-kind-icon">inline<wbr>Function</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mqltreecompiler.html#parseexpression" class="tsd-kind-icon">parse<wbr>Expression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mqltreecompiler.html#parseexpressionlist" class="tsd-kind-icon">parse<wbr>Expression<wbr>List</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mqltreecompiler.html#parsequery" class="tsd-kind-icon">parse<wbr>Query</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mqltreecompiler.html#unaryexprtoexpression" class="tsd-kind-icon">unary<wbr>Expr<wbr>ToExpression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="mqltreecompiler.html#visit" class="tsd-kind-icon">visit</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitadditionexpression" class="tsd-kind-icon">visit<wbr>Addition<wbr>Expression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitandexpression" class="tsd-kind-icon">visit<wbr>And<wbr>Expression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitassignment" class="tsd-kind-icon">visit<wbr>Assignment</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitassignment_list_comma_separated" class="tsd-kind-icon">visit<wbr>Assignment_<wbr>list_<wbr>comma_<wbr>separated</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitassignment_list_semicolon_separated" class="tsd-kind-icon">visit<wbr>Assignment_<wbr>list_<wbr>semicolon_<wbr>separated</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitat_identifier" class="tsd-kind-icon">visit<wbr>At_<wbr>identifier</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitchildren" class="tsd-kind-icon">visit<wbr>Children</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitcontextual_keywords" class="tsd-kind-icon">visit<wbr>Contextual_<wbr>keywords</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitcustom_literal" class="tsd-kind-icon">visit<wbr>Custom_<wbr>literal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitdef_statement" class="tsd-kind-icon">visit<wbr>Def_<wbr>statement</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitdefinition_list" class="tsd-kind-icon">visit<wbr>Definition_<wbr>list</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitdisplayed_column" class="tsd-kind-icon">visit<wbr>Displayed_<wbr>column</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitendregion_statement" class="tsd-kind-icon">visit<wbr>Endregion_<wbr>statement</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitequalityexpression" class="tsd-kind-icon">visit<wbr>Equality<wbr>Expression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visiterrornode" class="tsd-kind-icon">visit<wbr>Error<wbr>Node</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitescaped_identifier" class="tsd-kind-icon">visit<wbr>Escaped_<wbr>identifier</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitexpression" class="tsd-kind-icon">visit<wbr>Expression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitexpression_list" class="tsd-kind-icon">visit<wbr>Expression_<wbr>list</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitexpression_standalone" class="tsd-kind-icon">visit<wbr>Expression_<wbr>standalone</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitfalseliteral" class="tsd-kind-icon">visit<wbr>False<wbr>Literal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitfloat_vector" class="tsd-kind-icon">visit<wbr>Float_<wbr>vector</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitformat" class="tsd-kind-icon">visit<wbr>Format</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitfunctionexpression" class="tsd-kind-icon">visit<wbr>Function<wbr>Expression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitfunction_definition" class="tsd-kind-icon">visit<wbr>Function_<wbr>definition</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitgroup_clause" class="tsd-kind-icon">visit<wbr>Group_<wbr>clause</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visithash_statement" class="tsd-kind-icon">visit<wbr>Hash_<wbr>statement</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visithaving_clause" class="tsd-kind-icon">visit<wbr>Having_<wbr>clause</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visithere_document" class="tsd-kind-icon">visit<wbr>Here_<wbr>document</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitidentifier" class="tsd-kind-icon">visit<wbr>Identifier</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitimport_statement" class="tsd-kind-icon">visit<wbr>Import_<wbr>statement</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitinexpression" class="tsd-kind-icon">visit<wbr>InExpression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitliteral_double" class="tsd-kind-icon">visit<wbr>Literal_<wbr>double</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitliteral_string" class="tsd-kind-icon">visit<wbr>Literal_<wbr>string</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitliteral_table" class="tsd-kind-icon">visit<wbr>Literal_<wbr>table</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitliteral_table_column" class="tsd-kind-icon">visit<wbr>Literal_<wbr>table_<wbr>column</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitliteral_table_row" class="tsd-kind-icon">visit<wbr>Literal_<wbr>table_<wbr>row</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitmql_literal" class="tsd-kind-icon">visit<wbr>Mql_<wbr>literal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitmql_query" class="tsd-kind-icon">visit<wbr>Mql_<wbr>query</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitmultiplicativeexpression" class="tsd-kind-icon">visit<wbr>Multiplicative<wbr>Expression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitnegationexpression" class="tsd-kind-icon">visit<wbr>Negation<wbr>Expression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitnegative_literal_double" class="tsd-kind-icon">visit<wbr>Negative_<wbr>literal_<wbr>double</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitnon_at_param_set_statement" class="tsd-kind-icon">visit<wbr>Non_<wbr>at_<wbr>param_<wbr>set_<wbr>statement</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitnon_at_param_set_statement_list" class="tsd-kind-icon">visit<wbr>Non_<wbr>at_<wbr>param_<wbr>set_<wbr>statement_<wbr>list</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitnon_function_non_at_identifier" class="tsd-kind-icon">visit<wbr>Non_<wbr>function_<wbr>non_<wbr>at_<wbr>identifier</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitnormal_identifier" class="tsd-kind-icon">visit<wbr>Normal_<wbr>identifier</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitnotexpression" class="tsd-kind-icon">visit<wbr>Not<wbr>Expression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitnullliteral" class="tsd-kind-icon">visit<wbr>Null<wbr>Literal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitorexpression" class="tsd-kind-icon">visit<wbr>OrExpression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitorder_clause" class="tsd-kind-icon">visit<wbr>Order_<wbr>clause</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitparenthesisexpression" class="tsd-kind-icon">visit<wbr>Parenthesis<wbr>Expression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitprimaryexpression" class="tsd-kind-icon">visit<wbr>Primary<wbr>Expression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitquery_sets_defs" class="tsd-kind-icon">visit<wbr>Query_<wbr>sets_<wbr>defs</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitquery_sets_defs_regions" class="tsd-kind-icon">visit<wbr>Query_<wbr>sets_<wbr>defs_<wbr>regions</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitregion_or_displayed_column" class="tsd-kind-icon">visit<wbr>Region_<wbr>or_<wbr>displayed_<wbr>column</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitregion_statement" class="tsd-kind-icon">visit<wbr>Region_<wbr>statement</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitrelationexpression" class="tsd-kind-icon">visit<wbr>Relation<wbr>Expression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitselect_list" class="tsd-kind-icon">visit<wbr>Select_<wbr>list</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitselect_statement" class="tsd-kind-icon">visit<wbr>Select_<wbr>statement</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitset_statement" class="tsd-kind-icon">visit<wbr>Set_<wbr>statement</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitset_statement_list" class="tsd-kind-icon">visit<wbr>Set_<wbr>statement_<wbr>list</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitsorted_def" class="tsd-kind-icon">visit<wbr>Sorted_<wbr>def</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitstring_vector" class="tsd-kind-icon">visit<wbr>String_<wbr>vector</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitterminal" class="tsd-kind-icon">visit<wbr>Terminal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visittrueliteral" class="tsd-kind-icon">visit<wbr>True<wbr>Literal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mqltreecompiler.html#visitwhere_clause" class="tsd-kind-icon">visit<wbr>Where_<wbr>clause</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="mqltreecompiler.html#visitxorexpression" class="tsd-kind-icon">visit<wbr>Xor<wbr>Expression</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="mqltreecompiler.html#binaryopiscond" class="tsd-kind-icon">binary<wbr>OpIs<wbr>Cond</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="mqltreecompiler.html#escapedoublequoted" class="tsd-kind-icon">escape<wbr>Double<wbr>Quoted</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="mqltreecompiler.html#mapbinaryoperation" class="tsd-kind-icon">map<wbr>Binary<wbr>Operation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="mqltreecompiler.html#mapunaryoperation" class="tsd-kind-icon">map<wbr>Unary<wbr>Operation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="mqltreecompiler.html#unescapeidentifier" class="tsd-kind-icon">unescape<wbr>Identifier</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

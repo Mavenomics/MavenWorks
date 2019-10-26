@@ -40,8 +40,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -68,24 +66,54 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>External modules</h3>
+							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-external-module"><a href="modules/_handles_handle_.html" class="tsd-kind-icon">"handles/handle"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_handles_handlemanager_.html" class="tsd-kind-icon">"handles/handlemanager"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_handles_index_.html" class="tsd-kind-icon">"handles/index"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_index_.html" class="tsd-kind-icon">"index"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_rendered_dashboard_.html" class="tsd-kind-icon">"rendered-<wbr>dashboard"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_services_expressioneval_.html" class="tsd-kind-icon">"services/expressioneval"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_services_index_.html" class="tsd-kind-icon">"services/index"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_services_kernelpart_.html" class="tsd-kind-icon">"services/kernelpart"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_services_register_udps_.html" class="tsd-kind-icon">"services/register-<wbr>udps"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_services_sync_metadata_.html" class="tsd-kind-icon">"services/sync-<wbr>metadata"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_utils_comm_manager_.html" class="tsd-kind-icon">"utils/comm-<wbr>manager"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_utils_index_.html" class="tsd-kind-icon">"utils/index"</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/_utils_kernel_error_.html" class="tsd-kind-icon">"utils/kernel-<wbr>error"</a></li>
+								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/commmanager.html" class="tsd-kind-icon">Comm<wbr>Manager</a></li>
+								<li class="tsd-kind-class"><a href="classes/displayhandle.html" class="tsd-kind-icon">Display<wbr>Handle</a></li>
+								<li class="tsd-kind-class"><a href="classes/displayhandlemanager.html" class="tsd-kind-icon">Display<wbr>Handle<wbr>Manager</a></li>
+								<li class="tsd-kind-class"><a href="classes/kernelerror.html" class="tsd-kind-icon">Kernel<wbr>Error</a></li>
+								<li class="tsd-kind-class"><a href="classes/kernelexpressionevaluator.html" class="tsd-kind-icon">Kernel<wbr>Expression<wbr>Evaluator</a></li>
+								<li class="tsd-kind-class"><a href="classes/kernelproxypart.html" class="tsd-kind-icon">Kernel<wbr>Proxy<wbr>Part</a></li>
+								<li class="tsd-kind-class"><a href="classes/rendereddashboard.html" class="tsd-kind-icon">Rendered<wbr>Dashboard</a></li>
+								<li class="tsd-kind-class"><a href="classes/syncmetadata.html" class="tsd-kind-icon">Sync<wbr>Metadata</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#registerudps" class="tsd-kind-icon">registerUDPs</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="registerudps" class="tsd-anchor"></a>
+					<h3>registerUDPs</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">registerUDPs<span class="tsd-signature-symbol">(</span>factory<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PartFactory</span>, kernelPath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/jupyterutils/src/services/register-udps.ts#L4">services/register-udps.ts:4</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>factory: <span class="tsd-signature-type">PartFactory</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> kernelPath: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -95,49 +123,46 @@
 					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_handles_handle_.html">"handles/handle"</a>
+					<li class=" tsd-kind-module tsd-parent-kind-class">
+						<a href="modules/displayhandle.msg.html">Display<wbr>Handle.<wbr>Msg</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_handles_handlemanager_.html">"handles/handlemanager"</a>
+					<li class=" tsd-kind-module tsd-parent-kind-class">
+						<a href="modules/kernelproxypart.lifecycle.html">Kernel<wbr>Proxy<wbr>Part.<wbr>Lifecycle</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_handles_index_.html">"handles/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_index_.html">"index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_rendered_dashboard_.html">"rendered-<wbr>dashboard"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_services_expressioneval_.html">"services/expressioneval"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_services_index_.html">"services/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_services_kernelpart_.html">"services/kernelpart"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_services_register_udps_.html">"services/register-<wbr>udps"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_services_sync_metadata_.html">"services/sync-<wbr>metadata"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_utils_comm_manager_.html">"utils/comm-<wbr>manager"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_utils_index_.html">"utils/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_utils_kernel_error_.html">"utils/kernel-<wbr>error"</a>
+					<li class=" tsd-kind-module tsd-parent-kind-class">
+						<a href="modules/rendereddashboard.msg.html">Rendered<wbr>Dashboard.<wbr>Msg</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/commmanager.html" class="tsd-kind-icon">Comm<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/displayhandle.html" class="tsd-kind-icon">Display<wbr>Handle</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/displayhandlemanager.html" class="tsd-kind-icon">Display<wbr>Handle<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/kernelerror.html" class="tsd-kind-icon">Kernel<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/kernelexpressionevaluator.html" class="tsd-kind-icon">Kernel<wbr>Expression<wbr>Evaluator</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/kernelproxypart.html" class="tsd-kind-icon">Kernel<wbr>Proxy<wbr>Part</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/rendereddashboard.html" class="tsd-kind-icon">Rendered<wbr>Dashboard</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/syncmetadata.html" class="tsd-kind-icon">Sync<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#registerudps" class="tsd-kind-icon">registerUDPs</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
