@@ -1,0 +1,2350 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MqlLexerImpl | @mavenomics/mql</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">@mavenomics/mql</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_parsing_mqllexerimpl_.html">&quot;parsing/MqlLexerImpl&quot;</a>
+				</li>
+				<li>
+					<a href="_parsing_mqllexerimpl_.mqllexerimpl.html">MqlLexerImpl</a>
+				</li>
+			</ul>
+			<h1>Class MqlLexerImpl</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="tsd-signature-type">MqlLexer</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">MqlLexerImpl</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-inherited">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#_heredocid" class="tsd-kind-icon">_here<wbr>Doc<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#column" class="tsd-kind-icon">column</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#inputstream" class="tsd-kind-icon">input<wbr>Stream</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#line" class="tsd-kind-icon">line</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#sourcename" class="tsd-kind-icon">source<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#state" class="tsd-kind-icon">state</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#text" class="tsd-kind-icon">text</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#and_" class="tsd-kind-icon">AND_</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#as" class="tsd-kind-icon">AS</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#asc" class="tsd-kind-icon">ASC</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#assignment" class="tsd-kind-icon">ASSIGNMENT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#asterisk" class="tsd-kind-icon">ASTERISK</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#at_identifier" class="tsd-kind-icon">AT_<wbr>IDENTIFIER</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#at_sign" class="tsd-kind-icon">AT_<wbr>SIGN</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#bitshift_left" class="tsd-kind-icon">BITSHIFT_<wbr>LEFT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#by" class="tsd-kind-icon">BY</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#close_brack" class="tsd-kind-icon">CLOSE_<wbr>BRACK</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#close_curly" class="tsd-kind-icon">CLOSE_<wbr>CURLY</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#close_paren" class="tsd-kind-icon">CLOSE_<wbr>PAREN</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#comma" class="tsd-kind-icon">COMMA</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#concatination" class="tsd-kind-icon">CONCATINATION</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#def" class="tsd-kind-icon">DEF</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#default_mode" class="tsd-kind-icon">DEFAULT_<wbr>MODE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#default_token_channel" class="tsd-kind-icon">DEFAULT_<wbr>TOKEN_<wbr>CHANNEL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#desc" class="tsd-kind-icon">DESC</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#distinct" class="tsd-kind-icon">DISTINCT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#divide" class="tsd-kind-icon">DIVIDE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#dot" class="tsd-kind-icon">DOT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#endregion" class="tsd-kind-icon">ENDREGION</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#eof" class="tsd-kind-icon">EOF</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#eq" class="tsd-kind-icon">EQ</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#escaped_identifier" class="tsd-kind-icon">ESCAPED_<wbr>IDENTIFIER</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#false" class="tsd-kind-icon">FALSE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#float_vector_start" class="tsd-kind-icon">FLOAT_<wbr>VECTOR_<wbr>START</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#format" class="tsd-kind-icon">FORMAT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#from" class="tsd-kind-icon">FROM</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#fun" class="tsd-kind-icon">FUN</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#ge" class="tsd-kind-icon">GE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#group" class="tsd-kind-icon">GROUP</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#grouping" class="tsd-kind-icon">GROUPING</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#gt" class="tsd-kind-icon">GT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#hash" class="tsd-kind-icon">HASH</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#having" class="tsd-kind-icon">HAVING</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#heredoc_end" class="tsd-kind-icon">HEREDOC_<wbr>END</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#heredoc_start" class="tsd-kind-icon">HEREDOC_<wbr>START</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#heredoc_text" class="tsd-kind-icon">HEREDOC_<wbr>TEXT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#hidden" class="tsd-kind-icon">HIDDEN</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#heredocmode" class="tsd-kind-icon">Here<wbr>Doc<wbr>Mode</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#import" class="tsd-kind-icon">IMPORT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#in" class="tsd-kind-icon">IN</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#infinity" class="tsd-kind-icon">INFINITY</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#le" class="tsd-kind-icon">LE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#leaves" class="tsd-kind-icon">LEAVES</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#lt_" class="tsd-kind-icon">LT_</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#max_char_value" class="tsd-kind-icon">MAX_<wbr>CHAR_<wbr>VALUE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#minus" class="tsd-kind-icon">MINUS</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#min_char_value" class="tsd-kind-icon">MIN_<wbr>CHAR_<wbr>VALUE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#ml_comment" class="tsd-kind-icon">ML_<wbr>COMMENT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#mod" class="tsd-kind-icon">MOD</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#more" class="tsd-kind-icon">MORE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#nan" class="tsd-kind-icon">NAN</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#newline" class="tsd-kind-icon">NEWLINE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#no" class="tsd-kind-icon">NO</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#normal_identifier" class="tsd-kind-icon">NORMAL_<wbr>IDENTIFIER</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#not" class="tsd-kind-icon">NOT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#note" class="tsd-kind-icon">NOTE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#not_eq" class="tsd-kind-icon">NOT_<wbr>EQ</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#null" class="tsd-kind-icon">NULL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#num_float" class="tsd-kind-icon">NUM_<wbr>FLOAT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#num_int" class="tsd-kind-icon">NUM_<wbr>INT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#open_brack" class="tsd-kind-icon">OPEN_<wbr>BRACK</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#open_curly" class="tsd-kind-icon">OPEN_<wbr>CURLY</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#open_paren" class="tsd-kind-icon">OPEN_<wbr>PAREN</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#order" class="tsd-kind-icon">ORDER</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#or_" class="tsd-kind-icon">OR_</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#plus" class="tsd-kind-icon">PLUS</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#preserve" class="tsd-kind-icon">PRESERVE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#region" class="tsd-kind-icon">REGION</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#rollup" class="tsd-kind-icon">ROLLUP</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#select" class="tsd-kind-icon">SELECT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#semi" class="tsd-kind-icon">SEMI</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#set" class="tsd-kind-icon">SET</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#skip" class="tsd-kind-icon">SKIP</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#squote" class="tsd-kind-icon">SQUOTE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#string_literal" class="tsd-kind-icon">STRING_<wbr>LITERAL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#string_vector_start" class="tsd-kind-icon">STRING_<wbr>VECTOR_<wbr>START</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#top" class="tsd-kind-icon">TOP</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#true" class="tsd-kind-icon">TRUE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#vertbar" class="tsd-kind-icon">VERTBAR</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#where" class="tsd-kind-icon">WHERE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#with" class="tsd-kind-icon">WITH</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#ws" class="tsd-kind-icon">WS</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#xor" class="tsd-kind-icon">XOR</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#checkheredocend" class="tsd-kind-icon">Check<wbr>Heredoc<wbr>End</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#adderrorlistener" class="tsd-kind-icon">add<wbr>Error<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#charindex" class="tsd-kind-icon">char<wbr>Index</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#checkversion" class="tsd-kind-icon">check<wbr>Version</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#emit" class="tsd-kind-icon">emit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#emiteof" class="tsd-kind-icon">emitEOF</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#emittoken" class="tsd-kind-icon">emit<wbr>Token</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#getalltokens" class="tsd-kind-icon">get<wbr>All<wbr>Tokens</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#getcharerrordisplay" class="tsd-kind-icon">get<wbr>Char<wbr>Error<wbr>Display</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#geterrordisplay" class="tsd-kind-icon">get<wbr>Error<wbr>Display</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#geterrordisplayforchar" class="tsd-kind-icon">get<wbr>Error<wbr>Display<wbr>For<wbr>Char</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#geterrorheader" class="tsd-kind-icon">get<wbr>Error<wbr>Header</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#geterrorlistenerdispatch" class="tsd-kind-icon">get<wbr>Error<wbr>Listener<wbr>Dispatch</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#getruleindexmap" class="tsd-kind-icon">get<wbr>Rule<wbr>Index<wbr>Map</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#gettokenerrordisplay" class="tsd-kind-icon">get<wbr>Token<wbr>Error<wbr>Display</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#gettokentype" class="tsd-kind-icon">get<wbr>Token<wbr>Type</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#gettokentypemap" class="tsd-kind-icon">get<wbr>Token<wbr>Type<wbr>Map</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#more-1" class="tsd-kind-icon">more</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#nexttoken" class="tsd-kind-icon">next<wbr>Token</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#notifylisteners" class="tsd-kind-icon">notify<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#popmode" class="tsd-kind-icon">pop<wbr>Mode</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#precpred" class="tsd-kind-icon">precpred</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#pushmode" class="tsd-kind-icon">push<wbr>Mode</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#recover" class="tsd-kind-icon">recover</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#removeerrorlisteners" class="tsd-kind-icon">remove<wbr>Error<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#reset" class="tsd-kind-icon">reset</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#sempred" class="tsd-kind-icon">sempred</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parsing_mqllexerimpl_.mqllexerimpl.html#skip-1" class="tsd-kind-icon">skip</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Mql<wbr>Lexer<wbr>Impl<span class="tsd-signature-symbol">(</span>inputStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_parsing_mqllexerimpl_.mqllexerimpl.html" class="tsd-signature-type">MqlLexerImpl</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from MqlLexer.__constructor</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L86">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:86</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>inputStream: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_parsing_mqllexerimpl_.mqllexerimpl.html" class="tsd-signature-type">MqlLexerImpl</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_heredocid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _here<wbr>Doc<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">_here<wbr>Doc<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/src/parsing/MqlLexerImpl.ts#L4">parsing/MqlLexerImpl.ts:4</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="column" class="tsd-anchor"></a>
+					<h3>column</h3>
+					<div class="tsd-signature tsd-kind-icon">column<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Lexer.column</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:10</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="inputstream" class="tsd-anchor"></a>
+					<h3>input<wbr>Stream</h3>
+					<div class="tsd-signature tsd-kind-icon">input<wbr>Stream<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Lexer.inputStream</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:6</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="line" class="tsd-anchor"></a>
+					<h3>line</h3>
+					<div class="tsd-signature tsd-kind-icon">line<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Lexer.line</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:9</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="sourcename" class="tsd-anchor"></a>
+					<h3>source<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">source<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Lexer.sourceName</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:7</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="state" class="tsd-anchor"></a>
+					<h3>state</h3>
+					<div class="tsd-signature tsd-kind-icon">state<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Recognizer.state</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Recognizer.d.ts:6</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="text" class="tsd-anchor"></a>
+					<h3>text</h3>
+					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Lexer.text</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:11</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="type" class="tsd-anchor"></a>
+					<h3>type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Lexer.type</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:8</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="and_" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> AND_</h3>
+					<div class="tsd-signature tsd-kind-icon">AND_<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.AND_</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L40">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:40</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="as" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> AS</h3>
+					<div class="tsd-signature tsd-kind-icon">AS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.AS</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L13">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="asc" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ASC</h3>
+					<div class="tsd-signature tsd-kind-icon">ASC<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.ASC</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L31">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:31</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="assignment" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ASSIGNMENT</h3>
+					<div class="tsd-signature tsd-kind-icon">ASSIGNMENT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.ASSIGNMENT</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L73">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:73</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="asterisk" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ASTERISK</h3>
+					<div class="tsd-signature tsd-kind-icon">ASTERISK<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.ASTERISK</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L49">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:49</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="at_identifier" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> AT_<wbr>IDENTIFIER</h3>
+					<div class="tsd-signature tsd-kind-icon">AT_<wbr>IDENTIFIER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.AT_IDENTIFIER</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L83">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:83</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="at_sign" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> AT_<wbr>SIGN</h3>
+					<div class="tsd-signature tsd-kind-icon">AT_<wbr>SIGN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.AT_SIGN</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L50">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:50</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="bitshift_left" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> BITSHIFT_<wbr>LEFT</h3>
+					<div class="tsd-signature tsd-kind-icon">BITSHIFT_<wbr>LEFT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.BITSHIFT_LEFT</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L74">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:74</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="by" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> BY</h3>
+					<div class="tsd-signature tsd-kind-icon">BY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.BY</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L24">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:24</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="close_brack" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> CLOSE_<wbr>BRACK</h3>
+					<div class="tsd-signature tsd-kind-icon">CLOSE_<wbr>BRACK<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.CLOSE_BRACK</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L55">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:55</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="close_curly" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> CLOSE_<wbr>CURLY</h3>
+					<div class="tsd-signature tsd-kind-icon">CLOSE_<wbr>CURLY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.CLOSE_CURLY</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L57">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:57</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="close_paren" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> CLOSE_<wbr>PAREN</h3>
+					<div class="tsd-signature tsd-kind-icon">CLOSE_<wbr>PAREN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.CLOSE_PAREN</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L53">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:53</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="comma" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> COMMA</h3>
+					<div class="tsd-signature tsd-kind-icon">COMMA<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.COMMA</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L48">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:48</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="concatination" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> CONCATINATION</h3>
+					<div class="tsd-signature tsd-kind-icon">CONCATINATION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.CONCATINATION</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L66">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:66</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="def" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> DEF</h3>
+					<div class="tsd-signature tsd-kind-icon">DEF<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.DEF</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L18">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="default_mode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> DEFAULT_<wbr>MODE</h3>
+					<div class="tsd-signature tsd-kind-icon">DEFAULT_<wbr>MODE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Lexer.DEFAULT_MODE</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:45</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="default_token_channel" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> DEFAULT_<wbr>TOKEN_<wbr>CHANNEL</h3>
+					<div class="tsd-signature tsd-kind-icon">DEFAULT_<wbr>TOKEN_<wbr>CHANNEL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Lexer.DEFAULT_TOKEN_CHANNEL</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:48</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="desc" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> DESC</h3>
+					<div class="tsd-signature tsd-kind-icon">DESC<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.DESC</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L32">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:32</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="distinct" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> DISTINCT</h3>
+					<div class="tsd-signature tsd-kind-icon">DISTINCT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.DISTINCT</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L11">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="divide" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> DIVIDE</h3>
+					<div class="tsd-signature tsd-kind-icon">DIVIDE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.DIVIDE</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L63">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:63</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="dot" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> DOT</h3>
+					<div class="tsd-signature tsd-kind-icon">DOT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.DOT</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L47">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:47</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="endregion" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ENDREGION</h3>
+					<div class="tsd-signature tsd-kind-icon">ENDREGION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.ENDREGION</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L34">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:34</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="eof" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> EOF</h3>
+					<div class="tsd-signature tsd-kind-icon">EOF<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;Token.EOF</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.EOF</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L8">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="eq" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> EQ</h3>
+					<div class="tsd-signature tsd-kind-icon">EQ<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.EQ</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L67">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:67</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="escaped_identifier" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ESCAPED_<wbr>IDENTIFIER</h3>
+					<div class="tsd-signature tsd-kind-icon">ESCAPED_<wbr>IDENTIFIER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.ESCAPED_IDENTIFIER</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L82">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:82</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="false" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> FALSE</h3>
+					<div class="tsd-signature tsd-kind-icon">FALSE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.FALSE</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L37">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:37</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="float_vector_start" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> FLOAT_<wbr>VECTOR_<wbr>START</h3>
+					<div class="tsd-signature tsd-kind-icon">FLOAT_<wbr>VECTOR_<wbr>START<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.FLOAT_VECTOR_START</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L60">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:60</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="format" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> FORMAT</h3>
+					<div class="tsd-signature tsd-kind-icon">FORMAT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.FORMAT</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L15">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="from" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> FROM</h3>
+					<div class="tsd-signature tsd-kind-icon">FROM<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.FROM</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L19">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="fun" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> FUN</h3>
+					<div class="tsd-signature tsd-kind-icon">FUN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.FUN</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L35">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:35</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="ge" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> GE</h3>
+					<div class="tsd-signature tsd-kind-icon">GE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.GE</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L69">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:69</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="group" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> GROUP</h3>
+					<div class="tsd-signature tsd-kind-icon">GROUP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.GROUP</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L23">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:23</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="grouping" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> GROUPING</h3>
+					<div class="tsd-signature tsd-kind-icon">GROUPING<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.GROUPING</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L21">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="gt" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> GT</h3>
+					<div class="tsd-signature tsd-kind-icon">GT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.GT</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L70">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:70</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="hash" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> HASH</h3>
+					<div class="tsd-signature tsd-kind-icon">HASH<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.HASH</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L51">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:51</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="having" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> HAVING</h3>
+					<div class="tsd-signature tsd-kind-icon">HAVING<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.HAVING</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L29">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:29</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="heredoc_end" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> HEREDOC_<wbr>END</h3>
+					<div class="tsd-signature tsd-kind-icon">HEREDOC_<wbr>END<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.HEREDOC_END</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L84">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:84</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="heredoc_start" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> HEREDOC_<wbr>START</h3>
+					<div class="tsd-signature tsd-kind-icon">HEREDOC_<wbr>START<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.HEREDOC_START</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L9">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="heredoc_text" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> HEREDOC_<wbr>TEXT</h3>
+					<div class="tsd-signature tsd-kind-icon">HEREDOC_<wbr>TEXT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.HEREDOC_TEXT</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L85">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:85</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="hidden" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> HIDDEN</h3>
+					<div class="tsd-signature tsd-kind-icon">HIDDEN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Lexer.HIDDEN</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:49</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="heredocmode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Here<wbr>Doc<wbr>Mode</h3>
+					<div class="tsd-signature tsd-kind-icon">Here<wbr>Doc<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.HereDocMode</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L86">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:86</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="import" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> IMPORT</h3>
+					<div class="tsd-signature tsd-kind-icon">IMPORT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.IMPORT</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L16">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="in" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> IN</h3>
+					<div class="tsd-signature tsd-kind-icon">IN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.IN</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L45">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:45</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="infinity" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> INFINITY</h3>
+					<div class="tsd-signature tsd-kind-icon">INFINITY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.INFINITY</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L44">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:44</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="le" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> LE</h3>
+					<div class="tsd-signature tsd-kind-icon">LE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.LE</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L71">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:71</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="leaves" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> LEAVES</h3>
+					<div class="tsd-signature tsd-kind-icon">LEAVES<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.LEAVES</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L28">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:28</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="lt_" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> LT_</h3>
+					<div class="tsd-signature tsd-kind-icon">LT_<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.LT_</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L72">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:72</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="max_char_value" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> MAX_<wbr>CHAR_<wbr>VALUE</h3>
+					<div class="tsd-signature tsd-kind-icon">MAX_<wbr>CHAR_<wbr>VALUE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Lexer.MAX_CHAR_VALUE</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:51</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="minus" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> MINUS</h3>
+					<div class="tsd-signature tsd-kind-icon">MINUS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.MINUS</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L62">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:62</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="min_char_value" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> MIN_<wbr>CHAR_<wbr>VALUE</h3>
+					<div class="tsd-signature tsd-kind-icon">MIN_<wbr>CHAR_<wbr>VALUE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Lexer.MIN_CHAR_VALUE</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:50</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="ml_comment" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ML_<wbr>COMMENT</h3>
+					<div class="tsd-signature tsd-kind-icon">ML_<wbr>COMMENT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.ML_COMMENT</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L77">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:77</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="mod" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> MOD</h3>
+					<div class="tsd-signature tsd-kind-icon">MOD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.MOD</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L64">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:64</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="more" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> MORE</h3>
+					<div class="tsd-signature tsd-kind-icon">MORE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Lexer.MORE</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:46</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="nan" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> NAN</h3>
+					<div class="tsd-signature tsd-kind-icon">NAN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.NAN</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L43">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:43</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="newline" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> NEWLINE</h3>
+					<div class="tsd-signature tsd-kind-icon">NEWLINE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.NEWLINE</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L76">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:76</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="no" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> NO</h3>
+					<div class="tsd-signature tsd-kind-icon">NO<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.NO</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L27">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:27</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="normal_identifier" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> NORMAL_<wbr>IDENTIFIER</h3>
+					<div class="tsd-signature tsd-kind-icon">NORMAL_<wbr>IDENTIFIER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.NORMAL_IDENTIFIER</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L81">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:81</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="not" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> NOT</h3>
+					<div class="tsd-signature tsd-kind-icon">NOT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.NOT</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L42">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:42</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="note" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> NOTE</h3>
+					<div class="tsd-signature tsd-kind-icon">NOTE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.NOTE</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L14">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:14</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="not_eq" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> NOT_<wbr>EQ</h3>
+					<div class="tsd-signature tsd-kind-icon">NOT_<wbr>EQ<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.NOT_EQ</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L68">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:68</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="null" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> NULL</h3>
+					<div class="tsd-signature tsd-kind-icon">NULL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.NULL</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L38">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:38</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="num_float" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> NUM_<wbr>FLOAT</h3>
+					<div class="tsd-signature tsd-kind-icon">NUM_<wbr>FLOAT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.NUM_FLOAT</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L80">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:80</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="num_int" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> NUM_<wbr>INT</h3>
+					<div class="tsd-signature tsd-kind-icon">NUM_<wbr>INT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.NUM_INT</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L79">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:79</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="open_brack" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> OPEN_<wbr>BRACK</h3>
+					<div class="tsd-signature tsd-kind-icon">OPEN_<wbr>BRACK<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.OPEN_BRACK</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L54">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:54</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="open_curly" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> OPEN_<wbr>CURLY</h3>
+					<div class="tsd-signature tsd-kind-icon">OPEN_<wbr>CURLY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.OPEN_CURLY</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L56">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:56</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="open_paren" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> OPEN_<wbr>PAREN</h3>
+					<div class="tsd-signature tsd-kind-icon">OPEN_<wbr>PAREN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.OPEN_PAREN</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L52">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:52</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="order" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ORDER</h3>
+					<div class="tsd-signature tsd-kind-icon">ORDER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.ORDER</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L30">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:30</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="or_" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> OR_</h3>
+					<div class="tsd-signature tsd-kind-icon">OR_<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.OR_</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L39">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:39</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="plus" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> PLUS</h3>
+					<div class="tsd-signature tsd-kind-icon">PLUS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.PLUS</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L61">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:61</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="preserve" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> PRESERVE</h3>
+					<div class="tsd-signature tsd-kind-icon">PRESERVE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.PRESERVE</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L20">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="region" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> REGION</h3>
+					<div class="tsd-signature tsd-kind-icon">REGION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.REGION</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L33">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:33</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="rollup" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ROLLUP</h3>
+					<div class="tsd-signature tsd-kind-icon">ROLLUP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.ROLLUP</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L26">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:26</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="select" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> SELECT</h3>
+					<div class="tsd-signature tsd-kind-icon">SELECT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.SELECT</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L10">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="semi" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> SEMI</h3>
+					<div class="tsd-signature tsd-kind-icon">SEMI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.SEMI</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L46">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:46</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="set" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> SET</h3>
+					<div class="tsd-signature tsd-kind-icon">SET<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.SET</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L17">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="skip" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> SKIP</h3>
+					<div class="tsd-signature tsd-kind-icon">SKIP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Lexer.SKIP</p>
+						<ul>
+							<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:47</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="squote" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> SQUOTE</h3>
+					<div class="tsd-signature tsd-kind-icon">SQUOTE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.SQUOTE</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L58">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:58</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="string_literal" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> STRING_<wbr>LITERAL</h3>
+					<div class="tsd-signature tsd-kind-icon">STRING_<wbr>LITERAL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.STRING_LITERAL</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L78">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:78</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="string_vector_start" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> STRING_<wbr>VECTOR_<wbr>START</h3>
+					<div class="tsd-signature tsd-kind-icon">STRING_<wbr>VECTOR_<wbr>START<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.STRING_VECTOR_START</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L59">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:59</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="top" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> TOP</h3>
+					<div class="tsd-signature tsd-kind-icon">TOP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.TOP</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L12">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:12</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="true" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> TRUE</h3>
+					<div class="tsd-signature tsd-kind-icon">TRUE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.TRUE</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L36">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:36</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="vertbar" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> VERTBAR</h3>
+					<div class="tsd-signature tsd-kind-icon">VERTBAR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.VERTBAR</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L65">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:65</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="where" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> WHERE</h3>
+					<div class="tsd-signature tsd-kind-icon">WHERE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.WHERE</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L22">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:22</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="with" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> WITH</h3>
+					<div class="tsd-signature tsd-kind-icon">WITH<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.WITH</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L25">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="ws" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> WS</h3>
+					<div class="tsd-signature tsd-kind-icon">WS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.WS</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L75">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:75</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="xor" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> XOR</h3>
+					<div class="tsd-signature tsd-kind-icon">XOR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from MqlLexer.XOR</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/mqlparser_src/index.d.ts#L41">/var/lib/jenkins/workspace/Deploy Docs to GitHub/packages/mql/mqlparser_src/index.d.ts:41</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="checkheredocend" class="tsd-anchor"></a>
+					<h3>Check<wbr>Heredoc<wbr>End</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Check<wbr>Heredoc<wbr>End<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/src/parsing/MqlLexerImpl.ts#L6">parsing/MqlLexerImpl.ts:6</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="adderrorlistener" class="tsd-anchor"></a>
+					<h3>add<wbr>Error<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Error<wbr>Listener<span class="tsd-signature-symbol">(</span>listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ErrorListener</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Recognizer.addErrorListener</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Recognizer.d.ts:10</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>listener: <span class="tsd-signature-type">ErrorListener</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="charindex" class="tsd-anchor"></a>
+					<h3>char<wbr>Index</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">char<wbr>Index<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.charIndex</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:31</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="checkversion" class="tsd-anchor"></a>
+					<h3>check<wbr>Version</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">check<wbr>Version<span class="tsd-signature-symbol">(</span>toolVersion<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Recognizer.checkVersion</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Recognizer.d.ts:8</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>toolVersion: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="emit" class="tsd-anchor"></a>
+					<h3>emit</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Token</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.emit</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:27</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Token</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="emiteof" class="tsd-anchor"></a>
+					<h3>emitEOF</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">emitEOF<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Token</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.emitEOF</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:29</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Token</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="emittoken" class="tsd-anchor"></a>
+					<h3>emit<wbr>Token</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">emit<wbr>Token<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.emitToken</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:25</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="getalltokens" class="tsd-anchor"></a>
+					<h3>get<wbr>All<wbr>Tokens</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>All<wbr>Tokens<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Token</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.getAllTokens</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:33</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Token</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="getcharerrordisplay" class="tsd-anchor"></a>
+					<h3>get<wbr>Char<wbr>Error<wbr>Display</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Char<wbr>Error<wbr>Display<span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.getCharErrorDisplay</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:41</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>c: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="geterrordisplay" class="tsd-anchor"></a>
+					<h3>get<wbr>Error<wbr>Display</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Error<wbr>Display<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.getErrorDisplay</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:37</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>s: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="geterrordisplayforchar" class="tsd-anchor"></a>
+					<h3>get<wbr>Error<wbr>Display<wbr>For<wbr>Char</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Error<wbr>Display<wbr>For<wbr>Char<span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.getErrorDisplayForChar</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:39</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>c: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="geterrorheader" class="tsd-anchor"></a>
+					<h3>get<wbr>Error<wbr>Header</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Error<wbr>Header<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Recognizer.getErrorHeader</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Recognizer.d.ts:20</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>e: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="geterrorlistenerdispatch" class="tsd-anchor"></a>
+					<h3>get<wbr>Error<wbr>Listener<wbr>Dispatch</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Error<wbr>Listener<wbr>Dispatch<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ProxyErrorListener</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Recognizer.getErrorListenerDispatch</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Recognizer.d.ts:24</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ProxyErrorListener</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="getruleindexmap" class="tsd-anchor"></a>
+					<h3>get<wbr>Rule<wbr>Index<wbr>Map</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Rule<wbr>Index<wbr>Map<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Recognizer.getRuleIndexMap</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Recognizer.d.ts:16</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="gettokenerrordisplay" class="tsd-anchor"></a>
+					<h3>get<wbr>Token<wbr>Error<wbr>Display</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Token<wbr>Error<wbr>Display<span class="tsd-signature-symbol">(</span>t<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Token</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Recognizer.getTokenErrorDisplay</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Recognizer.d.ts:22</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>t: <span class="tsd-signature-type">Token</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="gettokentype" class="tsd-anchor"></a>
+					<h3>get<wbr>Token<wbr>Type</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Token<wbr>Type<span class="tsd-signature-symbol">(</span>tokenName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Recognizer.getTokenType</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Recognizer.d.ts:18</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tokenName: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="gettokentypemap" class="tsd-anchor"></a>
+					<h3>get<wbr>Token<wbr>Type<wbr>Map</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Token<wbr>Type<wbr>Map<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Recognizer.getTokenTypeMap</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Recognizer.d.ts:14</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="more-1" class="tsd-anchor"></a>
+					<h3>more</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">more<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.more</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:19</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="nexttoken" class="tsd-anchor"></a>
+					<h3>next<wbr>Token</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">next<wbr>Token<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Token</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides Lexer.nextToken</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/5f2d6ab/packages/mql/src/parsing/MqlLexerImpl.ts#L10">parsing/MqlLexerImpl.ts:10</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Token</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="notifylisteners" class="tsd-anchor"></a>
+					<h3>notify<wbr>Listeners</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">notify<wbr>Listeners<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RecognitionException</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.notifyListeners</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:35</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>e: <span class="tsd-signature-type">RecognitionException</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="popmode" class="tsd-anchor"></a>
+					<h3>pop<wbr>Mode</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">pop<wbr>Mode<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.popMode</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:23</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="precpred" class="tsd-anchor"></a>
+					<h3>precpred</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">precpred<span class="tsd-signature-symbol">(</span>localCtx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ParserRuleContext</span>, precedence<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Recognizer.precpred</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Recognizer.d.ts:28</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>localCtx: <span class="tsd-signature-type">ParserRuleContext</span></h5>
+								</li>
+								<li>
+									<h5>precedence: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="pushmode" class="tsd-anchor"></a>
+					<h3>push<wbr>Mode</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">push<wbr>Mode<span class="tsd-signature-symbol">(</span>mode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.pushMode</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:21</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>mode: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="recover" class="tsd-anchor"></a>
+					<h3>recover</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">recover<span class="tsd-signature-symbol">(</span>re<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RecognitionException</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.recover</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:43</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>re: <span class="tsd-signature-type">RecognitionException</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="removeerrorlisteners" class="tsd-anchor"></a>
+					<h3>remove<wbr>Error<wbr>Listeners</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Error<wbr>Listeners<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Recognizer.removeErrorListeners</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Recognizer.d.ts:12</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="reset" class="tsd-anchor"></a>
+					<h3>reset</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">reset<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.reset</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:13</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="sempred" class="tsd-anchor"></a>
+					<h3>sempred</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">sempred<span class="tsd-signature-symbol">(</span>localCtx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ParserRuleContext</span>, ruleIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, actionIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Recognizer.sempred</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Recognizer.d.ts:26</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>localCtx: <span class="tsd-signature-type">ParserRuleContext</span></h5>
+								</li>
+								<li>
+									<h5>ruleIndex: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>actionIndex: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="skip-1" class="tsd-anchor"></a>
+					<h3>skip</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">skip<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Lexer.skip</p>
+								<ul>
+									<li>Defined in /var/lib/jenkins/workspace/Deploy Docs to GitHub/node_modules/@types/antlr4/Lexer.d.ts:17</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_parsing_mqllexerimpl_.html">"parsing/<wbr>Mql<wbr>Lexer<wbr>Impl"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_parsing_mqllexerimpl_.mqllexerimpl.html" class="tsd-kind-icon">Mql<wbr>Lexer<wbr>Impl</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#_heredocid" class="tsd-kind-icon">_here<wbr>Doc<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#column" class="tsd-kind-icon">column</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#inputstream" class="tsd-kind-icon">input<wbr>Stream</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#line" class="tsd-kind-icon">line</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#sourcename" class="tsd-kind-icon">source<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#state" class="tsd-kind-icon">state</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#text" class="tsd-kind-icon">text</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#type" class="tsd-kind-icon">type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#and_" class="tsd-kind-icon">AND_</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#as" class="tsd-kind-icon">AS</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#asc" class="tsd-kind-icon">ASC</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#assignment" class="tsd-kind-icon">ASSIGNMENT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#asterisk" class="tsd-kind-icon">ASTERISK</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#at_identifier" class="tsd-kind-icon">AT_<wbr>IDENTIFIER</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#at_sign" class="tsd-kind-icon">AT_<wbr>SIGN</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#bitshift_left" class="tsd-kind-icon">BITSHIFT_<wbr>LEFT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#by" class="tsd-kind-icon">BY</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#close_brack" class="tsd-kind-icon">CLOSE_<wbr>BRACK</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#close_curly" class="tsd-kind-icon">CLOSE_<wbr>CURLY</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#close_paren" class="tsd-kind-icon">CLOSE_<wbr>PAREN</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#comma" class="tsd-kind-icon">COMMA</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#concatination" class="tsd-kind-icon">CONCATINATION</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#def" class="tsd-kind-icon">DEF</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#default_mode" class="tsd-kind-icon">DEFAULT_<wbr>MODE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#default_token_channel" class="tsd-kind-icon">DEFAULT_<wbr>TOKEN_<wbr>CHANNEL</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#desc" class="tsd-kind-icon">DESC</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#distinct" class="tsd-kind-icon">DISTINCT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#divide" class="tsd-kind-icon">DIVIDE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#dot" class="tsd-kind-icon">DOT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#endregion" class="tsd-kind-icon">ENDREGION</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#eof" class="tsd-kind-icon">EOF</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#eq" class="tsd-kind-icon">EQ</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#escaped_identifier" class="tsd-kind-icon">ESCAPED_<wbr>IDENTIFIER</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#false" class="tsd-kind-icon">FALSE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#float_vector_start" class="tsd-kind-icon">FLOAT_<wbr>VECTOR_<wbr>START</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#format" class="tsd-kind-icon">FORMAT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#from" class="tsd-kind-icon">FROM</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#fun" class="tsd-kind-icon">FUN</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#ge" class="tsd-kind-icon">GE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#group" class="tsd-kind-icon">GROUP</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#grouping" class="tsd-kind-icon">GROUPING</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#gt" class="tsd-kind-icon">GT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#hash" class="tsd-kind-icon">HASH</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#having" class="tsd-kind-icon">HAVING</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#heredoc_end" class="tsd-kind-icon">HEREDOC_<wbr>END</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#heredoc_start" class="tsd-kind-icon">HEREDOC_<wbr>START</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#heredoc_text" class="tsd-kind-icon">HEREDOC_<wbr>TEXT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#hidden" class="tsd-kind-icon">HIDDEN</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#heredocmode" class="tsd-kind-icon">Here<wbr>Doc<wbr>Mode</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#import" class="tsd-kind-icon">IMPORT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#in" class="tsd-kind-icon">IN</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#infinity" class="tsd-kind-icon">INFINITY</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#le" class="tsd-kind-icon">LE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#leaves" class="tsd-kind-icon">LEAVES</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#lt_" class="tsd-kind-icon">LT_</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#max_char_value" class="tsd-kind-icon">MAX_<wbr>CHAR_<wbr>VALUE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#minus" class="tsd-kind-icon">MINUS</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#min_char_value" class="tsd-kind-icon">MIN_<wbr>CHAR_<wbr>VALUE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#ml_comment" class="tsd-kind-icon">ML_<wbr>COMMENT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#mod" class="tsd-kind-icon">MOD</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#more" class="tsd-kind-icon">MORE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#nan" class="tsd-kind-icon">NAN</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#newline" class="tsd-kind-icon">NEWLINE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#no" class="tsd-kind-icon">NO</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#normal_identifier" class="tsd-kind-icon">NORMAL_<wbr>IDENTIFIER</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#not" class="tsd-kind-icon">NOT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#note" class="tsd-kind-icon">NOTE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#not_eq" class="tsd-kind-icon">NOT_<wbr>EQ</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#null" class="tsd-kind-icon">NULL</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#num_float" class="tsd-kind-icon">NUM_<wbr>FLOAT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#num_int" class="tsd-kind-icon">NUM_<wbr>INT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#open_brack" class="tsd-kind-icon">OPEN_<wbr>BRACK</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#open_curly" class="tsd-kind-icon">OPEN_<wbr>CURLY</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#open_paren" class="tsd-kind-icon">OPEN_<wbr>PAREN</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#order" class="tsd-kind-icon">ORDER</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#or_" class="tsd-kind-icon">OR_</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#plus" class="tsd-kind-icon">PLUS</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#preserve" class="tsd-kind-icon">PRESERVE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#region" class="tsd-kind-icon">REGION</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#rollup" class="tsd-kind-icon">ROLLUP</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#select" class="tsd-kind-icon">SELECT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#semi" class="tsd-kind-icon">SEMI</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#set" class="tsd-kind-icon">SET</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#skip" class="tsd-kind-icon">SKIP</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#squote" class="tsd-kind-icon">SQUOTE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#string_literal" class="tsd-kind-icon">STRING_<wbr>LITERAL</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#string_vector_start" class="tsd-kind-icon">STRING_<wbr>VECTOR_<wbr>START</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#top" class="tsd-kind-icon">TOP</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#true" class="tsd-kind-icon">TRUE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#vertbar" class="tsd-kind-icon">VERTBAR</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#where" class="tsd-kind-icon">WHERE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#with" class="tsd-kind-icon">WITH</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#ws" class="tsd-kind-icon">WS</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#xor" class="tsd-kind-icon">XOR</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#checkheredocend" class="tsd-kind-icon">Check<wbr>Heredoc<wbr>End</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#adderrorlistener" class="tsd-kind-icon">add<wbr>Error<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#charindex" class="tsd-kind-icon">char<wbr>Index</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#checkversion" class="tsd-kind-icon">check<wbr>Version</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#emit" class="tsd-kind-icon">emit</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#emiteof" class="tsd-kind-icon">emitEOF</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#emittoken" class="tsd-kind-icon">emit<wbr>Token</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#getalltokens" class="tsd-kind-icon">get<wbr>All<wbr>Tokens</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#getcharerrordisplay" class="tsd-kind-icon">get<wbr>Char<wbr>Error<wbr>Display</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#geterrordisplay" class="tsd-kind-icon">get<wbr>Error<wbr>Display</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#geterrordisplayforchar" class="tsd-kind-icon">get<wbr>Error<wbr>Display<wbr>For<wbr>Char</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#geterrorheader" class="tsd-kind-icon">get<wbr>Error<wbr>Header</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#geterrorlistenerdispatch" class="tsd-kind-icon">get<wbr>Error<wbr>Listener<wbr>Dispatch</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#getruleindexmap" class="tsd-kind-icon">get<wbr>Rule<wbr>Index<wbr>Map</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#gettokenerrordisplay" class="tsd-kind-icon">get<wbr>Token<wbr>Error<wbr>Display</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#gettokentype" class="tsd-kind-icon">get<wbr>Token<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#gettokentypemap" class="tsd-kind-icon">get<wbr>Token<wbr>Type<wbr>Map</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#more-1" class="tsd-kind-icon">more</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#nexttoken" class="tsd-kind-icon">next<wbr>Token</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#notifylisteners" class="tsd-kind-icon">notify<wbr>Listeners</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#popmode" class="tsd-kind-icon">pop<wbr>Mode</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#precpred" class="tsd-kind-icon">precpred</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#pushmode" class="tsd-kind-icon">push<wbr>Mode</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#recover" class="tsd-kind-icon">recover</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#removeerrorlisteners" class="tsd-kind-icon">remove<wbr>Error<wbr>Listeners</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#reset" class="tsd-kind-icon">reset</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#sempred" class="tsd-kind-icon">sempred</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_parsing_mqllexerimpl_.mqllexerimpl.html#skip-1" class="tsd-kind-icon">skip</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
