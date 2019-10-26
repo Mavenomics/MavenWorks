@@ -1,7 +1,9 @@
 # MavenWorks
 
 ![MavenWorks screenshot depicting the Volatility3D demo notebook, in /demos/Volatility3d.ipynb](./screenshot.png)
-_<center><sup>Bond Portfolio demo on MavenWorks Viewer 0.1.0-alpha</sup></center>_
+_<sup>Bond Portfolio demo on MavenWorks Viewer 0.1.0-alpha</sup>_
+
+Try out [MavenWorks Standalone!](https://mavenomics.github.io/MavenWorks/app)
 
 *MavenWorks* is an open-source dashboarding framework, for Jupyter and
 beyond! MavenWorks includes a JupyterLab plugin, a read-only dashboard viewer
@@ -24,11 +26,14 @@ MavenWorks is under heavy development, and much of the internal APIs are unstabl
 
 ## Getting Started
 
-Regular deployments come with a host of demos and built-in Parts that
+The Standalone app comes with a few demos to help you understand what MavenWorks
+can do. Use the [Demos index](https://mavenomics.github.io/MavenWorks/app/demos/index.html)
+to navigate between them.
+
+Jupyter deployments come with a host of demos and built-in Parts that
 demonstrate parts of the API. Use the [Start Here](./demos/StartHere.ipynb)
 notebook to access these demos.
 
-You can read our documentation [here](./docs/index.md). We have tutorials,
+You can read our documentation [here](https://mavenomics.github.io/MavenWorks/docs/index.md). We have tutorials,
 reference docs, and contributor documentation. These are accessible in-app using
 the <kbd>F1</kbd> key.
-
