@@ -16,7 +16,7 @@
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
     "test": "echo No tests for @mavenomics/coreutils",
-    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/coreutils"
+    "docs": "typedoc --tsconfig ./docs.tsconfig.json"
   },
   "dependencies": {
     "@phosphor/coreutils": "^1.3.0",

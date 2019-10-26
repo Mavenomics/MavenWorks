@@ -16,7 +16,7 @@
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
     "test": "echo pass",
-    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/jupyterutils"
+    "docs": "typedoc --tsconfig ./docs.tsconfig.json"
   },
   "devDependencies": {
     "typescript": "*",

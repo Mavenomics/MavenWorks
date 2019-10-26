@@ -1,3 +1,11 @@
+/** Built in UDFs for the MavenScape engine.
+ *
+ * NOTE: If you're looking for an overview of all the functions, please refer
+ * to the in-app help (F1). This tells you about _all_ the functions, and how
+ * to call them in MQL.
+ *
+ */
+
 import { IFunction } from "./Function";
 import { IFunctionEvaluatorContext } from "./functionExecution";
 import { declareFunction, functionArg, PositionalToKeyValue, documentFunction } from "./FunctionDecorators";

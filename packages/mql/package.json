@@ -20,7 +20,7 @@
     "clean": "rimraf ./lib ./mql_parser/*.interp ./mql_parser/*.tokens ./mql_parser/.antlr *.tsbuildinfo",
     "lint": "echo Linting temporarily disabled in @mavenomics/mql",
     "test": "jest",
-    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/mql"
+    "docs": "typedoc --tsconfig ./docs.tsconfig.json"
   },
   "dependencies": {
     "@mavenomics/coreutils": "^0.1.0",

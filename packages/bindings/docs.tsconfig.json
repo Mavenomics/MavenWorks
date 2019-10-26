@@ -1,0 +1,15 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./lib",
+        "rootDir": "./src"
+    },
+    "files": [
+        "./src/index.ts"
+    ],
+    "typedocOptions": {
+        "mode": "file",
+        "excludeNotExported": true,
+        "out": "../../docs/api/bindings"
+    }
+}

@@ -17,7 +17,7 @@
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
     "test": "echo No tests for @mavenomics/ui",
-    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/ui"
+    "docs": "typedoc --tsconfig ./docs.tsconfig.json"
   },
   "devDependencies": {
     "@types/react-widgets": "^4.3.3",

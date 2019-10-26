@@ -16,7 +16,7 @@
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
     "test": "jest",
-    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/apputils"
+    "docs": "typedoc --tsconfig ./docs.tsconfig.json"
   },
   "dependencies": {
     "@jupyterlab/coreutils": "^3.1.0",

@@ -17,7 +17,7 @@
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
     "test": "jest",
-    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/parts"
+    "docs": "typedoc --tsconfig ./docs.tsconfig.json"
   },
   "dependencies": {
     "@mavenomics/coreutils": "^0.1.0",

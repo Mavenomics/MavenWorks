@@ -16,7 +16,7 @@
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
     "test": "echo No tests for @mavenomics/table",
-    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/table"
+    "docs": "typedoc --tsconfig ./docs.tsconfig.json"
   },
   "devDependencies": {
     "typescript": "*"

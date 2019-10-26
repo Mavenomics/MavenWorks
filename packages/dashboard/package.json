@@ -16,7 +16,7 @@
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
     "test": "jest",
-    "docs": "typedoc --tsconfig ./tsconfig.json --out ../../docs/api/dashboard"
+    "docs": "typedoc --tsconfig ./docs.tsconfig.json"
   },
   "devDependencies": {
     "typescript": "*",
