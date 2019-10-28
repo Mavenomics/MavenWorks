@@ -1,6 +1,6 @@
 {
   "name": "jupyterlab-mavenworks",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MavenWorks Dashboarding for JupyterLab",
   "main": "lib/plugin-index.js",
   "files": [
@@ -48,6 +48,7 @@
     "@mavenomics/dashboard": "^0.1.0",
     "@mavenomics/dashboard-devtools": "^0.1.0",
     "@mavenomics/default-parts": "^0.1.0",
+    "@mavenomics/jupyterutils": "^0.1.0",
     "@mavenomics/layout": "^0.1.0",
     "@mavenomics/parts": "^0.1.0",
     "@mavenomics/table": "^0.1.0",
