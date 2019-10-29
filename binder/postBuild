@@ -2,6 +2,8 @@
 
 set -ex
 
+jupyter serverextension enable --py mavenworks.server
+
 jupyter labextension install jupyterlab-mavenworks --no-build
 
 jupyter lab build --minimize=False
