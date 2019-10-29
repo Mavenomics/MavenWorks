@@ -18,7 +18,7 @@ with open("README.md") as f:
 
 setup(
     name="mavenworks",
-    version="0.0.2.dev1+build" + os.environ.get("BUILD_NUMBER", "develop"),
+    version="0.0.3.dev1+build" + os.environ.get("BUILD_NUMBER", "develop"),
     description="Dashboarding for JupyterLab",
     long_description=desc,
     long_description_content_type="text/markdown",
