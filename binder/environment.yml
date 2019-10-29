@@ -13,11 +13,10 @@ dependencies:
   - pyarrow
   - python>=3.6
   - requests
-  - widgetsnbextension
   - matplotlib
   - pip
   # dependencies for Volatility3D example
-  - plotly=3.3
+  - plotly=4.0
   - pip:
     - mavenworks
  
