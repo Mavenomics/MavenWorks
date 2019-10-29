@@ -1,9 +1,0 @@
-lib/
-
-# antlr ignores
-*.interp
-*.tokens
-/mql.worker.js
-/mqlparser_src/.antlr
-/mqlparser_src/*.js
-!/mqlparser_src/index.js

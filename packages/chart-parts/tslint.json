@@ -1,6 +1,0 @@
-{
-  "extends": "../../base.tslint.json",
-  "linterOptions": {
-    "exclude": ["./src/grid/**/*"]
-  }
-}

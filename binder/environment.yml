@@ -1,0 +1,23 @@
+name: mavenworks-binder-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - rx=1.6 # cf. https://github.com/ReactiveX/RxPY/issues/435
+  - ipywidgets
+  - ipykernel>=5.1
+  - jupyter
+  - jupyterlab=1.1
+  - numpy
+  - pandas
+  - pyarrow
+  - python>=3.6
+  - requests
+  - widgetsnbextension
+  - matplotlib
+  - pip
+  # dependencies for Volatility3D example
+  - plotly=3.3
+  - pip:
+    - mavenworks
+ 

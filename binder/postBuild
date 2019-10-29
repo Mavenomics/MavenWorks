@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -ex
+
+jupyter labextension install jupyterlab-mavenworks --no-build
+
+jupyter lab build --minimize=False
