@@ -4,6 +4,13 @@ set -ex
 
 jupyter serverextension enable --py mavenworks.server
 
-jupyter labextension install jupyterlab-mavenworks --no-build
+jupyter labextension install @jupyter-widgets/jupyterlab-manager \
+  @jupyterlab/plotly-extension \
+  @jupyterlab/hub-extension \
+  plotlywidget@1.0.0 \
+  jupyterlab-mavenworks \
+  --no-build
+
+jupyter lab clean
 
 jupyter lab build --minimize=False
