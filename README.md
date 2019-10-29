@@ -3,7 +3,10 @@
 ![MavenWorks screenshot depicting the Volatility3D demo notebook, in /demos/Volatility3d.ipynb](./screenshot.png)
 _<sup>Bond Portfolio demo on MavenWorks Viewer 0.1.0-alpha</sup>_
 
-Try out [MavenWorks Standalone!](https://mavenomics.github.io/MavenWorks/app)
+Try it out on Binder! [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Mavenomics/MavenWorks/binder?urlpath=lab)
+
+Or try the standalone version: [MavenWorks Standalone!](https://mavenomics.github.io/MavenWorks/app)
+
 
 *MavenWorks* is an open-source dashboarding framework, for Jupyter and
 beyond! MavenWorks includes a JupyterLab plugin, a read-only dashboard viewer
