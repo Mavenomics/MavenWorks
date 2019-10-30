@@ -1,4 +1,4 @@
-import { SinkPlugin } from "../application";
+import { MavenWorksPlugin } from "../application";
 import { PartsEditor } from "./PartsEditor";
 import { DashboardSerializer } from "@mavenomics/dashboard";
 import { URLExt } from "@jupyterlab/coreutils";
@@ -12,8 +12,8 @@ namespace CommandIds {
 
 const baseUrl = URLExt.join(window.location.origin, window.location.pathname).replace(/\/([^\/]*)$/, "");
 
-export const partsEditorPlugin: SinkPlugin<void> = {
-    id: "kitchen-sink:parts-editor",
+export const partsEditorPlugin: MavenWorksPlugin<void> = {
+    id: "@mavenomics/standalone:parts-editor",
     autoStart: true,
     activate: (app) => {
         const { commands, shell, contextMenu } = app;

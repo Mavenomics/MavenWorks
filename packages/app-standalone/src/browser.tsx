@@ -2,7 +2,7 @@ import { ReactWrapperWidget, ListBox, HoverManager } from "@mavenomics/ui";
 import { Widget } from "@phosphor/widgets";
 import * as React from "react";
 import { Token } from "@phosphor/coreutils";
-import { SinkPlugin } from "./application";
+import { MavenWorksPlugin } from "./application";
 import { IConfigManager } from "@mavenomics/apputils";
 import { AsyncTools } from "@mavenomics/coreutils";
 
@@ -18,7 +18,7 @@ export interface IConfigBrowserFactory {
 
 export const IConfigBrowserFactory = new Token<IConfigBrowserFactory>("Config Browser");
 
-export const configBrowserPlugin: SinkPlugin<IConfigBrowserFactory> = {
+export const configBrowserPlugin: MavenWorksPlugin<IConfigBrowserFactory> = {
     id: "configBrowser",
     requires: [IConfigManager],
     provides: IConfigBrowserFactory,

@@ -1,9 +1,9 @@
-import { SinkPlugin } from "./application";
+import { MavenWorksPlugin } from "./application";
 import { IUrlManager } from "@mavenomics/apputils";
 import { deserialize } from "@mavenomics/coreutils";
 import { RegisterActions } from "@mavenomics/dashboard-devtools";
 
-export const commandsPlugin: SinkPlugin<void> = {
+export const commandsPlugin: MavenWorksPlugin<void> = {
     id: "commands",
     autoStart: true,
     requires: [IUrlManager],
@@ -60,7 +60,7 @@ export const commandsPlugin: SinkPlugin<void> = {
             });
         }
 
-        RegisterActions(app as any, () => shell.dashboard, "kitchen-sink", ".main-app");
+        RegisterActions(app as any, () => shell.dashboard, "@mavenomics/standalone", ".main-app");
     }
 };
 

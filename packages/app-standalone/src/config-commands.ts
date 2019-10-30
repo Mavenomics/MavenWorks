@@ -1,5 +1,5 @@
 import { IConfigManager, IUrlManager, IUserManager, AuthenticationError } from "@mavenomics/apputils";
-import { SinkPlugin } from "./application";
+import { MavenWorksPlugin } from "./application";
 import { DashboardSerializer } from "@mavenomics/dashboard";
 import { HoverManager } from "@mavenomics/ui";
 import { Widget } from "@phosphor/widgets";
@@ -34,8 +34,8 @@ function catchConfigError(err: any) {
     }
 }
 
-export const configCmdPlugin: SinkPlugin<void> = {
-    id: "kitchen-sink:config-commands",
+export const configCmdPlugin: MavenWorksPlugin<void> = {
+    id: "@mavenomics/standalone:config-commands",
     autoStart: true,
     requires: [
         IConfigManager,

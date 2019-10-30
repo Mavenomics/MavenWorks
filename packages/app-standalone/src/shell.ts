@@ -9,7 +9,7 @@ import { Subject } from "rxjs";
 // strip the filename and trailing slash
 const baseUrl = URLExt.join(window.location.origin, window.location.pathname).replace(/\/([^\/]*)$/, "");
 
-export class KitchenSink extends Widget implements IDirtyable {
+export class MavenWorksShell extends Widget implements IDirtyable {
     public layout: BoxLayout;
     public factory: PartFactory = new PartFactory();
     public dashboard = new Dashboard({

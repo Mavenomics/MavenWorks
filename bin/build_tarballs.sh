@@ -1,6 +1,6 @@
 set -e
 
-SINK_ARCHIVE_ROOT="/archive/sinks"
+APP_ARCHIVE_ROOT="/archive/sinks"
 TARBALL_ARCHIVE_ROOT="/archive/tarballs"
 
 if [ $GIT_BRANCH != "origin/master" ]; then
@@ -9,20 +9,20 @@ if [ $GIT_BRANCH != "origin/master" ]; then
     BRANCH_NAME=${BRANCH_NAME//[^a-zA-Z0-9_\-]}
 
     # move this into a branch folder
-    if [ ! -d "$SINK_ARCHIVE_ROOT/$BRANCH_NAME" ]; then
-        mkdir $SINK_ARCHIVE_ROOT/$BRANCH_NAME
+    if [ ! -d "$APP_ARCHIVE_ROOT/$BRANCH_NAME" ]; then
+        mkdir $APP_ARCHIVE_ROOT/$BRANCH_NAME
         mkdir $TARBALL_ARCHIVE_ROOT/$BRANCH_NAME
     fi
 
     TARBALL_DIR=$TARBALL_ARCHIVE_ROOT/$BRANCH_NAME/$BUILD_ID
-    SINK_DIR=$SINK_ARCHIVE_ROOT/$BRANCH_NAME/$BUILD_ID
+    APP_DIR=$APP_ARCHIVE_ROOT/$BRANCH_NAME/$BUILD_ID
 else
     TARBALL_DIR=$TARBALL_ARCHIVE_ROOT/$BUILD_ID
-    SINK_DIR=$SINK_ARCHIVE_ROOT/$BUILD_ID
+    APP_DIR=$APP_ARCHIVE_ROOT/$BUILD_ID
 fi
 
 mkdir $TARBALL_DIR
-mkdir $SINK_DIR
+mkdir $APP_DIR
 
 # pack up all the client packages
 yarn workspaces run pack
@@ -37,10 +37,10 @@ mv -t $TARBALL_DIR parts.zip demos.zip
 python setup.py bdist_wheel
 mv -t $TARBALL_DIR ./dist/*.whl
 
-# Move the Kitchen Sink to the archive
+# Move the Standalone artifacts to the archive
 # TODO: Kick up the demos to a shared folder?
 cd ./packages/app-standalone/public
-cp -r -t $SINK_DIR ./
+cp -r -t $APP_DIR ./
 cd ..
 zip -r kitchen-sink.zip ./public
 mv -t $TARBALL_DIR kitchen-sink.zip

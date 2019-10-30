@@ -1,7 +1,7 @@
 import { Application, IPlugin } from "@phosphor/application";
-import { KitchenSink } from "./shell";
+import { MavenWorksShell } from "./shell";
 
-export class MainApp extends Application<KitchenSink> {
+export class MainApp extends Application<MavenWorksShell> {
 }
 
-export type SinkPlugin<_Provides> = IPlugin<MainApp, _Provides>;
+export type MavenWorksPlugin<_Provides> = IPlugin<MainApp, _Provides>;
