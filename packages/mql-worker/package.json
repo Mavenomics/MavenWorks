@@ -1,6 +1,6 @@
 {
   "name": "@mavenomics/mql-worker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "WebWorker wrapper and communcation layer for the MQL engine",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
