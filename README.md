@@ -7,7 +7,6 @@ Try it out on Binder! [![Binder](https://mybinder.org/badge_logo.svg)](https://m
 
 Or try the standalone version: [MavenWorks Standalone!](https://mavenomics.github.io/MavenWorks/app)
 
-
 *MavenWorks* is an open-source dashboarding framework, for Jupyter and
 beyond! MavenWorks includes a JupyterLab plugin, a read-only dashboard viewer
 (pictured above), and a standalone app.
@@ -29,13 +28,26 @@ MavenWorks is under heavy development, and much of the internal APIs are unstabl
 
 ## Getting Started
 
-The Standalone app comes with a few demos to help you understand what MavenWorks
-can do. Use the [Demos index](https://mavenomics.github.io/MavenWorks/app/demos/index.html)
-to navigate between them.
+To install the JupyterLab extension, run these commands:
+
+```sh
+$ pip install mavenworks
+$ jupyter serverextension enable --py mavenworks.server
+$ jupyter labextension install jupyterlab-mavenworks
+```
+
+Refer to our [Getting Started](https://mavenomics.github.io/MavenWorks/docs/user/getting-started.md)
+guide for more.
 
 Jupyter deployments come with a host of demos and built-in Parts that
 demonstrate parts of the API. Use the [Start Here](./demos/StartHere.ipynb)
 notebook to access these demos.
+
+### Standalone
+
+The Standalone app comes with a few demos to help you understand what MavenWorks
+can do. Use the [Demos index](https://mavenomics.github.io/MavenWorks/app/demos/index.html)
+to navigate between them.
 
 You can read our documentation [here](https://mavenomics.github.io/MavenWorks/docs/index.md). We have tutorials,
 reference docs, and contributor documentation. These are accessible in-app using
