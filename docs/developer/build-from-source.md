@@ -33,7 +33,7 @@ The JupyterLab Extension adds a Dashboard cell output _and_ an independent
 "Dashboard document." The extension also adds Jupyter-specific tooling and
 integration, such as an additional option binding evaluator for Python.
 
-## Setup for the "Kitchen Sink" and "Config" targets
+## Setup for the "Standalone MavenWorks" and "ConfigServer" targets
 
 ### 1. Clone the repository
 ```bash
@@ -56,7 +56,7 @@ yarn build
 yarn bundle  # Bundles the Viewer, Mql Worker, and Standalone App
 ```
 
-### 4. Run the Kitchen Sink
+### 4. Run Standalone MavenWorks
 ```bash
 yarn serve
 ```
@@ -149,5 +149,5 @@ jupyter labextension unlink ./packages/metapackage --no-build
   > #### Windows note
   >
   > The file watcher described above is slow and unreliable on Windows. We
-  > recommend using the Kitchen Sink to iterate on your changes, as that will
-  > be faster and less prone to crashes.
+  > recommend using the Standalone MavenWorks to iterate on your changes, as
+  > that will be faster and less prone to crashes.

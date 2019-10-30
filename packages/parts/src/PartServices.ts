@@ -32,7 +32,7 @@ export class PartServices implements IDisposable {
     /** A base URL which parts can request additional assets from */
     public get baseUrl() { return this._baseUrl; }
     /** The base URL for referencing dashboards via relative path.
-     * baseUrl + '/view' in MavenWorks, baseUrl in kitchen-sink */
+     * baseUrl + '/view' in MavenWorks, baseUrl in standalone app */
     public get baseViewUrl() { return this._baseViewUrl; }
 
     public dispose() {

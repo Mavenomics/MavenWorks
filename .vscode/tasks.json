@@ -45,17 +45,17 @@
             "label": "Webpack Bundle Dashbook Viewer",
             "script": "build:watch",
             "group": "build",
-            "path": "DashbookViewer/",
+            "path": "packages/app-viewer/",
             "isBackground": true,
             "problemMatcher": []
         },
         {
             "type": "npm",
-            "label": "Webpack Bundle Kitchen Sink",
+            "label": "Webpack Bundle Standalone MavenWorks",
             "script": "bundle",
             "group": "build",
             "isBackground": true,
-            "path": "examples/kitchen-sink/",
+            "path": "packages/app-standalone/",
             "problemMatcher": []
         }
     ]

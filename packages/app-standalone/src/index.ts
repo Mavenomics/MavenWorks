@@ -5,7 +5,7 @@ import { default as appUtils, IUserManager } from "@mavenomics/apputils";
 import { default as uiTools, IDashboardTracker } from "@mavenomics/dashboard-devtools";
 import helpPlugins, { IHelpDocProvider } from "@mavenomics/help";
 import helpMqlPlugins from "@mavenomics/help-mql";
-import { KitchenSink } from "./shell";
+import { MavenWorksShell } from "./shell";
 import { commandsPlugin } from "./commands";
 import { partsEditorPlugin } from "./editors/plugin";
 import { IPartFactory } from "@mavenomics/parts";
@@ -24,7 +24,7 @@ import { configCmdPlugin } from "./config-commands";
 import { PageConfig, URLExt } from "@jupyterlab/coreutils";
 
 const app = new MainApp({
-    shell: new KitchenSink()
+    shell: new MavenWorksShell()
 });
 
 Widget.attach(HoverManager.GetManager(), document.body);
@@ -71,7 +71,7 @@ app.registerPlugins(uiTools);
 
 // register a plugin that provides the part factory
 app.registerPlugin({
-    id: "kitchen-sink:part-factory",
+    id: "@mavenomics/standalone:part-factory",
     autoStart: true,
     provides: IPartFactory,
     activate(app) {
@@ -87,7 +87,7 @@ app.registerPlugin({
 
 // register a helper to import the markdown docs
 app.registerPlugin({
-    id: "kitchen-sink:narrative-docs",
+    id: "@mavenomics/standalone:narrative-docs",
     autoStart: true,
     requires: [IHelpDocProvider],
     activate: (_app, doc: IHelpDocProvider) => {

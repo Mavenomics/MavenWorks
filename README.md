@@ -10,7 +10,7 @@ Or try the standalone version: [MavenWorks Standalone!](https://mavenomics.githu
 
 *MavenWorks* is an open-source dashboarding framework, for Jupyter and
 beyond! MavenWorks includes a JupyterLab plugin, a read-only dashboard viewer
-(pictured above), and a standalone app (codenamed "Kitchen Sink").
+(pictured above), and a standalone app.
 
 Dashboards are flexible- you can use the same old charting libraries and
 interactive widgets that you've used elsewhere. Anything that can be displayed

@@ -10,7 +10,7 @@
     "build": "tsc --build && webpack",
     "build:ci": "lessc ./style/main.less ./style/main.css",
     "lint": "tslint --project .",
-    "test": "echo No tests for kitchen-sink",
+    "test": "echo No tests for @mavenomics/standalone",
     "clean": "rimraf ./lib *.tsbuildinfo",
     "bundle": "webpack --watch",
     "bundle:ci": "webpack",
