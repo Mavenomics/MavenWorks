@@ -34,6 +34,16 @@ function catchConfigError(err: any) {
     }
 }
 
+function throwIfInvalidName(name: string): string {
+    const badChars = "/?#%[]";
+    if ([...badChars].some(i => name.includes(i))) {
+        throw new Error(
+            "Names cannot contain any of the following characters: '" + badChars + "'"
+        );
+    }
+    return name;
+}
+
 export const configCmdPlugin: MavenWorksPlugin<void> = {
     id: "@mavenomics/standalone:config-commands",
     autoStart: true,
@@ -55,12 +65,16 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
         //#region Basic commands
         commands.addCommand(CommandIds.CreateNew, {
             label: "Create New Dashboard",
-            execute: ({path, obj}) => {
-                const objPath = "" + path;
-                return cfgManager.newDashboard(
-                    objPath,
-                    (obj as any as DashboardSerializer.ISerializedDashboard) || DashboardSerializer.DEFAULT_DASHBOARD
-                ).catch(catchConfigError);
+            execute: async ({path, obj}) => {
+                try {
+                    const model = obj as any as DashboardSerializer.ISerializedDashboard | null;
+                    await cfgManager.newDashboard(
+                        throwIfInvalidName("" + path),
+                        model || DashboardSerializer.DEFAULT_DASHBOARD
+                    );
+                } catch (err) {
+                    catchConfigError(err);
+                }
             }
         });
 
@@ -122,11 +136,14 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
 
         commands.addCommand(CommandIds.Rename, {
             label: "Rename Dashboard",
-            execute: ({path, newName}) => {
-                const objPath = "" + path;
-                const name = "" + newName;
-                return cfgManager.renameDashboard(objPath, name)
-                    .catch(catchConfigError);
+            execute: async ({path, newName}) => {
+                try {
+                    await cfgManager.renameDashboard(
+                        "" + path,
+                        throwIfInvalidName("" + newName));
+                } catch (err) {
+                    catchConfigError(err);
+                }
             }
         });
 
@@ -173,7 +190,7 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
             label: "Save as...",
             execute: async () => {
                 const body = new Widget({node: document.createElement("input")});
-                (body.node as any).value = "untitled";
+                (body.node as any).value = shell.activeDashboard || "untitled";
                 (body as any).getValue = () => (body.node as any).value;
                 const dialogResult = await HoverManager.Instance!.launchDialog(
                     body,
@@ -184,16 +201,14 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
                     [{ text: "Dismiss" }, { text: "Ok", accept: true }]
                 );
                 if (!dialogResult.accept) return;
-                if (("" + dialogResult.result).includes("/")) {
-                    return catchConfigError(new Error("Names cannot contain slashes ('/')"));
-                }
                 try {
+                    const name = "/" + throwIfInvalidName("" + dialogResult.result);
                     await cfgManager.newDashboard(
-                        "/" + dialogResult.result,
+                        name,
                         DashboardSerializer.toJson(shell.dashboard)
                     );
-                    shell.activeDashboard = "/" + dialogResult.result;
-                    urlManager.path = "/" + dialogResult.result;
+                    shell.activeDashboard = name;
+                    urlManager.path = name;
                     shell.setClean();
                 } catch (err) {
                     return catchConfigError(err);
