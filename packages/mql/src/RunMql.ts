@@ -61,6 +61,11 @@ function RunMqlTemplate(context) {
     };
 }
 
+// A global MQL template runner
+export const mql = RunMqlTemplate({});
+// Alias for the expr wrapper
+export const fexpr = MqlExprFunction;
+
 //Todo: Support more import types (E.g. global, self, window, etc)
 //Also make sure we are following the correct conventions
 enum ImportType {
