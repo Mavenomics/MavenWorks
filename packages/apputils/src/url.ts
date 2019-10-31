@@ -56,6 +56,24 @@ export interface IUrlManager {
      * An event emitted when the URLManager has imported a dashboard model
      */
     onDashboardImport?: Observable<DashboardSerializer.ISerializedDashboard>;
+    /**
+     * Create a new URL with the given path and query.
+     *
+     * @param path The path component of the URL to construct
+     * @param query The query component of the URL to construct
+     * @returns A URL that will point to the given path/query combination
+     *
+     * #### Notes
+     *
+     * Occasionally, you may need to construct a URL for your own purposes
+     * outside of the URL manager (such as for a dashboard hover or opening in a
+     * new tab), but you still need assurances that the URL is valid.
+     * `#makeUrlFromComponents` is the best way to accomplish this without
+     * having to rewrite some URL management code yourself.
+     *
+     * This function will _not_ modify any state.
+     */
+    makeUrlFromComponents(path: string, query: string): string;
 }
 
 export class UrlManager implements IDisposable, IUrlManager {
@@ -132,7 +150,7 @@ export class UrlManager implements IDisposable, IUrlManager {
         this._path = newPath;
         this._importedDashboardKey = void 0;
         this._importedDashboard = void 0;
-        window.history.pushState(null, "", this.makeUrl());
+        window.history.pushState(null, "", this.setUrlFromCurrentState());
     }
 
     public get importedDashboard() { return this._importedDashboard; }
@@ -157,11 +175,15 @@ export class UrlManager implements IDisposable, IUrlManager {
         }
         this._query = toSet;
         // parameter updates should not be navigable in the history
-        window.history.replaceState(null, "", this.makeUrl());
+        window.history.replaceState(null, "", this.setUrlFromCurrentState());
     }
 
     public get onPathChange(): Observable<string> { return this._onPathChange; }
     public get onQueryChange(): Observable<Readonly<URLSearchParams>> { return this._onQueryChange; }
+
+    public makeUrlFromComponents(path: string, query: string): string {
+        return URLExt.join(this.baseUrl, path + "?" + query);
+    }
 
     public handleEvent() {
         const basePath = new URL(this.baseUrl).pathname;
@@ -221,13 +243,13 @@ export class UrlManager implements IDisposable, IUrlManager {
     }
 
 
-    private makeUrl() {
+    private setUrlFromCurrentState() {
         if (!!this._importedDashboardKey) {
             const query = new URLSearchParams("" + this._query);
             query.set("src:url", this._importedDashboardKey);
-            return URLExt.join(this.baseUrl, "?" + query);
+            return this.makeUrlFromComponents("", "?" + query);
         }
-        return URLExt.join(this.baseUrl, this._path + "?" + this._query);
+        return this.makeUrlFromComponents(this._path, "?" + this._query);
     }
 
     private readQuery() {
