@@ -247,9 +247,9 @@ export class UrlManager implements IDisposable, IUrlManager {
         if (!!this._importedDashboardKey) {
             const query = new URLSearchParams("" + this._query);
             query.set("src:url", this._importedDashboardKey);
-            return this.makeUrlFromComponents("", "?" + query);
+            return this.makeUrlFromComponents("", "" + query);
         }
-        return this.makeUrlFromComponents(this._path, "?" + this._query);
+        return this.makeUrlFromComponents(this._path, "" + this._query);
     }
 
     private readQuery() {

@@ -105,7 +105,6 @@ export class HttpConfigManager implements IConfigManager {
             // TODO: Better differentiation in API responses btw files and dirs
             throw new ValidationError("Not a Dashboard: " + name);
         }
-        this.throwIfNameInvalid(path);
         const res = await this.issueRequest(path);
         return await res.json();
     }

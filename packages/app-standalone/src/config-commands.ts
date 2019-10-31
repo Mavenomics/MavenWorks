@@ -71,7 +71,7 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
         commands.addCommand(CommandIds.Load, {
             label: "Load Dashboard",
             execute: async ({path}) => {
-                const objPath = "" + path;
+                const objPath = decodeURIComponent("" + path);
                 if (shell.shouldPromptDirty) {
                     const text = new Widget();
                     text.node.innerText = "You made unsaved changes to this dashboard." +
@@ -195,7 +195,7 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
                 );
                 if (!dialogResult.accept) return;
                 try {
-                    const name = "/" + dialogResult.result;
+                    const name = "" + dialogResult.result;
                     await cfgManager.newDashboard(name, model);
                     shell.activeDashboard = name;
                     urlManager.path = name;
@@ -287,8 +287,11 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
             isEnabled: () => activeBrowser != null,
             execute: () => {
                 if (activeBrowser == null) return;
-                const selected = activeBrowser.getValue();
+                let selected = activeBrowser.getValue();
                 if (selected == null) return;
+                if (selected.startsWith("/")) {
+                    selected = selected.substr(1);
+                }
                 const newUrl = urlManager.makeUrlFromComponents(selected, "");
                 // using noopener allows user-agents to put the tab in a new
                 // process, if they want to.
@@ -305,8 +308,11 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
             isEnabled: () => activeBrowser != null,
             execute: async () => {
                 if (activeBrowser == null) return;
-                const selected = activeBrowser.getValue();
+                let selected = activeBrowser.getValue();
                 if (selected == null) return;
+                if (selected.startsWith("/")) {
+                    selected = selected.substr(1);
+                }
                 let model: DashboardSerializer.ISerializedDashboard;
                 try {
                     model = await cfgManager.getDashboard(selected);
@@ -314,10 +320,11 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
                     catchConfigError(err);
                     return;
                 }
-                return commands.execute("shell:save-as", {
-                    name: selected + " Copy",
-                    model: model as any
+                await commands.execute("shell:save-as", {
+                    newName: selected + " Copy",
+                    dashboardModel: model as any
                 });
+                activeBrowser.activate();
             }
         });
         contextMenu.addItem({
