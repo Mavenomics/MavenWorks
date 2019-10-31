@@ -592,30 +592,26 @@ export class TableHelper {
             }
         } else {
             let datum: any[][] = [];
-            let outputCols = self.Cols.concat(Right.Cols.map(d => {
-                if (self.Cols.indexOf(d) !== -1) {
-                    return d + "Copy";
-                } else {
-                    return d;
-                }
-            }));
+            let outputCols = self.Cols.concat(Right.Cols.filter(i => self.Cols.indexOf(i) == -1));
             for (let row of self.Rows) {
                 let oRow: any[] = [];
-                for (let item in row) {
-                    oRow.push(row[item]);
+                for (let col of outputCols) {
+                    if (row.hasOwnProperty(col)) {
+                        oRow.push(row[col]);
+                    } else {
+                        oRow.push(null);
+                    }
                 }
-                Right.Cols.forEach(() => {
-                    oRow.push(null);
-                });
                 datum.push(oRow);
             }
             for (let row of Right.Rows) {
                 let oRow: any[] = [];
-                self.Cols.forEach(() => {
-                    oRow.push(null);
-                });
-                for (let item in row) {
-                    oRow.push(row[item]);
+                for (let col of outputCols) {
+                    if (row.hasOwnProperty(col)) {
+                        oRow.push(row[col]);
+                    } else {
+                        oRow.push(null);
+                    }
                 }
                 datum.push(oRow);
             }
