@@ -55,19 +55,23 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
         //#region Basic commands
         commands.addCommand(CommandIds.CreateNew, {
             label: "Create New Dashboard",
-            execute: ({path, obj}) => {
-                const objPath = "" + path;
-                return cfgManager.newDashboard(
-                    objPath,
-                    (obj as any as DashboardSerializer.ISerializedDashboard) || DashboardSerializer.DEFAULT_DASHBOARD
-                ).catch(catchConfigError);
+            execute: async ({path, obj}) => {
+                try {
+                    const model = obj as any as DashboardSerializer.ISerializedDashboard | null;
+                    await cfgManager.newDashboard(
+                        "" + path,
+                        model || DashboardSerializer.DEFAULT_DASHBOARD
+                    );
+                } catch (err) {
+                    catchConfigError(err);
+                }
             }
         });
 
         commands.addCommand(CommandIds.Load, {
             label: "Load Dashboard",
             execute: async ({path}) => {
-                const objPath = "" + path;
+                const objPath = decodeURIComponent("" + path);
                 if (shell.shouldPromptDirty) {
                     const text = new Widget();
                     text.node.innerText = "You made unsaved changes to this dashboard." +
@@ -122,11 +126,14 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
 
         commands.addCommand(CommandIds.Rename, {
             label: "Rename Dashboard",
-            execute: ({path, newName}) => {
-                const objPath = "" + path;
-                const name = "" + newName;
-                return cfgManager.renameDashboard(objPath, name)
-                    .catch(catchConfigError);
+            execute: async ({path, newName}) => {
+                try {
+                    await cfgManager.renameDashboard(
+                        "" + path,
+                        "" + newName);
+                } catch (err) {
+                    catchConfigError(err);
+                }
             }
         });
 
@@ -171,10 +178,25 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
 
         commands.addCommand("shell:save-as", {
             label: "Save as...",
-            execute: async () => {
-                const body = new Widget({node: document.createElement("input")});
-                (body.node as any).value = "untitled";
-                (body as any).getValue = () => (body.node as any).value;
+            execute: async ({newName, dashboardModel}) => {
+                let name = "" + (newName || shell.activeDashboard) || "untitled";
+                if (name.startsWith("/")) {
+                    name = name.substr(1);
+                }
+                const model = (dashboardModel as any as DashboardSerializer.ISerializedDashboard)
+                    || DashboardSerializer.toJson(shell.dashboard);
+                const body = new class extends Widget {
+                    constructor() {
+                        super({node: document.createElement("input")});
+                        (this.node as HTMLInputElement).value = name;
+                    }
+
+                    public getValue() { return (this.node as HTMLInputElement).value; }
+
+                    protected onAfterAttach() {
+                        (this.node as HTMLInputElement).select();
+                    }
+                };
                 const dialogResult = await HoverManager.Instance!.launchDialog(
                     body,
                     app.shell,
@@ -184,16 +206,11 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
                     [{ text: "Dismiss" }, { text: "Ok", accept: true }]
                 );
                 if (!dialogResult.accept) return;
-                if (("" + dialogResult.result).includes("/")) {
-                    return catchConfigError(new Error("Names cannot contain slashes ('/')"));
-                }
                 try {
-                    await cfgManager.newDashboard(
-                        "/" + dialogResult.result,
-                        DashboardSerializer.toJson(shell.dashboard)
-                    );
-                    shell.activeDashboard = "/" + dialogResult.result;
-                    urlManager.path = "/" + dialogResult.result;
+                    const name = "" + dialogResult.result;
+                    await cfgManager.newDashboard(name, model);
+                    shell.activeDashboard = name;
+                    urlManager.path = name;
                     shell.setClean();
                 } catch (err) {
                     return catchConfigError(err);
@@ -249,6 +266,8 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
             selector: ".main-app"
         });
 
+        const browserSelector = ".m-ConfigBrowser .m-ListBox-item.m-selected";
+
         commands.addCommand("@mavenomics/standalone:config-browser:rename", {
             label: "Rename Dashboard",
             isEnabled: () => activeBrowser != null,
@@ -259,7 +278,7 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
         });
         contextMenu.addItem({
             command: "@mavenomics/standalone:config-browser:rename",
-            selector: ".m-ConfigBrowser .m-ListBox-item.m-selected"
+            selector: browserSelector
         });
 
         commands.addCommand("@mavenomics/standalone:config-browser:delete", {
@@ -272,7 +291,57 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
         });
         contextMenu.addItem({
             command: "@mavenomics/standalone:config-browser:delete",
-            selector: ".m-ConfigBrowser .m-ListBox-item.m-selected"
+            selector: browserSelector
+        });
+
+        commands.addCommand("@mavenomics/standalone:config-browser:open-in-new-tab", {
+            label: "Open in New Tab",
+            isEnabled: () => activeBrowser != null,
+            execute: () => {
+                if (activeBrowser == null) return;
+                let selected = activeBrowser.getValue();
+                if (selected == null) return;
+                if (selected.startsWith("/")) {
+                    selected = selected.substr(1);
+                }
+                const newUrl = urlManager.makeUrlFromComponents(selected, "");
+                // using noopener allows user-agents to put the tab in a new
+                // process, if they want to.
+                window.open(newUrl, "_blank", "noopener");
+            }
+        });
+        contextMenu.addItem({
+            command: "@mavenomics/standalone:config-browser:open-in-new-tab",
+            selector: browserSelector
+        });
+
+        commands.addCommand("@mavenomics/standalone:config-browser:duplicate", {
+            label: "Make a copy...",
+            isEnabled: () => activeBrowser != null,
+            execute: async () => {
+                if (activeBrowser == null) return;
+                let selected = activeBrowser.getValue();
+                if (selected == null) return;
+                if (selected.startsWith("/")) {
+                    selected = selected.substr(1);
+                }
+                let model: DashboardSerializer.ISerializedDashboard;
+                try {
+                    model = await cfgManager.getDashboard(selected);
+                } catch (err) {
+                    catchConfigError(err);
+                    return;
+                }
+                await commands.execute("shell:save-as", {
+                    newName: selected + " Copy",
+                    dashboardModel: model as any
+                });
+                activeBrowser.activate();
+            }
+        });
+        contextMenu.addItem({
+            command: "@mavenomics/standalone:config-browser:duplicate",
+            selector: browserSelector
         });
         //#endregion
 

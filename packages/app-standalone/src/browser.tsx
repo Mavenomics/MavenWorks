@@ -81,6 +81,10 @@ class ConfigBrowser extends ReactWrapperWidget implements IConfigBrowser {
         />);
     }
 
+    protected onActivateRequest() {
+        this.getDashboardNames();
+    }
+
     private async getDashboardNames() {
         try {
             const paths = await this.configManager.getAllDashboardNames();

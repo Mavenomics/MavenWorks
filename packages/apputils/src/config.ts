@@ -1,6 +1,6 @@
 import { DashboardSerializer } from "@mavenomics/dashboard";
 import { Token } from "@phosphor/coreutils";
-import { AuthenticationError, TransportError, NetworkError, ConfigError } from "./errors";
+import { AuthenticationError, TransportError, NetworkError, ConfigError, ValidationError } from "./errors";
 
 import ISerializedDashboard = DashboardSerializer.ISerializedDashboard;
 import { URLExt } from "@jupyterlab/coreutils";
@@ -103,13 +103,14 @@ export class HttpConfigManager implements IConfigManager {
         if (path === "" || path === "/") {
             // this won't return a useful result
             // TODO: Better differentiation in API responses btw files and dirs
-            throw Error("Not a Dashboard: " + path);
+            throw new ValidationError("Not a Dashboard: " + name);
         }
         const res = await this.issueRequest(path);
         return await res.json();
     }
 
     public async newDashboard(path: string, object: ISerializedDashboard): Promise<void> {
+        this.throwIfNameInvalid(path);
         return void await this.issueRequest(path, "PUT", JSON.stringify(object));
     }
 
@@ -118,6 +119,7 @@ export class HttpConfigManager implements IConfigManager {
     }
 
     public async renameDashboard(path: string, newName: string): Promise<void> {
+        this.throwIfNameInvalid(newName);
         return void await this.issueRequest(path, "PATCH", JSON.stringify({name: newName}));
     }
 
@@ -163,6 +165,18 @@ export class HttpConfigManager implements IConfigManager {
             }
         }
         return response;
+    }
+
+    private throwIfNameInvalid(name: string): void {
+        if (name.startsWith("/")) {
+            name = name.substr(1);
+        }
+        const badChars = "/?#%[]";
+        if ([...badChars].some(i => name.includes(i))) {
+            throw new ValidationError(
+                "Names cannot contain any of the following characters: '" + badChars + "'"
+            );
+        }
     }
 }
 
