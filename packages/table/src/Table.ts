@@ -592,7 +592,7 @@ export class TableHelper {
             }
         } else {
             let datum: any[][] = [];
-            let outputCols = self.Cols.concat(Right.Cols.filter(i => self.Cols.indexOf(i) == -1));
+            let outputCols = self.Cols.concat(Right.Cols.filter(i => self.Cols.indexOf(i) === -1));
             for (let row of self.Rows) {
                 let oRow: any[] = [];
                 for (let col of outputCols) {
