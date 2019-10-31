@@ -34,19 +34,6 @@ function catchConfigError(err: any) {
     }
 }
 
-function throwIfInvalidName(name: string): string {
-    if (name.startsWith("/")) {
-        name = name.substr(1);
-    }
-    const badChars = "/?#%[]";
-    if ([...badChars].some(i => name.includes(i))) {
-        throw new Error(
-            "Names cannot contain any of the following characters: '" + badChars + "'"
-        );
-    }
-    return name;
-}
-
 export const configCmdPlugin: MavenWorksPlugin<void> = {
     id: "@mavenomics/standalone:config-commands",
     autoStart: true,
@@ -72,7 +59,7 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
                 try {
                     const model = obj as any as DashboardSerializer.ISerializedDashboard | null;
                     await cfgManager.newDashboard(
-                        throwIfInvalidName("" + path),
+                        "" + path,
                         model || DashboardSerializer.DEFAULT_DASHBOARD
                     );
                 } catch (err) {
@@ -143,7 +130,7 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
                 try {
                     await cfgManager.renameDashboard(
                         "" + path,
-                        throwIfInvalidName("" + newName));
+                        "" + newName);
                 } catch (err) {
                     catchConfigError(err);
                 }
@@ -208,7 +195,7 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
                 );
                 if (!dialogResult.accept) return;
                 try {
-                    const name = "/" + throwIfInvalidName("" + dialogResult.result);
+                    const name = "/" + dialogResult.result;
                     await cfgManager.newDashboard(name, model);
                     shell.activeDashboard = name;
                     urlManager.path = name;

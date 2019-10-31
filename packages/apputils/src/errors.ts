@@ -1,3 +1,13 @@
+export class ValidationError extends Error {
+    constructor(public readonly message: string) {
+        super(`Validation Error: ${message}`);
+
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(this, ValidationError);
+        }
+    }
+}
+
 export class ConfigError extends Error {
     constructor(public readonly message: string) {
         super(`Config Error: ${message}`);
