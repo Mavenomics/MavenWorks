@@ -1190,6 +1190,18 @@ export class UnionAllStrictFunction extends IFunction {
 
 }
 
+@declareFunction("UnionAllOuter", 1, Types.Table)
+@functionArg("row")
+@functionArg("table", Types.Table, void 0)
+export class UnionAllOuterFunction extends IFunction {
+    public eval(options: { [id: string]: any; }, context: IFunctionEvaluatorContext): any {
+        let tables = options["table"] as Table[];
+        //Todo: Optimize the case when more than 2 tables are provided.
+        return tables.reduce((left: Table, right: Table) => left == null ? right : TableHelper.Union(left, right, false), null);
+    }
+}
+
+
 @declareFunction("FilterTable", void 0, Types.Table)
 @functionArg("row")
 @functionArg("table", Types.Table)
