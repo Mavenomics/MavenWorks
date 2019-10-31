@@ -179,12 +179,24 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
         commands.addCommand("shell:save-as", {
             label: "Save as...",
             execute: async ({newName, dashboardModel}) => {
-                const name = "" + (newName || shell.activeDashboard) || "untitled";
+                let name = "" + (newName || shell.activeDashboard) || "untitled";
+                if (name.startsWith("/")) {
+                    name = name.substr(1);
+                }
                 const model = (dashboardModel as any as DashboardSerializer.ISerializedDashboard)
                     || DashboardSerializer.toJson(shell.dashboard);
-                const body = new Widget({node: document.createElement("input")});
-                (body.node as any).value = name;
-                (body as any).getValue = () => (body.node as any).value;
+                const body = new class extends Widget {
+                    constructor() {
+                        super({node: document.createElement("input")});
+                        (this.node as HTMLInputElement).value = name;
+                    }
+
+                    public getValue() { return (this.node as HTMLInputElement).value; }
+
+                    protected onAfterAttach() {
+                        (this.node as HTMLInputElement).select();
+                    }
+                };
                 const dialogResult = await HoverManager.Instance!.launchDialog(
                     body,
                     app.shell,
