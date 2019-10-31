@@ -17,14 +17,11 @@ node_modules/
 *.tgz
 yarn-error.log
 
-# jetbrains, with explicit unignores
-/.idea/*
-!/.idea/codeStyles
-!/.idea/inspectionProfiles
-!/.idea/runConfigurations
+# Config server DB
+/packages/config-server/*.sql
 
-# Cypress
-*/cypress/screenshots/**/*.png
+# Local registry
+.verdaccio
 
 # Demos
 /demos/Untitled*.ipynb

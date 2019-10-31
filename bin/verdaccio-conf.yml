@@ -1,0 +1,47 @@
+storage: .verdaccio/storage
+
+web:
+  title: Verdaccio
+
+auth:
+  htpasswd:
+    file: .verdaccio/htpasswd
+
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+
+packages:
+  # MavenWorks packages
+  '@mavenomics/*':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+
+  'jupyterlab-mavenworks':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+
+  # Default config
+  '@*/*':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: npmjs
+
+  '**':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: npmjs
+
+server:
+  keepAliveTimeout: 60
+
+middlewares:
+  audit:
+    enabled: true
+
+logs:
+  - { type: stdout, format: pretty, level: http }

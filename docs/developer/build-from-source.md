@@ -85,69 +85,77 @@ pip install -e .
 jupyter serverextension enable --py "mavenworks.server"
 ```
 
-### 4. Setup Verdaccio and "publish" your local packages to it
+### 4. Setup the client build chain
 
-Verdaccio is a private, self-hosted NPM registry. We need this to be able to
-reliably work with our local packages in the JupyterLab build chain.
+First, open a new terminal, `cd` to your checkout directory, and run the
+following command:
 
-  1. Install Verdaccio:
-  ```bash
-  yarn global add verdaccio
-  # alternatively, with NPM:
-  npm install --global verdaccio
-  ```
-  2. Start Verdaccio in a new console:
-  ```bash
-  verdaccio
-  ```
-  3. Run the local publish script:
-  ```bash
-  ./bin/deploy_pkgs.sh
-  ```
-
-  > ### Windows note
-  >
-  > On windows, use the following powershell script instead:
-  > ```ps1
-  > ./bin/republish.ps1
-  > ```
-
-  > ### Why is this necessary?
-  >
-  > It's rather annoying setting up a private repo, but the underlying cause is
-  > a rather complicated set of issues around how JupyterLab's extension bundler
-  > works. For more information, see https://github.com/jupyterlab/jupyterlab/issues/6109.
-
-### 5. Set your `.yarnrc` to point to Verdaccio
-
-Add the following entry to your yarnrc file:
-```yml
-"@mavenomics:registry": "http://your-registry-location/"
+```sh
+$ yarn registry
 ```
 
-This tells the JupyterLab builder to look via Verdaccio for unresolved packages.
+This will start a private package registry named Verdaccio. Leave this terminal
+open in the background, and switch back to the terminal you were working in.
+This 'registry' always runs on `http://localhost:4873`, unless you configure it
+otherwise. You can open this URL in your browser, if you like.
 
-### 6. Link the development versions of the packages for JupyterLab
-```bash
-jupyter labextension link ./packages/* --no-build
-jupyter labextension unlink ./packages/metapackage --no-build
+Now, login to this private registry via npm:
+
+```sh
+$ npm login --registry "http://localhost:4873"
+```
+
+NPM will prompt you for a username and password. These really don't matter, so
+set them to anything you like.
+
+Then, we need to 'publish' our packages to Verdaccio:
+
+```sh
+$ ./bin/deploy_pkgs.sh
+```
+
+> ### Windows note
+>
+> On Windows, use the following powershell script instead:
+>
+> ```ps1
+> > ./bin/republish.ps1
+> ```
+
+Finally, tell Yarn to redirect "@mavenomics" to this private repo:
+
+```sh
+$ yarn config set "@mavenomics:registry" "http://localhost:4873"
+```
+
+You will only need to do these steps once, though sometimes you may wish to re-run
+the "publish" script.
+
+### 5. Link the development versions of the packages for JupyterLab
+```sh
+$ jupyter labextension link ./packages/* --no-build
+$ jupyter labextension unlink ./packages/metapackage --no-build
+$ jupyter labextension unlink ./packages/app-standalone --no-build
+$ jupyter labextension unlink ./packages/app-viewer --no-build
+$ jupyter labextension unlink ./packages/config-server --no-build
 ```
 > If you don't do this, JupyterLab will pull the packages off the NPM registry
 > and won't use your local checkout.
 
-### 7. Build and Run JupyterLab
-  ```bash
-  jupyter lab build
-  jupyter lab
-  ```
-  > #### File Watchers
-  >
-  > To compile from MavenWorks source as it changes, use `jupyter lab --watch` after
-  > installing the extension. Jupyter will start a webpack watcher and launch
-  > the Lab interface.
+### 6. Build and Run JupyterLab
 
-  > #### Windows note
-  >
-  > The file watcher described above is slow and unreliable on Windows. We
-  > recommend using the Standalone MavenWorks to iterate on your changes, as
-  > that will be faster and less prone to crashes.
+```sh
+$ jupyter lab build
+$ jupyter lab
+```
+> #### File Watchers
+>
+> To compile from MavenWorks source as it changes, use `jupyter lab --watch` after
+> installing the extension. Jupyter will start a webpack watcher and launch
+> the Lab interface.
+
+> #### Windows note
+>
+> The file watcher described above is slow and unreliable on Windows. We
+> recommend using the Standalone MavenWorks to iterate on your changes, as
+> that will be faster and less prone to crashes.
