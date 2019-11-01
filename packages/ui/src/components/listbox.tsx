@@ -7,7 +7,7 @@ import * as React from "react";
  * [@mavenomics/ui/style/listbox.css].
  */
 export const ListBox: React.SFC<ListBox.IProps> = (
-    {items, selectedKey, isEditing, onEdit, onSelect}
+    {items, selectedKey, isEditing, onEdit, onSelect, onCommit}
 ) => {
     const editableLabel = items.find(i => i.key === selectedKey);
     const [label, setLabel] = React.useState(editableLabel ? editableLabel.label : "");
@@ -52,6 +52,11 @@ export const ListBox: React.SFC<ListBox.IProps> = (
                 // don't invoke if the label didn't change
                 if (i.key === selectedKey) return;
                 onSelect.call(void 0, i.key);
+            }}
+            onDoubleClick={() => {
+                if (onCommit) {
+                    onCommit.call(void 0, i.key);
+                }
             }}>
                 {content}
             </li>
@@ -83,6 +88,26 @@ export namespace ListBox {
          * consumer to set the selectedKey property.
          */
         onSelect: (this: void, key: string | null) => void;
+
+        /**
+         * A callback fired whenever the user "commits" some action.
+         *
+         * Most list boxes don't just represent a list of things, they can also
+         * represent a choice that the user can make (such as what flavor of
+         * ice cream they want). Sometimes this requires deliberation, so a user
+         * might click through a few options before hitting a "Submit" button.
+         * Other times, they know _exactly_ what they want and they want it now!
+         * They don't like having to click, mouse move, click 'apply', close, etc.
+         *
+         * The listbox can't really encompass _all_ of that behavior, so instead
+         * it exposes this callback to let consumers decide what they want to do
+         * with it.
+         *
+         * Note that the details of _when_ this gets applied should be considered
+         * internal to the ListBox. Right now, it only respects "double click",
+         * but that may change in the future.
+         */
+        onCommit?: (this: void, key: string) => void;
 
         /** Whether the currently selected item's label should be editable. */
         isEditing: boolean;
