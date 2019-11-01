@@ -691,6 +691,55 @@ export namespace HoverManager {
         }
     }
 
+    /** The last position of a dialog that was interacted with. */
+    let LAST_POSITION: {x: number, y: number} | null = null;
+    /** The # of pixels that any new dialog should be offset by. */
+    const OFFSET = 25;
+
+    /**
+     * Given a dialog position, return a new position clamped to screen space.
+     *
+     * This ensures that at least an OFFSET x OFFSET square of the titlebar is
+     * visible on-screen. This ensures that it is always grabbable by the user.
+     *
+     * It also ensures that the titlebar never spawns outside the window, as
+     * might happen with a very short window, a tall dialog, and the open-in
+     * center heuristic.
+     *
+     * @param position The requested start position of the dialog.
+     * @returns The corrected position to use.
+     */
+    function clampToScreen(
+        position: {x: number, y: number}
+    ): {x: number, y: number} {
+        const maxX = window.innerWidth - OFFSET;
+        const maxY = window.innerHeight - OFFSET;
+        const {x, y} = position;
+        return {
+            x: MathTools.Clamp(x, 0, maxX),
+            y: MathTools.Clamp(y, 0, maxY)
+        };
+    }
+
+    /** Helper to calculate the initial spawn position of a dialog */
+    function getInitialSpawnPosition(
+        data: { width: number, height: number }
+    ): {x: number, y: number} {
+        let newPosition: typeof LAST_POSITION;
+        if (LAST_POSITION == null) {
+            const x = window.innerWidth / 2 - data.width / 2;
+            const y = window.innerHeight / 2 - data.height / 2;
+            newPosition = {x, y};
+        } else {
+            newPosition = {
+                x: LAST_POSITION.x + OFFSET,
+                y: LAST_POSITION.y + OFFSET
+            };
+        }
+        LAST_POSITION = clampToScreen(newPosition);
+        return LAST_POSITION;
+    }
+
     class DialogHover extends HoverWrapper {
         private static Z_INDEX = 1;
         constructor(toWrap: Widget,
@@ -700,8 +749,9 @@ export namespace HoverManager {
             super(toWrap, owner, "dialog", data);
             toWrap.node.style.padding = "5px";
             this.node.style.zIndex = "" + (++DialogHover.Z_INDEX);
-            this.data.x = window.innerWidth / 2 - data.width / 2;
-            this.data.y = window.innerHeight / 2 - data.height / 2;
+            const spawn = getInitialSpawnPosition(data);
+            this.data.x = spawn.x;
+            this.data.y = spawn.y;
             const titlebar = new DialogTitlebar(this, toWrap.title.label);
             BoxLayout.setStretch(titlebar, 0);
             BoxLayout.setSizeBasis(titlebar, 25);
@@ -721,6 +771,10 @@ export namespace HoverManager {
         protected onActivateRequest() {
             if (this.node.style.zIndex !== "" + DialogHover.Z_INDEX) {
                 this.node.style.zIndex = "" + (++DialogHover.Z_INDEX);
+                LAST_POSITION = {
+                    x: this.data.x,
+                    y: this.data.y
+                };
             }
         }
     }
@@ -796,14 +850,13 @@ export namespace HoverManager {
         private onMouseMove(ev: PointerEvent) {
             const mouseDelta = MathTools.Vec2.Sub([ev.pageX, ev.pageY], this.offset);
             const pos = MathTools.Vec2.Add(this.startPos, mouseDelta);
-            const {width, height} = this.owner.data;
-            const windowSize = [
-                window.innerWidth,
-                window.innerHeight
-            ] as const;
-            const [x, y] = MathTools.ClampRectToBounds(pos, [width, height], windowSize);
-            this.owner.data.x = x;
-            this.owner.data.y = y;
+            const correctedPos = clampToScreen({
+                x: pos[0],
+                y: pos[1]
+            });
+            this.owner.data.x = correctedPos.x;
+            this.owner.data.y = correctedPos.y;
+            LAST_POSITION = correctedPos;
             this.owner.update();
         }
 
