@@ -11,6 +11,7 @@ import { renderOnEmit } from "../reacthelpers";
 export function TreeView<T extends TreeModel.TreeNode>({
     model,
     onSelect,
+    onCommit,
     onCollapse,
     preview,
     render = (node) => node.key
@@ -27,7 +28,8 @@ export function TreeView<T extends TreeModel.TreeNode>({
                         onSelect,
                         render,
                         preview,
-                        onCollapse
+                        onCollapse,
+                        onCommit
                     }} />))}
             </Private.TreeLevel>
         </div>
@@ -41,6 +43,12 @@ export namespace TreeView {
 
         /** Callback when an item is selected. */
         onSelect: (this: void, key: string) => void;
+
+        /** Callback when an item is 'super' selected.
+         *
+         * Refer to the documentation for [ListBox].onCommit for more details.
+         */
+        onCommit?: (this: void, key: string) => void;
 
         /** Callback when an item is collapsed.
          *
@@ -82,7 +90,7 @@ namespace Private {
     };
 
     export function TreeNode<T extends TreeModel.TreeNode>({
-        model, node, onCollapse, onSelect, render, preview
+        model, node, onCollapse, onSelect, onCommit, render, preview
     }: TreeNodeProps<T>) {
         const hasChildren = node.children.length > 0;
         return (<li key={node.key}
@@ -96,6 +104,11 @@ namespace Private {
                     onFocus={ev => {
                         if (!node.selectable) return;
                         onSelect.call(void 0, node.key);
+                    }}
+                    onDoubleClick={ev => {
+                        if (onCommit) {
+                            onCommit.call(void 0, node.key);
+                        }
                     }}>
                 {
                     hasChildren ? (<FlippyTriangle
@@ -119,6 +132,7 @@ namespace Private {
                         {...{
                             model,
                             onSelect,
+                            onCommit,
                             onCollapse,
                             render,
                             preview
@@ -140,6 +154,7 @@ namespace Private {
         model: TreeModel<T>;
         node: T;
         onSelect: (this: void, key: string) => void;
+        onCommit?: (this: void, key: string) => void;
         onCollapse: (this: void, key: string, state: boolean) => void;
         render: (this: void, node: T) => React.ReactElement | string | null;
         preview?: IDragPreview;

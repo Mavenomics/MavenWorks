@@ -1,5 +1,6 @@
 import { ReactWrapperWidget, ListBox, HoverManager } from "@mavenomics/ui";
 import { Widget } from "@phosphor/widgets";
+import { MessageLoop } from "@phosphor/messaging";
 import * as React from "react";
 import { Token } from "@phosphor/coreutils";
 import { MavenWorksPlugin } from "./application";
@@ -78,6 +79,14 @@ class ConfigBrowser extends ReactWrapperWidget implements IConfigBrowser {
             }}
             isEditing={this.isEditing}
             onEdit={this.handleDashboardEdited.bind(this)}
+            onCommit={(key) => {
+                this.selectedKey = key;
+                if (!this.parent) return;
+                MessageLoop.sendMessage(
+                    this.parent,
+                    HoverManager.DialogMsg.AcceptRequest
+                );
+            }}
         />);
     }
 

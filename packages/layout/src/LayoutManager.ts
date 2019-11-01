@@ -231,6 +231,14 @@ export class LayoutManager extends Widget implements IDirtyable {
                     treeModel.selectNode(key, true);
                     selectedPart = key;
                 },
+                onCommit: (key) => {
+                    treeModel.selectNode(key, true);
+                    selectedPart = key;
+                    MessageLoop.sendMessage(
+                        hover.parent!,
+                        HoverManager.DialogMsg.AcceptRequest
+                    );
+                },
                 onCollapse: (key, isCollapsed) => {
                     treeModel.update(key, { isCollapsed });
                 }
