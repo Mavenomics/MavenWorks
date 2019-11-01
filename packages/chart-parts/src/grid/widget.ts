@@ -45,6 +45,7 @@ export class SlickGridWidget extends Widget {
     private gridContext: IGridContext;
     private maxDepth = 0;
     private depthColorFunction: d3.scale.Linear<string, string> | null = null;
+    private scrollPosition: {scrollTop: number, scrollLeft: number} = {scrollTop: 0, scrollLeft: 0};
 
     // TODO: narrow these types
     private rowHover: any;
@@ -150,9 +151,15 @@ export class SlickGridWidget extends Widget {
         this.plugins.autoTooltips = new (Slick as any).AutoTooltips({ enableForHeaderCells: true });
         this.grid.registerPlugin(this.plugins.autoTooltips);
 
-        this.setupCallbacks();
+        const canvas = this.node.querySelector(".slick-viewport-" +
+            (slickGridOpts.frozenColumn > -1 ? "right" : "left")
+        );
+        if (canvas != null) {
+            canvas.scrollTop = this.scrollPosition.scrollTop;
+            canvas.scrollLeft = this.scrollPosition.scrollLeft;
+        }
 
-        // TODO: Scroll
+        this.setupCallbacks();
     }
 
     // TODO: column formatting
@@ -901,6 +908,10 @@ export class SlickGridWidget extends Widget {
             }
 
             this.grid!.setActiveCell(args.row, args.cell);
+        });
+
+        this.grid.onScroll.subscribe((e, {scrollTop, scrollLeft}) => {
+            this.scrollPosition = { scrollTop, scrollLeft };
         });
 
         this.grid.onMouseEnter.subscribe((e, args) => {
