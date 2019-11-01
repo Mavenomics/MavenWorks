@@ -131,7 +131,7 @@ export class HoverManager extends Widget {
         const vm = this.openDialog({ hover, owner, width, height });
         await vm.onClosed;
         return {
-            accept: hover.accept || false,
+            accept: hover.wasAccepted || false,
             clicked: hover.clicked || "",
             result: hover.result
         };
@@ -150,7 +150,7 @@ export class HoverManager extends Widget {
         const vm = this.openDialog({ hover, owner, width, height });
         await vm.onClosed;
         return {
-            accept: hover.accept || false,
+            accept: hover.wasAccepted || false,
             clicked: hover.clicked || "",
             result: hover.result
         };
@@ -459,9 +459,33 @@ export namespace HoverManager {
         }, btn) as Required<IButton>;
     }
 
-    export class DialogWithButtons<T> extends Widget {
+    /** A generic interface representing a dialog chroming */
+    export interface IDialogChrome extends Widget {
+        accept(): void;
+        dismiss(): void;
+    }
+
+    /** Dialog messages. */
+    export namespace DialogMsg {
+        /** A message that dialog content can send to the chrome to accept itself.
+         *
+         * This allows content to apply itself if it knows more about a user's
+         * intent than the HoverManager does (eg, double-clicking in a list box
+         * to 'super'-select it).
+         */
+        export const AcceptRequest = new Message("accept-request");
+
+        /** A message that dialog content can send to the chrome to dismiss itself.
+         *
+         * This is like the "accept-request" message, except it will dismiss the
+         * dialog without changes.
+        */
+        export const DismissRequest = new Message("dismiss-request");
+    }
+
+    export class DialogWithButtons<T> extends Widget implements IDialogChrome {
         public readonly layout: BoxLayout;
-        protected _accept?: boolean;
+        protected _wasAccepted?: boolean;
         protected _result?: T;
         protected _clicked?: string;
         protected btnBar: BoxPanel;
@@ -484,15 +508,58 @@ export namespace HoverManager {
             this.layout.addWidget(this.btnBar);
         }
 
-        public get accept() { return this._accept; }
+        public get wasAccepted() { return this._wasAccepted; }
         public get clicked() { return this._clicked; }
         public get result() { return this._result; }
 
+        public accept() {
+            this._wasAccepted = true;
+            this.close();
+        }
+
+        public dismiss() {
+            this._wasAccepted = false;
+            this.close();
+        }
+
+        public getValue() {
+            try {
+                return this.hover.getValue ? this.hover.getValue!() : undefined as any as T;
+            } catch (err) {
+                console.error("Uncaught error in Editor Dialog calling getValue:");
+                console.error(err);
+                return;
+            }
+        }
+
+        public processMessage(msg: Message) {
+            switch (msg.type) {
+                case "accept-request":
+                    this.onAcceptRequest(msg);
+                    break;
+                case "dismiss-request":
+                    this.onDismissRequest(msg);
+                    break;
+                default:
+                    super.processMessage(msg);
+            }
+        }
+
         protected onCloseRequest() {
-            if (this._accept && this.hover.getValue) {
-                this._result = this.hover.getValue();
+            if (this._wasAccepted && this.hover.getValue) {
+                this._result = this.getValue();
             }
             this.dispose();
+        }
+
+        protected onAcceptRequest(_msg: Message) {
+            this._wasAccepted = true;
+            MessageLoop.sendMessage(this, Widget.Msg.CloseRequest);
+        }
+
+        protected onDismissRequest(_msg: Message) {
+            this._wasAccepted = false;
+            MessageLoop.sendMessage(this, Widget.Msg.CloseRequest);
         }
 
         protected setupButtons() {
@@ -510,7 +577,7 @@ export namespace HoverManager {
         protected setupButton(btn: Interactions.Button, btnModel: IButton) {
             btn.onClicked.pipe(first()).toPromise().then(() => {
                 this._clicked = btnModel.text;
-                this._accept = btnModel.accept != null ? btnModel.accept : false;
+                this._wasAccepted = btnModel.accept != null ? btnModel.accept : false;
                 this.close();
             });
         }
@@ -533,20 +600,23 @@ export namespace HoverManager {
         protected setupButton(btn: Interactions.Button, btnModel: IButton) {
             if (btnModel.text === "Apply" || btnModel.text === "OK") {
                 btn.onClicked.subscribe(() => {
-                    let value: T;
-                    try {
-                        value = this.hover.getValue ? this.hover.getValue!() : undefined as any as T;
-                    } catch (err) {
-                        console.error("Uncaught error in Editor Dialog calling getValue:");
-                        console.error(err);
-                        return;
-                    }
-                    this.onApplyCallback.call(void 0, value);
+                    this.onApply();
                     if (btnModel.text === "OK") this.close();
                 });
             } else {
                 super.setupButton(btn, btnModel);
             }
+        }
+
+        protected onAcceptRequest(msg: Message) {
+            this.onApply();
+            super.onAcceptRequest(msg);
+        }
+
+        private onApply() {
+            let value = this.getValue();
+            // TODO: Add undefined to the generic typing
+            this.onApplyCallback.call(void 0, value as any);
         }
     }
 
