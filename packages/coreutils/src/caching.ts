@@ -137,10 +137,22 @@ export class Cache<K, T> {
         return mgr.findLock(lockId);
     }
 
+    /**
+     * This method reports any issues with lock validity, but allows operations
+     * to proceed anyway.
+     */
     private checkLock(mgr: Cache.LockManager, lockId?: number, isWrite?: boolean) {
         const lock = mgr.findLock(lockId);
-        if (lock == null || lock.isFree || lock.isWrite !== isWrite) {
-            console.error("[Cache]", "Attempted to perform blocking operation without a lock");
+        if (lock == null || lock.isFree ) {
+            console.error("[Cache]", "Performing blocking operation without a lock- this breaks cache atomicity");
+            return;
+        }
+        if (isWrite && !lock.isWrite) {
+            console.error("[Cache]", "Performing blocking operation with an wrong lock- readers should not write.");
+            return;
+        }
+        if (!isWrite && lock.isWrite) {
+            console.warn("[Cache]", "Writer lock performing a read operation- this is inefficient");
         }
     }
 
@@ -157,20 +169,42 @@ export class Cache<K, T> {
 
 export namespace Cache {
     export class LockManager {
+        /** An array of locks that the manager currently holds.
+         *
+         * This list is drained as locks are released.
+         */
         held: CacheLock[] = [];
+        /** An array of locks that the manager does not hold.
+         *
+         * When acquiring a cache lock, the lock may be added to this array if:
+         *
+         *  - the new lock is a write lock and there are currently held locks
+         *  - the new lock is a read lock and there is a write lock being held
+         *
+         * This array is drained when a lock releases, using the following algorithm:
+         *
+         *  - If any write locks exist, then the first write lock in the array will
+         * be acquired and moved to the held array.
+         *  - If no write locks remain, the rest of the locks are acquired all at
+         * once and moved to the held array.
+         */
         waiting: CacheLock[] = [];
+        /** An array of locks that the manager is currently trying to acquire */
+        acquiring: CacheLock[] = [];
         nextLockId = 1;
 
         public get hasWriteLock() {
-            return this.held.concat(this.waiting).some(l => l.isWrite);
+            return this.held.concat(this.waiting, this.acquiring).some(l => l.isWrite);
         }
 
         public get hasReadLock() {
-            return this.held.length + this.waiting.length !== 0;
+            return this.held.length + this.acquiring.length + this.waiting.length !== 0;
         }
 
         public findLock(lockid: number | undefined) {
-            return this.held.find(l => l.lockId === lockid) || this.waiting.find(l => l.lockId === lockid);
+            return this.held.find(l => l.lockId === lockid)
+                || this.waiting.find(l => l.lockId === lockid)
+                || this.acquiring.find(l => l.lockId === lockid);
         }
 
         public async acquireLock(isWrite: boolean): Promise<CacheLock> {
@@ -204,11 +238,18 @@ export namespace Cache {
                 this.held.push(nextWrite);
             } else {
                 //There are only read locks waiting
+                const lockFutures: Promise<void>[] = [];
+                const locks: CacheLock[] = [];
                 for (let next of this.waiting) {
-                    await next.aquire();
-                    this.held.push(next);
+                    lockFutures.push(next.aquire());
+                    locks.push(next);
                 }
                 this.waiting = [];
+                this.acquiring = locks;
+                // make the operation atomic
+                await Promise.all(lockFutures);
+                this.held = this.held.concat(locks);
+                this.acquiring = [];
             }
         }
     }
