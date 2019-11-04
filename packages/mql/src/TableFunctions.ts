@@ -1778,7 +1778,7 @@ export class VectorElementFunction extends IFunction {
             let index = opts["index"];
             if (!Array.isArray(vector))
                 throw new Error("Cannot index a non-vector type");
-            if (index < 0 || index > vector.length) {
+            if (index < 0 || index >= vector.length) {
                 throw new Error("Vector Index out of bounds: " + index);
             }
             return vector[index];
