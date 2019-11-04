@@ -1778,6 +1778,9 @@ export class VectorElementFunction extends IFunction {
             let index = opts["index"];
             if (!Array.isArray(vector))
                 throw new Error("Cannot index a non-vector type");
+            if (index < 0 || index > vector.length) {
+                throw new Error("Vector Index out of bounds: " + index);
+            }
             return vector[index];
         });
     }
@@ -2335,7 +2338,11 @@ export class MqlCacheFunction extends IFunction {
             let lock = await StartTimingAsync("Cache_lock", () => cache.lock(key, true));
 
             if (cache.has(key)) {
-                const val = cache.get(key, true, lock.lockId);
+                // We don't need the write lock, throw it out.
+                lock.release();
+                // Further, since we know the cache won't change under us synchronously,
+                // we won't need a read lock either. So we can do a non-blocking read.
+                const val = cache.get(key, false);
                 lock.release();
                 return cb(void 0, val);
             }

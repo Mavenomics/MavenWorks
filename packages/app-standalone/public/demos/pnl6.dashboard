@@ -106,7 +106,7 @@
 								"properties": {
 									"showRegion": true,
 									"showTitle": true,
-									"caption": "Confidence Level"
+									"caption": "Confidence Level (%)"
 								},
 								"typeName": 1,
 								"uuid": "3a1a23b8-02ec-4145-baf7-02ab1f9d2d8e",
@@ -238,7 +238,7 @@
 				"options": {
 					"Input Table": {
 						"type": "Mql",
-						"expr": "/* @SliderValues,@ConfidenceLevelPct,@StartDate,@EndDate */\n    set @Data = Cache( 'Data1', Subselect( <<mql\n    set @Pnl5MipWeeklyPath = WorkerCache('pnl5_weekly', Fetch('https://dl.dropboxusercontent.com/s/ktez6tnglllde8z/PNL_Export_MIP_16Y_weekly.csv'))\n    set @Pnl5MipExpPath =  WorkerCache('pnl5_exposures', Fetch('https://dl.dropboxusercontent.com/s/fj9xltj4f5azde6/PNL_Export_MIP_Exposures.csv'))\n    set @rawTable = ExcelCsvToTable( @Pnl5MipWeeklyPath )\n    set @tableWithFakeDates = Cache( 'TWFD', AddComputedColumn( @rawTable, 'Fake Date', AddTime(Date(2012,06,14),  0, 0, -(858-[Scenario Index])*7 )))\n    SELECT \n        Currency,\n        [Book Value] as BookValue,\n        VectorsToSparkline( DateTimeVectorFromTable( 'Fake Date', @tableWithFakeDates ), FloatVectorFromTable( Currency, @rawTable ) ) as Scenarios \n    FROM \n        ExcelCsvToTable( @Pnl5MipExpPath )\nmql\n    ) )\n    set @FilteredData1 = Cache( Rand(  ), Subselect( <<mql\n    set @NumDate = GetYears( Date ) * 10000 + GetMonths( Date ) * 100 + GetDays( Date )\n    SELECT First(Currency) as Currency,\n           First(BookValue) as BookValue, \n           Sparkline(Scenarios, Date) as Scenarios\n    FROM Explode(@Data)\n    WHERE @NumDate >= @StartDate and @NumDate <= @EndDate\n    GROUP BY Currency\n    HAVING GetLevel() = 1\nmql\n    , 'Data', @Data, 'StartDate', @StartDate, 'EndDate', @EndDate ) )\n    set @FilteredData2 = Cache( Rand(  ), Subselect( <<mql\n    SELECT Currency as Currency2,\n           Scenarios as Scenarios2\n    FROM @FilteredData1\nmql\n    , 'FilteredData1', @FilteredData1 ) )\n    set @MinThreshold = 65\n    set @ExposureSelectionType = 'Use Sliders'\n    set @MinThresholdScaled = 0.65\n    set @ShowGrid = False\n    set @ShowSliders = True\n    set @RowPath = '/root/AUD'\n    set @RowName = 'AUD'\n    set @CellContents = 'AUD'\n    set @MessageType = 'SelectedCellChanged'\n    set @WeightedSchenarioTotal = SparklineSum( SparklineMultiply( @ValueUsed / BookValue, Scenarios ) )\n    set @PNLVector = Cache(IfElse( @IsTotal, 'Grand Total', First( Currency ) ), SparklineToFloatVector( SparklineSum( @WeightedSchenarioTotal ) ) )\n    set @ConfidenceLevel = @ConfidenceLevelPct\n    set @tailLength = Ceiling( Length( @PNLVector ) * ( 1 - @ConfidenceLevel ) )\n    set @SliderAdjustedValue = Weight / RootVal( Sum( Weight ) ) * RootVal( Sum( BookValue ) )\n    set @ValueUsed = @SliderAdjustedValue\n    set @IsTotal = GetLevel(  ) = 0\n    set @WeightTable = RemoveColumns( AddComputedColumn( CsvToTable( @SliderValues ), 'Currency', label, 'Weight', value ), 'RowName' )\n    def @tailScenFilter(@value) = @value = Idx( SortVector( @PNLVector ), @tailLength )\n    set @tailScenarioIndex = Cache( 'tsi', RootVal( FirstIndexWhere( @PNLVector, @tailScenFilter, 0 ) ) )\n    SELECT \n        Sum( @ValueUsed ) as [Book Value Used] format { General.ColumnWidthPixels := 104; Number.FormatString := '$###,###' } , \n        IfElse( @IsTotal, null, Sum( @ValueUsed ) / RootVal( Sum( @ValueUsed ) ) ) as [%] format { Number.FormatString := '0.00%'; General.DisplayStyle := 'ProgressBar'; General.ColumnWidthPixels := 47 } , \n        @WeightedSchenarioTotal as Scenarios format { General.ColumnWidthPixels := 149; General.DisplayStyle := 'SparkLine' } , \n        - Idx( SortVector( @PNLVector ), @tailLength ) as VaR format { Number.FormatString := '$###,###'; General.ColumnWidthPixels := 70 } , \n        Idx( @PNLVector, @tailScenarioIndex ) / RootVal( Idx( @PNLVector, @tailScenarioIndex ) ) as [VaR Contribution] format { Number.FormatString := '0.00%'; General.DisplayStyle := 'ProgressBar'; General.ColumnWidthPixels := 58 } , \n        - VectorSum( Slice( SortVector( @PNLVector ), 0, @tailLength ) ) / @tailLength as ETL format { General.ColumnWidthPixels := 78; Number.FormatString := '$###,###' } ,\n        - ( VectorSum( Slice( SortVector( @PNLVector ), 0, @tailLength ) ) / @tailLength ) / Sum( @ValueUsed ) as [ ETL %] format { General.ColumnWidthPixels := 103; Number.FormatString := '0.00%'; [Heatmap. Enable] := True; Heatmap.Center.Color := 'white'; Heatmap.Center.Value := 0.02; Heatmap.Maximum.Color := 'Red'; Heatmap.Maximum.Value := 0.3; Heatmap.Minimum.Color := 'Blue' } \n    FROM \n        FullOuterNaturalJoin( 'Currency', @FilteredData1, @WeightTable )\n    GROUP BY \n        Currency\n      WITH ROLLUP \n      NO LEAVES \n    ORDER BY \n        GetName(  )",
+						"expr": "/* @SliderValues,@ConfidenceLevelPct,@StartDate,@EndDate */\n    set @Data = Cache( 'Data1', Subselect( <<mql\n    set @Pnl5MipWeeklyPath = WorkerCache('pnl5_weekly', Fetch('https://dl.dropboxusercontent.com/s/ktez6tnglllde8z/PNL_Export_MIP_16Y_weekly.csv'))\n    set @Pnl5MipExpPath =  WorkerCache('pnl5_exposures', Fetch('https://dl.dropboxusercontent.com/s/fj9xltj4f5azde6/PNL_Export_MIP_Exposures.csv'))\n    set @rawTable = ExcelCsvToTable( @Pnl5MipWeeklyPath )\n    set @tableWithFakeDates = Cache( 'TWFD', AddComputedColumn( @rawTable, 'Fake Date', AddTime(Date(2012,06,14),  0, 0, -(858-[Scenario Index])*7 )))\n    SELECT \n        Currency,\n        [Book Value] as BookValue,\n        VectorsToSparkline( DateTimeVectorFromTable( 'Fake Date', @tableWithFakeDates ), FloatVectorFromTable( Currency, @rawTable ) ) as Scenarios \n    FROM \n        ExcelCsvToTable( @Pnl5MipExpPath )\nmql\n    ) )\n    set @FilteredData1 = Cache( Rand(  ), Subselect( <<mql\n    set @NumDate = GetYears( Date ) * 10000 + GetMonths( Date ) * 100 + GetDays( Date )\n    SELECT First(Currency) as Currency,\n           First(BookValue) as BookValue, \n           Sparkline(Scenarios, Date) as Scenarios\n    FROM Explode(@Data)\n    WHERE @NumDate >= @StartDate and @NumDate <= @EndDate\n    GROUP BY Currency\n    HAVING GetLevel() = 1\nmql\n    , 'Data', @Data, 'StartDate', @StartDate, 'EndDate', @EndDate ) )\n    set @FilteredData2 = Cache( Rand(  ), Subselect( <<mql\n    SELECT Currency as Currency2,\n           Scenarios as Scenarios2\n    FROM @FilteredData1\nmql\n    , 'FilteredData1', @FilteredData1 ) )\n    set @MinThreshold = 65\n    set @ExposureSelectionType = 'Use Sliders'\n    set @MinThresholdScaled = 0.65\n    set @ShowGrid = False\n    set @ShowSliders = True\n    set @RowPath = '/root/AUD'\n    set @RowName = 'AUD'\n    set @CellContents = 'AUD'\n    set @MessageType = 'SelectedCellChanged'\n    set @WeightedSchenarioTotal = SparklineSum( SparklineMultiply( @ValueUsed / BookValue, Scenarios ) )\n    set @PNLVector = Cache(IfElse( @IsTotal, 'Grand Total', First( Currency ) ), SparklineToFloatVector( SparklineSum( @WeightedSchenarioTotal ) ) )\n    set @ConfidenceLevel = @ConfidenceLevelPct / 100\n    set @tailLength = Ceiling( Length( @PNLVector ) * ( 1 - @ConfidenceLevel ) )\n    set @SliderAdjustedValue = Weight / RootVal( Sum( Weight ) ) * RootVal( Sum( BookValue ) )\n    set @ValueUsed = @SliderAdjustedValue\n    set @IsTotal = GetLevel(  ) = 0\n    set @WeightTable = RemoveColumns( AddComputedColumn( CsvToTable( @SliderValues ), 'Currency', label, 'Weight', value ), 'RowName' )\n    def @tailScenFilter(@value) = @value = Idx( SortVector( @PNLVector ), @tailLength )\n    set @tailScenarioIndex = Cache( 'tsi', RootVal( FirstIndexWhere( @PNLVector, @tailScenFilter, 0 ) ) )\n    SELECT \n        Sum( @ValueUsed ) as [Book Value Used] format { General.ColumnWidthPixels := 104; Number.FormatString := '$###,###' } , \n        IfElse( @IsTotal, null, Sum( @ValueUsed ) / RootVal( Sum( @ValueUsed ) ) ) as [%] format { Number.FormatString := '0.00%'; General.DisplayStyle := 'ProgressBar'; General.ColumnWidthPixels := 47 } , \n        @WeightedSchenarioTotal as Scenarios format { General.ColumnWidthPixels := 149; General.DisplayStyle := 'SparkLine' } , \n        - Idx( SortVector( @PNLVector ), @tailLength ) as VaR format { Number.FormatString := '$###,###'; General.ColumnWidthPixels := 70 } , \n        Idx( @PNLVector, @tailScenarioIndex ) / RootVal( Idx( @PNLVector, @tailScenarioIndex ) ) as [VaR Contribution] format { Number.FormatString := '0.00%'; General.DisplayStyle := 'ProgressBar'; General.ColumnWidthPixels := 58 } , \n        - VectorSum( Slice( SortVector( @PNLVector ), 0, @tailLength ) ) / @tailLength as ETL format { General.ColumnWidthPixels := 78; Number.FormatString := '$###,###' } ,\n        - ( VectorSum( Slice( SortVector( @PNLVector ), 0, @tailLength ) ) / @tailLength ) / Sum( @ValueUsed ) as [ ETL %] format { General.ColumnWidthPixels := 103; Number.FormatString := '0.00%'; [Heatmap. Enable] := True; Heatmap.Center.Color := 'white'; Heatmap.Center.Value := 0.02; Heatmap.Maximum.Color := 'Red'; Heatmap.Maximum.Value := 0.3; Heatmap.Minimum.Color := 'Blue' } \n    FROM \n        FullOuterNaturalJoin( 'Currency', @FilteredData1, @WeightTable )\n    GROUP BY \n        Currency\n      WITH ROLLUP \n      NO LEAVES \n    ORDER BY \n        GetName(  )",
 						"globals": [
 							"SliderValues",
 							"ConfidenceLevelPct",
@@ -251,8 +251,8 @@
 						"value": "{\"Path\":{\"General.ColumnWidthPixels\":84},\"Book Value Used\":{\"General.ColumnWidthPixels\":104,\"Number.FormatString\":\"$###,###\"},\"%\":{\"Number.FormatString\":\"0.00%\",\"General.DisplayStyle\":\"ProgressBar\",\"General.ColumnWidthPixels\":47},\"Scenarios\":{\"General.ColumnWidthPixels\":149,\"General.DisplayStyle\":\"SparkLine\"},\"VaR\":{\"Number.FormatString\":\"$###,###\",\"General.ColumnWidthPixels\":70},\"VaR Contribution\":{\"Number.FormatString\":\"0.00%\",\"General.DisplayStyle\":\"ProgressBar\",\"General.ColumnWidthPixels\":105},\"ETL\":{\"General.ColumnWidthPixels\":78,\"Number.FormatString\":\"$###,###\"},\" ETL %\":{\"General.ColumnWidthPixels\":103,\"Number.FormatString\":\"0.00%\",\"Heatmap. Enable\":\"True\",\"Heatmap.Center.Color\":\"white\",\"Heatmap.Center.Value\":0.02,\"Heatmap.Maximum.Color\":\"Red\",\"Heatmap.Maximum.Value\":0.3,\"Heatmap.Minimum.Color\":\"Blue\"}}"
 					},
 					"Show Path Column": {
-						"typeName": "Boolean",
-						"value": true
+						"typeName": "String",
+						"value": "Always"
 					}
 				}
 			},
@@ -292,13 +292,13 @@
 							"ConfidenceLevelPct"
 						]
 					},
-					"Max": {
+					"Min": {
 						"typeName": "Number",
 						"value": 1
 					},
-					"Step": {
+					"Max": {
 						"typeName": "Number",
-						"value": 0.01
+						"value": 99
 					}
 				}
 			},
@@ -355,7 +355,7 @@
 		{
 			"name": "ConfidenceLevelPct",
 			"type": "Number",
-			"value": 0.64
+			"value": 75
 		},
 		{
 			"name": "StartDate",
@@ -645,8 +645,5 @@
 				}
 			]
 		}
-	},
-	"init": [
-		""
-	]
+	}
 }
