@@ -6,26 +6,40 @@ import { IPartFactory } from "@mavenomics/parts";
 import { openAbout } from "./about";
 
 namespace CommandIds {
-    export const SummonHelp = "mavenworks:summon-help";
-    export const SummonAbout = "mavenworks:summon-about";
+    export const SummonHelp = "@mavenomics/help:summon-help";
+    export const GoToHelpDoc = "@mavenomics/help:go-to-doc";
+    export const SummonAbout = "@mavenomics/help:summon-about";
 }
 
+// The help dialog is a singleton, which allows other commands to target it
+let HELP_DIALOG_INSTANCE: HelpBrowser | null = null;
+
 export const browserPlugin: IPlugin<Application<any>, void> = {
-    id: "mavenworks-help-browser-plugin",
+    id: "@mavenomics/help:browser-plugin",
     autoStart: true,
     requires: [IHelpDocProvider, IPartFactory],
     activate: (app, doc: IHelpDocProvider, factory: IPartFactory) => {
         app.commands.addCommand(CommandIds.SummonHelp, {
             label: "Help...",
             execute: () => {
+                if (HELP_DIALOG_INSTANCE != null && !HELP_DIALOG_INSTANCE.isDisposed) {
+                    HELP_DIALOG_INSTANCE.activate();
+                    return;
+                }
+                HELP_DIALOG_INSTANCE = new HelpBrowser(doc, factory.root);
                 HoverManager.GetManager().launchDialog(
-                    new HelpBrowser(doc, factory.root),
+                    HELP_DIALOG_INSTANCE,
                     app.shell,
                     840,
                     680,
                     "MavenWorks Help",
                     [{ text: "Dismiss" }]
-                );
+                ).then(() => {
+                    if (HELP_DIALOG_INSTANCE) {
+                        HELP_DIALOG_INSTANCE.dispose();
+                    }
+                    HELP_DIALOG_INSTANCE = null;
+                });
             }
         });
         app.commands.addKeyBinding({
@@ -37,6 +51,19 @@ export const browserPlugin: IPlugin<Application<any>, void> = {
             command: CommandIds.SummonHelp,
             selector: "body"
         });
+
+        // An internal helper command to open a particular document
+        app.commands.addCommand(CommandIds.GoToHelpDoc, {
+            isVisible: () => false,
+            execute: async ({docPath}) => {
+                const path = ("" + docPath) || "abs";
+                if (HELP_DIALOG_INSTANCE == null) {
+                    await app.commands.execute(CommandIds.SummonHelp);
+                }
+                HELP_DIALOG_INSTANCE!.selectDocument(path);
+            }
+        });
+        console.log("howdy", (window as any).temp1 = app.commands);
 
         app.commands.addCommand(CommandIds.SummonAbout, {
             label: "About...",
