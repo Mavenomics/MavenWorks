@@ -70,7 +70,6 @@ export const browserPlugin: IPlugin<Application<any>, void> = {
                 HELP_DIALOG_INSTANCE!.selectDocument(path);
             }
         });
-        console.log("howdy", (window as any).temp1 = app.commands);
 
         app.commands.addCommand(CommandIds.SummonAbout, {
             label: "About...",
