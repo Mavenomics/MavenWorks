@@ -3,6 +3,7 @@ import { default as defaultParts } from "@mavenomics/default-parts";
 import { default as pivotPart } from "@mavenomics/chart-parts";
 import { default as appUtils, IUserManager } from "@mavenomics/apputils";
 import { default as uiTools, IDashboardTracker } from "@mavenomics/dashboard-devtools";
+import { default as mqlTooling } from "@mavenomics/mql-tooling";
 import helpPlugins, { IHelpDocProvider } from "@mavenomics/help";
 import helpMqlPlugins from "@mavenomics/help-mql";
 import { MavenWorksShell } from "./shell";
@@ -61,6 +62,7 @@ app.registerPlugin({
     }
 });
 
+app.registerPlugin(mqlTooling);
 app.registerPlugin(typeEditorFactoryPlugin);
 app.registerPlugin(defaultTypeEditors);
 app.registerPlugin(commandsPlugin);

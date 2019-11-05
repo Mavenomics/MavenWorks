@@ -5,31 +5,46 @@ import { IHelpDocProvider } from "./docprovider";
 import { MessageLoop } from "@phosphor/messaging";
 import { PartFactory, PartUtils } from "@mavenomics/parts";
 import { WidgetLayoutRegion } from "@mavenomics/layout";
-import { URLExt } from "@jupyterlab/coreutils";
+import { URLExt, PathExt } from "@jupyterlab/coreutils";
 import * as React from "react";
 import { Subject, Observable } from "rxjs";
 
 export class HelpBrowser extends Widget {
     public readonly layout: BoxLayout;
     private listbox: HelpDocTree;
+    private content: HelpDocRenderer;
+    private docProvider: IHelpDocProvider;
 
     constructor(docProvider: IHelpDocProvider, factory: PartFactory) {
         super();
         this.layout = new BoxLayout({
             direction: "left-to-right"
         });
+        this.docProvider = docProvider;
         const panel = new SplitPanel();
         this.listbox = new HelpDocTree(docProvider);
-        const content = new HelpDocRenderer(factory);
+        this.content = new HelpDocRenderer(factory);
 
         this.listbox.onSelect.subscribe((doc) => {
-            content.dispose();
-            content.src = docProvider.getDocument(doc);
+            this.content.src = this.docProvider.getDocument(doc);
         });
         this.layout.addWidget(panel);
         panel.addWidget(this.listbox);
-        panel.addWidget(content);
+        panel.addWidget(this.content);
         setTimeout(() => panel.setRelativeSizes([0.3, 0.7]));
+    }
+
+    /** Select a document by it's path, scrolling the key on the left-hand side into view. */
+    public selectDocument(path: string) {
+        this.listbox.setSelected(path);
+        const title = PathExt.basename(path);
+        this.content.src = this.docProvider.getDocument(title);
+        if (this.isAttached) {
+            const node = document.querySelector<HTMLElement>(`li[data-key="${path}"] > .m-TreeView-Node-row`);
+            if (node == null) return;
+            // scroll the node into view
+            node.focus();
+        }
     }
 }
 
@@ -51,6 +66,7 @@ export class HelpDocRenderer extends Widget {
     public dispose() {
         if (this.isDisposed) return;
         this.destroyView();
+        super.dispose();
     }
 
     protected onAfterAttach() {
@@ -127,6 +143,10 @@ class HelpDocTree extends ReactWrapperWidget {
     }
 
     public get onSelect(): Observable<string> { return this._onSelect; }
+
+    public setSelected(key: string) {
+        this.model!.selectNode(key, true);
+    }
 
     protected render() {
         return (<TreeView

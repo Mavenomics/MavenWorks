@@ -17,6 +17,7 @@
     { "path": "../jupyterutils" },
     { "path": "../layout" },
     { "path": "../mql" },
+    { "path": "../mql-tooling" },
     { "path": "../mql-worker" },
     { "path": "../parts" },
     { "path": "../table" },

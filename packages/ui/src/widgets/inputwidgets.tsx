@@ -148,7 +148,12 @@ export namespace InputWidgets {
                 config: {
                     lint: { "tooltips": true, options: { esversion: 9 } }, //enable the lint addon
                     gutters: ["CodeMirror-lint-markers"],
-                    extraKeys: { "Ctrl-Space": "autocomplete" }, //enable the hints addon
+                    extraKeys: {
+                        // enable the hints addon
+                        "Ctrl-Space": "autocomplete",
+                        // and the gotodef addon
+                        "F11": "gotodef-mql"
+                    },
                     hintOptions: { completeSingle: false },
                     context: this.context
                 } as any
