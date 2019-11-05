@@ -99,6 +99,7 @@
 						<section class="tsd-index-section ">
 							<h3>Modules</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-module tsd-parent-kind-class"><a href="../modules/hovermanager.dialogmsg.html" class="tsd-kind-icon">Dialog<wbr>Msg</a></li>
 								<li class="tsd-kind-module tsd-parent-kind-class"><a href="../modules/hovermanager.msg.html" class="tsd-kind-icon">Msg</a></li>
 							</ul>
 						</section>
@@ -128,6 +129,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface tsd-parent-kind-class"><a href="../interfaces/hovermanager.closehoveroptions.html" class="tsd-kind-icon">Close<wbr>Hover<wbr>Options</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-class"><a href="../interfaces/hovermanager.ibutton.html" class="tsd-kind-icon">IButton</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-class"><a href="../interfaces/hovermanager.idialogchrome.html" class="tsd-kind-icon">IDialog<wbr>Chrome</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-class tsd-has-type-parameter"><a href="../interfaces/hovermanager.idialogresults.html" class="tsd-kind-icon">IDialog<wbr>Results</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-class"><a href="../interfaces/hovermanager.ioptions.html" class="tsd-kind-icon">IOptions</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-class tsd-has-type-parameter"><a href="../interfaces/hovermanager.iwidgetwithvalue.html" class="tsd-kind-icon">IWidget<wbr>With<wbr>Value</a></li>
@@ -156,6 +158,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="hovermanager.html#parent" class="tsd-kind-icon">parent</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="hovermanager.html#title" class="tsd-kind-icon">title</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="hovermanager.html#instance" class="tsd-kind-icon">Instance</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="hovermanager.html#last_position" class="tsd-kind-icon">LAST_<wbr>POSITION</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="hovermanager.html#offset" class="tsd-kind-icon">OFFSET</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -211,7 +215,9 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="hovermanager.html#hoverwrapperfactory" class="tsd-kind-icon">Hover<wbr>Wrapper<wbr>Factory</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="hovermanager.html#attach" class="tsd-kind-icon">attach</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="hovermanager.html#buttonwithdefaults" class="tsd-kind-icon">button<wbr>With<wbr>Defaults</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="hovermanager.html#clamptoscreen" class="tsd-kind-icon">clamp<wbr>ToScreen</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="hovermanager.html#detach" class="tsd-kind-icon">detach</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="hovermanager.html#getinitialspawnposition" class="tsd-kind-icon">get<wbr>Initial<wbr>Spawn<wbr>Position</a></li>
 							</ul>
 						</section>
 					</div>
@@ -230,7 +236,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Widget.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L21">hovers.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L21">hovers.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="hovermanager.html" class="tsd-signature-type">HoverManager</a></h4>
@@ -278,7 +284,7 @@
 					<div class="tsd-signature tsd-kind-icon">hovers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="hovermanager.hoverwrapper.html" class="tsd-signature-type">HoverWrapper</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Map&lt;string, HoverManager.HoverWrapper&gt;()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L21">hovers.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L21">hovers.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -457,9 +463,39 @@
 					<div class="tsd-signature tsd-kind-icon">Instance<span class="tsd-signature-symbol">:</span> <a href="hovermanager.html" class="tsd-signature-type">HoverManager</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L15">hovers.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L15">hovers.ts:15</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="last_position" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> LAST_<wbr>POSITION</h3>
+					<div class="tsd-signature tsd-kind-icon">LAST_<wbr>POSITION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L765">hovers.ts:765</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The last position of a dialog that was interacted with.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="offset" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> OFFSET</h3>
+					<div class="tsd-signature tsd-kind-icon">OFFSET<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">25</span><span class="tsd-signature-symbol"> =&nbsp;25</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L767">hovers.ts:767</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The # of pixels that any new dialog should be offset by.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -474,7 +510,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L329">hovers.ts:329</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L329">hovers.ts:329</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -650,7 +686,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L260">hovers.ts:260</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L260">hovers.ts:260</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -667,7 +703,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L233">hovers.ts:233</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L233">hovers.ts:233</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -744,7 +780,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Widget.dispose</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L250">hovers.ts:250</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L250">hovers.ts:250</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -788,7 +824,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L338">hovers.ts:338</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L338">hovers.ts:338</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -872,7 +908,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L121">hovers.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L121">hovers.ts:121</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -916,7 +952,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L140">hovers.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L140">hovers.ts:140</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1513,7 +1549,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L38">hovers.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L38">hovers.ts:38</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1538,7 +1574,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L57">hovers.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L57">hovers.ts:57</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1564,7 +1600,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L85">hovers.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L85">hovers.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1600,7 +1636,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L165">hovers.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L165">hovers.ts:165</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1703,7 +1739,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L216">hovers.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L216">hovers.ts:216</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1934,7 +1970,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L266">hovers.ts:266</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L266">hovers.ts:266</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1969,7 +2005,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L17">hovers.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L17">hovers.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="hovermanager.html" class="tsd-signature-type">HoverManager</a></h4>
@@ -1986,7 +2022,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L553">hovers.ts:553</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L623">hovers.ts:623</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2072,7 +2108,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/hovers.ts#L455">hovers.ts:455</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L455">hovers.ts:455</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2082,6 +2118,47 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<ul class="tsd-parameters">
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="clamptoscreen" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> clamp<wbr>ToScreen</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">clamp<wbr>ToScreen<span class="tsd-signature-symbol">(</span>position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L782">hovers.ts:782</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Given a dialog position, return a new position clamped to screen space.</p>
+								</div>
+								<p>This ensures that at least an OFFSET x OFFSET square of the titlebar is
+								visible on-screen. This ensures that it is always grabbable by the user.</p>
+								<p>It also ensures that the titlebar never spawns outside the window, as
+									might happen with a very short window, a tall dialog, and the open-in
+								center heuristic.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>position: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The requested start position of the dialog.</p>
+									</div>
+									<ul class="tsd-parameters">
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<p>The corrected position to use.</p>
 							<ul class="tsd-parameters">
 							</ul>
 						</li>
@@ -2120,6 +2197,38 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="getinitialspawnposition" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Initial<wbr>Spawn<wbr>Position</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Initial<wbr>Spawn<wbr>Position<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/hovers.ts#L795">hovers.ts:795</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Helper to calculate the initial spawn position of a dialog</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<ul class="tsd-parameters">
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -2191,6 +2300,9 @@
 							<li class=" tsd-kind-interface tsd-parent-kind-class">
 								<a href="../interfaces/hovermanager.ibutton.html" class="tsd-kind-icon">IButton</a>
 							</li>
+							<li class=" tsd-kind-interface tsd-parent-kind-class">
+								<a href="../interfaces/hovermanager.idialogchrome.html" class="tsd-kind-icon">IDialog<wbr>Chrome</a>
+							</li>
 							<li class=" tsd-kind-interface tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="../interfaces/hovermanager.idialogresults.html" class="tsd-kind-icon">IDialog<wbr>Results</a>
 							</li>
@@ -2244,6 +2356,12 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
 								<a href="hovermanager.html#instance" class="tsd-kind-icon">Instance</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="hovermanager.html#last_position" class="tsd-kind-icon">LAST_<wbr>POSITION</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="hovermanager.html#offset" class="tsd-kind-icon">OFFSET</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="hovermanager.html#_handleownerdisposed" class="tsd-kind-icon">_handle<wbr>Owner<wbr>Disposed</a>
@@ -2396,7 +2514,13 @@
 								<a href="hovermanager.html#buttonwithdefaults" class="tsd-kind-icon">button<wbr>With<wbr>Defaults</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="hovermanager.html#clamptoscreen" class="tsd-kind-icon">clamp<wbr>ToScreen</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="hovermanager.html#detach" class="tsd-kind-icon">detach</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="hovermanager.html#getinitialspawnposition" class="tsd-kind-icon">get<wbr>Initial<wbr>Spawn<wbr>Position</a>
 							</li>
 						</ul>
 					</li>

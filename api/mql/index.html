@@ -66,6 +66,8 @@
 					<h1><code>@mavenomics/mql</code></h1>
 				</a>
 				<p>The MQL Query Engine</p>
+				<p>Play with examples on CodeSandbox:</p>
+				<p><a href="https://codesandbox.io/s/mql-demo-vr5q5?expanddevtools=1&amp;fontsize=14&amp;module=%2Fsrc%2Findex.js"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit MQL demos"></a></p>
 				<p>MQL is a hackable, hierarchal dialect of SQL. It is designed to be flexible, and
 					intentionally isn&#39;t a very &#39;conformant&#39; SQL dialect. For instance, MQL lacks
 				JOIN primitives, instead opting for functions:</p>
@@ -85,6 +87,225 @@ FROM
 				modify it to do what they want.</p>
 				<p>You can read the MQL documentation in detail <a href="https://mavenomics.github.io/MavenWorks/user/queries.html#mql-queries">here</a>,
 				and look through the UDF documentation using in-app help by pressing the F1 key.</p>
+				<a href="#using-mql-in-your-app" id="using-mql-in-your-app" style="color: inherit; text-decoration: none;">
+					<h2>Using MQL in your app</h2>
+				</a>
+				<p>There&#39;s a few different ways you can use MQL. The simplest is in the main UI
+				thread, using this package:</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { RunMql } <span class="hljs-keyword">from</span> <span class="hljs-string">"@mavenomics/mql"</span>;
+<span class="hljs-keyword">import</span> { CancelToken } <span class="hljs-keyword">from</span> <span class="hljs-string">"@mavenomics/coreutils"</span>;
+
+<span class="hljs-keyword">const</span> token = <span class="hljs-keyword">new</span> CancelToken();
+
+RunMql(<span class="hljs-string">"SELECT x + y FROM Lattice('x = 1 to 10 step 1, y = 1 to 10 step 1"</span>,
+    {},
+    {},
+    token
+).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"result"</span>, res))
+ .catch(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"error"</span>, res));</code></pre>
+				<p>MQL also provides a handy template function to let you interleave MQL and
+				Javascript in a handy way:</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { mql } <span class="hljs-keyword">from</span> <span class="hljs-string">"@mavenomics/mql"</span>;
+<span class="hljs-keyword">import</span> { TableHelper, Row } <span class="hljs-keyword">from</span> <span class="hljs-string">"@mavenomics/table"</span>;
+
+<span class="hljs-keyword">const</span> tbl = <span class="hljs-keyword">await</span> mql<span class="hljs-string">`SELECT
+    x,
+    y,
+    <span class="hljs-subst">${(row) =&gt; row.getValue(<span class="hljs-string">"x"</span>) + row.getValue(<span class="hljs-string">"y"</span>)}</span> as [x + y]
+FROM
+    Lattice('x = 1 to 10 step 1, y = 1 to 10 step 1')`</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Table 1"</span>, tbl);
+
+<span class="hljs-comment">// You can use JS expressions anywhere, even in FROM clauses!</span>
+<span class="hljs-keyword">const</span> tbl2 = <span class="hljs-keyword">await</span> mql<span class="hljs-string">`SELECT
+    x
+FROM
+    <span class="hljs-subst">${TableHelper.fromObjectArray([{x: <span class="hljs-number">1</span>}</span>, {x: 2}, {x: 3}])}`</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Table 2"</span>, tbl2);
+
+<span class="hljs-comment">// And you can pass arguments from within MQL:</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">GetSign</span>(<span class="hljs-params">_row: Row, value: <span class="hljs-built_in">number</span></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.sign(value);
+}
+
+<span class="hljs-keyword">const</span> tbl3 = <span class="hljs-keyword">await</span> mql<span class="hljs-string">`SELECT
+    x,
+    <span class="hljs-subst">${GetSign}</span>(x)
+FROM Lattice('x = -5 to 5 step 1')`</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Table 3"</span>, tbl3);</code></pre>
+				<a href="#advanced-mql" id="advanced-mql" style="color: inherit; text-decoration: none;">
+					<h3>Advanced MQL</h3>
+				</a>
+				<a href="#row-traversal" id="row-traversal" style="color: inherit; text-decoration: none;">
+					<h4>Row Traversal</h4>
+				</a>
+				<p>MQL internally has a &#39;tree&#39; that it uses to group rows together. If you&#39;re
+					writing a function like &#39;Sum&#39;, you&#39;ll need some knowledge about this tree in
+				order to calculate the sum of the leaves. Let&#39;s look at a simple example:</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { IterTools } <span class="hljs-keyword">from</span> <span class="hljs-string">"@mavenomics/coreutils"</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MySum</span>(<span class="hljs-params">row: Row</span>) </span>{
+    <span class="hljs-comment">// In this function we're going to hardcode a particular column. Read below</span>
+    <span class="hljs-comment">// if you'd like to evaluate an MQL expression instead.</span>
+    <span class="hljs-keyword">const</span> COL_TO_SUM = <span class="hljs-string">"x"</span>;
+    <span class="hljs-keyword">let</span> sum = row.getValue(COL_TO_SUM);
+
+    <span class="hljs-comment">// IterTools.dfs_iter is a helper to let us iterate through the rows of a</span>
+    <span class="hljs-comment">// tree, depth-first. We give it a container and a lambda to retrieve an</span>
+    <span class="hljs-comment">// element's children, if any.</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> irow of IterTools.dfs_iter(row.children, <span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i.children)) {
+        <span class="hljs-comment">// You can also structure this recursively, if you like. However,</span>
+        <span class="hljs-comment">// recursive calls incur a large performance penalty on most JS engines</span>
+        <span class="hljs-comment">// (Safari excepted) that can make your query prohibitively expensive to</span>
+        <span class="hljs-comment">// run.</span>
+        sum += irow.getValue(COL_TO_SUM);
+    }
+
+    <span class="hljs-comment">// Return the value, and you're done!</span>
+    <span class="hljs-keyword">return</span> sum;
+}
+
+<span class="hljs-keyword">const</span> tbl4 = <span class="hljs-keyword">await</span> mql<span class="hljs-string">`SELECT
+    x,
+    y,
+    <span class="hljs-subst">${MySum}</span>()
+FROM
+    Lattice('x = 1 to 10 step 1, y = 1 to 10 step 1')
+GROUP BY
+    y
+  WITH ROLLUP`</span>;</code></pre>
+				<a href="#mql-expressions" id="mql-expressions" style="color: inherit; text-decoration: none;">
+					<h4>MQL Expressions</h4>
+				</a>
+				<p>As we saw above, we had to hard-code the column to fetch into the function call.
+				Why is that?</p>
+				<p>In MQL, functions are evaluated for each row in the result table. This also
+					means that their <em>arguments</em> are evaluated only on the current row. So if you
+					added an argument <code>x</code> to the <code>MySum</code> function above, it would only ever take on
+					a single value (that of the row we started from!). This obviously isn&#39;t useful,
+					so MQL includes a facility to handle this called <em>function expressions</em>, or
+				<em>fexprs</em>.</p>
+				<p>Normally, when a function is run, the computer has already <em>evaluated</em> the
+					arguments of the function and passed them along. However, with <em>fexprs</em>, the
+					function is instead handed an <em>unevaluated expression</em>. With this, you can
+				rebind the expression to something else to get the result you want.</p>
+				<a href="#simple-example" id="simple-example" style="color: inherit; text-decoration: none;">
+					<h5>Simple Example</h5>
+				</a>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> {
+    <span class="hljs-comment">// First we have to annotate our functions to let MQL know that we're doing</span>
+    <span class="hljs-comment">// something that will void the warranty</span>
+    fexpr,
+    <span class="hljs-comment">// Then we import some helpers for working with unevaluated expressions</span>
+    MqlCallback,
+    CallbackHelpers
+} <span class="hljs-keyword">from</span> <span class="hljs-string">"@mavenomics/mql"</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MyCustomFexpr</span>(<span class="hljs-params">
+    row: Row,
+    expr: (row: Row, done: MqlCallback) =&gt; <span class="hljs-built_in">void</span>
+</span>) </span>{
+    <span class="hljs-keyword">return</span> CallbackHelpers.AsAsync(expr.bind(row));
+}
+
+<span class="hljs-keyword">const</span> tbl5 = <span class="hljs-keyword">await</span> mql<span class="hljs-string">`SELECT
+    x + y,
+    <span class="hljs-subst">${fexpr(MyCustomFexpr)}</span>(x + y)
+FROM
+    Lattice('x = 1 to 10 step 1, y = 1 to 10 step 1')
+GROUP BY
+    x,
+    y
+  WITH ROLLUP`</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Table 5"</span>, tbl5);</code></pre>
+				<p>What have we done? In this example, we&#39;re not doing anything special. We&#39;re
+					evaluating the argument with the current row (which the engine normally does
+				for us if we&#39;re not using fexprs), and then returning that value.</p>
+				<p>Change the <code>expr.bind(row)</code> to <code>expr.bind(row.parent)</code> above and see what
+					happens. If you&#39;ve done it right, you&#39;re now evaluating that expression <em>on the
+				parent row</em>!</p>
+				<blockquote>
+					<a href="#emthe-cambridge-connectionem" id="emthe-cambridge-connectionem" style="color: inherit; text-decoration: none;">
+						<h6><em>The Cambridge Connection</em></h6>
+					</a>
+					<p>Eagle-eyed Lisp programmers of yore may point out that MQL <em>fexprs</em> aren&#39;t
+						really &quot;true&quot; fexprs. This is because MQL doesn&#39;t have a first-class way to
+						express an unevaluated expression tree- we need to fall back on Javascript for
+					that.</p>
+					<p>However, calling them <em>fexprs</em> is still useful because it&#39;s largely the same
+						paradigm in practice- a function is being handed something it must first
+					evaluate before it can use.</p>
+				</blockquote>
+				<a href="#creating-your-own-sum" id="creating-your-own-sum" style="color: inherit; text-decoration: none;">
+					<h5>Creating your own SUM</h5>
+				</a>
+				<p>Now, let&#39;s combine this with the MySum function we wrote above. Recall that we
+				had to iterate through the rows of the given row like this:</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> irow of IterTools.dfs_iter(row.children, <span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i.children)) {
+    sum += irow.getValue(COL_TO_SUM);
+}</code></pre>
+				<p>We had to hardcode that getValue, since otherwise we wouldn&#39;t get the right
+					result. But now we know enough to turn this into a fexpr, and sum on
+				<em>expressions</em> instead of merely columns! Let&#39;s try it:</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SumCustom</span>(<span class="hljs-params">row: Row, expr: (row: Row, done: MqlCallback) =&gt; <span class="hljs-built_in">void</span></span>) </span>{
+    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> irow of IterTools.dfs_iter(row.children, <span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i.children)) {
+        <span class="hljs-keyword">const</span> value = <span class="hljs-keyword">await</span> CallbackHelpers.ToAsync(expr.bind(irow));
+        sum += value;
+    }
+    <span class="hljs-keyword">return</span> sum;
+}
+
+<span class="hljs-keyword">const</span> tbl6 = <span class="hljs-keyword">await</span> mql<span class="hljs-string">`SELECT
+    x + y,
+    sum(x + y),
+    <span class="hljs-subst">${fexpr(SumCustom)}</span>(x + y)
+FROM
+    Lattice('x = 1 to 10 step 1, y = 1 to 10 step 1')
+GROUP BY
+    x,
+    y
+  WITH ROLLUP`</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Table 6"</span>, tbl6);</code></pre>
+				<p>Ta-da! You now have a SUM function that works on any expression!</p>
+				<blockquote>
+					<a href="#an-aside-on-performance" id="an-aside-on-performance" style="color: inherit; text-decoration: none;">
+						<h6>An aside on performance</h6>
+					</a>
+					<p>You&#39;ll notice that the performance of this function is absolutely atrocious.
+						Curious readers poking through the query engine might notice that we don&#39;t
+						structure built-in MQL functions like we did above, and there&#39;s a good reason
+						for that: Promises are not fast, and most browsers do not handle callbacks
+					well.</p>
+					<p>If this is a concern for you, you can instead do something like this:</p>
+					<pre><code class="language-ts"><span class="hljs-keyword">const</span> deferred = [];
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> irow of IterTools.dfs_iter(row.children, <span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i.children)) {
+    deferred.push(expr.bind(irow));
+}
+
+<span class="hljs-keyword">return</span> Callbacks.AsAsync(
+    Callbacks.All(deferred),
+).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> res.reduce(<span class="hljs-function">(<span class="hljs-params">acc, i</span>) =&gt;</span> acc + i, <span class="hljs-number">0</span>));</code></pre>
+					<p>This is even less readable but generally much more performant. There&#39;s a few
+						more optimizations you could make to this (such as removing the <code>reduce</code> call),
+					but those come at the cost of agility and maintainability.</p>
+				</blockquote>
+				<a href="#running-mql-off-the-main-thread" id="running-mql-off-the-main-thread" style="color: inherit; text-decoration: none;">
+					<h3>Running MQL off the main thread</h3>
+				</a>
+				<p>The <a href="../mql-worker"><code>@mavenomics/mql-worker</code></a> package exposes an MQL worker and
+					an RPC-ish wrapper around it, enabling you to offload queries to another thread.
+				You will need webpack to load the mql-worker module.</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { WorkerWrapper } <span class="hljs-keyword">from</span> <span class="hljs-string">"@mavenomics/mql-worker"</span>;
+
+<span class="hljs-keyword">const</span> worker = <span class="hljs-keyword">new</span> WorkerWrapper();
+
+worker.OnMessage.subscribe(<span class="hljs-function"><span class="hljs-params">msg</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker msg:"</span>, msg));
+
+worker.postMessage({
+    <span class="hljs-keyword">type</span>: <span class="hljs-string">"runQuery"</span>,
+    queryText: <span class="hljs-string">"SELECT null FROM dual"</span>
+});</code></pre>
 				<a href="#that-being-said" id="that-being-said" style="color: inherit; text-decoration: none;">
 					<h2>That being said...</h2>
 				</a>
@@ -405,6 +626,9 @@ FROM
 						<a href="classes/tostringfunction.html" class="tsd-kind-icon">To<wbr>String<wbr>Function</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/unionallouterfunction.html" class="tsd-kind-icon">Union<wbr>All<wbr>Outer<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/unionallstrictfunction.html" class="tsd-kind-icon">Union<wbr>All<wbr>Strict<wbr>Function</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -460,6 +684,12 @@ FROM
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#resultselector" class="tsd-kind-icon">Result<wbr>Selector</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#fexpr" class="tsd-kind-icon">fexpr</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mql" class="tsd-kind-icon">mql</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#createjsfunc" class="tsd-kind-icon">Create<wbr>JsFunc</a>

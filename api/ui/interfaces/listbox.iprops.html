@@ -84,6 +84,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="listbox.iprops.html#isediting" class="tsd-kind-icon">is<wbr>Editing</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="listbox.iprops.html#items" class="tsd-kind-icon">items</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="listbox.iprops.html#oncommit" class="tsd-kind-icon">on<wbr>Commit</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="listbox.iprops.html#onedit" class="tsd-kind-icon">on<wbr>Edit</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="listbox.iprops.html#onselect" class="tsd-kind-icon">on<wbr>Select</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="listbox.iprops.html#selectedkey" class="tsd-kind-icon">selected<wbr>Key</a></li>
@@ -100,7 +101,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Editing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/components/listbox.tsx#L88">components/listbox.tsx:88</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/components/listbox.tsx#L113">components/listbox.tsx:113</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -115,7 +116,7 @@
 					<div class="tsd-signature tsd-kind-icon">items<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="listbox.listitem.html" class="tsd-signature-type">ListItem</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/components/listbox.tsx#L71">components/listbox.tsx:71</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/components/listbox.tsx#L76">components/listbox.tsx:76</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -125,12 +126,39 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="oncommit" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Commit</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Commit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/components/listbox.tsx#L110">components/listbox.tsx:110</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A callback fired whenever the user &quot;commits&quot; some action.</p>
+						</div>
+						<p>Most list boxes don&#39;t just represent a list of things, they can also
+							represent a choice that the user can make (such as what flavor of
+							ice cream they want). Sometimes this requires deliberation, so a user
+							might click through a few options before hitting a &quot;Submit&quot; button.
+							Other times, they know <em>exactly</em> what they want and they want it now!
+						They don&#39;t like having to click, mouse move, click &#39;apply&#39;, close, etc.</p>
+						<p>The listbox can&#39;t really encompass <em>all</em> of that behavior, so instead
+							it exposes this callback to let consumers decide what they want to do
+						with it.</p>
+						<p>Note that the details of <em>when</em> this gets applied should be considered
+							internal to the ListBox. Right now, it only respects &quot;double click&quot;,
+						but that may change in the future.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="onedit" class="tsd-anchor"></a>
 					<h3>on<wbr>Edit</h3>
 					<div class="tsd-signature tsd-kind-icon">on<wbr>Edit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/components/listbox.tsx#L100">components/listbox.tsx:100</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/components/listbox.tsx#L125">components/listbox.tsx:125</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -180,7 +208,7 @@
 					<div class="tsd-signature tsd-kind-icon">on<wbr>Select<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/components/listbox.tsx#L85">components/listbox.tsx:85</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/components/listbox.tsx#L90">components/listbox.tsx:90</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -228,7 +256,7 @@
 					<div class="tsd-signature tsd-kind-icon">selected<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/components/listbox.tsx#L74">components/listbox.tsx:74</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/components/listbox.tsx#L79">components/listbox.tsx:79</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -289,6 +317,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="listbox.iprops.html#items" class="tsd-kind-icon">items</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="listbox.iprops.html#oncommit" class="tsd-kind-icon">on<wbr>Commit</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="listbox.iprops.html#onedit" class="tsd-kind-icon">on<wbr>Edit</a>

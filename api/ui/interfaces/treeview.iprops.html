@@ -92,6 +92,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="treeview.iprops.html#model" class="tsd-kind-icon">model</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="treeview.iprops.html#oncollapse" class="tsd-kind-icon">on<wbr>Collapse</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="treeview.iprops.html#oncommit" class="tsd-kind-icon">on<wbr>Commit</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="treeview.iprops.html#onselect" class="tsd-kind-icon">on<wbr>Select</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="treeview.iprops.html#preview" class="tsd-kind-icon">preview</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="treeview.iprops.html#render" class="tsd-kind-icon">render</a></li>
@@ -108,7 +109,7 @@
 					<div class="tsd-signature tsd-kind-icon">model<span class="tsd-signature-symbol">:</span> <a href="../classes/treemodel.html" class="tsd-signature-type">TreeModel</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/components/treeview/component.tsx#L40">components/treeview/component.tsx:40</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/components/treeview/component.tsx#L42">components/treeview/component.tsx:42</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -123,7 +124,7 @@
 					<div class="tsd-signature tsd-kind-icon">on<wbr>Collapse<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/components/treeview/component.tsx#L50">components/treeview/component.tsx:50</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/components/treeview/component.tsx#L58">components/treeview/component.tsx:58</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -162,12 +163,28 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="oncommit" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Commit</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Commit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/components/treeview/component.tsx#L51">components/treeview/component.tsx:51</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Callback when an item is &#39;super&#39; selected.</p>
+						</div>
+						<p>Refer to the documentation for [ListBox].onCommit for more details.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="onselect" class="tsd-anchor"></a>
 					<h3>on<wbr>Select</h3>
 					<div class="tsd-signature tsd-kind-icon">on<wbr>Select<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/components/treeview/component.tsx#L43">components/treeview/component.tsx:43</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/components/treeview/component.tsx#L45">components/treeview/component.tsx:45</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -206,7 +223,7 @@
 					<div class="tsd-signature tsd-kind-icon">preview<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Private.IDragPreview</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/components/treeview/component.tsx#L51">components/treeview/component.tsx:51</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/components/treeview/component.tsx#L59">components/treeview/component.tsx:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -216,7 +233,7 @@
 					<div class="tsd-signature tsd-kind-icon">render<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/ui/src/components/treeview/component.tsx#L52">components/treeview/component.tsx:52</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/ui/src/components/treeview/component.tsx#L60">components/treeview/component.tsx:60</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -272,6 +289,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="treeview.iprops.html#oncollapse" class="tsd-kind-icon">on<wbr>Collapse</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="treeview.iprops.html#oncommit" class="tsd-kind-icon">on<wbr>Commit</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="treeview.iprops.html#onselect" class="tsd-kind-icon">on<wbr>Select</a>

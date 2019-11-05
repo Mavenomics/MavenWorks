@@ -6,6 +6,7 @@
 
 # User Documentation
 
+ - [Getting Started with JupyterLab](./user/getting-started.md)
  - [Dashboarding 101](./user/dashboarding-101.md)
  - [Queries and Bindings](./user/queries.md)
  - [Build a Graphing Calculator](./user/graphing-calculator.md)

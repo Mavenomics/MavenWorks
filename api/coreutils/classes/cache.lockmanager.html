@@ -84,6 +84,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="cache.lockmanager.html#acquiring" class="tsd-kind-icon">acquiring</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="cache.lockmanager.html#held" class="tsd-kind-icon">held</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="cache.lockmanager.html#nextlockid" class="tsd-kind-icon">next<wbr>Lock<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="cache.lockmanager.html#waiting" class="tsd-kind-icon">waiting</a></li>
@@ -110,14 +111,35 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="acquiring" class="tsd-anchor"></a>
+					<h3>acquiring</h3>
+					<div class="tsd-signature tsd-kind-icon">acquiring<span class="tsd-signature-symbol">:</span> <a href="cache.cachelock.html" class="tsd-signature-type">CacheLock</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/coreutils/src/caching.ts#L193">caching.ts:193</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An array of locks that the manager is currently trying to acquire</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="held" class="tsd-anchor"></a>
 					<h3>held</h3>
 					<div class="tsd-signature tsd-kind-icon">held<span class="tsd-signature-symbol">:</span> <a href="cache.cachelock.html" class="tsd-signature-type">CacheLock</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/coreutils/src/caching.ts#L160">caching.ts:160</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/coreutils/src/caching.ts#L176">caching.ts:176</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An array of locks that the manager currently holds.</p>
+						</div>
+						<p>This list is drained as locks are released.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="nextlockid" class="tsd-anchor"></a>
@@ -125,7 +147,7 @@
 					<div class="tsd-signature tsd-kind-icon">next<wbr>Lock<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/coreutils/src/caching.ts#L162">caching.ts:162</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/coreutils/src/caching.ts#L194">caching.ts:194</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -135,9 +157,26 @@
 					<div class="tsd-signature tsd-kind-icon">waiting<span class="tsd-signature-symbol">:</span> <a href="cache.cachelock.html" class="tsd-signature-type">CacheLock</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/coreutils/src/caching.ts#L161">caching.ts:161</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/coreutils/src/caching.ts#L191">caching.ts:191</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An array of locks that the manager does not hold.</p>
+						</div>
+						<p>When acquiring a cache lock, the lock may be added to this array if:</p>
+						<ul>
+							<li>the new lock is a write lock and there are currently held locks</li>
+							<li>the new lock is a read lock and there is a write lock being held</li>
+						</ul>
+						<p>This array is drained when a lock releases, using the following algorithm:</p>
+						<ul>
+							<li>If any write locks exist, then the first write lock in the array will
+							be acquired and moved to the held array.</li>
+							<li>If no write locks remain, the rest of the locks are acquired all at
+							once and moved to the held array.</li>
+						</ul>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -152,7 +191,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/coreutils/src/caching.ts#L168">caching.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/coreutils/src/caching.ts#L200">caching.ts:200</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -169,7 +208,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/coreutils/src/caching.ts#L164">caching.ts:164</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/coreutils/src/caching.ts#L196">caching.ts:196</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -189,7 +228,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/coreutils/src/caching.ts#L176">caching.ts:176</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/coreutils/src/caching.ts#L210">caching.ts:210</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -212,7 +251,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/coreutils/src/caching.ts#L172">caching.ts:172</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/coreutils/src/caching.ts#L204">caching.ts:204</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -238,7 +277,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/573e8de/packages/coreutils/src/caching.ts#L194">caching.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/coreutils/src/caching.ts#L228">caching.ts:228</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -274,6 +313,9 @@
 							<li class="current tsd-kind-class tsd-parent-kind-class">
 								<a href="cache.lockmanager.html" class="tsd-kind-icon">Lock<wbr>Manager</a>
 								<ul>
+									<li class=" tsd-kind-property tsd-parent-kind-class">
+										<a href="cache.lockmanager.html#acquiring" class="tsd-kind-icon">acquiring</a>
+									</li>
 									<li class=" tsd-kind-property tsd-parent-kind-class">
 										<a href="cache.lockmanager.html#held" class="tsd-kind-icon">held</a>
 									</li>
