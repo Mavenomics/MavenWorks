@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mavenomics/MavenKernel.git"
+    "url": "git+https://github.com/Mavenomics/MavenWorks.git"
   },
   "keywords": [
     "mavenomics",
@@ -26,9 +26,9 @@
   "author": "Mavenomics Inc",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/Mavenomics/MavenKernel/issues"
+    "url": "https://github.com/Mavenomics/MavenWorks/issues"
   },
-  "homepage": "https://github.com/Mavenomics/MavenKernel#readme",
+  "homepage": "https://github.com/Mavenomics/MavenWorks#readme",
   "dependencies": {
     "@jupyter-widgets/base": "^2.0.0",
     "@jupyter-widgets/controls": "^1.5.2",

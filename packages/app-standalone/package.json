@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Standalone MavenWorks app",
   "main": "index.html",
-  "repository": "github.com/Mavenomics/MavenKernel",
+  "repository": "github.com/Mavenomics/MavenWorks",
   "author": "Mavenomics, Inc",
   "license": "GPL-3.0",
   "scripts": {

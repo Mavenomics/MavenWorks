@@ -4,7 +4,7 @@
   "description": "Hierarchal Table object and helpers",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
-  "repository": "https://github.com/Mavenomics/MavenKernel",
+  "repository": "https://github.com/Mavenomics/MavenWorks",
   "author": "Mavenomics, Inc",
   "license": "GPL-3.0",
   "files": [
