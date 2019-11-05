@@ -17,6 +17,7 @@
     { "path": "../help" },
     { "path": "../help-mql" },
     { "path": "../layout" },
+    { "path": "../mql-tooling" },
     { "path": "../parts" },
     { "path": "../ui" },
   ]

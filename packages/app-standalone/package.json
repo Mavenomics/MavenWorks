@@ -29,6 +29,7 @@
     "@mavenomics/default-parts": "^0.1.0",
     "@mavenomics/help": "^0.1.0",
     "@mavenomics/help-mql": "^0.1.0",
+    "@mavenomics/mql-tooling": "^0.1.0",
     "@mavenomics/layout": "^0.1.0",
     "@mavenomics/parts": "^0.1.0",
     "@mavenomics/table": "^0.1.0",

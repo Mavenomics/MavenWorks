@@ -14,6 +14,7 @@ import { showInViewerExtension } from "./framework/ShowInViewerExtension";
 import { default as partsPlugins } from "@mavenomics/default-parts";
 import { default as chartPlugin } from "@mavenomics/chart-parts";
 import { default as uiPlugins } from "@mavenomics/dashboard-devtools";
+import { default as mqlTooling } from "@mavenomics/mql-tooling";
 import { dashboardTrackerPlugin } from "./framework/DashboardTrackerPlugin";
 
 function createShowInViewerSelector(): NotebookTools.KeySelector {
@@ -42,6 +43,7 @@ const activateShowInViewerExtension: JupyterFrontEndPlugin<void> = {
 };
 
 const extensions: JupyterFrontEndPlugin<any>[] = [
+    mqlTooling,
     typeEditorFactoryPlugin,
     defaultTypeEditors,
     factoryExtPlugin,

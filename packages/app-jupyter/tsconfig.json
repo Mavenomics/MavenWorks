@@ -16,6 +16,7 @@
     { "path": "../default-parts" },
     { "path": "../jupyterutils" },
     { "path": "../layout" },
+    { "path": "../mql-tooling" },
     { "path": "../parts" },
     { "path": "../table" },
     { "path": "../ui" },
