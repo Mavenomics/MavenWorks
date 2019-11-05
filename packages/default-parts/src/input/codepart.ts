@@ -2,7 +2,6 @@ import { Part, OptionsBag } from "@mavenomics/parts";
 import { Types } from "@mavenomics/coreutils";
 import { IEditorFactoryService, CodeEditorWrapper, CodeEditor } from "@jupyterlab/codeeditor";
 import { CodeMirrorEditorFactory } from "@jupyterlab/codemirror";
-import "./mql-syntax-highlighter";
 
 export class CodeEditorPart extends Part {
     public static GetMetadata() {

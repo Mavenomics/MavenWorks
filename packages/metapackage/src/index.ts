@@ -10,6 +10,7 @@ import "@mavenomics/help-mql";
 import "@mavenomics/jupyterutils";
 import "@mavenomics/layout";
 import "@mavenomics/mql";
+import "@mavenomics/mql-tooling";
 import "@mavenomics/mql-worker";
 import "@mavenomics/parts";
 import "@mavenomics/table";
