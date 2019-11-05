@@ -73,7 +73,7 @@ function parseQuery(query: string): Promise<any> {
     });
     return promise;
 }
-function getAvailableFunctions(): Promise<IMqlFunctionMetadata[]> {
+export function getAvailableFunctions(): Promise<IMqlFunctionMetadata[]> {
     const id = UUID.uuid4();
 
     let resolve: (value?: any[] | PromiseLike<any[]>) => void;
