@@ -49,6 +49,7 @@ export class HelpBrowser extends Widget {
 }
 
 export class HelpDocRenderer extends Widget {
+    public static activeDashboard: Dashboard | null = null;
     private _src = "";
     private buttons: Interactions.Button[] = [];
 
@@ -103,7 +104,14 @@ export class HelpDocRenderer extends Widget {
             baseViewUrl: "/",
             factory: this.partFactory
         });
+        function setActive() {
+            HelpDocRenderer.activeDashboard = dashboard;
+        }
+        dashboard.node.addEventListener("mousedown", setActive);
+        dashboard.node.addEventListener("focusin", setActive);
+        dashboard.addClass("m-ExampleOutput");
         const { bindings, partManager, layoutManager } = dashboard;
+        HelpDocRenderer.activeDashboard = dashboard;
         const globals = bindings.getBindingEvaluator("Mql")
             .getGlobalsForBinding(srcText);
         const part = await partManager.addPart("SlickGrid", {
@@ -129,6 +137,11 @@ export class HelpDocRenderer extends Widget {
             "MQL Example",
             [{ text: "Dismiss" }]
         );
+        if (HelpDocRenderer.activeDashboard === dashboard) {
+            HelpDocRenderer.activeDashboard = null;
+        }
+        dashboard.node.removeEventListener("mousedown", setActive);
+        dashboard.node.removeEventListener("focusin", setActive);
     }
 }
 

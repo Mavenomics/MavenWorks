@@ -1,7 +1,8 @@
 import { IPlugin, Application } from "@phosphor/application";
 import { IHelpDocProvider } from "./docprovider";
 import { HoverManager } from "@mavenomics/ui";
-import { HelpBrowser } from "./browser";
+import { RegisterActions } from "@mavenomics/dashboard-devtools";
+import { HelpBrowser, HelpDocRenderer } from "./browser";
 import { IPartFactory } from "@mavenomics/parts";
 import { openAbout } from "./about";
 
@@ -19,6 +20,12 @@ export const browserPlugin: IPlugin<Application<any>, void> = {
     autoStart: true,
     requires: [IHelpDocProvider, IPartFactory],
     activate: (app, doc: IHelpDocProvider, factory: IPartFactory) => {
+        RegisterActions(
+            app as any,
+            () => HelpDocRenderer.activeDashboard,
+            "example-dialogs",
+            ".m-Hover"
+        );
         app.commands.addCommand(CommandIds.SummonHelp, {
             label: "Help...",
             execute: () => {
