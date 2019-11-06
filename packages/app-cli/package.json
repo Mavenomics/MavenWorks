@@ -19,13 +19,18 @@
     "docs": "echo pass"
   },
   "devDependencies": {
-    "typescript": "*",
-    "rimraf": "^2.6.3"
+    "@types/yargs": "^13.0.3",
+    "rimraf": "^2.6.3",
+    "typescript": "*"
   },
   "dependencies": {
     "@jupyterlab/coreutils": "~1.1.3",
     "@mavenomics/config-server": "^0.1.0",
     "@mavenomics/coreutils": "^0.1.0",
-    "@phosphor/coreutils": "^1.3.0"
+    "@phosphor/coreutils": "^1.3.0",
+    "yargs": "^14.2.0"
+  },
+  "bin": {
+    "mavenworks": "./lib/index.js"
   }
 }
