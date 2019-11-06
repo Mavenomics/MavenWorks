@@ -22,6 +22,7 @@
     { "path": "../parts" },
     { "path": "../table" },
     { "path": "../ui" },
+    { "path": "../app-cli" },
     { "path": "../app-jupyter" },
     { "path": "../app-viewer" },
     { "path": "../app-standalone" },

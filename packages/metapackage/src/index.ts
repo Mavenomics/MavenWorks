@@ -17,6 +17,7 @@ import "@mavenomics/table";
 import "@mavenomics/ui";
 
 // top-level projects
+import "mavenworks";
 import "jupyterlab-mavenworks";
 import "@mavenomics/config-server";
 import "@mavenomics/standalone";
