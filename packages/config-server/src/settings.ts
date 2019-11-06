@@ -42,6 +42,8 @@ for (let name in process.env) {
             value = null;
         }
         cfg.set(fixedName, value == null ? value : value.toLocaleLowerCase());
+    } else if (name === "LOGLEVEL" || name === "LOG_LEVEL") {
+        cfg.set("loglevel", name);
     }
 }
 
@@ -60,11 +62,24 @@ prefix.apply(log, {
     }
 });
 
-log.setLevel(getSetting("loglevel") as any);
 const logger = log.getLogger("root");
 
 export function getSetting(setting_name: BuiltinSettingsKeys): string | null {
     return cfg.get(setting_name) || null;
+}
+
+/**
+ * Override a setting in-process, without writing to any settings file.
+ *
+ * @export
+ * @param setting_name The name of the setting to override
+ * @param value The new value the overridden setting will take on
+ */
+export function overrideSetting(setting_name: BuiltinSettingsKeys, value: string | null) {
+    cfg.set(setting_name, value);
+    if (setting_name === "loglevel") {
+        log.setLevel(getSetting("loglevel") as any);
+    }
 }
 
 export function getLogger(logger_name?: string) {
