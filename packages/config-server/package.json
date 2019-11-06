@@ -3,12 +3,17 @@
     "version": "0.1.0",
     "scripts": {
         "build:ci": "echo pass",
-        "serve": "node ./lib/app.js",
+        "serve": "node ./lib/bootstrap.js",
         "clean": "rimraf ./lib && rimraf *.tsbuildinfo",
         "users": "node ./lib/admin/users",
         "populate": "node ./lib/admin/populate",
         "docs": "echo No docs for @mavenomics/config-server"
     },
+    "files": [
+        "lib",
+        "views"
+    ],
+    "main": "./lib/index.js",
     "author": "Mavenomics, Inc",
     "license": "GPL-3.0",
     "dependencies": {
