@@ -70,6 +70,9 @@
   "jest": {
     "projects": [
       "<rootDir>/packages/*"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/bin/"
     ]
   }
 }
