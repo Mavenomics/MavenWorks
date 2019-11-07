@@ -5,8 +5,6 @@
         "build:ci": "echo pass",
         "serve": "node ./lib/bootstrap.js",
         "clean": "rimraf ./lib && rimraf *.tsbuildinfo",
-        "users": "node ./lib/admin/users",
-        "populate": "node ./lib/admin/populate",
         "docs": "echo No docs for @mavenomics/config-server"
     },
     "files": [
@@ -19,7 +17,6 @@
     "dependencies": {
         "@mavenomics/coreutils": "*",
         "bcrypt": "^3.0.6",
-        "commander": "^2.20.0",
         "express": "^4.17.1",
         "express-handlebars": "^3.1.0",
         "express-session": "^1.16.2",
@@ -29,7 +26,6 @@
         "morgan": "^1.9.1",
         "passport": "^0.4.0",
         "passport-local": "^1.0.0",
-        "read": "^1.0.7",
         "reflect-metadata": "^0.1.13",
         "sqlite3": "^4.0.8",
         "typeorm": "^0.2.17"
@@ -42,7 +38,6 @@
         "@types/morgan": "^1.7.35",
         "@types/passport": "^1.0.0",
         "@types/passport-local": "^1.0.33",
-        "@types/read": "^0.0.28",
         "tslint": "^5.16.0"
     }
 }

@@ -19,6 +19,8 @@
     "docs": "echo pass"
   },
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/read": "^0.0.28",
     "@types/yargs": "^13.0.3",
     "rimraf": "^2.6.3",
     "typescript": "*"
@@ -28,6 +30,8 @@
     "@mavenomics/config-server": "^0.1.0",
     "@mavenomics/coreutils": "^0.1.0",
     "@phosphor/coreutils": "^1.3.0",
+    "bcrypt": "^3.0.6",
+    "read": "^1.0.7",
     "yargs": "^14.2.0"
   },
   "bin": {

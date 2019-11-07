@@ -2,6 +2,11 @@
 
 import * as yargs from "yargs";
 
+export interface IGlobalArgs {
+    loglevel: "trace" | "debug" | "info" | "warn" | "error" | "silent";
+}
+
+
 // tslint:disable-next-line: no-unused-expression
 yargs
     .option("loglevel", {
