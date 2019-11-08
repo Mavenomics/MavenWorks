@@ -193,9 +193,64 @@ const getReferencedValues = (names: string[], values: any[]) => {
 
 @declareFunction("MqlEval", 2)
 @functionArg("row")
-@functionArg("mqlExpr")
-@functionArg("name")
-@functionArg("value")
+@functionArg("mqlExpr", Types.String)
+@functionArg("name", Types.String)
+@functionArg("value", Types.Any)
+@documentFunction({
+    description: "Evaluate a string as an MQL expression, returning the result.",
+    remarks: `Note that this function will *not* allow the expression to reference
+columns in the from table. This means that the following query will fail:
+
+\`\`\`mql
+SELECT
+  x,
+  MqlEval("x + 1")
+FROM
+  Lattice('x = 1 to 10 step 1')
+\`\`\`
+
+In order to reference a column, you must instead pass it as a parameter. Parameters
+in MQL are given as \`SET\`s, so your query will look like this:
+
+\`\`\`mql
+SELECT
+  x,
+  MqlEval('@x + 1', 'x', x)
+FROM
+  Lattice('x = 1 to 10 step 1')
+\`\`\`
+
+Here we tell \`MqlEval\` that it will recieve a parameter named \`x\`, and the
+value of that parameter will be the column \`x\`. Inside, we reference it as if
+it were a SET, with the at-sign (\`@\`).
+`,
+    examples: [
+`SELECT
+    MqlEval('@foo||@bar', 'foo', 'Hello, ', 'bar', 'MQL!')
+FROM
+    dual`,
+`SET @nouns = StringVector(
+    'World',
+    'MQL',
+    'foo',
+    'bar',
+    'baz',
+    'bat'
+)
+
+SELECT
+    MqlEval(
+        '''Hello ''||@noun||''!''',
+        'noun',
+        Idx(@nouns, x)
+    ) as greeting
+FROM Lattice('x = 0 to '||(Length(@nouns) - 1)||' step 1')`,
+`SELECT
+    x,
+    MqlEval('@x + 1', 'x', x)
+FROM
+    Lattice('x = 1 to 10 step 1')`]
+})
 export class MqlEvalExpressionFunction extends IFunction {
 
     static validateIds(names: string[]) {
