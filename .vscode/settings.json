@@ -17,4 +17,5 @@
     "python.linting.pydocstyleEnabled": true,
     "python.linting.flake8Enabled": true,
     "typescript.tsdk": "./node_modules/typescript/lib",
+    "task.autoDetect": "off",
 }
