@@ -75,6 +75,10 @@ chart.
 
     private static MavenToPerspectiveSchema(table: Table): Schema {
         const schema: Schema = {};
+        if (table.columnNames.length === 0 || table.length === 0) {
+            // cannot compute a schema on an empty table
+            return schema;
+        }
         for (let c = 0; c < table.columnTypes.length; c++) {
             let type = table.columnTypes[c];
             const name = table.columnNames[c];
