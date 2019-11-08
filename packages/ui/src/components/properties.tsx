@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Type } from "@mavenomics/coreutils";
+import { Type, Color } from "@mavenomics/coreutils";
 
 // We need to add the --indent var to CSSProperties, so that React's typings
 // will allow it in element inline styles.
@@ -9,10 +9,18 @@ declare module "react" {
     }
 }
 
+function valueToString(value: unknown) {
+    if (value instanceof Color) {
+        return value.color;
+    } else {
+        return "" + value;
+    }
+}
+
 function generateDocString(metadata: PropertiesEditor.IPropertyMetadata) {
     return `${metadata.prettyName}: ${metadata.documentation || ""}
     Type: ${metadata.type.serializableName}
-    Default: ${metadata.default}`;
+    Default: ${valueToString(metadata.default)}`;
 }
 
 function FlippyTriangle({isCollapsed, onCollapse}: FlippyTriangle.IProps) {
