@@ -207,6 +207,7 @@ let __unop = (left, opFunc, cb) => {
         });
     };`;
     static readonly getValueOrNullText = `let __getValueOrNull = (row, col) => {
+    if (row == null) throw new Error("Cannot SELECT " + col + " from null row. Did you mean to use @" + col + "?")
     let value = row.getValue(col);
     return typeof value !== 'undefined' ? value : null;
 };`;
