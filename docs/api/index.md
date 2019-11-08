@@ -12,7 +12,7 @@
 
 [`@mavenomics/help`](./help/globals.html)
 
-[`@mavenomics/jupyterutils`](./help/jupyterutils.html)
+[`@mavenomics/jupyterutils`](./jupyterutils/globals.html)
 
 [`@mavenomics/layout`](./layout/globals.html)
 
@@ -20,7 +20,7 @@
 
 [`@mavenomics/mql-worker`](./mql-worker/globals.html)
 
-[`@mavenomics/parts`](./partsglobals.html)
+[`@mavenomics/parts`](./parts/globals.html)
 
 [`@mavenomics/table`](./table/globals.html)
 
