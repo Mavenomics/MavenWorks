@@ -17,11 +17,16 @@
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",
     "test": "echo No tests for @mavenomics/ui",
-    "docs": "typedoc --tsconfig ./docs.tsconfig.json"
+    "docs": "typedoc --tsconfig ./docs.tsconfig.json",
+    "storybook": "start-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.7.0",
+    "@storybook/react": "^5.2.6",
     "@types/color-string": "^1.5.0",
     "@types/react-widgets": "^4.3.3",
+    "babel-loader": "^8.0.6",
     "less": "*",
     "rimraf": "^2.6.3",
     "typescript": "*"
