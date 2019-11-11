@@ -7,6 +7,67 @@ import { renderOnEmit } from "../reacthelpers";
  *
  * This component is fully controlled, and depends on a CSS stylesheet at
  * [@mavenomics/ui/style/treeview.css].
+ * 
+ * The stylesheet also depends on a set of variables defined in
+ * [@mavenomics/ui/style/variables.css], but you can define them yourself if
+ * you need to customize the colors:
+ * 
+ *  - `--m-active-font-color`: The font color of selected items
+ *  - `--m-inactive-font-color`: The font color of unselected items
+ *  - `--m-selected-ui-color`: The background color of selected items
+ *  - `--m-inactive-ui-color`: The background color of unselected items being
+ *    hovered over with the mouse
+ *  - `--m-hover-selected-ui-color`: The background color of selected items
+ *    being hovered over with the mouse
+ * 
+ * The following variables are optional, and only have to be defined if you
+ * use drag-and-drop. The `variables` stylesheet defines them by default.
+ *
+ *  - `--m-valid-ui-color`: The border color of a 'valid' drop preview.
+ *    Try not to use green for this- the default variables sheet uses a light
+ *    blue. Colorblind individuals may have some difficulty distinguishing
+ *    valid actions if you use green.
+ *  - `--m-warn-ui-color`: The border color of an 'invalid' drop preview.
+ *    Like above, be sure that whatever color you pick for this is
+ *    distinguishable. A good rule of thumb is to ensure the luminosity is
+ *    different, so that one appears darker than the other even in complete
+ *    grayscale.
+ * 
+ * @example
+ *
+ * // A simple tree control that shows a tree with expand/collapse
+ * // Note that the model can be managed directly by the TreeList, instead of
+ * // being created by us directly.
+ *
+ * import { TreeModel, TreeView } from "@mavenomics/ui";
+ *
+ * const model = TreeModel.Create([
+ *     {
+ *         key: "Root A",
+ *         children: [
+ *             { key: "Child A" }
+ *             { key: "Child B" }
+ *             {
+ *                 key: "Child C",
+ *                 isCollapsed: true,
+ *                 children: [
+ *                     { key: "Grandchild A" }
+ *                     { key: "Grandchild B" }
+ *                     { key: "Grandchild C" }
+ *                 ]
+ *             }
+ *             
+ *         ]
+ *     }
+ * ]);
+ *
+ * const MyTree = () => (<TreeView
+ *     model={model}
+ *     onSelect={key => model.selectNode(key, true)} 
+ *     onSelect={
+ *         (key, willCollapse) => model.update(key, { isCollapsed: willCollapse })
+ *     } />);
+ *
  */
 export function TreeView<T extends TreeModel.TreeNode>({
     model,
@@ -61,13 +122,26 @@ export namespace TreeView {
     }
 }
 
+/**
+ * Enum representing possible drop actions.
+ *
+ * Because this is a const enum, you can also just use string literals.
+ */
 export const enum TreeDropZone {
+    /** The proposed action will insert a sibling ordered above the current node. */
     InsertAbove = "insert-above",
+    /** The proposed action will insert a child into the current node. */
     InsertInto = "insert-into",
+    /** The proposed action will insert a sibling ordered below the current node. */
     InsertBelow = "insert-below"
 }
 
 namespace Private {
+    /**
+     * A convenience helper for an expand/collapse button.
+     * 
+     * TODO: We should generalize this, FlippyTriangles are used elsewhere
+     */
     export function FlippyTriangle({isCollapsed, onCollapse}: FlippyTriangle.IProps) {
         return (<button className="m-FlippyTriangle"
             onClick={() => onCollapse.call(void 0, !isCollapsed)}
@@ -76,11 +150,22 @@ namespace Private {
 
     export namespace FlippyTriangle {
         export interface IProps {
+            /** Whether the triangle is collapsed (true) or expanded (false) */
             isCollapsed: boolean;
+            /** Callback called when the triangle is clicked.
+             * 
+             * Note: This will not modify internal state- the parent component
+             * must change the [isCollapsed] prop.
+             * 
+             * @param willCollapse The new state that the triangle will take on.
+             * For instance, if a user clicks on a collapsed triange, it should
+             * expand, hence `willCollapse` will be false.
+             */
             onCollapse: (this: void, willCollapse: boolean) => void;
         }
     }
 
+    /** A helper component for representing a list of siblings */
     export const TreeLevel: React.FC = ({
         children
     }) => {
@@ -89,6 +174,7 @@ namespace Private {
         </ul>);
     };
 
+    /** A helper component for representing an individual node and it's children. */
     export function TreeNode<T extends TreeModel.TreeNode>({
         model, node, onCollapse, onSelect, onCommit, render, preview
     }: TreeNodeProps<T>) {
