@@ -25,16 +25,18 @@ import * as React from "react";
  * const MyListBoxForm = () => {
  *     const [selected, setSelected] = React.useState<string | null>(null);
  *     const items = [
- *         {key: "a", label: "A"}
- *         {key: "b", label: "B"}
- *         {key: "c", label: "C"}
+ *         { key: "a", label: "A" }
+ *         { key: "b", label: "B" }
+ *         { key: "c", label: "C" }
  *     ];
  *     return (<div>
  *         <span>Selected: {selected}</span>
  *         <ListBox items={items}
  *             selectedKey={selected}
  *             onCommit={key => alert("Double clicked " + key + "!")}
- *             onSelect={key => setSelected(key)} />
+ *             onSelect={key => setSelected(key)}
+ *             isEditing={false}
+ *             onEdit={() => void 0} />
  *     </div>);
  * }
  */
