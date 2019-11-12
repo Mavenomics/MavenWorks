@@ -9,7 +9,7 @@ import { Subject } from "rxjs";
 import { LayoutActions } from "./layoutactions";
 import { DockPreview } from "./dockpreview";
 import { IterTools, IDirtyable } from "@mavenomics/coreutils";
-import { TreeModel, ReactWrapperWidget, TreeView, HoverManager } from "@mavenomics/ui";
+import { ReactWrapperWidget, HoverManager, ListBox } from "@mavenomics/ui";
 import * as React from "react";
 import { WidgetLayoutRegion } from "./WidgetLayoutRegion";
 
@@ -209,40 +209,33 @@ export class LayoutManager extends Widget implements IDirtyable {
     }
 
     public async showAddPartDialog() {
-        const items: TreeModel.TreeNode[] = [];
-        const parts: TreeModel.TreeNode[] = [];
+        const items: ListBox.ListItem[] = [];
         for (const name of this.factory.keys()) {
-            parts.push({
+            items.push({
                 key: name,
-                children: [],
-                isCollapsed: false,
-                isSelected: false,
-                selectable: true
+                label: name
             });
         }
-        parts.sort((a, b) => a.key.localeCompare(b.key));
-        items.push({key: "Parts", children: parts, isCollapsed: false, selectable: false, isSelected: false});
+        items.sort((a, b) => a.key.localeCompare(b.key));
         let selectedPart: string | null = null;
-        const treeModel = TreeModel.Create(items);
         const hover = ReactWrapperWidget.Create(
-            React.createElement(TreeView, {
-                model: treeModel,
+            () => React.createElement<ListBox.IProps>(ListBox, {
+                items,
+                selectedKey: selectedPart,
                 onSelect: (key) => {
-                    treeModel.selectNode(key, true);
                     selectedPart = key;
+                    hover.update();
                 },
                 onCommit: (key) => {
-                    treeModel.selectNode(key, true);
                     selectedPart = key;
                     MessageLoop.sendMessage(
                         hover.parent!,
                         HoverManager.DialogMsg.AcceptRequest
                     );
                 },
-                onCollapse: (key, isCollapsed) => {
-                    treeModel.update(key, { isCollapsed });
-                }
-            } as TreeView.IProps<TreeModel.TreeNode>)
+                isEditing: false,
+                onEdit: () => void 0,
+            })
         );
         hover.node.style.overflowY = "auto";
         const res = await HoverManager.Instance!.launchDialog(
@@ -253,7 +246,6 @@ export class LayoutManager extends Widget implements IDirtyable {
             "Add New Part",
             [{ text: "Dismiss" }, { text: "Ok", accept: true }]
         );
-        treeModel.dispose();
         if (!res.accept) return;
         return selectedPart;
     }
