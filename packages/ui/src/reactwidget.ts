@@ -16,17 +16,23 @@ import { MessageLoop, Message } from "@phosphor/messaging";
  */
 export abstract class ReactWrapperWidget extends Widget {
     /**
-     * Create a wrapper widget that renders some static content
+     * Create a wrapper widget that renders a React component.
+     *
+     * Note: If you pass a static ReactDOM tree, then that component will never
+     * be allowed to update. If you instead want a normal component, pass a
+     * lambda that _returns_ a component instead.
      *
      * @static
-     * @param content A react element that will never change
+     * @param content Either a static ReactDOM element or a 0-arg function that returns an element
      * @returns An instance of a ReactWrapperWidget that renders the content
      */
-    public static Create(content: React.ReactElement): ReactWrapperWidget {
+    public static Create(
+        content: React.ReactElement | ((this: void) => React.ReactElement)
+    ): ReactWrapperWidget {
         // tslint:disable-next-line:class-name
         class _Wrapper extends ReactWrapperWidget {
             protected render() {
-                return content;
+                return typeof content === "function" ? content.call(void 0) : content;
             }
         }
         return new _Wrapper();
