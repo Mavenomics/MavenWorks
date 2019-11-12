@@ -209,6 +209,12 @@ export class OptionsBag implements Iterable<OptionsBag.PartOption>, IDisposable 
             expr,
             globals
         } as any;
+
+        const oldBinding = oldOption.binding;
+        if (this.testBindingModelsEquivalent(oldBinding, bindingModel)) {
+            console.log("[OptionsBag]", "Ignoring binding change- models are equivalent");
+            return;
+        }
         const newOption = Object.freeze({
             ...oldOption,
             binding: Object.freeze(bindingModel)
@@ -272,6 +278,17 @@ export class OptionsBag implements Iterable<OptionsBag.PartOption>, IDisposable 
             binding: oldModel.binding,
             value: model.value // use latest value
         } as OptionsBag.PartOption);
+    }
+
+    private testBindingModelsEquivalent(
+        oldBinding: OptionsBag.Binding | undefined,
+        newBinding: OptionsBag.Binding
+    ) {
+        return oldBinding != null
+            && oldBinding.type === newBinding.type
+            && oldBinding.expr === newBinding.expr
+            && oldBinding.globals.length === newBinding.globals.length
+            && oldBinding.globals.every(i => newBinding.globals.includes(i));
     }
 }
 
