@@ -135,7 +135,7 @@ export class OptionsBag implements Iterable<OptionsBag.PartOption>, IDisposable 
             console.debug("[OptionsBag]", "Ignoring option change- refs match");
             return;
         }
-        if (this._isSelfChange !== null) {
+        if (this._isSelfChange === null) {
             this._isSelfChange = true;
         }
         const newOption = Object.freeze({
