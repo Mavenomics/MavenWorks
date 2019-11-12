@@ -29,7 +29,7 @@ export function getCommentLine(
     src = src.trim();
     if (lineComment != null) {
         // check for line comments first
-        const regex = new RegExp(String.raw`^[^${lineComment}]*${lineComment}.*$`);
+        const regex = new RegExp(String.raw`^\s*${lineComment}.*`);
         let res = src.match(regex);
         if (res) {
             return res[1].trim();
@@ -37,7 +37,7 @@ export function getCommentLine(
         // fall through to block comment handling
     }
     if (blockStart && blockEnd) {
-        const regex = new RegExp(String.raw`^[^${blockStart}]*${blockStart}([^${blockEnd}]*)${blockEnd}`);
+        const regex = new RegExp(String.raw`^\s*${blockStart}([^${blockEnd}]*)${blockEnd}`);
         let res = src.match(regex);
         if (res) {
             return res[1].trim();
