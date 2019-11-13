@@ -1,6 +1,6 @@
 {
   "name": "@mavenomics/jupyterutils",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Utilities for working with dashboards inside Jupyter apps",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -19,8 +19,8 @@
     "docs": "typedoc --tsconfig ./docs.tsconfig.json"
   },
   "devDependencies": {
-    "typescript": "*",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "typescript": "*"
   },
   "dependencies": {
     "@jupyterlab/application": "~1.1.3",

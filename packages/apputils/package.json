@@ -1,6 +1,6 @@
 {
   "name": "@mavenomics/apputils",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Core utilities and services for MavenWorks applications",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

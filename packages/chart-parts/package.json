@@ -1,6 +1,6 @@
 {
   "name": "@mavenomics/chart-parts",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A palette of pivoted chart parts included in MavenWorks",
   "main": "./build/chartpart.bundle.js",
   "types": "./lib/index.d.ts",

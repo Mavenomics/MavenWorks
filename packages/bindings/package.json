@@ -1,6 +1,6 @@
 {
   "name": "@mavenomics/bindings",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Utilities for globals, data binding and binding evaluation",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -20,8 +20,8 @@
     "docs": "typedoc --tsconfig ./docs.tsconfig.json"
   },
   "devDependencies": {
-    "typescript": "*",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "typescript": "*"
   },
   "dependencies": {
     "@mavenomics/coreutils": "^0.1.0",

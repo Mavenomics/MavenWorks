@@ -1,6 +1,6 @@
 {
   "name": "@mavenomics/default-parts",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A palette of parts included by default in MavenWorks",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

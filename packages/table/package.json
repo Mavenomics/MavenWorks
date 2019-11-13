@@ -1,6 +1,6 @@
 {
   "name": "@mavenomics/table",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Hierarchal Table object and helpers",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

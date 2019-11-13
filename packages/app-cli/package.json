@@ -1,6 +1,6 @@
 {
   "name": "mavenworks",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "MavenWorks utility for running and configuring the Config Server",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

@@ -1,6 +1,6 @@
 {
   "name": "@mavenomics/help-mql",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Help for the MQL Engine",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -20,8 +20,8 @@
     "docs": "echo No docs for @mavenomics/help-mql"
   },
   "devDependencies": {
-    "typescript": "*",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "typescript": "*"
   },
   "dependencies": {
     "@mavenomics/coreutils": "^0.1.0",
