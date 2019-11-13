@@ -1,0 +1,5 @@
+{
+    // Use this to allow use of commonjs in Storybook
+    // We don't use babel otherwise
+    "plugins": ["@babel/plugin-transform-modules-commonjs"]
+}
