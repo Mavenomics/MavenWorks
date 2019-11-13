@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="./icon.png" />
     <title>Mavenomics MavenWorks</title>
+    <script id='jupyter-config-data' type="application/json">
+        %SETTINGS%
+    </script>
 </head>
 
 <body>
@@ -254,6 +257,16 @@
     </div>
 
     <script>
+        // Try to parse the settings. If it fails, the server isn't templating
+        // them, so just replace them
+        const el = document.getElementById("jupyter-config-data");
+        const text = el.textContent;
+        try {
+            JSON.parse(text);
+        } catch (err) {
+            console.info("Settings not templated by the server- overwriting");
+            el.textContent = `{"baseUrl": "${window.location.href}"}`;
+        }
         const progressbar = document.getElementById("progressbar");
         const flavorText = document.getElementById("progressFlavorText");
         let req = new XMLHttpRequest();

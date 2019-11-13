@@ -14,6 +14,12 @@ export type BuiltinSettingsKeys =
     | "use_password_auth"
 ;
 
+const ClientSettingsWhitelist = [
+    "port",
+    "hostname",
+    "protocol",
+] as const;
+
 const cfg = new Map<BuiltinSettingsKeys, string | null>([
     ["port", "3000"],
     ["loglevel", "debug"],
@@ -72,4 +78,26 @@ export function getLogger(logger_name?: string) {
         return log.getLogger(logger_name);
     }
     return logger;
+}
+
+export function getClientSettings() {
+    const map: Record<string, string | null> = {
+        "enableConfig": "true",
+    };
+    for (const setting of ClientSettingsWhitelist) {
+        map[setting] = getSetting(setting);
+    }
+    let url = getSetting("protocol") + "://" + getSetting("hostname");
+    const port = getSetting("port");
+    if (port != null) {
+        url += ":" + port;
+    }
+    map["baseUrl"] = url + "/app/";
+    map["configUrl"] = url + "/config/";
+    if (getSetting("use_password_auth") === "true") {
+        map["enableUsers"] = "true";
+    } else {
+        map["enableUsers"] = "false";
+    }
+    return map;
 }

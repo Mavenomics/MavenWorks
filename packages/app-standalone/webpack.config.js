@@ -55,7 +55,6 @@ const config = {
             'process.env.BUILD_NUMBER': JSON.stringify(process.env.BUILD_NUMBER),
             'process.env.GIT_BRANCH': JSON.stringify(process.env.GIT_BRANCH),
             'process.env.GIT_COMMIT': JSON.stringify(process.env.GIT_COMMIT),
-            'process.env.CONFIG_HOST': JSON.stringify(process.env.CONFIG_HOST),
             'process.env.BUILD_DATE': JSON.stringify(Date.now()),
             'process.env.USE_GPL': JSON.stringify(process.env.USE_GPL || "true"),
         })

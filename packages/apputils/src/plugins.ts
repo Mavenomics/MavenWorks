@@ -5,8 +5,6 @@ import { IConfigManager, HttpConfigManager } from "./config";
 import { IUrlManager, UrlManager } from "./url";
 import { PageConfig, URLExt } from "@jupyterlab/coreutils";
 
-const CONFIG_SERVER_URL = URLExt.join(process.env.CONFIG_HOST || "", "/config/");
-
 export type IConfigUrl = string | null;
 export const IConfigUrl = new Token<string>("MavenWorks Config Server URL");
 
@@ -14,7 +12,7 @@ const configUrlPlugin: IDashboardPlugin<IConfigUrl> = {
     id: "@mavenomics/apputils:config-url",
     autoStart: true,
     provides: IConfigUrl,
-    activate: () => CONFIG_SERVER_URL
+    activate: () => PageConfig.getOption("configUrl")
 };
 
 const userPlugin: IDashboardPlugin<IUserManager> = {

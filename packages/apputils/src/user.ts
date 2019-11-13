@@ -122,6 +122,10 @@ export class HttpUserManager implements IUserManager, IDisposable {
     }
 
     public async checkIsSignedIn(): Promise<boolean> {
+        if (PageConfig.getOption("enableUsers") === "false") {
+            // no need to check for this
+            return true;
+        }
         const res = await this.issueRequest("/status", "GET");
         const isLoggedIn = (await res.json() as {isLoggedIn: boolean}).isLoggedIn;
         if (this._isSignedIn !== isLoggedIn) {

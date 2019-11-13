@@ -22,7 +22,7 @@ import "../style/main.css";
 import { configBrowserPlugin } from "./browser";
 import { login } from "./login";
 import { configCmdPlugin } from "./config-commands";
-import { PageConfig, URLExt } from "@jupyterlab/coreutils";
+import { PageConfig } from "@jupyterlab/coreutils";
 
 const app = new MainApp({
     shell: new MavenWorksShell()
@@ -30,11 +30,9 @@ const app = new MainApp({
 
 Widget.attach(HoverManager.GetManager(), document.body);
 
-const CONFIG_HOST = process.env.CONFIG_HOST;
-
 app.registerPlugins(appUtils);
-if (window.location.origin === CONFIG_HOST) {
-    PageConfig.setOption("baseUrl", URLExt.join(CONFIG_HOST, "/app"));
+const useConfig = PageConfig.getOption("enableConfig");
+if (useConfig === "true") {
     app.registerPlugin(configCmdPlugin);
     app.registerPlugin(configBrowserPlugin);
     app.started.then(async () => {
@@ -45,7 +43,6 @@ if (window.location.origin === CONFIG_HOST) {
         await app.commands.execute("@mavenomics/standalone:load-from-url");
     });
 } else {
-    PageConfig.setOption("baseUrl", window.location.href);
     app.started.then(() => app.commands.execute("@mavenomics/standalone:load-from-url"));
 }
 
