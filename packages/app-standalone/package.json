@@ -2,7 +2,7 @@
   "name": "@mavenomics/standalone",
   "version": "0.1.0",
   "description": "Standalone MavenWorks app",
-  "main": "index.html",
+  "main": "public/index.html",
   "repository": "github.com/Mavenomics/MavenWorks",
   "author": "Mavenomics, Inc",
   "license": "GPL-3.0",
@@ -18,6 +18,9 @@
     "serve": "http-server -p 9090",
     "docs": "webpack --docs"
   },
+  "files": [
+    "public"
+  ]
   "dependencies": {
     "@jupyterlab/codemirror": "~1.1.3",
     "@jupyterlab/docregistry": "~1.1.3",

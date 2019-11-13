@@ -9,14 +9,15 @@ import { useAuth, registerPassportHandler } from "./auth";
 import { getConnection } from "./db";
 import { configRoute } from "./routes/config";
 import { DashboardModel } from "./model";
-import { join, resolve } from "path";
+import { join, resolve, dirname } from "path";
 import { readFile } from "fs";
+const baseDir = dirname(require.resolve("@mavenomics/standalone"));
 
 export async function start(
     port = +getSetting("port")!,
     hostname = getSetting("hostname")!,
     allowed_origins = getSetting("port")!.split(","),
-    base_dir = join(__dirname, "../../app-standalone/public")
+    base_dir = baseDir
 ) {
     const app = express();
     const logger = getLogger("Server");

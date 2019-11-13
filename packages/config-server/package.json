@@ -15,7 +15,8 @@
     "author": "Mavenomics, Inc",
     "license": "GPL-3.0",
     "dependencies": {
-        "@mavenomics/coreutils": "*",
+        "@mavenomics/coreutils": "^0.1.2",
+        "@mavenomics/standalone": "^0.1.2",
         "bcrypt": "^3.0.6",
         "express": "^4.17.1",
         "express-handlebars": "^3.1.0",
