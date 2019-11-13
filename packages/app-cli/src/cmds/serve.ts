@@ -45,6 +45,9 @@ interface IArgs extends IGlobalArgs {
 
 export async function handler({ port, hostname, allowed_origins, loglevel }: Arguments<IArgs>) {
     overrideSetting("loglevel", loglevel);
+    overrideSetting("hostname", hostname);
+    overrideSetting("port", "" + port);
+    overrideSetting("allowed_origins", allowed_origins.join(","));
     if (hostname.length < 1) {
        throw new Error("Hostname cannot be null");
     }
@@ -55,5 +58,5 @@ export async function handler({ port, hostname, allowed_origins, loglevel }: Arg
         throw new Error("Port must be an integer between 1 and 65535, inclusive.");
     }
     console.log("Launching server at " + hostname + ":" + port + "...");
-    return start(port, hostname, allowed_origins);
+    return start();
 }
