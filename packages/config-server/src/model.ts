@@ -17,3 +17,9 @@ export class UserModel {
     @Column()
     public password!: string;
 }
+
+export function getPrimaryKey(model: DashboardModel | UserModel) {
+    // TODO: When we add more model types, this function should become more generic
+    if (model instanceof UserModel) return "username";
+    return "name";
+}
