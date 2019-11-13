@@ -2,7 +2,6 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    color: var(--m-inactive-font-color);
 }
 
 .m-ListBox-item {
@@ -13,16 +12,16 @@
 }
 
 .m-ListBox-item:hover:not(.m-selected) {
-    background-color: var(--m-inactive-ui-color);
+    background: hsl(0, 0%, 90%);
 }
 
 .m-ListBox-item:hover.m-selected {
-    background-color: var(--m-hover-selected-ui-color);
+    background-color: hsl(199, 98%, 28%)
 }
 
 .m-selected {
-    background-color: var(--m-selected-ui-color);
-    color: var(--m-active-font-color);
+    background:hsl(199, 98%, 38%);
+    color: white;
 }
 
 .m-ListBox-item.m-editing {
