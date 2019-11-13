@@ -20,6 +20,7 @@
   "resolutions": {
     "**/react": "~16.8.6",
     "**/react-dom": "~16.8.6",
+    "typescript": "3.5.3",
     "@types/react": "~16.8.6",
     "d3fc": "14.0.40",
     "@phosphor/algorithm": "~1.2.0",
