@@ -36,8 +36,8 @@ if (useConfig === "true") {
     app.registerPlugin(configCmdPlugin);
     app.registerPlugin(configBrowserPlugin);
     app.started.then(async () => {
-        const user = await app.resolveRequiredService(IUserManager);
-        if (!await user.checkIsSignedIn()) {
+        const user = await app.resolveOptionalService(IUserManager);
+        if (user && !await user.checkIsSignedIn()) {
             await login(user, app.shell);
         }
         await app.commands.execute("@mavenomics/standalone:load-from-url");

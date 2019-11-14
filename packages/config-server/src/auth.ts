@@ -6,8 +6,6 @@ import * as passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import { getConnection } from "./db";
 
-const logger = getLogger("Auth");
-
 declare global {
     namespace Express {
         // Override the User type in PassportJS with our user class
@@ -18,6 +16,7 @@ declare global {
 }
 
 export function useAuth() {
+    const logger = getLogger("Auth");
     const route = express.Router();
     logger.debug("Loading Auth endpoint");
     const usePasswordAuth = getSetting("use_password_auth") !== "false";
@@ -79,6 +78,17 @@ export function useAuth() {
 }
 
 export async function registerPassportHandler() {
+    const logger = getLogger("Passport");
+    logger.debug("Registering Passport JS handler...");
+
+    const usePasswordAuth = getSetting("use_password_auth") !== "false";
+
+    if (!usePasswordAuth) {
+        // Don't setup PassportJS
+        logger.debug("Disabling Passport as configured");
+        return;
+    }
+
     const connection = await getConnection();
     const repository = connection.getRepository(UserModel);
 
@@ -89,6 +99,7 @@ export async function registerPassportHandler() {
                 return done(null, false, {message: "Incorrect username."});
             }
             if (await bcrypt.compare(password, user.password)) {
+                logger.info("User logged in: ", username);
                 return done(null, user);
             } else {
                 return done(null, false, {message: "Incorrect password."});

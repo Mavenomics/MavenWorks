@@ -40,15 +40,17 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
     requires: [
         IConfigManager,
         IUrlManager,
-        IUserManager,
         IConfigBrowserFactory,
+    ],
+    optional: [
+        IUserManager,
     ],
     activate: (
         app,
         cfgManager: IConfigManager,
         urlManager: IUrlManager,
-        userManager: IUserManager,
         browserFactory: IConfigBrowserFactory,
+        userManager?: IUserManager,
     ) => {
         const { shell, commands, contextMenu } = app;
 
@@ -346,26 +348,28 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
         //#endregion
 
         //#region Login state management
-        commands.addCommand("@mavenomics/standalone:config:login", {
-            label: "Log in...",
-            execute: async () => {
-                return await login(userManager, shell);
-            }
-        });
-        contextMenu.addItem({
-            command: "@mavenomics/standalone:config:login",
-            selector: "body"
-        });
+        if (userManager) {
+            commands.addCommand("@mavenomics/standalone:config:login", {
+                label: "Log in...",
+                execute: async () => {
+                    return await login(userManager, shell);
+                }
+            });
+            contextMenu.addItem({
+                command: "@mavenomics/standalone:config:login",
+                selector: "body"
+            });
 
-        commands.addCommand("@mavenomics/standalone:config:logout", {
-            label: "Log out",
-            execute: () => userManager.logout()
-                .catch(catchConfigError)
-        });
-        contextMenu.addItem({
-            command: "@mavenomics/standalone:config:logout",
-            selector: "body"
-        });
+            commands.addCommand("@mavenomics/standalone:config:logout", {
+                label: "Log out",
+                execute: () => userManager.logout()
+                    .catch(catchConfigError)
+            });
+            contextMenu.addItem({
+                command: "@mavenomics/standalone:config:logout",
+                selector: "body"
+            });
+        }
         //#endregion
     }
 };

@@ -46,9 +46,14 @@ const urlPlugin: IDashboardPlugin<IUrlManager> = {
     }
 };
 
-export const plugins = [
+const pluginList = [
     configUrlPlugin,
-    userPlugin,
     configPlugin,
     urlPlugin
-];
+] as IDashboardPlugin<unknown>[];
+
+if (PageConfig.getOption("enableUsers") === "true") {
+    pluginList.push(userPlugin);
+}
+
+export const plugins = pluginList;
