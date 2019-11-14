@@ -78,6 +78,13 @@ export function useAuth() {
 }
 
 export async function registerPassportHandler() {
+    const usePasswordAuth = getSetting("use_password_auth") !== "false";
+
+    if (!usePasswordAuth) {
+        // Don't setup PassportJS
+        return;
+    }
+
     const connection = await getConnection();
     const repository = connection.getRepository(UserModel);
 
