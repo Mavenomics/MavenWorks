@@ -14,6 +14,7 @@ interface IArgs extends IGlobalArgs {
     port: number;
     allowed_origins: string[];
     browser: boolean;
+    users: boolean;
 }
 
 export function builder(yargs: Argv<IArgs>) {
@@ -50,14 +51,29 @@ export function builder(yargs: Argv<IArgs>) {
             describe: "Whether to open a browser window. Use --no-browser to " +
             "disable.",
         })
+        .option("users", {
+            default: false,
+            type: "boolean",
+            describe: "Flag to enable user-based authentication in the CLI. If " +
+            "true, users will need to sign in before being able to access and " +
+            "modify config objects. The app will prompt them for this when required."
+        })
         .strict();
 }
 
-export async function handler({ port, hostname, allowed_origins, loglevel, browser }: Arguments<IArgs>) {
+export async function handler({
+    port,
+    hostname,
+    allowed_origins,
+    loglevel,
+    browser,
+    users,
+}: Arguments<IArgs>) {
     overrideSetting("loglevel", loglevel);
     overrideSetting("hostname", hostname);
     overrideSetting("port", "" + port);
     overrideSetting("allowed_origins", allowed_origins.join(","));
+    overrideSetting("use_password_auth", "" + users);
     if (hostname.length < 1) {
        throw new Error("Hostname cannot be null");
     }
