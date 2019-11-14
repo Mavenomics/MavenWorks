@@ -13,16 +13,23 @@ import { join, resolve, dirname } from "path";
 import { readFile } from "fs";
 const baseDir = dirname(require.resolve("@mavenomics/standalone"));
 
+/**
+ * Start the Config Server
+ *
+ * @export
+ * @param [onStart] A callback that fires when the server is ready to accept connections
+ */
 export async function start(
-    port = +getSetting("port")!,
-    hostname = getSetting("hostname")!,
-    allowed_origins = getSetting("port")!.split(","),
-    base_dir = baseDir
+    onStart?: (this: void) => void
 ) {
+    const port = +getSetting("port")!;
+    const hostname = getSetting("hostname")!;
+    const allowed_origins = getSetting("port")!.split(",");
+    // resolve the absolute path and normalize
+    const base_dir = resolve(baseDir);
+
     const app = express();
     const logger = getLogger("Server");
-    // resolve the absolute path and normalize
-    base_dir = resolve(base_dir);
 
     app.use(morgan("combined"));
     app.use(express.json());
@@ -93,5 +100,10 @@ export async function start(
     // force all traffic to the app
     app.get("/", (_req, res) => res.redirect("/app"));
 
-    app.listen(port, hostname, () => logger.info("Now listening on", port));
+    app.listen(port, hostname, () => {
+        logger.info("Now listening on", port);
+        if (onStart) {
+            onStart.call(void 0);
+        }
+    });
 }
