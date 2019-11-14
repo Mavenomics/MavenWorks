@@ -78,10 +78,14 @@ export function useAuth() {
 }
 
 export async function registerPassportHandler() {
+    const logger = getLogger("Passport");
+    logger.debug("Registering Passport JS handler...");
+
     const usePasswordAuth = getSetting("use_password_auth") !== "false";
 
     if (!usePasswordAuth) {
         // Don't setup PassportJS
+        logger.debug("Disabling Passport as configured");
         return;
     }
 
@@ -95,6 +99,7 @@ export async function registerPassportHandler() {
                 return done(null, false, {message: "Incorrect username."});
             }
             if (await bcrypt.compare(password, user.password)) {
+                logger.info("User logged in: ", username);
                 return done(null, user);
             } else {
                 return done(null, false, {message: "Incorrect password."});

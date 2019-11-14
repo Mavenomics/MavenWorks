@@ -83,7 +83,6 @@ export async function start(
     const repository = conn.getRepository(DashboardModel);
     logger.info("Connected to DB");
 
-    logger.debug("Registering Passport JS handler...");
     await registerPassportHandler();
 
     logger.debug("Registering API routes...");
