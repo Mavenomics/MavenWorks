@@ -47,7 +47,8 @@ function PartPropertiesEditor({region, dashboard}: RegionPropertiesEditor.IProps
                         prettyName: i.name,
                         type: optMetadata!.type,
                         default: optMetadata!.value,
-                        schema: optMetadata!.schema
+                        schema: optMetadata!.schema,
+                        documentation: optMetadata!.description
                     }] as [string, PropertiesEditor.IPropertyMetadata];
                 })]}
                 renderEditor={(optionName: string, metadata: PropertiesEditor.IPropertyMetadata) => {
