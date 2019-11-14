@@ -73,7 +73,7 @@
 					<h2>Adding a document</h2>
 				</a>
 				<p>In your plugin, add <code>IHelpDocProvider</code> as a requirement:</p>
-				<pre><code>+  requires: <span class="hljs-string">[IHelpDocProvider]</span></code></pre><p>Then, you can add Markdown documents to the Help system using this provider:</p>
+				<pre><code>+  <span class="hljs-keyword">requires</span>: [IHelpDocProvider]</code></pre><p>Then, you can add Markdown documents to the Help system using this provider:</p>
 				<pre><code class="language-ts">help.addDocument(<span class="hljs-string">`# My plugin
 
 My plugin is a very plugin-y plugin that plugins a few plugins to plugin things.

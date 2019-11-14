@@ -122,7 +122,7 @@
 					<div class="tsd-signature tsd-kind-icon">IDashboard<wbr>Tracker<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Token</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/idashboardtracker.html" class="tsd-signature-type">IDashboardTracker</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Token&lt;IDashboardTracker&gt;(&quot;Dashboard Tracker&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/dashboard-devtools/src/interfaces.ts#L11">interfaces.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/d859ab3/packages/dashboard-devtools/src/interfaces.ts#L11">interfaces.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -132,7 +132,7 @@
 					<div class="tsd-signature tsd-kind-icon">globals<wbr>Editor<wbr>Plugin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IPlugin</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Application</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Widget</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;{id: &quot;@mavenomics/dashboard-devtools:globals-editor&quot;,autoStart: true,requires: [IDashboardTracker],activate: (app, tracker: IDashboardTracker) &#x3D;&gt; {const { commands, contextMenu } &#x3D; app;commands.addCommand(GlobalsEditorCommands.OpenGlobals, {label: &quot;Open Globals Editor&quot;,iconClass: &quot;fa fa-globe&quot;,isEnabled: () &#x3D;&gt; tracker.getCurrentDashboard() !&#x3D; null,execute: async () &#x3D;&gt; {let dashboard &#x3D; tracker.getCurrentDashboard();if (dashboard &#x3D;&#x3D; null) {return;}let globals &#x3D; dashboard.globals;let serializedGlobals &#x3D; serializeGlobals(globals);const hover &#x3D; new class extends ReactWrapperWidget {private context: TypeEditorHost.IContext &#x3D; {portalHostNode: void 0,owner: this,};protected render() {return React.createElement(TypeEditorHost.Context.Provider,{ value: this.context },React.createElement(OptionsEditor, {arguments: serializedGlobals,onArgsChanged: (newArgs) &#x3D;&gt; {serializedGlobals &#x3D; newArgs;}} as OptionsEditor.IProps)) as React.ReactElement&lt;unknown&gt;;}protected onAfterChangeDocumentOwner() {this.context &#x3D; {portalHostNode: this.node.ownerDocument!.body,owner: this};this.update();}};await HoverManager.GetManager().launchEditorDialog(hover,dashboard,700,500,&quot;Globals Editor&quot;,() &#x3D;&gt; {// TODO: Globals#mergeGlobals()const unvisitedGlobals &#x3D; new Set(IterTools.map(globals, i &#x3D;&gt; i.name));const visitedGlobals &#x3D; new Set&lt;string&gt;();for (const global of serializedGlobals) {if (!unvisitedGlobals.has(global.name)) {globals.addGlobal(global.name,Types.findType(global.typeAnnotation) || Types.Any,Converters.deserialize(global.defaultValue));continue;}unvisitedGlobals.delete(global.name);visitedGlobals.add(global.name);}for (const toDelete of unvisitedGlobals.values()) {globals.removeGlobal(toDelete);}for (const toChange of visitedGlobals.values()) {const global &#x3D; serializedGlobals.find(i &#x3D;&gt; i.name &#x3D;&#x3D;&#x3D; toChange)!;globals.changeType(toChange, Types.findType(global.typeAnnotation) || Types.Any);globals.set(toChange, Converters.deserialize(global.defaultValue));}});}});commands.addKeyBinding({command: GlobalsEditorCommands.OpenGlobals,keys: [&quot;Accel G&quot;],selector: &quot;.jp-Notebook.jp-mod-commandMode:not(.p-mod-hidden)&quot;});contextMenu.addItem({command: GlobalsEditorCommands.OpenGlobals,selector: &quot;.jp-Notebook:not(.p-mod-hidden)&quot;});commands.addKeyBinding({command: GlobalsEditorCommands.OpenGlobals,keys: [&quot;Accel G&quot;],selector: &quot;.m-DashboardEditor:not(.p-mod-hidden)&quot;});contextMenu.addItem({command: GlobalsEditorCommands.OpenGlobals,selector: &quot;.m-DashboardEditor:not(.p-mod-hidden)&quot;});}} as IPlugin&lt;Application&lt;Widget&gt;, void&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/dashboard-devtools/src/plugins/GlobalsEditorPlugin.ts#L26">plugins/GlobalsEditorPlugin.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/d859ab3/packages/dashboard-devtools/src/plugins/GlobalsEditorPlugin.ts#L26">plugins/GlobalsEditorPlugin.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -142,7 +142,7 @@
 					<div class="tsd-signature tsd-kind-icon">plugins<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IPlugin</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Application</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Widget</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[globalsEditorPlugin,visualEditorPlugin]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/dashboard-devtools/src/plugins/index.ts#L4">plugins/index.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/d859ab3/packages/dashboard-devtools/src/plugins/index.ts#L4">plugins/index.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -159,7 +159,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/dashboard-devtools/src/DashboardActions.ts#L27">DashboardActions.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/d859ab3/packages/dashboard-devtools/src/DashboardActions.ts#L27">DashboardActions.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -191,7 +191,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/dashboard-devtools/src/ExcelExport.ts#L107">ExcelExport.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/d859ab3/packages/dashboard-devtools/src/ExcelExport.ts#L107">ExcelExport.ts:107</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -220,7 +220,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/dashboard-devtools/src/DashboardActions.ts#L403">DashboardActions.ts:403</a></li>
+									<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/d859ab3/packages/dashboard-devtools/src/DashboardActions.ts#L403">DashboardActions.ts:403</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -284,7 +284,7 @@
 					<div class="tsd-signature tsd-kind-icon">visual<wbr>Editor<wbr>Plugin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/dashboard-devtools/src/plugins/VisualEditorPlugin.tsx#L29">plugins/VisualEditorPlugin.tsx:29</a></li>
+							<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/d859ab3/packages/dashboard-devtools/src/plugins/VisualEditorPlugin.tsx#L29">plugins/VisualEditorPlugin.tsx:29</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -293,7 +293,7 @@
 						<div class="tsd-signature tsd-kind-icon">auto<wbr>Start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/dashboard-devtools/src/plugins/VisualEditorPlugin.tsx#L31">plugins/VisualEditorPlugin.tsx:31</a></li>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/d859ab3/packages/dashboard-devtools/src/plugins/VisualEditorPlugin.tsx#L31">plugins/VisualEditorPlugin.tsx:31</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -303,7 +303,7 @@
 						<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;@mavenomics/dashboard-devtools:visual-editor&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/dashboard-devtools/src/plugins/VisualEditorPlugin.tsx#L30">plugins/VisualEditorPlugin.tsx:30</a></li>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/d859ab3/packages/dashboard-devtools/src/plugins/VisualEditorPlugin.tsx#L30">plugins/VisualEditorPlugin.tsx:30</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -313,7 +313,7 @@
 						<div class="tsd-signature tsd-kind-icon">requires<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Token</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/idashboardtracker.html" class="tsd-signature-type">IDashboardTracker</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[IDashboardTracker]</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/dashboard-devtools/src/plugins/VisualEditorPlugin.tsx#L32">plugins/VisualEditorPlugin.tsx:32</a></li>
+								<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/d859ab3/packages/dashboard-devtools/src/plugins/VisualEditorPlugin.tsx#L32">plugins/VisualEditorPlugin.tsx:32</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -327,7 +327,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/9a0c2e4/packages/dashboard-devtools/src/plugins/VisualEditorPlugin.tsx#L35">plugins/VisualEditorPlugin.tsx:35</a></li>
+										<li>Defined in <a href="https://github.com/Mavenomics/MavenWorks/blob/d859ab3/packages/dashboard-devtools/src/plugins/VisualEditorPlugin.tsx#L35">plugins/VisualEditorPlugin.tsx:35</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>

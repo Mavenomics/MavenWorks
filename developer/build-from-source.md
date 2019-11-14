@@ -37,8 +37,8 @@ integration, such as an additional option binding evaluator for Python.
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/Mavenomics/MavenKernel.git
-cd ./MavenKernel
+git clone https://github.com/Mavenomics/MavenWorks.git
+cd ./MavenWorks
 ```
 
 ### 2. Install Dependencies
