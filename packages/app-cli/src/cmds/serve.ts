@@ -1,5 +1,6 @@
 import { start, overrideSetting } from "@mavenomics/config-server";
 import { Arguments, Argv } from "yargs";
+import * as open from "open";
 import { IGlobalArgs } from "..";
 
 export const command = "serve";
@@ -12,6 +13,7 @@ interface IArgs extends IGlobalArgs {
     hostname: string;
     port: number;
     allowed_origins: string[];
+    browser: boolean;
 }
 
 export function builder(yargs: Argv<IArgs>) {
@@ -42,10 +44,16 @@ export function builder(yargs: Argv<IArgs>) {
             example: "--allowed_origins http://example.org http://example.com http://example.org:4242",
             requiresArg: true,
         })
+        .option("browser", {
+            default: true,
+            type: "boolean",
+            describe: "Whether to open a browser window. Use --no-browser to " +
+            "disable.",
+        })
         .strict();
 }
 
-export async function handler({ port, hostname, allowed_origins, loglevel }: Arguments<IArgs>) {
+export async function handler({ port, hostname, allowed_origins, loglevel, browser }: Arguments<IArgs>) {
     overrideSetting("loglevel", loglevel);
     overrideSetting("hostname", hostname);
     overrideSetting("port", "" + port);
@@ -60,5 +68,9 @@ export async function handler({ port, hostname, allowed_origins, loglevel }: Arg
         throw new Error("Port must be an integer between 1 and 65535, inclusive.");
     }
     console.log("Launching server at " + hostname + ":" + port + "...");
-    return start();
+    return start(() => {
+        if (!browser) return; // user disabled the auto open explicitly
+        const url = `http://${hostname}:${port}`;
+        open(url);
+    });
 }
