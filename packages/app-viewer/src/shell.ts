@@ -12,6 +12,8 @@ export class ViewerShell extends Widget implements JupyterFrontEnd.IShell {
     constructor() {
         super();
 
+        this.addClass("m-ViewerShell");
+
         this.toolbar = new StatusToolbar({
             showOverlay: false
         });
@@ -29,6 +31,7 @@ export class ViewerShell extends Widget implements JupyterFrontEnd.IShell {
         wrapperWidget.addClass("m-OutputPanel-Wrapper");
 
         BoxLayout.setStretch(wrapperWidget, 1);
+        this.layout.addWidget(wrapperWidget);
     }
 
     activateById(id: string): void {
