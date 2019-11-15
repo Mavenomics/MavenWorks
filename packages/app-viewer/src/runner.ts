@@ -1,16 +1,18 @@
 import { Widget, Panel, BoxLayout } from "@phosphor/widgets";
-import { nbformat } from "@jupyterlab/coreutils";
+import { nbformat, PathExt } from "@jupyterlab/coreutils";
 import { Contents, Session, Kernel } from "@jupyterlab/services";
 import { DashboardSerializer } from "@mavenomics/dashboard";
 import { IUrlManager } from "@mavenomics/apputils";
-import { RenderedDashboard } from "@mavenomics/jupyterutils";
+import { RenderedDashboard, DisplayHandleManager, SyncMetadata, registerUDPs } from "@mavenomics/jupyterutils";
 import { INotebookModel, Notebook, NotebookModelFactory } from "@jupyterlab/notebook";
 import { DocumentRegistry } from "@jupyterlab/docregistry";
 import { UUID } from "@phosphor/coreutils";
 import { Cell, CodeCell, CodeCellModel } from "@jupyterlab/cells";
 import { IRenderMimeRegistry } from "@jupyterlab/rendermime";
 import { JupyterFrontEndPlugin } from "@jupyterlab/application";
+import { ClientSession } from "@jupyterlab/apputils";
 import { CodeMirrorMimeTypeService } from "@jupyterlab/codemirror";
+import { IPartFactory } from "@mavenomics/parts";
 
 export class NotebookRunner extends Widget {
     public readonly layout: BoxLayout = new BoxLayout();
@@ -19,6 +21,7 @@ export class NotebookRunner extends Widget {
     private urlManager: IUrlManager;
     private docRegistry: DocumentRegistry;
     private rendermime: IRenderMimeRegistry;
+    private factory: IPartFactory;
     private notebookModel?: INotebookModel;
 
     constructor({
@@ -26,7 +29,8 @@ export class NotebookRunner extends Widget {
         contents,
         urlManager,
         docRegistry,
-        rendermime
+        rendermime,
+        factory
     }: NotebookRunner.IOptions) {
         super();
         this.session = session;
@@ -34,6 +38,8 @@ export class NotebookRunner extends Widget {
         this.urlManager = urlManager;
         this.docRegistry = docRegistry;
         this.rendermime = rendermime;
+        this.factory = factory;
+        this.addClass("m-NotebookRunner");
     }
 
     public async loadFromUrl() {
@@ -156,19 +162,41 @@ export class NotebookRunner extends Widget {
 
         // HACK;
         let path = decodeURIComponent(this.urlManager.path.replace("/view", ""));
-        const nbKernel = this.notebookModel.metadata.get("kernelspec") as Partial<Kernel.IModel> | undefined;
-        const kernelName = nbKernel ? (nbKernel.name) : this.notebookModel.defaultKernelName;
-        const session = await this.session.startNew({
-            path: path + "/viewer-" + UUID.uuid4(),
-            kernelName
+        const session = new ClientSession({
+            manager: this.session,
+            kernelPreference: { ...this.notebookModel.metadata.get("kernelspec") as Partial<Kernel.IModel> },
+            path: path + "/viewer-" + UUID.uuid4()
         });
+
+        await session.initialize();
 
         performance.mark("sessionInitialized");
         performance.measure("Initializing Session", "beginExecute", "sessionInitialized");
         const res = session.kernel;
-        res.ready.then(() => {
+        await res!.ready.then(() => {
             performance.mark("kernelReady");
             performance.measure("Kernel Initializing", "sessionInitialized", "kernelReady");
+            const factory = this.factory.root;
+            const handleManager = DisplayHandleManager.GetManager(session);
+            const syncMetadata = new SyncMetadata(session, factory, handleManager);
+            const registerUDPsPromise = registerUDPs(factory, PathExt.dirname(session.path));
+            const ready = Promise.all([
+                syncMetadata.ready,
+                registerUDPsPromise
+            ]).then(i => void 0);
+            this.rendermime.addFactory({
+                safe: false,
+                mimeTypes: [DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE],
+                defaultRank: 75,
+                createRenderer: () => {
+                    return new RenderedDashboard({
+                        factory,
+                        rendermime: this.rendermime,
+                        session: session,
+                        ready
+                    });
+                },
+            });
         });
         // res.getSpec()
         //     .then(spec => this.toolbar.setKernelLanguage(spec.display_name));
@@ -211,6 +239,7 @@ export class NotebookRunner extends Widget {
                 // }
                 // // first child is a spacer, second is the output we want
                 // this.layout.addWidget(outputItem.widgets[1]);
+                console.log("Output", currentCell);
                 this.layout.addWidget(outputItem);
             }
         }
@@ -226,6 +255,7 @@ export namespace NotebookRunner {
         urlManager: IUrlManager;
         docRegistry: DocumentRegistry;
         rendermime: IRenderMimeRegistry;
+        factory: IPartFactory;
     }
 }
 
@@ -234,12 +264,14 @@ const plugin: JupyterFrontEndPlugin<void> = {
     requires: [
         IRenderMimeRegistry,
         IUrlManager,
+        IPartFactory,
     ],
     autoStart: true,
     activate: (
         app,
         rendermime: IRenderMimeRegistry,
-        urlManager: IUrlManager
+        urlManager: IUrlManager,
+        factory: IPartFactory,
     ) => {
         const runner = new NotebookRunner({
             session: app.serviceManager.sessions,
@@ -247,9 +279,11 @@ const plugin: JupyterFrontEndPlugin<void> = {
             docRegistry: app.docRegistry,
             rendermime,
             urlManager,
+            factory,
         });
         app.shell.add(runner);
         console.log("runner", runner);
+        app.started.then(() => runner.loadFromUrl());
     }
 };
 export default plugin;
