@@ -193,7 +193,8 @@ export class NotebookRunner extends Widget {
                         factory,
                         rendermime: this.rendermime,
                         session: session,
-                        ready
+                        ready,
+                        expandToFill: true,
                     });
                 },
             });
@@ -233,13 +234,10 @@ export class NotebookRunner extends Widget {
                 // again, so this is safe (even though it normally wouldn't
                 // be).
                 const outputItem: Panel = currentCell.outputArea.widgets[0] as Panel;
-                // if (outputItem == null || outputItem.widgets.length < 2) {
-                //     continue; // this cell was marked as an output cell,
-                //     // but didn't have anything to display.
-                // }
-                // // first child is a spacer, second is the output we want
-                // this.layout.addWidget(outputItem.widgets[1]);
-                console.log("Output", currentCell);
+                if (outputItem == null) {
+                    continue; // this cell was marked as an output cell,
+                    // but didn't have anything to display.
+                }
                 this.layout.addWidget(outputItem);
             }
         }
@@ -282,7 +280,6 @@ const plugin: JupyterFrontEndPlugin<void> = {
             factory,
         });
         app.shell.add(runner);
-        console.log("runner", runner);
         app.started.then(() => runner.loadFromUrl());
     }
 };
