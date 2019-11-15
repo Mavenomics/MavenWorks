@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-    entry: "./client/index.js",
+    entry: "./lib/index.js",
     mode: process.env.NODE_ENV || "development",
     output: {
         path: path.resolve(__dirname, "..", "..", "mavenworks", "server", "static"),

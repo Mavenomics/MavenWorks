@@ -1,5 +1,4 @@
 import { Widget } from "@phosphor/widgets";
-import { IClientSession } from "@jupyterlab/apputils";
 
 export const enum KernelStatus {
     Idle,
@@ -8,13 +7,11 @@ export const enum KernelStatus {
 }
 
 export class StatusToolbar extends Widget {
-    private readonly opts: StatusToolbarOptions;
     private readonly kernelStatus: HTMLElement;
     private readonly overlay: HTMLElement | undefined;
 
-    constructor(options: StatusToolbarOptions) {
+    constructor(options: StatusToolbar.Options) {
         super();
-        this.opts = options;
         this.addClass("maven_toolbar");
 
         const title = document.createElement("span");
@@ -69,7 +66,8 @@ export class StatusToolbar extends Widget {
     }
 }
 
-export interface StatusToolbarOptions {
-    clientSession: IClientSession;
-    showOverlay: boolean;
+export namespace StatusToolbar {
+    export interface Options {
+        showOverlay: boolean;
+    }
 }

@@ -1,13 +1,7 @@
 node_modules/
-*.js
-*.d.ts
-!client/plotlywidget.d.ts
-*.d.ts.map
-!webpack.config.js
 
 # client files
-static/*.js
-static/**.js
+lib
 
 # less files
 /styles/light-theme.css
