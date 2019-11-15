@@ -1,3 +1,6 @@
+// Ambiently set the public path. This _must_ be the first import!
+import "./public-path";
+
 import { PageConfig, URLExt } from "@jupyterlab/coreutils";
 import { default as rendermimePlugin } from "@jupyterlab/rendermime-extension";
 import { HoverManager, typeEditorFactoryPlugin, defaultTypeEditors } from "@mavenomics/ui";
