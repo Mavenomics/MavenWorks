@@ -80,8 +80,15 @@ del _json`;
     public readonly dashboard: Dashboard;
     private mimeTypeRegistry: IRenderMimeRegistry;
     private ready: Promise<void>;
+    private expandToFill: boolean;
 
-    constructor({rendermime, session, factory, ready}: RenderedDashboard.IOptions) {
+    constructor({
+        rendermime,
+        session,
+        factory,
+        ready,
+        expandToFill
+    }: RenderedDashboard.IOptions) {
         super();
         this.mimeTypeRegistry = rendermime;
         this.ready = ready;
@@ -102,7 +109,10 @@ del _json`;
             baseUrl: URLExt.join(PageConfig.getBaseUrl(), "/files"),
             baseViewUrl: URLExt.join(PageConfig.getBaseUrl(), "/view")
         });
-        this.node.style.height = `500px`;
+        this.expandToFill = (expandToFill == null) ? false : expandToFill;
+        if (!this.expandToFill) {
+            this.node.style.height = `500px`;
+        }
         evaluator.globals = this.dashboard.globals;
         this.dashboard.OnDirty.subscribe(() => {
             this.saveLayout();
@@ -115,7 +125,9 @@ del _json`;
         await this.ready;
         const temp = model.data[DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE] as unknown;
         const dashboardModel = temp as DashboardSerializer.ISerializedDashboard;
-        this.node.style.height = `${(dashboardModel.dims || {height: 500}).height}px`;
+        if (!this.expandToFill) {
+            this.node.style.height = `${(dashboardModel.dims || {height: 500}).height}px`;
+        }
         this.dashboard.fit();
 
         await this.dashboard.loadFromModel(dashboardModel);
@@ -160,6 +172,10 @@ export namespace RenderedDashboard {
          * Eg, the SyncMetadata comm and UDP registration
          */
         ready: Promise<void>;
+        /** An optional flag to specify whether the renderer should expand to
+         * fill it's space or take on an explicit size (500px by default).
+         */
+        expandToFill?: boolean;
     }
 
     export class ExternalPartRenderer extends Dashboard.DefaultExternalPartRenderer {

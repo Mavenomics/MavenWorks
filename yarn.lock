@@ -395,7 +395,7 @@
   dependencies:
     "@jupyter-widgets/base" "^2.0.2"
 
-"@jupyterlab/application@^1.0.0", "@jupyterlab/application@~1.1.3":
+"@jupyterlab/application@^1.0.0", "@jupyterlab/application@^1.1.3", "@jupyterlab/application@~1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@jupyterlab/application/-/application-1.1.3.tgz#eaf0711649b73cd2bb44f44f3e99a82107ae1957"
   integrity sha512-iGVIX4LrMApEAZrVhxVSS/o3iEn1QBiiXEdpQ7X8NX9aieWf2xGzvwIrNp1GxX6b3kLzkN4SMFLDAaoZDluMbg==
@@ -677,6 +677,15 @@
     "@phosphor/properties" "^1.1.3"
     "@phosphor/signaling" "^1.2.3"
     "@phosphor/widgets" "^1.8.0"
+
+"@jupyterlab/rendermime-extension@~1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@jupyterlab/rendermime-extension/-/rendermime-extension-1.1.3.tgz#50918e51a04cad35b2c2d2f17750d0a28d932337"
+  integrity sha512-mVwajKcY9lyyO3vK066qOEKmncOeV5zH/zON4RQRbe55k6lwQ1roYgGBH8fz3lCjEz8XLhoTT3+wzZpEVbDx/A==
+  dependencies:
+    "@jupyterlab/application" "^1.1.3"
+    "@jupyterlab/docmanager" "^1.1.3"
+    "@jupyterlab/rendermime" "^1.1.3"
 
 "@jupyterlab/rendermime-interfaces@^1.3.0", "@jupyterlab/rendermime-interfaces@^1.4.0", "@jupyterlab/rendermime-interfaces@~1.4.0":
   version "1.4.0"
