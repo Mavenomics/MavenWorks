@@ -5,7 +5,7 @@
 ![MavenWorks screenshot depicting the Volatility3D demo notebook, in /demos/Volatility3d.ipynb](./screenshot.png)
 _<sup>Bond Portfolio demo on MavenWorks Viewer 0.1.0-alpha</sup>_
 
-Try the hosted Standalone version of MavenWorks, starting with an [empty dashboard](https://mavenomics.github.io/MavenWorks/app) or [sample demos](http://mavenworks.com/app/demos/)
+Try the hosted Standalone version of MavenWorks, starting with an [empty dashboard](https://MavenWorks.com/app) or [sample demos](http://mavenworks.com/app/demos/)
 
 Or the JupyterLab version on Binder! [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Mavenomics/MavenWorks/binder?urlpath=lab%2Ftree%2Fdemos%2FStartHere.ipynb)
 
@@ -23,14 +23,14 @@ Or the JupyterLab version on Binder! [![Binder](https://mybinder.org/badge_logo.
  * Optional **JupyterLab** integrations offer shared dashboard construction and embedding in Jupyter notebooks, with bindings that can run client-side or straightforwardly use a notebook's Python kermel.  MavenWorks for JupyterLab also include a simple **viewer** for a better way to share dashboards with end-users.
 
 # Getting Started
-You can read our documentation [here](https://mavenomics.github.io/MavenWorks) on GitHub pages, where We have tutorials,
+You can read our documentation [here](https://mavenworks.com) on GitHub pages, where We have tutorials,
 reference docs, and contributor documentation. Most of the documentation is also accessible in-app using
 the <kbd>F1</kbd> Help key.
 
 MavenWorks is under heavy development so if you have questions or see something you don't like file an issue right here on GitHub or contact support@mavenomics.com .
 
 ## Getting started Standalone
-Here's a hosted [Standalone app](https://mavenomics.github.io/MavenWorks/app/) where you can start building dashboard application from scratch following the tutorials, or  can navigate between pre-built [examples demos](https://mavenomics.github.io/MavenWorks/app/demos/index.html) to help you understand what MavenWorks
+Here's a hosted [Standalone app](https://mavenworks.com/app/) where you can start building dashboard application from scratch following the tutorials, or  can navigate between pre-built [examples demos](https://mavenworks.com/app/demos/index.html) to help you understand what MavenWorks
 can do.
 
 [//]: # (we should also soon outline simple host-your-own and link to CLI documentation) 
@@ -52,7 +52,7 @@ $ jupyter labextension install jupyterlab-mavenworks
 
 Jupyter deployments come with several demo Notebooks and Dashboards, and scripted Part extensions that
 demonstrate parts of the API. Use the [Start Here](./demos/StartHere.ipynb)
-notebook to access these demos, and refer to our [Getting Started](https://mavenomics.github.io/MavenWorks/docs/user/getting-started.md)
+notebook to access these demos, and refer to our [Getting Started](https://mavenworks.com/user/getting-started.html)
 guide or contact support@mavenomics.com for additional help.
 
 
