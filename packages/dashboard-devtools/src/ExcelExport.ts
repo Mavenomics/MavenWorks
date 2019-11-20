@@ -214,8 +214,15 @@ export function ExportToWorkbook(
         }
     }
 
-    for (let row of table.rows)
+    for (let row of table.rows) {
         AddRow(row, sheet, config, formatting, depthColorFunction);
+    }
+
+    // The ExcelJS typings are incomplete, and don't include outlineProperties
+    (sheet.properties as Excel.WorksheetProperties & {outlineProperties: object}).outlineProperties = {
+        summaryBelow: false,
+        summaryRight: false
+    };
 
     return workbook;
 }
