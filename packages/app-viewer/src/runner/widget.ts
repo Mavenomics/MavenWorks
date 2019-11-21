@@ -5,11 +5,13 @@ import { Widget, BoxLayout, Panel } from "@phosphor/widgets";
 import { DocumentRegistry } from "@jupyterlab/docregistry";
 import { Cell, CodeCell } from "@jupyterlab/cells";
 import { KernelError } from "@mavenomics/jupyterutils";
-import { UUID } from "@phosphor/coreutils";
+import { Signal, ISignal } from "@phosphor/signaling";
+import { ApplicationStatus } from "../status";
 
 export class NotebookViewer extends Widget {
     public readonly layout: BoxLayout;
     public readonly rendermime: IRenderMimeRegistry;
+    private readonly _stateChanged = new Signal<this, ApplicationStatus>(this);
     private readonly context: DocumentRegistry.IContext<NotebookModel>;
 
     private readonly notebook: Notebook;
@@ -31,7 +33,13 @@ export class NotebookViewer extends Widget {
         this.layout = new BoxLayout();
     }
 
+    public get stateChanged(): ISignal<this, ApplicationStatus> {
+        return this._stateChanged;
+    }
+
     public async executeNotebook() {
+        await this.context.session.ready;
+        this._stateChanged.emit(ApplicationStatus.Busy);
         const cells = this.notebook.model.cells;
         console.log("Executing", cells.length, "cells");
 
@@ -65,6 +73,7 @@ export class NotebookViewer extends Widget {
         }
         performance.mark("runAllCellsComplete");
         performance.measure("Executing Notebook", "beginExecute", "runAllCellsComplete");
+        this._stateChanged.emit(ApplicationStatus.Idle);
     }
 
     private async executeCell(cell: Cell) {
@@ -72,6 +81,7 @@ export class NotebookViewer extends Widget {
         const res = await CodeCell.execute(cell, this.context.session);
         if (res && res.content.status === "error") {
             // execution failed, bail out and alert
+            this._stateChanged.emit(ApplicationStatus.Error);
             throw await KernelError.Create(
                 res.content.traceback,
                 this.context.session.kernelDisplayName

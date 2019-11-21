@@ -7,6 +7,8 @@ import { IEditorServices } from "@jupyterlab/codeeditor";
 import { NotebookViewer } from "./widget";
 import { Token } from "@phosphor/coreutils";
 import { IViewerWidget } from "../utils/viewerwidget";
+import { IPlugin } from "@phosphor/application";
+import { Viewer } from "../viewer";
 
 type IViewerPanel = IViewerWidget<NotebookViewer, NotebookModel>;
 export type INotebookViewerTracker = IWidgetTracker<IViewerPanel>;
@@ -14,7 +16,7 @@ export const INotebookViewerTracker = new Token<INotebookViewerTracker>(
     "@mavenomics/viewer:notebook-runner-tracker"
 );
 
-const plugin: JupyterFrontEndPlugin<INotebookViewerTracker> = {
+const plugin: IPlugin<Viewer, INotebookViewerTracker> = {
     id: "@mavenomics/viewer:notebook-runner",
     autoStart: true,
     requires: [
@@ -27,7 +29,7 @@ const plugin: JupyterFrontEndPlugin<INotebookViewerTracker> = {
         rendermime: IRenderMimeRegistry,
         editorServices: IEditorServices
     ) => {
-        const { docRegistry } = app;
+        const { docRegistry, shell } = app;
 
         const tracker = new WidgetTracker<IViewerPanel>({namespace: "notebook"});
 
@@ -47,6 +49,15 @@ const plugin: JupyterFrontEndPlugin<INotebookViewerTracker> = {
 
         factory.widgetCreated.connect((_sender, widget) => {
             tracker.add(widget);
+            const content = widget.content,
+                session = widget.context.session;
+            shell.toolbar.setKernelLanguage(session.kernelDisplayName);
+            session.kernelChanged.connect((_) => {
+                shell.toolbar.setKernelLanguage(session.kernelDisplayName);
+            });
+            content.stateChanged.connect(
+                (_, state) => shell.toolbar.setKernelStatus(state)
+            );
         });
 
         return tracker;
