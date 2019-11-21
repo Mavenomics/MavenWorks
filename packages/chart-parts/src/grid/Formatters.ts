@@ -211,7 +211,7 @@ export const RowDetailFormatter = Formatter(function (row: any, cell: number, va
         return ErrorFormatter();
     }
     return '<span class="row-detail row-detail-image"></span>';
-}, true);
+});
 
 export const SparklineLoadingFormatter = function (context: IGridContext) {
     const func = Formatter(function (row: any, cell: number, value: any, columnDef: any, dataContext: any, data: any) {
@@ -236,7 +236,7 @@ export const DashboardLinkFormatter = Formatter(function (row: any, cell: number
     if (typeof value === "string" && value.length > 0)
         return '<span class="dashboard-link-image"></span>';
     return '<span></span>';
-}, true)
+})
 
 
 export const TableHoverFormatter = Formatter(function (row: any, cell: number, value: any, columnDef: any, dataContext: any, data: any) {
@@ -245,4 +245,4 @@ export const TableHoverFormatter = Formatter(function (row: any, cell: number, v
         return ErrorFormatter();
     }
     return `<span class="table-hover table-hover-image">${value.rows.length}</span>`;
-}, true);
+});
