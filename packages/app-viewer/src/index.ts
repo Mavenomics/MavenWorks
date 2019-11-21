@@ -5,7 +5,6 @@ import { PageConfig, URLExt } from "@jupyterlab/coreutils";
 import { HoverManager, typeEditorFactoryPlugin, defaultTypeEditors } from "@mavenomics/ui";
 import { default as appUtils, IUrlManager } from "@mavenomics/apputils";
 import { default as defaultParts } from "@mavenomics/default-parts";
-import { default as pivotPart } from "@mavenomics/chart-parts";
 import { factoryExtPlugin, IPartFactory } from "@mavenomics/parts";
 import { Widget } from "@phosphor/widgets";
 import { Viewer } from "./viewer";
@@ -57,10 +56,9 @@ app.registerPlugin(typeEditorFactoryPlugin);
 app.registerPlugin(defaultTypeEditors);
 app.registerPlugin(factoryExtPlugin);
 app.registerPlugins(defaultParts);
-app.registerPlugin(pivotPart);
 
 // Viewer specific plugins
-app.registerPlugin(runner);
+app.registerPlugins(runner);
 
 app.registerPlugin({
     id: "@mavenomics/viewer:open",
@@ -108,7 +106,7 @@ async function startApp() {
     // target setting- import() gets transformed to a bare require
     // in that case (breaking the benefits of async loading).
     const loadPlotly = () => new Promise<JupyterFrontEndPlugin<unknown>>((resolve, reject) => {
-        (require as any).ensure(["plotlywidget"],
+        (require as any).ensure(["plotlywidget/src/jupyterlab-plugin.js"],
             (require: NodeRequire) => {
                 const plotlywidget = require("plotlywidget/src/jupyterlab-plugin.js");
                 resolve(plotlywidget);
@@ -119,9 +117,27 @@ async function startApp() {
             "plotlywidget"
         );
     });
+    const loadChartparts = () => new Promise<JupyterFrontEndPlugin<unknown>>((resolve, reject) => {
+        (require as any).ensure(["@mavenomics/chart-parts"],
+            (require: NodeRequire) => {
+                const pivotPart = require("@mavenomics/chart-parts");
+                resolve(pivotPart.default);
+            },
+            (err: any) => {
+                reject(err);
+            },
+            "@mavenomics/chart-parts"
+        );
+    });
     const spinny = document.getElementById("loadingSpinny")!;
 
-    app.registerPlugin(await loadPlotly());
+    const [plotly, chartparts] = await Promise.all([
+        loadPlotly(),
+        loadChartparts(),
+    ]);
+
+    app.registerPlugin(plotly);
+    app.registerPlugin(chartparts);
     await app.start();
     spinny.remove();
     app.shell.show();
