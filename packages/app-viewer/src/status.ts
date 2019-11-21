@@ -1,9 +1,10 @@
 import { Widget } from "@phosphor/widgets";
 
-export const enum KernelStatus {
-    Idle,
-    Busy,
-    Error
+export const enum ApplicationStatus {
+    Uninitialized = "uninitialized",
+    Idle = "idle",
+    Busy = "busy",
+    Error = "error"
 }
 
 export class StatusToolbar extends Widget {
@@ -13,6 +14,7 @@ export class StatusToolbar extends Widget {
     constructor(options: StatusToolbar.Options) {
         super();
         this.addClass("maven_toolbar");
+        this.addClass("state_kernel_uninitialized");
 
         const title = document.createElement("span");
         title.innerText = "MavenWorks Dashboard Viewer";
@@ -39,28 +41,32 @@ export class StatusToolbar extends Widget {
         }
     }
 
-    public setKernelStatus(status: KernelStatus) {
+    public setKernelStatus(status: ApplicationStatus) {
         this.removeClass("state_kernel_busy");
         this.removeClass("state_kernel_error");
+        this.removeClass("state_kernel_uninitialized");
         if (this.overlay != null) {
             switch (status) {
-                case KernelStatus.Busy:
+                case ApplicationStatus.Busy:
                     break; // already handled by setKernelLanguage
-                case KernelStatus.Error:
+                case ApplicationStatus.Error:
                     this.overlay.innerText = `Failed to Execute!`;
                     this.overlay.classList.add("m-StatusToolbar-overlay__error");
                     break;
-                case KernelStatus.Idle:
+                case ApplicationStatus.Idle:
                     document.body.removeChild(this.overlay); // the overlay's job is done
             }
         }
         switch (status) {
-            case KernelStatus.Idle:
+            case ApplicationStatus.Idle:
                 return;
-            case KernelStatus.Busy:
+            case ApplicationStatus.Uninitialized:
+                this.addClass("state_kernel_uninitialized");
+                return;
+            case ApplicationStatus.Busy:
                 this.addClass("state_kernel_busy");
                 return;
-            case KernelStatus.Error:
+            case ApplicationStatus.Error:
                 this.addClass("state_kernel_error");
         }
     }
