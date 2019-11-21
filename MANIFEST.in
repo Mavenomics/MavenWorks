@@ -1,6 +1,13 @@
 include README.md
 include screenshot.png
 include mavenworks/server/static/*.js
+include mavenworks/server/static/*.gif
+include mavenworks/server/static/*.png
+include mavenworks/server/static/*.woff
+include mavenworks/server/static/*.woff2
+include mavenworks/server/static/*.ttf
+include mavenworks/server/static/*.eot
+include mavenworks/server/static/*.svg
 include mavenworks/server/static/**/*.js
 include mavenworks/server/static/viewer.html
 include mavenworks/server/static/index.html
