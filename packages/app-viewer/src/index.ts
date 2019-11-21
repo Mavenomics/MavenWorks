@@ -5,6 +5,7 @@ import { PageConfig, URLExt } from "@jupyterlab/coreutils";
 import { HoverManager, typeEditorFactoryPlugin, defaultTypeEditors } from "@mavenomics/ui";
 import { default as appUtils, IUrlManager } from "@mavenomics/apputils";
 import { default as defaultParts } from "@mavenomics/default-parts";
+import { default as chartParts } from "@mavenomics/chart-parts";
 import { factoryExtPlugin, IPartFactory } from "@mavenomics/parts";
 import { Widget } from "@phosphor/widgets";
 import { Viewer } from "./viewer";
@@ -56,6 +57,7 @@ app.registerPlugin(typeEditorFactoryPlugin);
 app.registerPlugin(defaultTypeEditors);
 app.registerPlugin(factoryExtPlugin);
 app.registerPlugins(defaultParts);
+app.registerPlugin(chartParts);
 
 // Viewer specific plugins
 app.registerPlugins(runner);
@@ -117,27 +119,13 @@ async function startApp() {
             "plotlywidget"
         );
     });
-    const loadChartparts = () => new Promise<JupyterFrontEndPlugin<unknown>>((resolve, reject) => {
-        (require as any).ensure(["@mavenomics/chart-parts"],
-            (require: NodeRequire) => {
-                const pivotPart = require("@mavenomics/chart-parts");
-                resolve(pivotPart.default);
-            },
-            (err: any) => {
-                reject(err);
-            },
-            "@mavenomics/chart-parts"
-        );
-    });
     const spinny = document.getElementById("loadingSpinny")!;
 
-    const [plotly, chartparts] = await Promise.all([
-        loadPlotly(),
-        loadChartparts(),
+    const [plotly] = await Promise.all([
+        loadPlotly()
     ]);
 
     app.registerPlugin(plotly);
-    app.registerPlugin(chartparts);
     await app.start();
     spinny.remove();
     app.shell.show();

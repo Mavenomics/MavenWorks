@@ -30,7 +30,7 @@ const config = {
             }
         ],
     },
-    externals: /^((\@(mavenomics|jupyterlab|phosphor))|react)/,
+    externals: /^((\@(mavenomics|jupyterlab|phosphor))|react|lodash$)/,
     plugins: [
         new PerspectivePlugin(),
         new ProvidePlugin({
