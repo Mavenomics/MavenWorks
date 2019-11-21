@@ -79,7 +79,6 @@ app.registerPlugin({
     ) => {
         async function openViewer() {
             await app.started;
-            console.log("test", docManager);
             // HACK
             const path = decodeURIComponent(urlManager.path.replace("/view", ""));
             const res = docManager.open(path) as IViewerWidget<NotebookViewer, NotebookModel>;
@@ -87,15 +86,11 @@ app.registerPlugin({
                 throw Error("Failed to start notebook!");
             }
 
-            console.log("result", res);
-
             await res.context.session.ready;
 
             await registerDashboard(res, partFactory);
 
             await res.content.executeNotebook();
-
-            console.log("Executed notebook");
         }
         openViewer();
     }
@@ -129,7 +124,6 @@ async function startApp() {
     await app.start();
     spinny.remove();
     app.shell.show();
-    console.log("Booted", app);
 }
 
 startApp();
