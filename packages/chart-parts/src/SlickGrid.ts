@@ -215,6 +215,28 @@ class GridContext implements IGridContext {
         });
     }
 
+    // TODO: Remove
+    public OpenPopup(
+        html: string,
+        clientX: number,
+        clientY: number,
+        width: number,
+        height: number
+    ) {
+        const hover = new Widget();
+        hover.node.innerHTML = html;
+        this.services.hover.openHover({
+            height,
+            width,
+            hover,
+            owner: this.owner,
+            mode: "dialog",
+            offsetMode: "absolute",
+            x: clientX,
+            y: clientY
+        });
+    }
+
     public OpenTableHover(
         table: Table,
         formatting: string,

@@ -187,17 +187,25 @@ export function formatColumns(mavenColumnArray: any[], webMavenHost: IGridContex
                 c.formatters.push(Formatters.NumberFormatter);
         }
 
-        if (fo("General.DisplayStyle") === "SparkLine") {
-            c.asyncPostRender = Renderers.Sparkline;
-            c.rerenderOnResize = true;
-            c.sortable = false;
-            c.formatters = [Formatters.SparklineLoadingFormatter(webMavenHost)];
-        }
-
-        if (fo("General.DisplayStyle") === "DashboardLink") {
-            c.asyncPostRender = Renderers.DashboardLink;
-            c.sortable = false;
-            c.formatters = [Formatters.DashboardLinkFormatter];
+        switch (fo("General.DisplayStyle")) {
+            case "SparkLine":
+                c.asyncPostRender = Renderers.Sparkline;
+                c.rerenderOnResize = true;
+                c.sortable = false;
+                c.formatters = [Formatters.SparklineLoadingFormatter(webMavenHost)];
+                break;
+            case "DashboardLink":
+                c.asyncPostRender = Renderers.DashboardLink;
+                c.sortable = false;
+                c.formatters = [Formatters.DashboardLinkFormatter];
+                break;
+            case "IFrameLink":
+                c.asyncPostRender = Renderers.IFrameLink;
+                c.sortable = false;
+                c.formatters = [Formatters.IFrameHoverFormatter];
+                break;
+            default:
+                break;
         }
 
         if (fo("General.NullRule") !== "Hide") {

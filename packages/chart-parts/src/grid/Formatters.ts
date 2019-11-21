@@ -238,11 +238,19 @@ export const DashboardLinkFormatter = Formatter(function (row: any, cell: number
     return '<span></span>';
 })
 
-
 export const TableHoverFormatter = Formatter(function (row: any, cell: number, value: any, columnDef: any, dataContext: any, data: any) {
     // Row detail logic is handled in the function bindRowDetailCell()
     if (value instanceof Error) {
         return ErrorFormatter();
     }
     return `<span class="table-hover table-hover-image">${value.rows.length}</span>`;
+});
+
+export const IFrameHoverFormatter = Formatter((_row: any, _cell: number, value: any) => {
+    if (value instanceof Error) {
+        return ErrorFormatter();
+    }
+    if (typeof value === "string" && value.length > 0)
+        return `<span class="fa fa-chain" data-link="${value}"></span>`;
+    return '<span></span>';
 });

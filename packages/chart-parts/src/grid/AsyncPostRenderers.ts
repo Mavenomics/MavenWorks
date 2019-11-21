@@ -6,7 +6,8 @@ import {
     RowDetailTooltip,
     SparklineTooltip,
     DashboardLinkTooltip,
-    SparklineRenderer
+    SparklineRenderer,
+    IFrameHover
 } from "./tooltips";
 import { IGridContext } from "./interfaces";
 import { MqlResultTable } from "@mavenomics/table";
@@ -27,6 +28,10 @@ export function AsyncPostRenderers(context: IGridContext, resultTable: MqlResult
 
         DashboardLink: function (cellNode: JQuery, row: any, dataContext: any, colDef: any) {
             DashboardLinkTooltip(cellNode, {}, context.grid.getColumns(), colDef, resultTable.Result.Rows[dataContext.rowNumber], context);
-        }
+        },
+
+        IFrameLink: (cellNode: JQuery, row: any, dataContext: any, colDef: any) => {
+            IFrameHover(cellNode, {}, context.grid.getColumns(), colDef, resultTable.Result.Rows[dataContext.rowNumber], context);
+        },
     }
 };

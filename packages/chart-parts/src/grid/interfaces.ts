@@ -32,6 +32,14 @@ export interface IGridContext {
         height: number
     ): void;
 
+    OpenPopup(
+        html: string,
+        clientX: number,
+        clientY: number,
+        width: number,
+        height: number
+    ): void;
+
     OpenTableHover(
         table: any,
         formatting: string,

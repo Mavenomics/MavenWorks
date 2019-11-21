@@ -284,7 +284,8 @@ const columnFormattingMetadata = {
                                                                 "Quantity",
                                                                 "ProgressBar",
                                                                 "Sparkline",
-                                                                "DashboardLink"
+                                                                "DashboardLink",
+                                                                "IFrameLink",
                                                             ]
                                                         }
                                                     },
