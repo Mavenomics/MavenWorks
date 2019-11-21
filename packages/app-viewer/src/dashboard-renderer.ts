@@ -1,48 +1,39 @@
-import { INotebookViewerTracker } from "./runner/plugin";
 import { IPartFactory } from "@mavenomics/parts";
-import { JupyterFrontEndPlugin } from "@jupyterlab/application";
 import { DisplayHandleManager, SyncMetadata, registerUDPs, RenderedDashboard } from "@mavenomics/jupyterutils";
 import { DashboardSerializer } from "@mavenomics/dashboard";
+import { IViewerWidget } from "./utils/viewerwidget";
+import { Widget } from "@phosphor/widgets";
+import { DocumentRegistry } from "@jupyterlab/docregistry";
+import { IRenderMimeRegistry } from "@jupyterlab/rendermime";
 
-const dashboardRendererPlugin: JupyterFrontEndPlugin<void> = {
-    id: "@mavenomics/viewer:dashboard-renderer",
-    autoStart: true,
-    requires: [
-        INotebookViewerTracker,
-        IPartFactory
-    ],
-    activate: (
-        app,
-        nbTracker: INotebookViewerTracker,
-        partFactory: IPartFactory
-    ) => {
-        nbTracker.widgetAdded.connect((_, panel) => {
-            const { context, content } = panel;
-            const { session } = context;
-            const { rendermime } = content;
-            const partFactoryInst = partFactory.get(context);
-            const handleManager = DisplayHandleManager.GetManager(session);
-            const syncMetadata = new SyncMetadata(session, partFactoryInst, handleManager);
-            const registerUDPsPromise = registerUDPs(partFactoryInst, session.path);
-            const ready = Promise.all([
-                syncMetadata.ready,
-                registerUDPsPromise
-            ]).then(() => void 0 as void);
-            rendermime.addFactory({
-                safe: false,
-                mimeTypes: [DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE],
-                defaultRank: 75,
-                createRenderer: () => {
-                    return new RenderedDashboard({
-                        factory: partFactoryInst,
-                        rendermime,
-                        session,
-                        ready,
-                        expandToFill: true,
-                    });
-                },
+export async function registerDashboard(
+    widget: IViewerWidget<Widget & {rendermime: IRenderMimeRegistry}, DocumentRegistry.IModel>,
+    partFactory: IPartFactory
+) {
+    const { context, content } = widget;
+    const { session, ready } = context;
+    const { rendermime } = content;
+    const partFactoryInst = partFactory.get(context);
+    const handleManager = DisplayHandleManager.GetManager(session);
+    const syncMetadata = new SyncMetadata(session, partFactoryInst, handleManager);
+    const registerUDPsPromise = registerUDPs(partFactoryInst, session.path);
+    rendermime.addFactory({
+        safe: false,
+        mimeTypes: [DashboardSerializer.MAVEN_LAYOUT_MIME_TYPE],
+        defaultRank: 75,
+        createRenderer: () => {
+            return new RenderedDashboard({
+                factory: partFactoryInst,
+                rendermime,
+                session,
+                expandToFill: true,
+                ready: Promise.resolve()
             });
-        });
-    }
-};
-export default dashboardRendererPlugin;
+        },
+    });
+    await Promise.all([
+        ready,
+        syncMetadata.ready,
+        registerUDPsPromise
+    ]);
+}

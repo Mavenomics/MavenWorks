@@ -3,14 +3,17 @@
  */
 
 import { default as docmanager } from "./docmanager";
+import { default as ipywidgets } from "./ipywidgets";
 import { default as rendermimePlugin } from "@jupyterlab/rendermime-extension";
 import { default as codemirrorPlugin } from "@jupyterlab/codemirror-extension";
 import { JupyterFrontEndPlugin } from "@jupyterlab/application";
 
-const plugins = [
+const plugins: JupyterFrontEndPlugin<unknown>[] = [
     rendermimePlugin,
-    codemirrorPlugin,
-    docmanager
-] as JupyterFrontEndPlugin<unknown>[];
+    // We only want the services plugin
+    codemirrorPlugin.find(i => i.id === "@jupyterlab/codemirror-extension:services")!,
+    docmanager,
+    ipywidgets,
+];
 
 export default plugins;

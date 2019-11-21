@@ -6,7 +6,7 @@ import { HoverManager, typeEditorFactoryPlugin, defaultTypeEditors } from "@mave
 import { default as appUtils, IUrlManager } from "@mavenomics/apputils";
 import { default as defaultParts } from "@mavenomics/default-parts";
 import { default as pivotPart } from "@mavenomics/chart-parts";
-import { factoryExtPlugin } from "@mavenomics/parts";
+import { factoryExtPlugin, IPartFactory } from "@mavenomics/parts";
 import { Widget } from "@phosphor/widgets";
 import { Viewer } from "./viewer";
 import { ViewerShell } from "./shell";
@@ -18,8 +18,11 @@ import "../styles/index.css";
 // TODO: Move to a more appropriate spot
 import "@mavenomics/table";
 import { IDocumentManager } from "@jupyterlab/docmanager";
-import dashboardRendererPlugin from "./dashboard-renderer";
+import { registerDashboard } from "./dashboard-renderer";
 import { NotebookViewer } from "./runner/widget";
+import { JupyterFrontEndPlugin } from "@jupyterlab/application";
+import { IViewerWidget } from "./utils/viewerwidget";
+import { NotebookModel } from "@jupyterlab/notebook";
 
 
 // IIFE to correct URLs to sharable forms
@@ -58,38 +61,71 @@ app.registerPlugin(pivotPart);
 
 // Viewer specific plugins
 app.registerPlugin(runner);
-app.registerPlugin(dashboardRendererPlugin);
 
 app.registerPlugin({
     id: "@mavenomics/viewer:open",
-    requires: [IDocumentManager, IUrlManager, INotebookViewerTracker],
+    requires: [
+        IDocumentManager,
+        IUrlManager,
+        IPartFactory,
+        INotebookViewerTracker
+    ],
     autoStart: true,
     activate: (
         app,
         docManager: IDocumentManager,
         urlManager: IUrlManager,
-        notebookTracker: INotebookViewerTracker,
+        partFactory: IPartFactory,
     ) => {
-        console.log("test", docManager);
-        // HACK
-        const path = decodeURIComponent(urlManager.path.replace("/view", ""));
-        const res = docManager.open(path);
-        if (!res) {
-            throw Error("Failed to start notebook!");
+        async function openViewer() {
+            await app.started;
+            console.log("test", docManager);
+            // HACK
+            const path = decodeURIComponent(urlManager.path.replace("/view", ""));
+            const res = docManager.open(path) as IViewerWidget<NotebookViewer, NotebookModel>;
+            if (!res) {
+                throw Error("Failed to start notebook!");
+            }
+
+            console.log("result", res);
+
+            await res.context.session.ready;
+
+            await registerDashboard(res, partFactory);
+
+            await res.content.executeNotebook();
+
+            console.log("Executed notebook");
         }
-        res.context.ready.then(() => {
-            (res.content as NotebookViewer).executeNotebook();
-        });
-        console.log("result", res);
+        openViewer();
     }
 });
 
 Widget.attach(HoverManager.GetManager(), document.body);
 
-const spinny = document.getElementById("loadingSpinny")!;
+async function startApp() {
+    // Remember that we can't use await import() due to TS's
+    // target setting- import() gets transformed to a bare require
+    // in that case (breaking the benefits of async loading).
+    const loadPlotly = () => new Promise<JupyterFrontEndPlugin<unknown>>((resolve, reject) => {
+        (require as any).ensure(["plotlywidget"],
+            (require: NodeRequire) => {
+                const plotlywidget = require("plotlywidget/src/jupyterlab-plugin.js");
+                resolve(plotlywidget);
+            },
+            (err: any) => {
+                reject(err);
+            },
+            "plotlywidget"
+        );
+    });
+    const spinny = document.getElementById("loadingSpinny")!;
 
-app.start().then(() => {
+    app.registerPlugin(await loadPlotly());
+    await app.start();
+    spinny.remove();
     app.shell.show();
     console.log("Booted", app);
-    spinny.remove();
-});
+}
+
+startApp();
