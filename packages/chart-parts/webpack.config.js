@@ -57,7 +57,7 @@ const config = {
 }
 
 if (process.argv.includes("--analyze")) {
-    config.plugins.push(new BundleAnalyzerPlugin())
+    config.plugins.push(new BundleAnalyzerPlugin({ analyzerPort: "auto" }))
 }
 
 module.exports = config;
