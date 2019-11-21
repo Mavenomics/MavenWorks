@@ -25,6 +25,7 @@ import {
     AsyncTools,
     IterTools,
     Cache,
+    serialize,
 } from "@mavenomics/coreutils";
 import * as moment from "moment";
 import { evaluateRowOptionsFast } from "./functions/helpers";
@@ -1291,6 +1292,52 @@ export class FilterTableFunction extends IFunction {
         });
     }
 
+}
+
+// Note that MavenBase (the C# engine) has `CreateDashboardLink`, which has a
+// slightly different signature and featureset.
+@declareFunction("DashboardLink", 2, Types.String, "A link to embed a dashboard inside a cell")
+@functionArg("row", Types.Row)
+@functionArg("path", Types.String, void 0, "Path to a dashboard to embed")
+@functionArg("width", Types.Number, 400, "The desired width of the dashboard when displayed")
+@functionArg("height", Types.Number, 300, "The desired height of the dashboard when displayed")
+@functionArg("argNames", Types.String, void 0, "Name of parameter to override")
+@functionArg("argValues", Types.Any, void 0, "Value of parameter to override")
+@documentFunction({
+    description: "Return a link to reference a dashboard inside this cell",
+    remarks: `This feature is used by the SlickGrid to power dashboard hovers.
+When a column display style is set to \`DashboardLink\`, SlickGrid will render
+dashboard links as icons. When a user hovers over those icons with their mouse,
+a dashboard hover will appear with the given width and height. Parameter
+overrides will be applied as globals.
+
+If no dashboard was found at \`path\`, then when the hover is created, an error
+will be displayed instead.`,
+})
+export class DashboardLinkFunction extends IFunction {
+    public eval(
+        {path, width, height, argNames, argValues}: { [id: string]: any; },
+        context: IFunctionEvaluatorContext
+    ) {
+        if (!Array.isArray(argNames) || !Array.isArray(argValues)) {
+            throw Error("Argument overrides must be arrays");
+        }
+        if (argNames.length !== argValues.length) {
+            throw new Error(
+                "Too many parameter " +
+                (argNames.length > argValues.length ? "names" : "values") +
+                ": Lengths must match"
+            );
+        }
+        const searchParams = new URLSearchParams({ width, height });
+        for (let i = 0; i < argNames.length; i++) {
+            const arg = argNames[i];
+            const val = argValues[i];
+            const stringVal = JSON.stringify(serialize(val));
+            searchParams.set(arg, stringVal);
+        }
+        return path + "?" + searchParams;
+    }
 }
 
 @declareFunction("Sparkline")
