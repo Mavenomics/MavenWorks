@@ -18,7 +18,6 @@ yarn run test --silent
 
 # run the bundlers for top-level projects
 
-# NB: Disable dev builds for the viewer, for now
 yarn workspace @mavenomics/mql-worker run bundle:ci
-NODE_ENV=development yarn workspace @mavenomics/viewer run bundle:ci
+yarn workspace @mavenomics/viewer run bundle:ci
 yarn workspace @mavenomics/standalone run bundle:ci

@@ -1,12 +1,14 @@
 const path = require("path");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
-module.exports = {
+const config = {
     entry: "./lib/index.js",
     mode: process.env.NODE_ENV || "development",
     output: {
         path: path.resolve(__dirname, "..", "..", "mavenworks", "server", "static"),
         filename: "[name].bundle.js"
     },
+    plugins: [],
     module: {
         rules: [
             {
@@ -36,3 +38,9 @@ module.exports = {
         fs: "empty"
     }
 };
+
+if (process.argv.includes("--analyze")) {
+    config.plugins.push(new BundleAnalyzerPlugin({ analyzerPort: "auto" }))
+}
+
+module.exports = config;
