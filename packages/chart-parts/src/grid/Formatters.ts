@@ -233,7 +233,7 @@ export const DashboardLinkFormatter = Formatter(function (row: any, cell: number
     if (value instanceof Error) {
         return ErrorFormatter();
     }
-    if (typeof value === "string" && value.length > 0)
+    if (value != null)
         return '<span class="dashboard-link-image"></span>';
     return '<span></span>';
 })
