@@ -1312,7 +1312,9 @@ a dashboard hover will appear with the given width and height. Parameter
 overrides will be applied as globals.
 
 If no dashboard was found at \`path\`, then when the hover is created, an error
-will be displayed instead.`,
+will be displayed instead.
+
+\`path\` may be prepended with \`url:\` to load a dashboard from a src:url.`,
 })
 export class DashboardLinkFunction extends IFunction {
     public eval(
@@ -1329,14 +1331,19 @@ export class DashboardLinkFunction extends IFunction {
                 ": Lengths must match"
             );
         }
-        const searchParams = new URLSearchParams({ width, height });
-        for (let i = 0; i < argNames.length; i++) {
-            const arg = argNames[i];
-            const val = argValues[i];
-            const stringVal = JSON.stringify(serialize(val));
-            searchParams.set(arg, stringVal);
-        }
-        return path + "?" + searchParams;
+        const src = ("" + path).startsWith("url:") ? "src:url" : "config";
+        path = path.replace(/^url:/, "");
+        return {
+            type: "DashboardLink",
+            path,
+            src,
+            width,
+            height,
+            overrides: argNames.reduce(
+                (acc, key, i) => acc[key] = argValues[i],
+                {} as Record<string, any>
+            )
+        };
     }
 }
 
