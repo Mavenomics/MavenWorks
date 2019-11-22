@@ -7,8 +7,8 @@ import { IClientSession } from "@jupyterlab/apputils";
 import { DashboardSerializer } from "./DashboardSerializer";
 import { UUID, JSONObject, JSONValue } from "@phosphor/coreutils";
 import { delayWhen, mapTo, bufferTime, filter } from "rxjs/operators";
-import { AsyncTools, Types, Converters, IDirtyable, deserialize } from "@mavenomics/coreutils";
-import { LayoutManager } from "@mavenomics/layout";
+import { AsyncTools, Types, Converters, IDirtyable, deserialize, IterTools } from "@mavenomics/coreutils";
+import { LayoutManager, LayoutSerializer, LayoutTypes } from "@mavenomics/layout";
 import {
     PartFactory,
     PartSerializer,
@@ -98,7 +98,7 @@ export class Dashboard extends Widget implements IDirtyable {
                 factory,
                 rendermime,
                 session
-            })
+            }, this)
         );
         this.partManager = new PartManager({
             session,
@@ -463,16 +463,18 @@ export namespace Dashboard {
     }
 
     export class DefaultDashboardLinker implements PartServices.IDashboardLinker {
+        // Inserting stub types since this introduces a circular type
+        // dependency. This circular dep _only_ exists in typings, and is
+        // removed on compile, but it breaks TS project references
+        public urlManager?: { resolveSrcUrl: (url: string) => string };
+        public configManager?: {
+            getDashboard: (path: string) => Promise<DashboardSerializer.ISerializedDashboard>
+        };
+
         constructor(
             public dashboardOpts: Dashboard.IOptions,
-            // Inserting stub types since this introduces a circular type
-            // dependency. This circular dep _only_ exists in typings, and is
-            // removed on compile, but it breaks TS project references
-            public urlManager?: { resolveSrcUrl: (url: string) => string },
-            public configManager?: {
-                getDashboard: (path: string) => Promise<DashboardSerializer.ISerializedDashboard>
-            }
-        ) {}
+            public dashboard?: Dashboard
+        ) { }
 
         public async makeDashboardLink(cell: unknown) {
             if (!IDashboardLink.isDashboardLink(cell)) throw Error("Not a DashboardLink cell!");
@@ -498,6 +500,19 @@ export namespace Dashboard {
                     const data = await fetch(url);
                     if (!data.ok) throw Error(`Fetch Error: ${data.status} ${data.statusText}`);
                     model = await data.json();
+                    break;
+                case IDashboardLink.DashboardSrc.Embed:
+                    if (this.dashboard == null) {
+                        throw Error("Cannot create Dashboard Link: No reference to Dashboard template");
+                    }
+                    const regionName = path;
+                    for (const region of this.dashboard.layoutManager.root.subtree()) {
+                        if (region.getLayoutProperty("caption") !== regionName) {
+                            continue;
+                        }
+                        model = DashboardSerializer.toJsonFromPartial(this.dashboard, region.id);
+                        break;
+                    }
                     break;
                 default:
                     throw Error("Unsupported source: " + src);

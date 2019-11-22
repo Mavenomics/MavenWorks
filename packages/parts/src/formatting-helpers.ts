@@ -22,6 +22,7 @@ export namespace IDashboardLink {
     export const enum DashboardSrc {
         Config = "config",
         Url = "src:url",
+        Embed = "dashboard"
     }
 
     export function isDashboardLink(t: unknown): t is IDashboardLink {
