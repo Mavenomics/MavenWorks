@@ -1340,7 +1340,10 @@ export class DashboardLinkFunction extends IFunction {
             width,
             height,
             overrides: argNames.reduce(
-                (acc, key, i) => acc[key] = serialize(argValues[i]),
+                (acc, key, i) => {
+                    acc[key] = serialize(argValues[i]);
+                    return acc;
+                },
                 {} as Record<string, any>
             )
         };
