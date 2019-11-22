@@ -1,7 +1,7 @@
 import { MainApp } from "./application";
 import { default as defaultParts } from "@mavenomics/default-parts";
 import { default as pivotPart } from "@mavenomics/chart-parts";
-import { default as appUtils, IUserManager } from "@mavenomics/apputils";
+import { default as appUtils, IUserManager, IConfigManager, IUrlManager } from "@mavenomics/apputils";
 import { default as uiTools, IDashboardTracker } from "@mavenomics/dashboard-devtools";
 import { default as mqlTooling } from "@mavenomics/mql-tooling";
 import helpPlugins, { IHelpDocProvider } from "@mavenomics/help";
@@ -45,6 +45,20 @@ if (useConfig === "true") {
 } else {
     app.started.then(() => app.commands.execute("@mavenomics/standalone:load-from-url"));
 }
+
+app.registerPlugin({
+    id: "@mavenomics/standalone:dashboard-linker",
+    autoStart: true,
+    optional: [IConfigManager, IUrlManager],
+    activate: (
+        app,
+        configManager: IConfigManager,
+        urlManager: IUrlManager,
+    ) => {
+        app.shell.dashboardLinker.urlManager = urlManager;
+        app.shell.dashboardLinker.configManager = configManager;
+    }
+});
 
 // dashboard tracker
 app.registerPlugin({

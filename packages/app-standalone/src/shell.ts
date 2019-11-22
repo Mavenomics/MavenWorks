@@ -12,10 +12,16 @@ const baseUrl = URLExt.join(window.location.origin, window.location.pathname).re
 export class MavenWorksShell extends Widget implements IDirtyable {
     public layout: BoxLayout;
     public factory: PartFactory = new PartFactory();
+    public dashboardLinker = new Dashboard.DefaultDashboardLinker({
+        factory: this.factory,
+        baseUrl,
+        baseViewUrl: baseUrl,
+    });
     public dashboard = new Dashboard({
         factory: this.factory,
+        dashboardLinker: this.dashboardLinker,
         baseUrl: baseUrl,
-        baseViewUrl: baseUrl
+        baseViewUrl: baseUrl,
     });
     public rendermime = new RenderMimeRegistry({
         initialFactories: standardRendererFactories,

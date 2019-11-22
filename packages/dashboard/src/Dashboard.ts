@@ -7,12 +7,19 @@ import { IClientSession } from "@jupyterlab/apputils";
 import { DashboardSerializer } from "./DashboardSerializer";
 import { UUID, JSONObject, JSONValue } from "@phosphor/coreutils";
 import { delayWhen, mapTo, bufferTime, filter } from "rxjs/operators";
-import { AsyncTools, Types, Converters, IDirtyable } from "@mavenomics/coreutils";
+import { AsyncTools, Types, Converters, IDirtyable, deserialize } from "@mavenomics/coreutils";
 import { LayoutManager } from "@mavenomics/layout";
-import { PartFactory, PartSerializer, JavascriptEvalPart, ErrorPart } from "@mavenomics/parts";
+import {
+    PartFactory,
+    PartSerializer,
+    JavascriptEvalPart,
+    ErrorPart,
+    PartServices,
+    IDashboardLink
+} from "@mavenomics/parts";
 import generateWrapper = JavascriptEvalPart.generateWrapper;
 import { GlobalsService, BindingsProvider, IExpressionEvaluator } from "@mavenomics/bindings";
-import { nbformat } from "@jupyterlab/coreutils";
+import { nbformat, PageConfig } from "@jupyterlab/coreutils";
 import { IDisposable } from "@phosphor/disposable";
 import { HoverManager } from "@mavenomics/ui";
 
@@ -40,7 +47,8 @@ export class Dashboard extends Widget implements IDirtyable {
         evaluator,
         baseUrl,
         baseViewUrl,
-        externalPartRenderer
+        externalPartRenderer,
+        dashboardLinker
     }: Dashboard.IOptions) {
         super();
         this.addClass("m-Dashboard");
@@ -79,6 +87,19 @@ export class Dashboard extends Widget implements IDirtyable {
         this.factory = new PartFactory(factory);
         this.globals = new GlobalsService();
         this.bindings = new BindingsProvider(this.globals, evaluator);
+        const dashboardLinkerInst = (
+            dashboardLinker != null
+            ? dashboardLinker
+            : new Dashboard.DefaultDashboardLinker({
+                baseUrl,
+                baseViewUrl,
+                evaluator,
+                externalPartRenderer,
+                factory,
+                rendermime,
+                session
+            })
+        );
         this.partManager = new PartManager({
             session,
             rendermime,
@@ -87,7 +108,8 @@ export class Dashboard extends Widget implements IDirtyable {
             dashboardId: this.uuid,
             bindings: this.bindings,
             baseUrl,
-            baseViewUrl
+            baseViewUrl,
+            dashboardLinker: dashboardLinkerInst
         });
         this.layoutManager = new LayoutManager({
             getPartById: (id: string) => {
@@ -304,6 +326,7 @@ export namespace Dashboard {
         rendermime?: IRenderMimeRegistry;
         externalPartRenderer?: IExternalPartRenderer;
         evaluator?: IExpressionEvaluator;
+        dashboardLinker?: PartServices.IDashboardLinker;
         baseUrl: string;
         baseViewUrl: string;
     }
@@ -437,5 +460,73 @@ export namespace Dashboard {
         public serializePart(id: string) {
             return this.externalData.get(id)!;
         }
+    }
+
+    export class DefaultDashboardLinker implements PartServices.IDashboardLinker {
+        constructor(
+            public dashboardOpts: Dashboard.IOptions,
+            // Inserting stub types since this introduces a circular type
+            // dependency. This circular dep _only_ exists in typings, and is
+            // removed on compile, but it breaks TS project references
+            public urlManager?: { resolveSrcUrl: (url: string) => string },
+            public configManager?: {
+                getDashboard: (path: string) => Promise<DashboardSerializer.ISerializedDashboard>
+            }
+        ) {}
+
+        public async makeDashboardLink(cell: unknown) {
+            if (!IDashboardLink.isDashboardLink(cell)) throw Error("Not a DashboardLink cell!");
+
+            const { name, path, src, width, height, overrides } = cell;
+
+            let model: DashboardSerializer.ISerializedDashboard | null = null;
+
+            switch (src) {
+                case IDashboardLink.DashboardSrc.Config:
+                    if (this.configManager == null) {
+                        throw Error("Cannot create Dashboard Link: No ConfigManager provided to resolve config link");
+                    }
+                    model = await this.configManager.getDashboard(path);
+                    break;
+                case IDashboardLink.DashboardSrc.Url:
+                    let url = new URL(path, PageConfig.getBaseUrl()).href;
+                    if (this.urlManager != null) {
+                        // If the url manager is supplied, use that instead to
+                        // allow better urls (if applicable).
+                        url = this.urlManager.resolveSrcUrl(path);
+                    }
+                    const data = await fetch(url);
+                    if (!data.ok) throw Error(`Fetch Error: ${data.status} ${data.statusText}`);
+                    model = await data.json();
+                    break;
+                default:
+                    throw Error("Unsupported source: " + src);
+            }
+
+            if (model == null) {
+                throw Error("Failed to load model");
+            }
+
+            const globalOverrides: Record<string, any> = {};
+
+            for (const [key, value] of Object.entries(overrides)) {
+                globalOverrides[key] = deserialize(value);
+            }
+
+            const hover: Dashboard = new Dashboard({
+                ...this.dashboardOpts,
+                dashboardLinker: this
+            });
+
+            hover.title.label = name;
+            // leave this to finish asynchronously
+            hover.loadFromModelWithOverrides(
+                model,
+                overrides
+            );
+
+            return { width, height, hover };
+        }
+
     }
 }

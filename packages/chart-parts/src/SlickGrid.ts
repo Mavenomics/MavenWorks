@@ -7,7 +7,6 @@ import { HoverManager } from "@mavenomics/ui";
 import { IColumnFormatting, parseFormatting, serializeFormatting } from "./grid/helpers";
 import { UUID } from "@phosphor/coreutils";
 import { IGridContext } from "./grid/interfaces";
-import { makeDashboardLink } from "./grid/dashboard-links";
 
 export class SlickGridPart extends Part {
     // HACK: to remove
@@ -285,19 +284,12 @@ class GridContext implements IGridContext {
         x: number,
         y: number
     ) {
-        const { baseUrl, baseViewUrl, rendermime, session } = this.services;
-        const { hover, width, height } = await makeDashboardLink(
-            data,
-            {
-                rendermime: rendermime || undefined,
-                session: session || undefined,
-                baseUrl,
-                baseViewUrl,
-                // hack
-                factory: SlickGridPart.deps.factory.root,
-            },
-            SlickGridPart.deps.urlManager,
-            SlickGridPart.deps.configManager,
+        const { dashboardLinker } = this.services;
+        if (dashboardLinker == null) {
+            throw Error("No dashboard linker configured");
+        }
+        const { hover, width, height } = await dashboardLinker.makeDashboardLink(
+            data
         ).catch((err) => {
             const data = err instanceof Error ? err : Error(err);
             const hover = new Widget();
@@ -322,20 +314,12 @@ class GridContext implements IGridContext {
         x: number,
         y: number
     ) {
-        const { baseUrl, baseViewUrl, rendermime, session } = this.services;
-        const { hover, width, height } = await makeDashboardLink(
-            data,
-            {
-                rendermime: rendermime || undefined,
-                session: session || undefined,
-                baseUrl,
-                baseViewUrl,
-                // hack
-                factory: SlickGridPart.deps.factory.root,
-            },
-            SlickGridPart.deps.urlManager,
-            SlickGridPart.deps.configManager,
-        ).catch((err) => {
+        const { dashboardLinker } = this.services;
+        if (dashboardLinker == null) {
+            throw Error("No dashboard linker configured");
+        }
+        const { hover, width, height } = await dashboardLinker.makeDashboardLink(data)
+        .catch((err) => {
             const data = err instanceof Error ? err : Error(err);
             const hover = new Widget();
             hover.node.innerHTML = data.message + "<br /><pre>" + data.stack + "</pre>";
