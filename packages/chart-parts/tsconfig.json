@@ -9,6 +9,7 @@
       "./src/**/*"
     ],
     "references": [
+      { "path": "../apputils" },
       { "path": "../coreutils" },
       { "path": "../parts" },
       { "path": "../table" },

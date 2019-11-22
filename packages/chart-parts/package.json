@@ -37,6 +37,7 @@
     "@finos/perspective-viewer": "0.3.6",
     "@finos/perspective-viewer-d3fc": "0.3.6",
     "@finos/perspective-viewer-hypergrid": "0.3.6",
+    "@mavenomics/apputils": "^0.1.0",
     "@mavenomics/coreutils": "^0.1.0",
     "@mavenomics/parts": "^0.1.0",
     "@mavenomics/table": "^0.1.0",
