@@ -43,7 +43,8 @@ export class PartManager implements IDirtyable, IDisposable {
         dashboardId,
         bindings,
         baseUrl,
-        baseViewUrl
+        baseViewUrl,
+        dashboardLinker,
      }: PartManager.IOptions) {
         this.OnDirty = this.OnDirtySrc$.asObservable();
         this.globals = globals;
@@ -54,7 +55,8 @@ export class PartManager implements IDirtyable, IDisposable {
             rendermime,
             dashboardId,
             baseUrl,
-            baseViewUrl
+            baseViewUrl,
+            dashboardLinker,
         });
         this.globalChangeSubscription = this.globals.OnChange.subscribe(i => {
             if (!this.subscriptions.has(i.name)) {
@@ -681,6 +683,7 @@ export namespace PartManager {
         bindings: BindingsProvider;
         baseUrl: string;
         baseViewUrl: string;
+        dashboardLinker?: PartServices.IDashboardLinker;
     }
 
     // just so that we don't have a bunch of strings in the code

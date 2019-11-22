@@ -1298,6 +1298,7 @@ export class FilterTableFunction extends IFunction {
 // slightly different signature and featureset.
 @declareFunction("DashboardLink", 2, Types.String, "A link to embed a dashboard inside a cell")
 @functionArg("row", Types.Row)
+@functionArg("name", Types.String, void 0, "The label to give to the link")
 @functionArg("path", Types.String, void 0, "Path to a dashboard to embed")
 @functionArg("width", Types.Number, 400, "The desired width of the dashboard when displayed")
 @functionArg("height", Types.Number, 300, "The desired height of the dashboard when displayed")
@@ -1312,11 +1313,13 @@ a dashboard hover will appear with the given width and height. Parameter
 overrides will be applied as globals.
 
 If no dashboard was found at \`path\`, then when the hover is created, an error
-will be displayed instead.`,
+will be displayed instead.
+
+\`path\` may be prepended with \`url:\` to load a dashboard from a src:url.`,
 })
 export class DashboardLinkFunction extends IFunction {
     public eval(
-        {path, width, height, argNames, argValues}: { [id: string]: any; },
+        {name, path, width, height, argNames, argValues}: { [id: string]: any; },
         context: IFunctionEvaluatorContext
     ) {
         if (!Array.isArray(argNames) || !Array.isArray(argValues)) {
@@ -1329,14 +1332,29 @@ export class DashboardLinkFunction extends IFunction {
                 ": Lengths must match"
             );
         }
-        const searchParams = new URLSearchParams({ width, height });
-        for (let i = 0; i < argNames.length; i++) {
-            const arg = argNames[i];
-            const val = argValues[i];
-            const stringVal = JSON.stringify(serialize(val));
-            searchParams.set(arg, stringVal);
+        let src: string;
+        if (/^[a-z]+:/.test("" + path)) {
+            let rest: string[];
+            ([src, ...rest] = ("" + path).split(":"));
+            path = rest.join(":");
+        } else {
+            src = "config";
         }
-        return path + "?" + searchParams;
+        return {
+            type: "DashboardLink",
+            name,
+            path,
+            src,
+            width,
+            height,
+            overrides: argNames.reduce(
+                (acc, key, i) => {
+                    acc[key] = serialize(argValues[i]);
+                    return acc;
+                },
+                {} as Record<string, any>
+            )
+        };
     }
 }
 

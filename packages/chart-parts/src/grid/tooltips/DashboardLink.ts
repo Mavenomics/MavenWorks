@@ -14,19 +14,10 @@ export function DashboardLinkTooltip(
     var dataContext = {};
     if (rowData !== undefined) {
         let data = rowData.RowData[col.columnDataNumber];
-        if (typeof data !== "string" || data.length < 1) {
+        if (data == null) {
             //ignore empty cells
             return;
         }
-
-        const [basepath, search] = data.split("?");
-
-        let searchParams = new URLSearchParams(search)
-        let width = +searchParams.get("width")!;
-        let height = +searchParams.get("height")!;
-        searchParams.delete("width");
-        searchParams.delete("height");
-        let path = "" + basepath + "?" + searchParams;
 
         selector.off("mouseenter");
         selector.off("mouseleave");
@@ -34,7 +25,7 @@ export function DashboardLinkTooltip(
         selector.on({
             mouseenter: function (event) {
                 var bounds = $(selector)[0].getBoundingClientRect() as DOMRect;
-                webMavenHost.OpenDashboardHover(path, bounds.right + 1, bounds.y, width, height);
+                webMavenHost.OpenDashboardHover(data, bounds.right + 1, bounds.y);
             },
 
             mouseleave: function (event) {
@@ -42,7 +33,7 @@ export function DashboardLinkTooltip(
             },
             dblclick: function(event) {
                 var bounds = $(selector)[0].getBoundingClientRect() as DOMRect;
-                webMavenHost.OpenDashboardPopup(path, bounds.right + 1, bounds.y, width, height)
+                webMavenHost.OpenDashboardPopup(data, bounds.right + 1, bounds.y)
             }
         });
     }

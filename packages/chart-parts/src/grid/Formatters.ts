@@ -7,6 +7,7 @@ import * as helpers from "./helpers";
 import { GetSparklineFromCache } from "./tooltips/SparklineRenderer";
 import { IGridContext } from "./interfaces";
 import { Table } from "@mavenomics/table";
+import { IDashboardLink } from "@mavenomics/parts";
 
 // TODO: typings
 function Formatter(formatFunction: any, styleFormatter?: any) {
@@ -233,8 +234,8 @@ export const DashboardLinkFormatter = Formatter(function (row: any, cell: number
     if (value instanceof Error) {
         return ErrorFormatter();
     }
-    if (typeof value === "string" && value.length > 0)
-        return '<span class="dashboard-link-image"></span>';
+    if (IDashboardLink.isDashboardLink(value))
+        return `<span class="dashboard-link-image">${value.name}</span>`;
     return '<span></span>';
 })
 

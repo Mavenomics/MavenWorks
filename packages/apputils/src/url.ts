@@ -74,6 +74,19 @@ export interface IUrlManager {
      * This function will _not_ modify any state.
      */
     makeUrlFromComponents(path: string, query: string): string;
+
+    /**
+     * Resolve the full path of a src:url string
+     *
+     * @param url The value of a src:url parameter
+     * @returns The fully-qualified URL that the src:url parameter points to
+     *
+     * @remarks
+     * Like {@link makeUrlFromComponents}, this is meant for consumption by
+     * tooling that needs to work with URLs (such as Dashboard Links). This
+     * function does not modify state.
+     */
+    resolveSrcUrl(url: string): string;
 }
 
 export class UrlManager implements IDisposable, IUrlManager {
@@ -185,6 +198,10 @@ export class UrlManager implements IDisposable, IUrlManager {
         return URLExt.join(this.baseUrl, path + "?" + query);
     }
 
+    public resolveSrcUrl(url: string) {
+        return (new URL(url, this.baseUrl)).href;
+    }
+
     public handleEvent() {
         const basePath = new URL(this.baseUrl).pathname;
         const path = URLExt.join(window.location.pathname.replace(basePath, "/"));
@@ -210,9 +227,9 @@ export class UrlManager implements IDisposable, IUrlManager {
             switch (key) {
                 case "src:url":
                     if (this._importedDashboardKey !== val) {
-                        const url = new URL(val, this.baseUrl);
-                        this._importedDashboardKey = url.href;
-                        fetch(url.href)
+                        const url = this.resolveSrcUrl(val);
+                        this._importedDashboardKey = url;
+                        fetch(url)
                             .then(i => i.json())
                             .then(i => this._importedDashboard = i)
                             .then(i => this._onDashboardImport.next(i))

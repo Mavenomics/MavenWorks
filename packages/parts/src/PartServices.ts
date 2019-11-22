@@ -2,21 +2,31 @@ import { IDisposable } from "@phosphor/disposable";
 import { HoverManager } from "@mavenomics/ui";
 import { IClientSession } from "@jupyterlab/apputils";
 import { IRenderMimeRegistry } from "@jupyterlab/rendermime";
+import { Widget } from "@phosphor/widgets";
 
 export class PartServices implements IDisposable {
     public isDisposed = false;
     private readonly _hover: HoverManager;
     private readonly _session?: IClientSession;
     private readonly _rendermime?: IRenderMimeRegistry;
+    private readonly _dashboardLinker?: PartServices.IDashboardLinker;
     private readonly _dashboardId: string;
     private readonly _baseUrl: string;
     private readonly _baseViewUrl: string;
 
-    constructor({session, rendermime, dashboardId, baseUrl, baseViewUrl}: PartServices.IOptions) {
+    constructor({
+        session,
+        rendermime,
+        dashboardId,
+        baseUrl,
+        baseViewUrl,
+        dashboardLinker,
+    }: PartServices.IOptions) {
         this._hover = HoverManager.GetManager();
         this._session = session;
         this._rendermime = rendermime;
         this._dashboardId = dashboardId;
+        this._dashboardLinker = dashboardLinker;
         this._baseUrl = baseUrl;
         this._baseViewUrl = baseViewUrl;
     }
@@ -34,6 +44,8 @@ export class PartServices implements IDisposable {
     /** The base URL for referencing dashboards via relative path.
      * baseUrl + '/view' in MavenWorks, baseUrl in standalone app */
     public get baseViewUrl() { return this._baseViewUrl; }
+    /** A helper to render DashboardLinks */
+    public get dashboardLinker() { return this._dashboardLinker; }
 
     public dispose() {
         if (this.isDisposed) {
@@ -47,8 +59,26 @@ export namespace PartServices {
     export interface IOptions {
         session?: IClientSession;
         rendermime?: IRenderMimeRegistry;
+        dashboardLinker?: IDashboardLinker;
         dashboardId: string;
         baseUrl: string;
         baseViewUrl: string;
+    }
+
+    export interface IDashboardLinker {
+        /**
+         * Create a Dashboard Link from a cell.
+         *
+         * @param cell A value to create a dashboard link from.
+         * @returns A promise that resolves to a Dashboard Widget if 'cell' is
+         * a valid dashboard link, or to a error preview otherwise.
+         */
+        makeDashboardLink(cell: unknown): Promise<IDashboardHover>;
+    }
+
+    interface IDashboardHover {
+        hover: Widget;
+        width: number;
+        height: number;
     }
 }

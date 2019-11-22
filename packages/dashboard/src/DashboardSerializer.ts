@@ -1,7 +1,7 @@
 import { Dashboard } from "./Dashboard";
 import { UUID } from "@phosphor/coreutils";
-import { JSONObject, Converters } from "@mavenomics/coreutils";
-import { LayoutSerializer, LayoutTypes } from "@mavenomics/layout";
+import { JSONObject, Converters, IterTools } from "@mavenomics/coreutils";
+import { LayoutSerializer, LayoutTypes, RegionWithChildren, WidgetLayoutRegion } from "@mavenomics/layout";
 import { PartSerializer, JavascriptEvalPart } from "@mavenomics/parts";
 
 export namespace DashboardSerializer {
@@ -41,6 +41,65 @@ export namespace DashboardSerializer {
             globals: globalsModel,
             localParts: dashboard.localParts
         } as ISerializedDashboard;
+    }
+
+    /**
+     * Given a Dashboard and a key to a particular layout region, generate a Dashboard model
+     *
+     * This model will be 'trimmed down' to just reference the parts that exist
+     * in that subtree. All globals and local parts will be copied over
+     * wholesale, without regard for whether or not they're referenced.
+     *
+     * The new model can be used as an independent dashboard, for things like
+     * DashboardLink hovers.
+     *
+     * @export
+     * @param dashboard The dashboard to serialize
+     * @param newRootId A key referencing a "partial" subtree of the dashboard layout
+     * @returns An independent Dashboard model
+     */
+    export function toJsonFromPartial(
+        dashboard: Dashboard,
+        newRootId: string
+    ) {
+        const { layoutManager } = dashboard;
+
+        const region = layoutManager.getRegion(newRootId);
+
+        if (region == null) {
+            throw Error("Failed to create new dashboard from partial: Region not found: " + newRootId);
+        }
+
+        // generate a full model first, then trim it down
+        const model = toJson(dashboard);
+
+        const oldParts = model.parts;
+        const oldMetadata = model.metadata;
+
+        model.parts = {};
+        model.metadata = oldMetadata == null ? void 0 : {};
+        model.layout = LayoutSerializer.toJson(region);
+
+        // force-show the region (since in many cases partials may be hidden
+        // for cleanliness in the dashboard they come out of)
+        model.layout.properties["showRegion"] = true;
+
+        for (const subregion of IterTools.dfs_iter([region], i => (
+            i instanceof RegionWithChildren
+            ? i.widgets
+            : void 0
+        ))) {
+            // skip any non-widgets
+            if (!(subregion instanceof WidgetLayoutRegion)) continue;
+            const guid = subregion.guid;
+            // copy back the part def from the full model, since it's referenced
+            model.parts[guid] = oldParts[guid];
+            if (model.metadata && oldMetadata) {
+                model.metadata[guid] = oldMetadata[guid];
+            }
+        }
+
+        return model;
     }
 
     /**
