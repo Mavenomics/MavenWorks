@@ -1298,6 +1298,7 @@ export class FilterTableFunction extends IFunction {
 // slightly different signature and featureset.
 @declareFunction("DashboardLink", 2, Types.String, "A link to embed a dashboard inside a cell")
 @functionArg("row", Types.Row)
+@functionArg("name", Types.String, void 0, "The label to give to the link")
 @functionArg("path", Types.String, void 0, "Path to a dashboard to embed")
 @functionArg("width", Types.Number, 400, "The desired width of the dashboard when displayed")
 @functionArg("height", Types.Number, 300, "The desired height of the dashboard when displayed")
@@ -1318,7 +1319,7 @@ will be displayed instead.
 })
 export class DashboardLinkFunction extends IFunction {
     public eval(
-        {path, width, height, argNames, argValues}: { [id: string]: any; },
+        {name, path, width, height, argNames, argValues}: { [id: string]: any; },
         context: IFunctionEvaluatorContext
     ) {
         if (!Array.isArray(argNames) || !Array.isArray(argValues)) {
@@ -1335,6 +1336,7 @@ export class DashboardLinkFunction extends IFunction {
         path = path.replace(/^url:/, "");
         return {
             type: "DashboardLink",
+            name,
             path,
             src,
             width,

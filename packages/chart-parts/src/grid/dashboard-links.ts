@@ -10,6 +10,7 @@ export const enum DashboardSrc {
 
 export interface IDashboardLink {
     type: "DashboardLink";
+    name: string;
     path: string;
     src: DashboardSrc;
     width: number;
@@ -34,7 +35,7 @@ export async function makeDashboardLink(
 ): Promise<{hover: Widget, width: number, height: number}> {
     if (!isDashboardLink(cell)) throw Error("Not a DashboardLink cell!");
 
-    const { path, src, width, height, overrides } = cell;
+    const { name, path, src, width, height, overrides } = cell;
 
     let model: DashboardSerializer.ISerializedDashboard | null = null;
 
@@ -70,8 +71,7 @@ export async function makeDashboardLink(
 
     const dashboard = new Dashboard({ ...dashboardOpts });
 
-    dashboard.title.label = path + " Dashboard Link";
-
+    dashboard.title.label = name;
     // leave this to finish asynchronously
     dashboard.loadFromModelWithOverrides(
         model,
