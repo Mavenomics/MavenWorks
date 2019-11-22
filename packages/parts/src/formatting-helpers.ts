@@ -21,7 +21,7 @@ export interface IDashboardLink {
 export namespace IDashboardLink {
     export const enum DashboardSrc {
         Config = "config",
-        Url = "src:url",
+        Url = "url",
         Embed = "dashboard"
     }
 
