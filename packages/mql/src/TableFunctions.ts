@@ -1332,8 +1332,14 @@ export class DashboardLinkFunction extends IFunction {
                 ": Lengths must match"
             );
         }
-        const src = ("" + path).startsWith("url:") ? "src:url" : "config";
-        path = path.replace(/^url:/, "");
+        let src: string;
+        if (/^[a-z]+:/.test("" + path)) {
+            let rest: string[];
+            ([src, ...rest] = ("" + path).split(":"));
+            path = rest.join(":");
+        } else {
+            src = "config";
+        }
         return {
             type: "DashboardLink",
             name,
