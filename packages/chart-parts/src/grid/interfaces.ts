@@ -9,19 +9,15 @@ export interface IGridContext {
     version: string; //Used to determine if the grid has been reloaded.
 
     OpenDashboardHover(
-        url: string,
+        data: unknown,
         x: number,
-        y: number,
-        width?: number,
-        height?: number
+        y: number
     ): void;
 
     OpenDashboardPopup(
-        url: string,
+        data: unknown,
         x: number,
-        y: number,
-        width?: number,
-        height?: number
+        y: number
     ): void;
 
     OpenHover(

@@ -7,8 +7,12 @@ import { HoverManager } from "@mavenomics/ui";
 import { IColumnFormatting, parseFormatting, serializeFormatting } from "./grid/helpers";
 import { UUID } from "@phosphor/coreutils";
 import { IGridContext } from "./grid/interfaces";
+import { makeDashboardLink } from "./grid/dashboard-links";
 
 export class SlickGridPart extends Part {
+    // HACK: to remove
+    public static deps: any = {};
+
     public static GetMetadata() {
         const metadata = super.GetMetadata();
 
@@ -276,14 +280,30 @@ class GridContext implements IGridContext {
     }
 
     // TODO: Remove
-    public OpenDashboardHover(
-        url: string,
+    public async OpenDashboardHover(
+        data: unknown,
         x: number,
-        y: number,
-        width: number = 500,
-        height: number = 400
+        y: number
     ) {
-        const hover = this.CreateHoverWidget(url);
+        const { baseUrl, baseViewUrl, rendermime, session } = this.services;
+        const { hover, width, height } = await makeDashboardLink(
+            data,
+            {
+                rendermime: rendermime || undefined,
+                session: session || undefined,
+                baseUrl,
+                baseViewUrl,
+                // hack
+                factory: SlickGridPart.deps.factory.root,
+            },
+            SlickGridPart.deps.urlManager,
+            SlickGridPart.deps.configManager,
+        ).catch((err) => {
+            const data = err instanceof Error ? err : Error(err);
+            const hover = new Widget();
+            hover.node.innerHTML = data.message + "<br /><pre>" + data.stack + "</pre>";
+            return { hover, width: 500, height: 400 };
+        });
         this.CloseHover();
         this.hoverHandle = this.services.hover.openHover({
             hover,
@@ -297,20 +317,41 @@ class GridContext implements IGridContext {
         });
     }
 
-    public OpenDashboardPopup(
-        url: string,
+    public async OpenDashboardPopup(
+        data: unknown,
         x: number,
-        y: number,
-        width: number = 500,
-        height: number = 400
+        y: number
     ) {
-        const features = [
-            "left=" + x,
-            "top=" + y,
-            "width=" + width,
-            "height=" + height
-        ].join(",");
-        window.open(url, UUID.uuid4(), features);
+        const { baseUrl, baseViewUrl, rendermime, session } = this.services;
+        const { hover, width, height } = await makeDashboardLink(
+            data,
+            {
+                rendermime: rendermime || undefined,
+                session: session || undefined,
+                baseUrl,
+                baseViewUrl,
+                // hack
+                factory: SlickGridPart.deps.factory.root,
+            },
+            SlickGridPart.deps.urlManager,
+            SlickGridPart.deps.configManager,
+        ).catch((err) => {
+            const data = err instanceof Error ? err : Error(err);
+            const hover = new Widget();
+            hover.node.innerHTML = data.message + "<br /><pre>" + data.stack + "</pre>";
+            return { hover, width: 500, height: 400 };
+        });
+        this.CloseHover();
+        this.services.hover.openHover({
+            hover,
+            owner: this.owner,
+            mode: "dialog",
+            width,
+            height,
+            x,
+            y,
+            offsetMode: "absolute"
+        });
     }
 
     public CloseHover() {

@@ -70,6 +70,8 @@ export async function makeDashboardLink(
 
     const dashboard = new Dashboard({ ...dashboardOpts });
 
+    dashboard.title.label = path + " Dashboard Link";
+
     // leave this to finish asynchronously
     dashboard.loadFromModelWithOverrides(
         model,
