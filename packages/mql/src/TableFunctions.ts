@@ -1315,7 +1315,18 @@ overrides will be applied as globals.
 If no dashboard was found at \`path\`, then when the hover is created, an error
 will be displayed instead.
 
-\`path\` may be prepended with \`url:\` to load a dashboard from a src:url.`,
+\`path\` may be prepended with different prefixes to load the dashboard from
+somewhere else:
+
+ - \`url:\` Load a dashboard from a given URL
+ - \`config:\` Load a named dashboard from the config _(default)_
+ - \`dashboard:\` Find a subregion of the current dashboard with the given
+   \`[[caption]]\`, and use that as a template.
+
+The \`dashboard:\` prefix works offline, unlike the other 2. The region name you
+give is case-sensitive, and must exactly match a region caption. If multiple
+regions have that caption, the first one will be selected ('first' as in the
+region that comes first in the Visual Editor tree).`,
 })
 export class DashboardLinkFunction extends IFunction {
     public eval(
