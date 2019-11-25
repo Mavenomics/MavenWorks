@@ -79,7 +79,8 @@ export class FunctionArgument {
         return {
             name: this.name,
             defaultValue: this.defaultValue,
-            typeName: this.type.name
+            typeName: this.type.name,
+            description: this.description
         };
     }
 }
