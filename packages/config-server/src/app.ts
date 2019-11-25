@@ -32,7 +32,9 @@ export async function start(
     const logger = getLogger("Server");
 
     app.use(morgan("combined"));
-    app.use(express.json());
+    app.use(express.json({
+        limit: "8mb"
+    }));
     app.use(express.urlencoded({ extended: true }));
     // TODO: Pull in session secret from random var or config setting?
     app.use(session({secret: "TEST"}));
