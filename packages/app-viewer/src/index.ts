@@ -27,12 +27,12 @@ import { NotebookModel } from "@jupyterlab/notebook";
 
 // IIFE to correct URLs to sharable forms
 (function() {
-    const isHub = PageConfig.getOption("hub_user") !== "";
+    const isHub = PageConfig.getOption("hubUser") !== "";
     if (!isHub) return; // no correction to make
     const oldUrl = window.location.href;
     const redirect = URLExt.join(
-        PageConfig.getOption("hub_host"),
-        PageConfig.getOption("hub_prefix"),
+        PageConfig.getOption("hubHost"),
+        PageConfig.getOption("hubPrefix"),
         "user-redirect"
     );
     const newUrl = oldUrl.replace(
