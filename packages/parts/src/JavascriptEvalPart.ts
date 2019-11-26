@@ -8,6 +8,8 @@ import { Widget } from "@phosphor/widgets";
 import { MessageLoop } from "@phosphor/messaging";
 import { FrameTools, Converters, Types, AsyncTools, JSONObject } from "@mavenomics/coreutils";
 import * as React from "react";
+import { IDashboardLink } from "./formatting-helpers";
+import { PartServices } from "./PartServices";
 
 export namespace JavascriptEvalPart {
     export type IUDPWrapperPart = UDPWrapperPart;
@@ -67,7 +69,12 @@ export namespace JavascriptEvalPart {
             // TODO: This hack can be removed when UDPs are updated to use a
             // more complete part interface. For now though, this'll have to
             // do.
-            this.udpThis!.context = new UDPContext(this.context.hover, this, this.context.baseViewUrl);
+            this.udpThis!.context = new UDPContext(
+                this.context.hover,
+                this,
+                this.context.baseViewUrl,
+                this.context.dashboardLinker
+            );
             await this.udpThis!.initialize();
         }
 
@@ -78,7 +85,12 @@ export namespace JavascriptEvalPart {
             if (this.mustWaitForSetup) {
                 await this.onFrameSetup.promise;
                 this.mustWaitForSetup = false;
-                this.udpThis!.context = new UDPContext(this.context.hover, this, this.context.baseViewUrl);
+                this.udpThis!.context = new UDPContext(
+                    this.context.hover,
+                    this,
+                    this.context.baseViewUrl,
+                    this.context.dashboardLinker
+                );
                 await this.udpThis!.initialize();
             }
             // setup the context get/set to work correctly
@@ -291,7 +303,12 @@ export namespace JavascriptEvalPart {
     class UDPContext {
         private optionsBag: OptionsBag | undefined;
 
-        constructor(private hover: HoverManager, private parent: Part, private baseViewUrl: string) {}
+        constructor(
+            private hover: HoverManager,
+            private parent: Part,
+            private baseViewUrl: string,
+            private linker?: PartServices.IDashboardLinker
+        ) {}
 
         public __setOptionsBag(bag: OptionsBag) {
             this.optionsBag = bag;
@@ -375,6 +392,11 @@ export namespace JavascriptEvalPart {
                 ...options,
                 owner: this.parent
             });
+        }
+
+        public createLink(link: IDashboardLink) {
+            if (!this.linker) return Promise.resolve(null);
+            return this.linker.makeDashboardLink(link);
         }
 
         /** HACK: Expose a way to open the Properties Editor
