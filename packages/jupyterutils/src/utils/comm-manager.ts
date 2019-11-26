@@ -73,6 +73,7 @@ export class CommManager<
         this.session.statusChanged.connect(this.onKernelStatusChanged, this);
         this.session.kernelChanged.connect(this.onKernelChanged, this);
         this.session.iopubMessage.connect(this.onIopubMsg, this);
+        this.session.terminated.connect(this.dispose, this);
     }
 
     public dispose() {

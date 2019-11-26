@@ -31,7 +31,6 @@ export class KernelExpressionEvaluator implements IDisposable, IExpressionEvalua
 
     public dispose() {
         if (this._isDisposed) return;
-        this.comm.dispose();
         delete (this as any).session;
         delete (this as any).globals;
         this._isDisposed = true;
