@@ -39,7 +39,7 @@ import { NotebookModel } from "@jupyterlab/notebook";
         baseUrl,
         ""
     ));
-    PageConfig.setOption("baseUrl", newUrl);
+    PageConfig.setOption("baseUrl", redirect);
     window.history.replaceState(null, "", newUrl);
 })();
 
