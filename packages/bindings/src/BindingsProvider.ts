@@ -29,7 +29,7 @@ export function getCommentLine(
     src = src.trim();
     if (lineComment != null) {
         // check for line comments first
-        const regex = new RegExp(String.raw`^\s*${lineComment}.*`);
+        const regex = new RegExp(String.raw`^\s*${lineComment}(.*)`);
         let res = src.match(regex);
         if (res) {
             return res[1].trim();
