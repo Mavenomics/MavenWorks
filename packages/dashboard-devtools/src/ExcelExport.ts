@@ -1,5 +1,5 @@
 import * as Excel from "exceljs";
-import { Table, TableHelper, Row } from "@mavenomics/table";
+import { Table, Row } from "@mavenomics/table";
 import { Color, IterTools } from "@mavenomics/coreutils";
 import { scaleLinear, ScaleLinear } from "d3-scale";
 
@@ -7,6 +7,8 @@ function ApplyFormatting(
     cell: Excel.Cell,
     format: Record<string, any>
 ) {
+    if (!format)
+        return;
     if (format["Number.FormatString"]) {
         cell.numFmt = format["Number.FormatString"];
     }
@@ -35,7 +37,7 @@ function SerializeCell(
 ) {
     switch (typeof data) {
         case "undefined":
-            if (format["NullRule"] && format["NullRule"] !== "Hide") {
+            if (format && format["NullRule"] && format["NullRule"] !== "Hide") {
                 return "null";
             }
             return "";
@@ -95,6 +97,155 @@ function AddRow(
     }
 }
 
+function AddHeaders(
+    maxColDepth: number,
+    colGroups: string[][],
+    sheet: Excel.Worksheet,
+    config: Partial<IExcelExportConfig>,
+    formatting: { [col: string]: any }
+) {
+    const colDepthColors = [
+        // taken from the SlickGrid stylesheet
+        new Color("orange"),
+        new Color("green"),
+    ];
+
+    if (config.showPath) {
+        // copy the binding to prevent mutating the original
+        colGroups = [...colGroups];
+        colGroups.unshift(["Path"]);
+    }
+
+    const headerData = [];
+    for (let i = 0; i < maxColDepth; i++) {
+        const rowData: (string | null)[] = [];
+        const isLastRow = i === (maxColDepth - 1);
+        for (let r = 0; r < colGroups.length; r++) {
+            const group = colGroups[r];
+            // make sure the last part of the group appears at the bottom
+            if ((group.length - 1) <= i && !isLastRow) {
+                rowData[r] = null;
+            } else if (isLastRow) {
+                rowData[r] = group[group.length - 1];
+            } else {
+                // sparse arrays
+                rowData[r] = group[i];
+            }
+        }
+        headerData.push(rowData);
+        const row = sheet.addRow(rowData);
+        row.height = 16.5;
+        row.font = {
+            italic: true,
+            size: 10,
+            name: "Arial"
+        };
+        row.alignment = {
+            vertical: "bottom"
+        };
+        // Apply the horizontal merges first
+        if (!isLastRow) {
+            let lastParent: string | null = null;
+            let lastParentIdx: number | null = null;
+            function merge(idx: number) {
+                if (idx === lastParentIdx) {
+                    return; // don't merge same-cells
+                }
+                // Add one to i since it's all 1-indexed, and lastParentIdx/idx
+                // are already 1-indexed
+                sheet.mergeCells(1 + i, (lastParentIdx || 1), 1 + i, idx);
+            }
+            row.eachCell({ includeEmpty: true }, (cell, col) => {
+                if (cell.value != null && i < colDepthColors.length) {
+                    cell.fill = {
+                        type: "pattern",
+                        pattern: "solid",
+                        fgColor: { argb: ColorToHex(colDepthColors[i]) }
+                    };
+                    cell.font = {
+                        color: { argb: "FFFFFFFF" },
+                        italic: true,
+                        size: 10,
+                        name: "Arial"
+                    };
+                }
+                if (lastParent == null) {
+                    lastParent = rowData[col - 1];
+                    lastParentIdx = col;
+                    return;
+                }
+                if (lastParent !== rowData[col - 1]) {
+                    merge(col - 1);
+                    lastParent = rowData[col - 1];
+                    lastParentIdx = col;
+                    return;
+                }
+                sheet.getColumn(col).outlineLevel = i + 1;
+            });
+            if (lastParent != null) {
+                // handle the last merge
+                merge(rowData.length);
+            }
+        } else {
+            // Apply the vertical merges, then set the values/styles
+            for (let col = 0; col < rowData.length; col++) {
+                let mergeTo = maxColDepth - 1;
+                for (let rowIdx = maxColDepth - 2; rowIdx >= 0; rowIdx--) {
+                    if (headerData[rowIdx][col] != null) break;
+                    mergeTo = rowIdx;
+                }
+                if (mergeTo < maxColDepth - 1) {
+                    // a merge needs to happen
+                    // add one to everything since it's all 1-indexed
+                    sheet.mergeCells(1 + mergeTo, 1 + col, maxColDepth, 1 + col);
+                }
+                const cell = row.getCell(col + 1);
+                cell.value = rowData[col];
+                let format = formatting[colGroups[col].join(".")];
+                if (!format)
+                    continue;
+
+                // A note on column widths:
+                // Excel doesn't use pixels for widths, instead opting for a font-
+                // and system-dependent approach where widths are specified in terms of
+                // the width of a single integer character in the current font. So, a
+                // column of width 9 is actually 9 * (width of `0` char in px) pixels
+                // wide.
+                // This can be approximated by taking 10 units = 85 pixels, yielding
+                // 1 px = (1/8.5) units. It's not exact, but it's close enough
+                // cf. https://docs.microsoft.com/en-us/office/troubleshoot/excel/determine-column-widths
+
+                if (format["General.ColumnWidthPixels"]) {
+                    sheet.getColumn(i + (config.showPath ? 2 : 1)).width = format["General.ColumnWidthPixels"] / 8.5;
+                }
+
+                if (format["ColumnHeader.ForeColor"]) {
+                    let foreColor = new Color(format["ColumnHeader.ForeColor"] || "white");
+                    cell.font = {
+                        color: { argb: ColorToHex(foreColor) },
+                        italic: true,
+                        size: 10,
+                        name: "Arial"
+                    };
+                }
+                if (format["ColumnHeader.BackColor"]) {
+                    let backColor = new Color(format["ColumnHeader.BackColor"] || "black");
+                    cell.fill = {
+                        type: "pattern",
+                        pattern: "solid",
+                        fgColor: { argb: ColorToHex(backColor) }
+                    };
+                }
+            }
+        }
+    }
+
+    if (config.showPath) {
+        // set path column width
+        sheet.columns[0].width = 40;
+    }
+}
+
 function ColorToHex(color: Color) {
     let hex = color.hex;
     if (hex.startsWith("#"))
@@ -112,11 +263,25 @@ export function ExportToWorkbook(
     config = config || {};
     formatting = formatting || {};
 
-    let maxDepth = 0;
+    let maxRowDepth = 0;
+    let maxColDepth = 0;
+
+    const colGroups: string[][] = [];
+
+    if (config.columnGrouping) {
+        for (const col of table.columnNames) {
+            const groups = col.split(".");
+            colGroups.push(groups);
+            maxColDepth = Math.max(maxColDepth, groups.length);
+        }
+    } else {
+        colGroups.push([...table.columnNames]);
+        maxColDepth = 1;
+    }
 
     for (let irow of IterTools.dfs_iter(table.rows, row => row.children)) {
         if (irow.children.length > 0) continue; // can't be the deepest leaf
-        maxDepth = Math.max(maxDepth, irow.level);
+        maxRowDepth = Math.max(maxRowDepth, irow.level);
     }
 
     let rowDepthColors = {
@@ -126,7 +291,7 @@ export function ExportToWorkbook(
 
     // Create the depth function for coloring rows
     let depthColorFunction = scaleLinear<string, string>()
-        .domain([-1, maxDepth])
+        .domain([-1, maxRowDepth])
         .range([rowDepthColors.from, rowDepthColors.to]);
 
     let workbook = new Excel.Workbook();
@@ -136,83 +301,14 @@ export function ExportToWorkbook(
             {
                 state: "frozen",
                 xSplit: config.showPath ? 1 : 0,
-                ySplit: 1,
-                topLeftCell: config.showPath ? "B2" : "A2"
+                ySplit: maxColDepth,
+                // adjust for the path column _and_ the headers
+                topLeftCell: (config.showPath ? "B" : "A") + (1 + maxColDepth)
             }
         ]
     });
 
-    let matObj = TableHelper.toMatrixObject(TableHelper.flattenTable(table));
-
-    let pathCol = config.showPath ? ["Path"] : [];
-    let columns = pathCol.concat(matObj.Cols);
-    const headers = sheet.addRow(columns);
-
-    headers.height = 16.5;
-    headers.font = {
-        italic: true,
-        size: 10,
-        name: "Arial"
-    };
-    headers.alignment = {
-        vertical: "middle"
-    };
-
-    if (config.showPath) {
-        let pathCell = sheet.getCell(1, 1);
-        pathCell.font = {
-            color: { argb: "FF000000" },
-            italic: true,
-            size: 10,
-            name: "Arial"
-        };
-        sheet.columns[0].width = 40;
-        pathCell.fill = {
-            type: "pattern",
-            pattern: "solid",
-            fgColor: { argb: "FFFFFFFF" }
-        };
-    }
-
-    for (let i = 0; i < matObj.Cols.length; i++) {
-        let colName = matObj.Cols[i];
-        let format = formatting[colName];
-        if (!format)
-            continue;
-
-        // A note on column widths:
-        // Excel doesn't use pixels for widths, instead opting for a font-
-        // and system-dependent approach where widths are specified in terms of
-        // the width of a single integer character in the current font. So, a
-        // column of width 9 is actually 9 * (width of `0` char in px) pixels
-        // wide.
-        // This can be approximated by taking 10 units = 85 pixels, yielding
-        // 1 px = (1/8.5) units. It's not exact, but it's close enough
-        // cf. https://docs.microsoft.com/en-us/office/troubleshoot/excel/determine-column-widths
-
-        if (format["General.ColumnWidthPixels"]) {
-            sheet.getColumn(i + (config.showPath ? 2 : 1)).width = format["General.ColumnWidthPixels"] / 8.5;
-        }
-
-        let cell = sheet.getCell(1, (config.showPath ? 1 : 0) +  i + 1);
-        if (format["ColumnHeader.ForeColor"]) {
-            let foreColor = new Color(format["ColumnHeader.ForeColor"] || "white");
-            cell.font = {
-                color: { argb: ColorToHex(foreColor) },
-                italic: true,
-                size: 10,
-                name: "Arial"
-            };
-        }
-        if (format["ColumnHeader.BackColor"]) {
-            let backColor = new Color(format["ColumnHeader.BackColor"] || "black");
-            cell.fill = {
-                type: "pattern",
-                pattern: "solid",
-                fgColor: { argb: ColorToHex(backColor) }
-            };
-        }
-    }
+    AddHeaders(maxColDepth, colGroups, sheet, config, formatting);
 
     for (let row of table.rows) {
         AddRow(row, sheet, config, formatting, depthColorFunction);
