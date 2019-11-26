@@ -36,7 +36,8 @@ const config = {
     },
     node: {
         fs: "empty"
-    }
+    },
+    devtool: "source-map"
 };
 
 if (process.argv.includes("--analyze")) {

@@ -9,6 +9,8 @@ include mavenworks/server/static/*.ttf
 include mavenworks/server/static/*.eot
 include mavenworks/server/static/*.svg
 include mavenworks/server/static/**/*.js
+include mavenworks/server/static/*.js.map
+include mavenworks/server/static/**/*.js.map
 include mavenworks/server/static/viewer.html
 include mavenworks/server/static/index.html
 include mavenworks/MavenWorksServerConf.json

@@ -7,3 +7,5 @@ static/*.woff2
 static/*.ttf
 static/*.eot
 static/*.svg
+static/*.js.map
+static/**/*.js.map
