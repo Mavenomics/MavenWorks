@@ -24,25 +24,6 @@ import { JupyterFrontEndPlugin } from "@jupyterlab/application";
 import { IViewerWidget } from "./utils/viewerwidget";
 import { NotebookModel } from "@jupyterlab/notebook";
 
-// IIFE to correct URLs to sharable forms
-(function() {
-    const isHub = PageConfig.getOption("hubUser") !== "";
-    if (!isHub) return; // no correction to make
-    const baseUrl = PageConfig.getBaseUrl();
-    const oldUrl = window.location.href;
-    const redirect = URLExt.join(
-        PageConfig.getOption("hubHost"),
-        PageConfig.getOption("hubPrefix"),
-        "user-redirect"
-    );
-    const newUrl = URLExt.join("/", redirect, oldUrl.replace(
-        baseUrl,
-        ""
-    ));
-    PageConfig.setOption("baseUrl", redirect);
-    window.history.replaceState(null, "", newUrl);
-})();
-
 const app = new Viewer({
     shell: new ViewerShell()
 });
