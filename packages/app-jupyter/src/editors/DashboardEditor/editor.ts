@@ -103,6 +103,7 @@ export class DashboardEditor
         // wait until the kernel is ready before rendering the dashboard
         await this.waitUntilKernel();
         if (model.init != null) {
+            this._script = model.init.join("\n");
             await this.executeScript();
         }
         this.content.loadFromModel(model)
