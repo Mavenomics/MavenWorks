@@ -57,15 +57,27 @@ export function formatColumns(mavenColumnArray: any[], webMavenHost: IGridContex
         let splitByDot = e.Name.split(".");
         let columnName = splitByDot[splitByDot.length - 1];
 
-        // TODO: typing
-        let c: any = {
+        // TODO: better column typing
+        let c = {
             id: columnName + idx,
             name: columnName,
             field: "col" + idx,
-            formatters: [],
+            // use a set so that we can ensure that formatters are unique
+            formatters: new Set<(...args: any[]) => (string | void)>(),
             columnNumber: idx,
             columnDataNumber: i,
-            columnGroups: splitByDot.slice(0, splitByDot.length - 1)
+            columnGroups: splitByDot.slice(0, splitByDot.length - 1),
+            width: 0,
+            conditionalFormatters: undefined as undefined | ConditionalFormatting[],
+            // todo: Typing for these props
+            heatmap: undefined as any,
+            progressBar: undefined as any,
+            asyncPostRender: undefined as undefined | Function,
+            sortable: undefined as undefined | boolean,
+            numberFormat: undefined as undefined | string,
+            headerCssClass: "",
+            nullRule: "hide",
+            rerenderOnResize: undefined as undefined | boolean
         };
 
         // get formatting option by string because it got annoying to type
@@ -129,7 +141,7 @@ export function formatColumns(mavenColumnArray: any[], webMavenHost: IGridContex
         }
 
         if (c.conditionalFormatters !== undefined)
-            c.formatters.push(Formatters.ConditionalFormatter);
+            c.formatters.add(Formatters.ConditionalFormatter);
 
         // NOTE: value formatters should go AFTER style formatters
 
@@ -151,7 +163,13 @@ export function formatColumns(mavenColumnArray: any[], webMavenHost: IGridContex
                 .domain([c.heatmap.minValue, c.heatmap.midValue, c.heatmap.maxValue])
                 .range([c.heatmap.minColor, c.heatmap.midColor, c.heatmap.maxColor]);
 
-            c.formatters.push(Formatters.HeatmapColumnFormatter);
+            c.formatters.add(Formatters.HeatmapColumnFormatter);
+        }
+
+        if (fo("Number.FormatString") !== "") {
+            c.numberFormat = fo("Number.FormatString");
+            if (c.formatters)
+                c.formatters.add(Formatters.NumberFormatter);
         }
 
         if (fo("General.DisplayStyle") === "ProgressBar") {
@@ -170,21 +188,21 @@ export function formatColumns(mavenColumnArray: any[], webMavenHost: IGridContex
                 .domain([c.progressBar.minValue, c.progressBar.maxValue])
                 .range([0, 100]);
 
-            c.formatters.push(Formatters.ProgressBarFormatter);
+            c.formatters.add(Formatters.ProgressBarFormatter);
+
+            if (c.progressBar.showValue) {
+                c.formatters.add(Formatters.NumberFormatter);
+            } else {
+                c.formatters.delete(Formatters.NumberFormatter);
+            }
         }
 
         const Renderers = AsyncPostRenderers(webMavenHost, resultTable);
 
         if (fo("Row Detail.Show Row Detail Button")) {
-            c.formatters.push(Formatters.RowDetailFormatter);
+            c.formatters.add(Formatters.RowDetailFormatter);
             c.asyncPostRender = Renderers.RowDetail;
             c.sortable = false;
-        }
-
-        if (fo("Number.FormatString") !== "") {
-            c.numberFormat = fo("Number.FormatString");
-            if (c.formatters)
-                c.formatters.push(Formatters.NumberFormatter);
         }
 
         switch (fo("General.DisplayStyle")) {
@@ -192,17 +210,20 @@ export function formatColumns(mavenColumnArray: any[], webMavenHost: IGridContex
                 c.asyncPostRender = Renderers.Sparkline;
                 c.rerenderOnResize = true;
                 c.sortable = false;
-                c.formatters = [Formatters.SparklineLoadingFormatter(webMavenHost)];
+                c.formatters.clear();
+                c.formatters.add(Formatters.SparklineLoadingFormatter(webMavenHost));
                 break;
             case "DashboardLink":
                 c.asyncPostRender = Renderers.DashboardLink;
                 c.sortable = false;
-                c.formatters = [Formatters.DashboardLinkFormatter];
+                c.formatters.clear();
+                c.formatters.add(Formatters.DashboardLinkFormatter);
                 break;
             case "IFrameLink":
                 c.asyncPostRender = Renderers.IFrameLink;
                 c.sortable = false;
-                c.formatters = [Formatters.IFrameHoverFormatter];
+                c.formatters.clear();
+                c.formatters.add(Formatters.IFrameHoverFormatter);
                 break;
             default:
                 break;
@@ -214,6 +235,9 @@ export function formatColumns(mavenColumnArray: any[], webMavenHost: IGridContex
 
         columnStyles.append(headerCSS.join(";") + ";}");
         c.headerCssClass = "column-header" + idx;
+
+        // SlickGrid expects an array
+        (c.formatters as any) = [...c.formatters]
 
         slickGridFormat.push(c);
     });
