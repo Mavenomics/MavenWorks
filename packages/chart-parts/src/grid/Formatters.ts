@@ -9,10 +9,11 @@ import { IGridContext } from "./interfaces";
 import { Table } from "@mavenomics/table";
 import { IDashboardLink } from "@mavenomics/parts";
 
-// TODO: typings
-function Formatter(formatFunction: any, styleFormatter?: any) {
-    formatFunction.styleFormatter = styleFormatter || false;
-    return formatFunction;
+type IFormatter<T extends CallableFunction> = T & { styleFormatter: boolean };
+function Formatter<T extends CallableFunction>(formatFunction: T, styleFormatter?: boolean): IFormatter<T> {
+    const formatter = formatFunction as IFormatter<T>;
+    formatter.styleFormatter = styleFormatter || false;
+    return formatter;
 };
 
 function sanitize(value: string | any): string | any {
@@ -204,7 +205,7 @@ export const ProgressBarFormatter = Formatter(function (row: any, cell: number, 
 
     dataContext["cssStyle" + cell] = dataContext["cssStyle" + cell] || "";
     dataContext["cssStyle" + cell] += css;
-}, true);
+});
 
 export const RowDetailFormatter = Formatter(function (row: any, cell: number, value: any, columnDef: any, dataContext: any, data: any) {
     // Row detail logic is handled in the function bindRowDetailCell()
@@ -223,7 +224,7 @@ export const SparklineLoadingFormatter = function (context: IGridContext) {
             return GetSparklineFromCache(context.grid, context.version, dataContext.rowPath, columnDef.field) || '<i>Loading chart...</i>';
         }
     }, true);
-    func.formatName = SparklineLoadingFormatter.formatName;
+    (func as typeof func & {formatName: string}).formatName = SparklineLoadingFormatter.formatName;
     return func;
 };
 //Used for comparisons since SparklineLoadingFormatter is a dynamic function.
