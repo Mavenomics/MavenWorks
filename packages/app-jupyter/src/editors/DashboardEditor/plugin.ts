@@ -186,7 +186,7 @@ function activatePlugin(
     });
     commands.addKeyBinding({
         command: CommandIds.OpenScriptEditor,
-        keys: ["Accel E, S"],
+        keys: ["Accel E", "Accel S"],
         selector: ".m-DashboardEditor:not(.p-mod-hidden)"
     });
     commands.addCommand(CommandIds.RestartKernel, {
