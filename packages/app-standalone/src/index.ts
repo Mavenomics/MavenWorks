@@ -24,6 +24,32 @@ import { login } from "./login";
 import { configCmdPlugin } from "./config-commands";
 import { PageConfig } from "@jupyterlab/coreutils";
 
+// Check if the user-agent is a mobile device, and if so, alert them that
+// this app isn't designed for mobile devices
+(function () {
+    if (!/Mobi/.test(navigator.userAgent)) {
+        return;
+    }
+    // IMPORTANT!
+    // Do _not_ rely on this as a reliable check for actually _being_ a mobile
+    // device. On top of this falsely matching tablets like iPads (which, while
+    // we don't support, _do work_ if you use a mouse), it also is prone to
+    // false negatives; doesn't match more exotic platforms (Smart TVs, fridges,
+    // robot dogs...); and does no feature detection (again, you can plug mice
+    // and trackpads into phones. That works.).
+    // For that reason, it is important that we do _nothing_ more than an alert.
+    // That allows platforms that _will_ work to simply get on with it.
+    alert(
+        "Hey! Listen! \n\n" +
+        "MavenWorks is not designed for mobile devices, and you may " +
+        "experience strange bugs when using this on a touch screen. " +
+        "MavenWorks is also very resource-hungry, which can hurt your " +
+        "battery life on a phone. For best results, we recommend opening " +
+        "this page on a laptop or desktop."
+    );
+})();
+
+
 const app = new MainApp({
     shell: new MavenWorksShell()
 });
