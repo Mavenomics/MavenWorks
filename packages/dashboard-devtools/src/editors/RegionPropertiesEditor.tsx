@@ -28,10 +28,7 @@ function PartPropertiesEditor({region, dashboard}: RegionPropertiesEditor.IProps
             newOpt.name,
             newOpt.binding || Converters.serialize(newOpt.value, newOpt.type));
     }
-    let caption = region.getLayoutProperty("caption");
-    if (caption == null || caption === "" || caption === "New Part") {
-        caption = part.getName();
-    }
+    const caption = part.getName();
 
     renderOnEmit(bag.OnOptionChanged);
 
