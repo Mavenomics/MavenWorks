@@ -70,6 +70,7 @@ export function VisualEditor(this: void, {
         <div className="m-VisualEditor-column">
             <label title="Whether to temporarily force all titlebars visible.">
                 <input type="checkbox"
+                    checked={layoutManager.forceTitlebars}
                     onChange={(ev) => {
                         layoutManager.forceTitlebars = ev.currentTarget.checked;
                     }} />
