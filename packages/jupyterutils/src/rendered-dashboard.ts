@@ -97,18 +97,33 @@ del _json`;
         this.layout.fitPolicy = "set-no-constraint";
         let evaluator = new KernelExpressionEvaluator({session});
         let handleManager = DisplayHandleManager.GetManager(session);
+        const externalPartRenderer = new RenderedDashboard.ExternalPartRenderer(
+            rendermime,
+            handleManager
+        )
+
+        const baseUrl = URLExt.join(PageConfig.getBaseUrl(), "/files");
+        const baseViewUrl = URLExt.join(PageConfig.getBaseUrl(), "/view");
+        const dashboardLinker = new RenderedDashboard.DashboardLinker({
+            factory,
+            rendermime,
+            session,
+            evaluator,
+            externalPartRenderer,
+            baseUrl,
+            baseViewUrl,
+        }, undefined, session);
         this.dashboard = new Dashboard({
             factory,
             rendermime,
             session,
             evaluator,
-            externalPartRenderer: new RenderedDashboard.ExternalPartRenderer(
-                rendermime,
-                handleManager
-            ),
-            baseUrl: URLExt.join(PageConfig.getBaseUrl(), "/files"),
-            baseViewUrl: URLExt.join(PageConfig.getBaseUrl(), "/view")
+            externalPartRenderer,
+            baseUrl,
+            baseViewUrl,
+            dashboardLinker
         });
+        dashboardLinker.dashboard = this.dashboard;
         this.expandToFill = (expandToFill == null) ? false : expandToFill;
         if (!this.expandToFill) {
             this.node.style.height = `500px`;
@@ -176,6 +191,33 @@ export namespace RenderedDashboard {
          * fill it's space or take on an explicit size (500px by default).
          */
         expandToFill?: boolean;
+    }
+
+    export class DashboardLinker extends Dashboard.DefaultDashboardLinker {
+        private evaluator?: KernelExpressionEvaluator;
+
+        constructor(
+            public dashboardOpts: Dashboard.IOptions,
+            public dashboard: Dashboard | undefined,
+            public session: IClientSession,
+        ) {
+            super(dashboardOpts, dashboard);
+        }
+
+        public async makeDashboardLink(cell: unknown) {
+            const res = await super.makeDashboardLink(cell);
+            this.evaluator!.globals = res.hover.globals;
+            this.evaluator = undefined;
+            return res;
+        }
+
+        protected makeDashboardArguments(opts: Dashboard.IOptions) {
+            const evaluator = this.evaluator = new KernelExpressionEvaluator({ session: this.session });
+            return {
+                ...opts,
+                evaluator
+            };
+        }
     }
 
     export class ExternalPartRenderer extends Dashboard.DefaultExternalPartRenderer {

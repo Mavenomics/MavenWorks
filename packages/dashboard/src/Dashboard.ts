@@ -529,7 +529,7 @@ export namespace Dashboard {
             }
 
             const hover: Dashboard = new Dashboard({
-                ...this.dashboardOpts,
+                ...this.makeDashboardArguments(this.dashboardOpts),
                 dashboardLinker: this
             });
 
@@ -541,6 +541,17 @@ export namespace Dashboard {
             );
 
             return { width, height, hover };
+        }
+
+        /** Given the args to the parent dashboard, create a set of arguments for the link.
+         *
+         * Subclasses can override this to customize the arguments that get
+         * passed to linked dashboards.
+         *
+         * The default implementation simply returns it's argument.
+         */
+        protected makeDashboardArguments(args: Dashboard.IOptions): Dashboard.IOptions {
+            return args;
         }
 
     }
