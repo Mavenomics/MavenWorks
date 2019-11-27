@@ -5,13 +5,11 @@
   "main": "lib/plugin-index.js",
   "files": [
     "lib/*",
-    "schema/*.json",
     "style/*.css",
     "style/*.less"
   ],
   "jupyterlab": {
-    "extension": "lib/plugin-index.js",
-    "schemaDir": "schema"
+    "extension": "lib/plugin-index.js"
   },
   "scripts": {
     "build": "tsc --build",
