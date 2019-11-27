@@ -100,7 +100,7 @@ del _json`;
         const externalPartRenderer = new RenderedDashboard.ExternalPartRenderer(
             rendermime,
             handleManager
-        )
+        );
 
         const baseUrl = URLExt.join(PageConfig.getBaseUrl(), "/files");
         const baseViewUrl = URLExt.join(PageConfig.getBaseUrl(), "/view");
