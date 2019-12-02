@@ -53,6 +53,7 @@ export abstract class RegionWithChildren<
             ...this.properties,
             caption: this.constructor.GetMetadata().name
         };
+        new RegionWithChildren.FocusManager(this);
         this.setupAddPartOverlay();
     }
 
@@ -267,6 +268,10 @@ export abstract class RegionWithChildren<
         return node;
     }
 
+    public hasActiveRegion() {
+        return this.isFocused && this.widgets.some(i => i.isFocused);
+    }
+
     /** Private method to mark a subtree in an update loop.
      *
      * This is only intended for use by the DashboardLayout.
@@ -311,9 +316,9 @@ export abstract class RegionWithChildren<
      * since the parent won't necessarily be notified when a Panel child is
      * removed.
      */
-    protected installContentTap() {
+    protected installContentTap(region: Widget = this.content) {
         const tap = Private.InstalledTaps.get(this as RegionWithChildren<any>);
-        MessageLoop.installMessageHook(this.content, tap);
+        MessageLoop.installMessageHook(region, tap);
     }
 
     /**
@@ -482,6 +487,48 @@ export namespace RegionWithChildren {
 
         public getAttachedProperty(propertyName: string) {
             return this.attachedPropertyMap.get(propertyName);
+        }
+    }
+
+    export class FocusManager implements IMessageHook {
+        constructor(region: RegionWithChildren<any>) {
+            MessageLoop.installMessageHook(region, this);
+        }
+
+        public messageHook(region: RegionWithChildren, msg: Message) {
+            // Only activate on region- messages
+            if (!(msg instanceof Widget.ChildMessage)) return true;
+
+            const { child, type } = msg;
+
+            if (!type.startsWith("region-")) return true;
+            if (!(child instanceof DashboardLayoutRegion)) return true;
+
+            // If the region is being removed, the document activeElement is the
+            // body (ie, the region containing focus was destroyed by the
+            // removal) and is the active region (or has an active child
+            // region), focus the next child.
+            if (type === "region-child-removed") {
+                if (document.activeElement != null && document.activeElement !== document.body) {
+                    return true;
+                }
+                if (child.hasActiveRegion()) {
+                    const next = region.widgets.find(i => i.isVisible && i !== child);
+                    if (next == null) {
+                        region.focus();
+                    } else {
+                        next.focus();
+                    }
+                }
+            }
+
+            // If the region is being added, focus it (since DOM focus won't
+            // travel with the re-attachment)
+            if (type === "region-child-added" && child.hasActiveRegion()) {
+                child.focus();
+            }
+
+            return true;
         }
     }
 

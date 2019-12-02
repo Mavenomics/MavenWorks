@@ -55,7 +55,7 @@ of the dashboard.
         this.content.tabBar.addClass("p-DockPanel-tabBar"); // hack to make it play nice with JupyterLab
         this.content.stackedPanel.addClass("maven_tabpanel_panel");
         this.layout.addWidget(this.content);
-        this.installContentTap();
+        this.installContentTap(this.content.stackedPanel);
     }
 
     dispose() {

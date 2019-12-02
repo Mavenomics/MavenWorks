@@ -330,6 +330,13 @@ export abstract class DashboardLayoutRegion<LayoutProps extends IDashboardLayout
         this._isStale = false;
     }
 
+    /**
+     * Test whether this region is the active region, or has an active child.
+     */
+    public hasActiveRegion() {
+        return this.isFocused;
+    }
+
     /** Return the value of a layout region property.
      *
      * This should fall back to default values if the property is undefined, and
