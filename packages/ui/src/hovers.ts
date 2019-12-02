@@ -1,7 +1,8 @@
 import { Widget, BoxLayout, BoxPanel, Layout } from "@phosphor/widgets";
 import { UUID, PromiseDelegate } from "@phosphor/coreutils";
+import { IDisposable } from "@phosphor/disposable";
 import { MessageLoop, Message } from "@phosphor/messaging";
-import { FrameTools, MathTools } from "@mavenomics/coreutils";
+import { FrameTools, MathTools, IterTools } from "@mavenomics/coreutils";
 import { ReactWrapperWidget } from "./reactwidget";
 import { Interactions } from "./widgets/interactionwidgets";
 import { first } from "rxjs/operators";
@@ -19,6 +20,7 @@ export class HoverManager extends Widget {
     }
 
     private hovers = new Map<string, HoverManager.HoverWrapper>();
+    private focusManager = new HoverManager.FocusManager();
 
     protected constructor() {
         super();
@@ -187,6 +189,7 @@ export class HoverManager extends Widget {
             width: options.width || 300,
             height: options.height || 300
         });
+        this.focusManager.trackHover(wrapper);
         wrapper.disposed.connect(() => {
             onClose.resolve();
         });
@@ -255,6 +258,7 @@ export class HoverManager extends Widget {
         if (this.isDisposed) {
             return;
         }
+        this.focusManager.dispose();
         for (const hover of this.hovers.values()) {
             hover.dispose();
         }
@@ -354,6 +358,54 @@ export namespace HoverManager {
             public readonly id: string,
             public readonly onClosed: Promise<void>
         ) {}
+    }
+
+    export class FocusManager implements IDisposable {
+        private hovers = new Set<HoverWrapper>();
+        private _focusedHover: HoverWrapper | null = null;
+        private _isDisposed = false;
+
+        public get isDisposed() { return this._isDisposed; }
+
+        public dispose() {
+            if (this._isDisposed) return;
+            this.hovers.forEach(i => {
+                i.disposed.disconnect(this.handleHoverDisposed, this);
+            });
+            this.hovers.clear();
+            this._focusedHover = null;
+        }
+
+        public trackHover(wrapper: HoverWrapper) {
+            this.hovers.add(wrapper);
+            wrapper.disposed.connect(this.handleHoverDisposed, this);
+            wrapper.node.addEventListener("focusin", () => {
+                this.handleHoverFocused(wrapper);
+            }, { capture: true, passive: true });
+        }
+
+        private handleHoverFocused(wrapper: HoverWrapper) {
+            this._focusedHover = wrapper;
+        }
+
+        private handleHoverDisposed(wrapper: HoverWrapper) {
+            this.hovers.delete(wrapper);
+            if (this._focusedHover === wrapper) {
+                const nextNode = IterTools.findExtreme(
+                    this.hovers,
+                    i => +(i.node.style.zIndex || 0),
+                    Math.max
+                );
+                if (nextNode == null) {
+                    // The last dialog was disposed of, we need to send focus
+                    // up somewhere
+                    console.error("focus lost");
+                    this._focusedHover = null;
+                    return;
+                }
+                nextNode.activate();
+            }
+        }
     }
 
     export interface CloseHoverOptions {
@@ -821,6 +873,7 @@ export namespace HoverManager {
             data: {x: number, y: number, width: number, height: number}
         ) {
             super(toWrap, owner, "dialog", data);
+            this.node.tabIndex = -1;
             toWrap.node.style.padding = "5px";
             this.node.style.zIndex = "" + (++DialogHover.Z_INDEX);
             const spawn = getInitialSpawnPosition(data);
@@ -850,6 +903,7 @@ export namespace HoverManager {
                     y: this.data.y
                 };
             }
+            this.node.focus({ preventScroll: true });
         }
     }
 
