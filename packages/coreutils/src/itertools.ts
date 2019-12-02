@@ -103,6 +103,34 @@ export namespace IterTools {
         set.clear();
     }
 
+    /**
+     * Given a predicate that maps from values to numbers, find the minimum
+     * and return the value mapped to that number.
+     * 
+     * NOTE: This function materializes the iterable.
+     */
+    export function findExtreme<_ContainerType>(
+        container: Iterable<_ContainerType>,
+        predicate: (i: _ContainerType) => number,
+        cmp: (lhs: number, rhs: number) => number = Math.min
+    ) {
+        const arr = [...container];
+        let min;
+        let minIndex = -1;
+        let idx = 0;
+
+        for (const value of arr) {
+            const map = predicate.call(void 0, value);
+            if (min == null || cmp.call(void 0, min, map) == map) {
+                min = map;
+                minIndex = idx;
+            }
+            idx++;
+        }
+
+        return arr[minIndex] || null;
+    }
+
     interface EmptyArray<_ContainerType> extends Array<_ContainerType> {
         length: 0;
     }
