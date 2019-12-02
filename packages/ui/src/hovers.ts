@@ -171,6 +171,10 @@ export class HoverManager extends Widget {
             options.x = options.x + ownerOffset.left;
             options.y = options.y + ownerOffset.top;
         }
+        // Clamp the hover _size_ to the bounds of the window to ensure that all
+        // dialog chroming elements can be made visible.
+        options.width = Math.min(options.width, window.innerWidth);
+        options.height = Math.min(options.height, window.innerHeight);
         owner.disposed.connect(() => {
             this._handleOwnerDisposed(id);
         });
