@@ -4,9 +4,10 @@ import { IRenderMimeRegistry } from "@jupyterlab/rendermime";
 import { Widget, BoxLayout, Panel } from "@phosphor/widgets";
 import { DocumentRegistry } from "@jupyterlab/docregistry";
 import { Cell, CodeCell } from "@jupyterlab/cells";
-import { KernelError } from "@mavenomics/jupyterutils";
+import { KernelError, RenderedDashboard } from "@mavenomics/jupyterutils";
 import { Signal, ISignal } from "@phosphor/signaling";
 import { ApplicationStatus } from "../status";
+import { DashboardSerializer } from "@mavenomics/dashboard";
 
 export class NotebookViewer extends Widget {
     public readonly layout: BoxLayout;
@@ -35,6 +36,18 @@ export class NotebookViewer extends Widget {
 
     public get stateChanged(): ISignal<this, ApplicationStatus> {
         return this._stateChanged;
+    }
+
+    public setOverrides(overrides: Record<string, any>) {
+        for (const widget of this.layout.widgets) {
+            if (!(widget instanceof Panel)) continue;
+            const output = widget.widgets[1];
+            if (!(output instanceof RenderedDashboard)) continue;
+            output.dashboard.loadFromModelWithOverrides(
+                DashboardSerializer.toJson(output.dashboard),
+                overrides
+            );
+        }
     }
 
     public async executeNotebook() {

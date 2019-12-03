@@ -23,6 +23,7 @@ import { NotebookViewer } from "./runner/widget";
 import { JupyterFrontEndPlugin } from "@jupyterlab/application";
 import { IViewerWidget } from "./utils/viewerwidget";
 import { NotebookModel } from "@jupyterlab/notebook";
+import { deserialize } from "@mavenomics/coreutils";
 
 const app = new Viewer({
     shell: new ViewerShell()
@@ -72,7 +73,26 @@ app.registerPlugin({
 
             await registerDashboard(res, partFactory);
 
+            function getOverrides() {
+                const overrides: Record<string, any> = {};
+                for (const [name, value] of urlManager.query.entries()) {
+                    try {
+                        overrides[name] = deserialize(JSON.parse(value));
+                    } catch (err) {
+                        console.error("Failed to load override", name, "=", value);
+                        console.error(err);
+                    }
+                }
+                return overrides;
+            }
+
+            urlManager.onQueryChange.subscribe(() => {
+                res.content.setOverrides(getOverrides());
+            })
+
             await res.content.executeNotebook();
+
+            res.content.setOverrides(getOverrides());
         }
         openViewer();
     }
