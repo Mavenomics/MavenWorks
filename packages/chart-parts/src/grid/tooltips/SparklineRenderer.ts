@@ -57,13 +57,8 @@ export function SparklineRenderer(
     ClearOldCache(gridContext.grid, gridContext.version);
 
     const el = renderEl || $("div");
-    if (!showAxes) {
-        const cached = GetSparklineFromCache(gridContext.grid, gridContext.version, path, columnName);
-        if (cached) {
-            el.html(cached);
-            return;
-        }
-    }
+    // Temp: Disable caching for the renderer since it doesn't check data diffs
+    // This should be addressed as part of a slickgrid2 effort
     el.empty();
     if (dataContext == null) {
         return el;
