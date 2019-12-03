@@ -26,8 +26,8 @@ export class ViewerShell extends Widget implements JupyterFrontEnd.IShell {
 
         this.mainArea = new BoxPanel();
         this.mainArea.addClass("m-OutputPanel");
-        BoxLayout.setStretch(this.mainArea, 1);    
-        
+        BoxLayout.setStretch(this.mainArea, 1);
+
         // wrap the panel so we can add the shadow
         // (phosphor doesn't like margins)
         this.wrapperWidget = new BoxPanel();
@@ -45,7 +45,7 @@ export class ViewerShell extends Widget implements JupyterFrontEnd.IShell {
     }
 
     /** If true, compress the style of the app to fit in a small window.
-     * 
+     *
      * This will remove a few extraneous UI elements and tighten up padding in
      * a few chroming elements.
      */

@@ -94,7 +94,7 @@ app.registerPlugin({
 
             urlManager.onQueryChange.subscribe(() => {
                 res.content.setOverrides(getOverrides());
-            })
+            });
 
             await res.content.executeNotebook();
 
