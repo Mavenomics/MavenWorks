@@ -60,6 +60,11 @@ app.registerPlugin({
         urlManager: IUrlManager,
         partFactory: IPartFactory,
     ) => {
+        if (urlManager.query.get("embed") === "true") {
+            // enable embed mode
+            app.shell.embed = true;
+        }
+
         async function openViewer() {
             await app.started;
             // HACK
@@ -76,6 +81,7 @@ app.registerPlugin({
             function getOverrides() {
                 const overrides: Record<string, any> = {};
                 for (const [name, value] of urlManager.query.entries()) {
+                    if (name === "embed") continue; //todo: add embed to blacklist
                     try {
                         overrides[name] = deserialize(JSON.parse(value));
                     } catch (err) {

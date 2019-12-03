@@ -8,6 +8,8 @@ export class ViewerShell extends Widget implements JupyterFrontEnd.IShell {
     public readonly layout: BoxLayout = new BoxLayout();
     public readonly toolbar: StatusToolbar;
     public readonly mainArea: BoxPanel;
+    private readonly wrapperWidget: BoxPanel;
+    private _embed = false;
 
     constructor() {
         super();
@@ -23,15 +25,39 @@ export class ViewerShell extends Widget implements JupyterFrontEnd.IShell {
         this.layout.insertWidget(0, this.toolbar);
 
         this.mainArea = new BoxPanel();
+        this.mainArea.addClass("m-OutputPanel");
+        BoxLayout.setStretch(this.mainArea, 1);    
+        
         // wrap the panel so we can add the shadow
         // (phosphor doesn't like margins)
-        const wrapperWidget = new Widget();
-        (wrapperWidget.layout = new BoxLayout()).addWidget(this.mainArea);
-        this.mainArea.addClass("m-OutputPanel");
-        wrapperWidget.addClass("m-OutputPanel-Wrapper");
+        this.wrapperWidget = new BoxPanel();
+        this.wrapperWidget.addClass("m-OutputPanel-Wrapper");
+        BoxLayout.setStretch(this.wrapperWidget, 1);
 
-        BoxLayout.setStretch(wrapperWidget, 1);
-        this.layout.addWidget(wrapperWidget);
+        this.addMainAreaWithWrapper();
+    }
+
+    public dispose() {
+        this.wrapperWidget.dispose();
+        this.mainArea.dispose();
+        this.toolbar.dispose();
+        super.dispose();
+    }
+
+    /** If true, compress the style of the app to fit in a small window.
+     * 
+     * This will remove a few extraneous UI elements and tighten up padding in
+     * a few chroming elements.
+     */
+    public get embed() { return this._embed; }
+    public set embed(setEmbed: boolean) {
+        if (setEmbed) {
+            this.toolbar.hide();
+            this.addMainArea();
+        } else {
+            this.toolbar.show();
+            this.addMainAreaWithWrapper();
+        }
     }
 
     activateById(id: string): void {
@@ -51,5 +77,15 @@ export class ViewerShell extends Widget implements JupyterFrontEnd.IShell {
 
     widgets(_area?: string) {
         return this.mainArea.layout!.iter();
+    }
+
+    private addMainAreaWithWrapper() {
+        this.wrapperWidget.addWidget(this.mainArea);
+        this.layout.addWidget(this.wrapperWidget);
+    }
+
+    private addMainArea() {
+        this.layout.removeWidget(this.wrapperWidget);
+        this.layout.addWidget(this.mainArea);
     }
 }
