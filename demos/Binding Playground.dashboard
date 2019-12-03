@@ -308,6 +308,6 @@
 	],
 	"localParts": {},
 	"init": [
-		""
+		"import mavenworks"
 	]
 }
