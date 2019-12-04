@@ -5,7 +5,7 @@ import { Dashboard } from "@mavenomics/dashboard";
 import { IPartFactory } from "@mavenomics/parts";
 import { CommandRegistry } from "@phosphor/commands";
 import { PromiseDelegate } from "@phosphor/coreutils";
-import { registerUDPs, KernelExpressionEvaluator } from "@mavenomics/jupyterutils";
+import { registerUDPs, KernelExpressionEvaluator, DisplayHandleManager, SyncMetadata } from "@mavenomics/jupyterutils";
 import { URLExt, PageConfig } from "@jupyterlab/coreutils";
 
 /**
@@ -49,6 +49,8 @@ extends ABCWidgetFactory<DashboardEditor, DocumentRegistry.ICodeModel>
         const { session } = context;
         const evaluator = new KernelExpressionEvaluator({session});
         const factory = this.factory.get(context);
+        const handleManager = DisplayHandleManager.GetManager(session);
+        const syncMetadata = new SyncMetadata(session, factory, handleManager);
         const udpFuture = registerUDPs(factory, session.path);
         const content = new Dashboard({
             rendermime,
@@ -71,11 +73,14 @@ extends ABCWidgetFactory<DashboardEditor, DocumentRegistry.ICodeModel>
         editor.disposed.connect(() => {
             evaluator.dispose();
             factory.dispose();
+            syncMetadata.dispose();
+            handleManager.dispose();
         });
         Promise.all([
             context.session.ready,
             editor.ready,
-            udpFuture
+            udpFuture,
+            syncMetadata.ready
         ]).then(() => {
             revealDelegate.resolve(void 0);
         }).catch(err => revealDelegate.reject(err));
