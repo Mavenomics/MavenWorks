@@ -18,6 +18,7 @@
         "@mavenomics/coreutils": "^0.1.2",
         "@mavenomics/standalone": "^0.1.2",
         "bcrypt": "^3.0.6",
+        "connect-sqlite3": "^0.9.11",
         "express": "^4.17.1",
         "express-handlebars": "^3.1.0",
         "express-session": "^1.16.2",

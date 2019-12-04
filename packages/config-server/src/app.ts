@@ -9,9 +9,10 @@ import { useAuth, registerPassportHandler } from "./auth";
 import { getConnection } from "./db";
 import { configRoute } from "./routes/config";
 import { DashboardModel } from "./model";
-import { join, resolve, dirname } from "path";
+import { join, resolve, dirname, basename } from "path";
 import { readFile } from "fs";
 const baseDir = dirname(require.resolve("@mavenomics/standalone"));
+const Sqlite3Store = require("connect-sqlite3")(session);
 
 /**
  * Start the Config Server
@@ -37,7 +38,18 @@ export async function start(
     }));
     app.use(express.urlencoded({ extended: true }));
     // TODO: Pull in session secret from random var or config setting?
-    app.use(session({secret: "TEST"}));
+    app.use(session({
+        store: new Sqlite3Store({
+            table: "sessions",
+            db: basename(getSetting("db_file_location") || "test.sql"),
+            dir: dirname(getSetting("db_file_location") || ".")
+        }),
+        secret: "TEST",
+        // Sqlite3Store supports `#touch`, so we can disable this
+        resave: false,
+        // don't hit the DB for unknown users
+        saveUninitialized: false
+    }));
     app.use(passport.initialize());
     app.use(passport.session());
 

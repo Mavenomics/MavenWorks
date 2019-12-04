@@ -7,7 +7,6 @@
     "experimentalDecorators": true
   },
   "include": ["./src/**/*"],
-  "files": ["./src/app.ts"],
   "references": [
     { "path": "../coreutils" }
   ]
