@@ -197,12 +197,10 @@ export class QueryEngine {
     }
 
     applyRollup(node: TempNode, maxDepth: number) {
-        if (node.level !== 0) {
-            if (!this.groupByClause.withRollup && node.level + 1 !== maxDepth)
-                node.isVisible = false;
-            if (!this.groupByClause.withLeaves && node.level === maxDepth)
-                node.isVisible = false;
-        }
+        if (!this.groupByClause.withRollup && node.level + 1 !== maxDepth)
+            node.isVisible = false;
+        if (!this.groupByClause.withLeaves && node.level === maxDepth)
+            node.isVisible = false;
         node.nodes.forEach(c => this.applyRollup(c, maxDepth));
     }
 
