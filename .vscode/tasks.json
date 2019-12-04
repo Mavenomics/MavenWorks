@@ -57,6 +57,15 @@
             "isBackground": true,
             "path": "packages/app-standalone/",
             "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "label": "Webpack Bundle MQL Worker",
+            "script": "bundle",
+            "group": "build",
+            "isBackground": true,
+            "path": "packages/mql-worker/",
+            "problemMatcher": []
         }
     ]
 }

@@ -14,6 +14,7 @@
   "scripts": {
     "build": "tsc --build",
     "build:ci": "echo pass",
+    "bundle": "webpack --watch",
     "bundle:ci": "webpack",
     "analyze-bundle": "webpack --analyze",
     "clean": "rimraf ./lib ./mql.worker.js *.tsbuildinfo",
