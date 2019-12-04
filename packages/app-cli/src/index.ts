@@ -37,6 +37,8 @@ yargs
         }
         // ¯\_(ツ)_/¯
         return "Too many positional arguments were passed.";
-    })
+    // Leave this as a local checker! Otherwise it won't let downstream commands
+    // consume arguments!
+    }, false)
     .strict()
     .argv;
