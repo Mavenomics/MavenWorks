@@ -9,7 +9,7 @@ import { partEditorPlugin } from "./editors/PartEditor/PartEditorPlugin";
 import { HoverManager, typeEditorFactoryPlugin, defaultTypeEditors } from "@mavenomics/ui";
 import { Widget } from "@phosphor/widgets";
 import { factoryExtPlugin } from "@mavenomics/parts";
-import { dashboardEditorPlugin } from "./editors/DashboardEditor/plugin";
+import { default as dashboardEditorPlugins } from "./editors/DashboardEditor";
 import { showInViewerExtension } from "./framework/ShowInViewerExtension";
 import { default as partsPlugins } from "@mavenomics/default-parts";
 import { default as chartPlugin } from "@mavenomics/chart-parts";
@@ -52,7 +52,7 @@ const extensions: JupyterFrontEndPlugin<any>[] = [
     mavenLayoutRendererPlugin,
     activateShowInViewerExtension,
     partEditorPlugin,
-    dashboardEditorPlugin,
+    ...dashboardEditorPlugins,
     showInViewerExtension,
     dashboardTrackerPlugin,
     ...uiPlugins,

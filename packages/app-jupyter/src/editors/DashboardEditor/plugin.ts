@@ -266,7 +266,7 @@ function activatePlugin(
     return tracker;
 }
 
-export const dashboardEditorPlugin: JupyterFrontEndPlugin<IDashboardEditorTracker> = {
+const dashboardEditorPlugin: JupyterFrontEndPlugin<IDashboardEditorTracker> = {
     id: "jupyterlab-mavenworks:dashboard-editor",
     autoStart: true,
     requires: [
@@ -284,3 +284,4 @@ export const dashboardEditorPlugin: JupyterFrontEndPlugin<IDashboardEditorTracke
     provides: IDashboardEditorTracker,
     activate: activatePlugin
 };
+export default dashboardEditorPlugin;
