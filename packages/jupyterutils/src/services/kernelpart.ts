@@ -14,12 +14,12 @@ import { CommManager, KernelError } from "../utils";
  * for syncing the available parts with the client-side part factory
  */
 export abstract class KernelProxyPart extends Part {
+    public msgId: string; // A unique ID for kernel comms
+    public model: MimeModel | null = null;
+    public renderer: IRenderMime.IRenderer | null = null;
     protected readonly type: string;
     private comm: CommManager<Msg.KernelProxyMessage, Msg.KernelResponseMessage>;
     private bag: OptionsBag | null = null;
-    private msgId: string; // A unique ID for kernel comms
-    private model: MimeModel | null = null;
-    private renderer: IRenderMime.IRenderer | null = null;
 
     constructor(opts: Part.IOptions) {
         super(opts);
