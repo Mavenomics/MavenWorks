@@ -49,10 +49,47 @@ import { PageConfig } from "@jupyterlab/coreutils";
     );
 })();
 
-
 const app = new MainApp({
     shell: new MavenWorksShell()
 });
+
+/**
+ * When focus moves to the document root, re-focus the main dashboard
+ * cf. #39 for more details on why this is necessary.
+ *
+ * How this works is that we first mount a CAPTURING-phase `focusout` handler on
+ * the document root. This will catch the focusout event as it _begins_ to
+ * propogate, so that we can know that it occurred.
+ *
+ * In this callback, we set a timeout to run. Remember the following:
+ *  - The event queue is emptied before a task completes
+ *  - setTimeout creates a _new_ task and adds it to the task queue
+ *
+ * What this means is that a setTimeout, in the below handler, will execute
+ * _after_ any additional events that are queued for this turn (such as a
+ * focusin to go with the focusout.)
+ *
+ * We also need to handle cases where the focusout is cancelled- we capture the
+ * event at the earliest possible opporitunity, so it's highly likely (but not
+ * guaranteed! De-focusing an iframe child will _not_ generate a focusout
+ * event!!!) that we catch the event when it _begins_. But capturing it when it
+ * _ends_ requires us to trust all CAPTURING and BUBBLING handlers to _not_
+ * cancel the event.
+ *
+ * That's why we use the next turn to actually check- it does not capture
+ * exactly when the event stops propogating, but it _does_ allow us to reliably
+ * execute _after_ the event has been handled.
+ */
+document.addEventListener("focusout", () => {
+    setTimeout(() => {
+        const { activeElement, body } = document;
+        if (activeElement && activeElement !== body) {
+            // something else took focus
+            return;
+        }
+        app.shell.dashboard.layoutManager.node.focus({ preventScroll: true });
+    });
+}, { passive: true });
 
 Widget.attach(HoverManager.GetManager(), document.body);
 
