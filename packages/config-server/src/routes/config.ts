@@ -90,5 +90,5 @@ export async function configRoute() {
         res.sendStatus(200);
     });
 
-    return route;
+    return ["/config", route];
 }

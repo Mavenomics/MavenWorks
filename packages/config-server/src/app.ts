@@ -7,7 +7,7 @@ import "reflect-metadata";
 import { getLogger, getClientSettings, getSetting } from "./settings";
 import { useAuth, registerPassportHandler } from "./auth";
 import { getConnection } from "./db";
-import { configRoute } from "./routes/config";
+import { default as routes } from "./routes";
 import { DashboardModel } from "./model";
 import { join, resolve, dirname, basename } from "path";
 import { readFile } from "fs";
@@ -100,15 +100,11 @@ export async function start(
     await registerPassportHandler();
 
     logger.debug("Registering API routes...");
-    const route = await configRoute();
-    app.use("/config", auth, route);
-
-    route.get("/dashboards", auth, async (_req, res) => {
-        const names = await repository.find();
-        res.render("dashboards", {
-            dashboards: names.map(i => i.name)
-        });
-    });
+    for (const factory of routes) {
+        const [url, router] = await factory();
+        app.use(url, auth, router);
+        logger.debug("...Registered " + url);
+    }
 
     // force all traffic to the app
     app.get("/", (_req, res) => res.redirect("/app"));
