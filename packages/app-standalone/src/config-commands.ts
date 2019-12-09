@@ -72,7 +72,7 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
 
         commands.addCommand(CommandIds.Load, {
             label: "Load Dashboard",
-            execute: async ({path}) => {
+            execute: async ({path, overrides}) => {
                 const objPath = decodeURIComponent("" + path);
                 if (shell.shouldPromptDirty) {
                     const text = new Widget();
@@ -108,7 +108,10 @@ export const configCmdPlugin: MavenWorksPlugin<void> = {
                     if (objPath !== urlManager.path) {
                         urlManager.path = objPath;
                     }
-                    return shell.dashboard.loadFromModel(def);
+                    return shell.dashboard.loadFromModelWithOverrides(
+                        def,
+                        overrides as Record<string, any> | null
+                    );
                 } catch (err) {
                     return catchConfigError(err);
                 }

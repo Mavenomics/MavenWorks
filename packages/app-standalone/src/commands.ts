@@ -35,7 +35,10 @@ export const commandsPlugin: MavenWorksPlugin<void> = {
                     // config isn't installed, ignore paths
                     if (!commands.hasCommand("config:load-dashboard")) return;
 
-                    return commands.execute("config:load-dashboard", {path: toLoad});
+                    return commands.execute("config:load-dashboard", {
+                        path: toLoad,
+                        overrides: getOverrides()
+                    });
                 }
 
                 return shell.dashboard
