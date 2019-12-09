@@ -24,7 +24,7 @@ export async function start(
     onStart?: (this: void) => void
 ) {
     const port = +getSetting("port")!;
-    const hostname = getSetting("hostname")!;
+    const hostname = getSetting("ip")!;
     const allowed_origins = getSetting("port")!.split(",");
     // resolve the absolute path and normalize
     const base_dir = resolve(baseDir);

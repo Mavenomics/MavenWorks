@@ -86,7 +86,7 @@ export async function handler({
     users,
 }: Arguments<IArgs>) {
     overrideSetting("loglevel", loglevel);
-    overrideSetting("hostname", hostname);
+    overrideSetting("ip", hostname);
     overrideSetting("port", "" + port);
     overrideSetting("allowed_origins", allowed_origins.join(","));
     overrideSetting("use_password_auth", "" + users);

@@ -3,32 +3,33 @@ import * as prefix from "loglevel-plugin-prefix";
 
 // offered for intellisense
 export type BuiltinSettingsKeys =
+    /** The port that the server will bind to internally. */
       "port"
+    /** The verbosity of logs sent to stdout */
     | "loglevel"
-    | "hostname"
-    | "protocol"
+    /** The 'root', fully-qualified user-facing URL of the server. */
+    | "origin"
+    /** The local interface that the server should bind to. */
+    | "ip"
+    /** Allowed origins for Cross Origin Resource Sharing (CORS). */
     | "allowed_origins"
+    /** The location of the SqliteDB to use for this server */
     | "db_file_location"
-    | "ssl_key"
-    | "ssl_cert"
+    /** Whether to use user-logins (true) or allow public access (false) */
     | "use_password_auth"
 ;
 
 const ClientSettingsWhitelist = [
-    "port",
-    "hostname",
-    "protocol",
+    "origin",
 ] as const;
 
 const cfg = new Map<BuiltinSettingsKeys, string | null>([
     ["port", "3000"],
     ["loglevel", "debug"],
-    ["hostname", "localhost"],
-    ["protocol", "http"],
+    ["origin", "http://localhost:3000"],
+    ["ip", "localhost"],
     ["allowed_origins", "http://localhost:9090"],
     ["db_file_location", "./test.sql"],
-    ["ssl_key", null],
-    ["ssl_cert", null],
     ["use_password_auth", "false"],
 ]);
 
@@ -102,11 +103,7 @@ export function getClientSettings() {
     for (const setting of ClientSettingsWhitelist) {
         map[setting] = getSetting(setting);
     }
-    let url = getSetting("protocol") + "://" + getSetting("hostname");
-    const port = getSetting("port");
-    if (port != null) {
-        url += ":" + port;
-    }
+    let url = getSetting("origin");
     map["baseUrl"] = url + "/app/";
     map["configUrl"] = url + "/config/";
     if (getSetting("use_password_auth") === "true") {
