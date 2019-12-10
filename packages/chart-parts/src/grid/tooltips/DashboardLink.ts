@@ -1,4 +1,3 @@
-import { MqlResultTable } from "@mavenomics/table";
 import { IGridContext } from "../interfaces";
 
 export function DashboardLinkTooltip(
@@ -8,12 +7,12 @@ export function DashboardLinkTooltip(
     _columns: any,
     col: any,
     // todo: expose row object
-    rowData: MqlResultTable["Result"]["Rows"][number],
+    rowData: any,
     webMavenHost: IGridContext
 ) {
     var dataContext = {};
     if (rowData !== undefined) {
-        let data = rowData.RowData[col.columnDataNumber];
+        let data = rowData;
         if (data == null) {
             //ignore empty cells
             return;

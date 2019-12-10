@@ -1,4 +1,3 @@
-import { MqlResultTable } from "@mavenomics/table";
 import { IGridContext } from "../interfaces";
 
 export function IFrameHover(
@@ -8,11 +7,11 @@ export function IFrameHover(
     _columns: any,
     col: any,
     // todo: expose row object
-    rowData: MqlResultTable["Result"]["Rows"][number],
+    rowData: any,
     webMavenHost: IGridContext
 ) {
     if (rowData !== undefined) {
-        let data = rowData.RowData[col.columnDataNumber];
+        let data = rowData;
         if (typeof data !== "string" || data.length < 1) {
             //ignore empty cells
             return;
