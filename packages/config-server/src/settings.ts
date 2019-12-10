@@ -11,8 +11,12 @@ export type BuiltinSettingsKeys =
     | "origin"
     /** The local interface that the server should bind to. */
     | "ip"
-    /** Allowed origins for Cross Origin Resource Sharing (CORS). */
+    /** A comma-separated list of origins for Cross Origin Resource Sharing (CORS). */
     | "allowed_origins"
+    /** Whether to enable the server's Cross Origin proxy (/proxy) */
+    | "use_cross_origin_proxy"
+    /** A comma-separated list of origins to allow in /proxy */
+    | "allowed_cors_proxy_origins"
     /** The location of the SqliteDB to use for this server */
     | "db_file_location"
     /** Whether to use user-logins (true) or allow public access (false) */
@@ -31,6 +35,8 @@ const cfg = new Map<BuiltinSettingsKeys, string | null>([
     ["allowed_origins", "http://localhost:9090"],
     ["db_file_location", "./test.sql"],
     ["use_password_auth", "false"],
+    ["use_cross_origin_proxy", "false"],
+    ["allowed_cors_proxy_origins", "http://localhost:9090"]
 ]);
 
 
