@@ -16,6 +16,7 @@
   "scripts": {
     "build": "tsc --build",
     "build:ci": "webpack && lessc ./style/index.less ./style/index.css",
+    "build:watch": "webpack --watch",
     "analyze-bundle": "webpack --analyze",
     "clean": "rimraf ./lib *.tsbuildinfo",
     "lint": "tslint --project .",

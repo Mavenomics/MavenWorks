@@ -60,6 +60,15 @@
         },
         {
             "type": "npm",
+            "label": "Webpack Bundle Chart Parts",
+            "script": "build:watch",
+            "group": "build",
+            "path": "packages/chart-parts/",
+            "isBackground": true,
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
             "label": "Webpack Bundle MQL Worker",
             "script": "bundle",
             "group": "build",
