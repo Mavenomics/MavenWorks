@@ -87,6 +87,7 @@ export async function handler({
 }: Arguments<IArgs>) {
     overrideSetting("loglevel", loglevel);
     overrideSetting("ip", hostname);
+    overrideSetting("origin", "http://" + hostname + ":" + port);
     overrideSetting("port", "" + port);
     overrideSetting("allowed_origins", allowed_origins.join(","));
     overrideSetting("use_password_auth", "" + users);
