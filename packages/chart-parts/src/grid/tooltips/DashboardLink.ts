@@ -10,7 +10,6 @@ export function DashboardLinkTooltip(
     rowData: any,
     webMavenHost: IGridContext
 ) {
-    var dataContext = {};
     if (rowData !== undefined) {
         let data = rowData;
         if (data == null) {
@@ -26,13 +25,17 @@ export function DashboardLinkTooltip(
                 var bounds = $(selector)[0].getBoundingClientRect() as DOMRect;
                 webMavenHost.OpenDashboardHover(data, bounds.right + 1, bounds.y);
             },
-
+            click: (event) => {
+                if (!event.ctrlKey) return;
+                var bounds = $(selector)[0].getBoundingClientRect() as DOMRect;
+                webMavenHost.OpenDashboardPopup(data, bounds.right + 1, bounds.y, !!event.ctrlKey);
+            },
             mouseleave: function (event) {
                 webMavenHost.CloseHover();
             },
             dblclick: function(event) {
                 var bounds = $(selector)[0].getBoundingClientRect() as DOMRect;
-                webMavenHost.OpenDashboardPopup(data, bounds.right + 1, bounds.y)
+                webMavenHost.OpenDashboardPopup(data, bounds.right + 1, bounds.y);
             }
         });
     }

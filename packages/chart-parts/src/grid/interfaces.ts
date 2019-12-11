@@ -17,7 +17,8 @@ export interface IGridContext {
     OpenDashboardPopup(
         data: unknown,
         x: number,
-        y: number
+        y: number,
+        popout?: boolean
     ): void;
 
     OpenHover(

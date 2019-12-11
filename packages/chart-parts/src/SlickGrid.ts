@@ -1,4 +1,4 @@
-import { Part, OptionsBag, PartServices, PartUtils } from "@mavenomics/parts";
+import { Part, OptionsBag, PartServices, PartUtils, IDashboardLink } from "@mavenomics/parts";
 import { Table } from "@mavenomics/table";
 import { Types, AsyncTools } from "@mavenomics/coreutils";
 import { Widget } from "@phosphor/widgets";
@@ -312,11 +312,29 @@ class GridContext implements IGridContext {
     public async OpenDashboardPopup(
         data: unknown,
         x: number,
-        y: number
+        y: number,
+        popout?: boolean
     ) {
         const { dashboardLinker } = this.services;
         if (dashboardLinker == null) {
             throw Error("No dashboard linker configured");
+        }
+        if (popout) {
+            const url = dashboardLinker.embedDashboard(data);
+            if (!IDashboardLink.isDashboardLink(data) || url == null) {
+                throw Error("Dashboard cell could not be embedded");
+            }
+            // Move the window opening to a new task
+            // Why? Some user-agents will actually override our intent here and
+            // force any window.open calls to new tabs if the call occured in
+            // a user-initiated event, especially events where the control key
+            // is held down.
+            // However, this has the tradeoff of triggering popup blockers
+            // _as a result of_ this call not being in a user-initiated event.
+            setTimeout(() => {
+                window.open(url, data.name, `width=${data.width},height=${data.height},left=${x},top=${y}`);
+            });
+            return;
         }
         const { hover, width, height } = await dashboardLinker.makeDashboardLink(data)
         .catch((err) => {

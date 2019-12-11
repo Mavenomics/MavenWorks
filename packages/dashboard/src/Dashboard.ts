@@ -466,7 +466,10 @@ export namespace Dashboard {
         // Inserting stub types since this introduces a circular type
         // dependency. This circular dep _only_ exists in typings, and is
         // removed on compile, but it breaks TS project references
-        public urlManager?: { resolveSrcUrl: (url: string) => string };
+        public urlManager?: {
+            resolveSrcUrl: (url: string) => string,
+            makeUrlFromComponents: (path: string, query: string) => string
+        };
         public configManager?: {
             getDashboard: (path: string) => Promise<DashboardSerializer.ISerializedDashboard>
         };
@@ -541,6 +544,39 @@ export namespace Dashboard {
             );
 
             return { width, height, hover };
+        }
+
+        public embedDashboard(cell: unknown): string | null {
+            if (!IDashboardLink.isDashboardLink(cell)) return null;
+            const { src, path, overrides } = cell;
+            const globalOverrides = new URLSearchParams();
+
+            for (const [key, value] of Object.entries(overrides)) {
+                globalOverrides.set(key, JSON.stringify(value));
+            }
+
+            switch (src) {
+                case IDashboardLink.DashboardSrc.Embed:
+                    console.warn("dashboard: embeds cannot be popped out");
+                    return null;
+                case IDashboardLink.DashboardSrc.Config:
+                    if (this.urlManager == null) return null;
+                    return this.urlManager.makeUrlFromComponents(
+                        path,
+                        "" + globalOverrides
+                    );
+                case IDashboardLink.DashboardSrc.Url:
+                    globalOverrides.set("src:url", path);
+                    if (!this.urlManager) {
+                        return new URL(path, PageConfig.getBaseUrl()).href;
+                    }
+                    return this.urlManager.makeUrlFromComponents(
+                        "",
+                        "" + globalOverrides
+                    );
+            }
+
+            return null;
         }
 
         /** Given the args to the parent dashboard, create a set of arguments for the link.

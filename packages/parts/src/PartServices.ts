@@ -74,6 +74,18 @@ export namespace PartServices {
          * a valid dashboard link, or to a error preview otherwise.
          */
         makeDashboardLink(cell: unknown): Promise<IDashboardHover>;
+
+        /**
+         * Return a URL that, when visited by a user-agent, will render the dashboard.
+         *
+         * This is only possible with some types of dashboards- in-dashboard
+         * embeds do _not_ work using this mechanism (yet- presumably we could
+         * arrive at something similar to what MavenScape did).
+         *
+         * @param cell The value to create a dashboard link from
+         * @returns Either a URL, or null if no dashboard can be embedded
+         */
+        embedDashboard(cell: unknown): string | null;
     }
 
     interface IDashboardHover {
