@@ -55,8 +55,12 @@ for (let name in process.env) {
             value = null;
         }
         cfg.set(fixedName, value == null ? value : value.toLocaleLowerCase());
+        if (fixedName === "loglevel") {
+            log.setLevel(value as log.LogLevelDesc);
+        }
     } else if (name === "LOGLEVEL" || name === "LOG_LEVEL") {
-        cfg.set("loglevel", name);
+        cfg.set("loglevel", process.env[name] || null);
+        log.setLevel((cfg.get("loglevel") || "") as log.LogLevelDesc);
     }
 }
 
