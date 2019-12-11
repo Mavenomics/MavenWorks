@@ -815,7 +815,8 @@ export namespace HoverManager {
     }
 
     class DialogHover extends HoverWrapper {
-        private static Z_INDEX = 1;
+        private static Z_INDEX = 3; // all other hovers exist at z-index 3
+        // this is specified in the hovers stylesheet
         constructor(toWrap: Widget,
             owner: Widget,
             data: {x: number, y: number, width: number, height: number}
