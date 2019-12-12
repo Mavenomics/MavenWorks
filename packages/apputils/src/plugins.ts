@@ -41,8 +41,10 @@ const urlPlugin: IDashboardPlugin<IUrlManager> = {
     provides: IUrlManager,
     requires: [],
     activate: (_app) => {
-        const baseUrl = PageConfig.getBaseUrl();
-        return new UrlManager(baseUrl);
+        const baseUrl = new URL(PageConfig.getBaseUrl());
+        // clear the URL query string
+        baseUrl.search = "";
+        return new UrlManager(baseUrl.href);
     }
 };
 
