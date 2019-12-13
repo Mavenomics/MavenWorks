@@ -35,39 +35,42 @@ export function Tooltip(selector: JQuery, options: any, webMavenHost: IGridConte
     selector.off("mouseenter");
     selector.off("mouseleave");
 
+    function makeTooltip() {
+        if (options.width > -1)
+            tooltip.width(options.width);
+
+        if (options.height > -1)
+            tooltip.height(options.height);
+
+        var optionsHtml = typeof options.html === "function" ? options.html(selector, tooltip) : options.html;
+        if (options.html) {
+            switch (options.htmlMode) {
+                case "clear":
+                    tooltip.html(optionsHtml);
+                    break;
+
+                case "append":
+                    tooltip.append(optionsHtml);
+                    break;
+
+                case "prepend":
+                    tooltip.prepend(optionsHtml);
+                    break;
+            }
+        }
+        tooltip.css($.extend(options.css, {
+            position: "absolute",
+            zIndex: 9999999
+        }));
+
+        var bounds = $(selector)[0].getBoundingClientRect() as DOMRect;
+        return bounds;
+    }
+
     selector.on({
         mouseenter: function (event) {
             webMavenHost.CloseHover();
-
-            if (options.width > -1)
-                tooltip.width(options.width);
-
-            if (options.height > -1)
-                tooltip.height(options.height);
-
-            var optionsHtml = typeof options.html === "function" ? options.html(selector, tooltip) : options.html;
-            if (options.html) {
-                switch (options.htmlMode) {
-                    case "clear":
-                        tooltip.html(optionsHtml);
-                        break;
-
-                    case "append":
-                        tooltip.append(optionsHtml);
-                        break;
-
-                    case "prepend":
-                        tooltip.prepend(optionsHtml);
-                        break;
-                }
-            }
-            tooltip.css($.extend(options.css, {
-                position: "absolute",
-                zIndex: 9999999
-            }));
-
-            var bounds = $(selector)[0].getBoundingClientRect() as DOMRect;
-
+            const bounds = makeTooltip();
             webMavenHost.OpenHover(tooltip[0].outerHTML, bounds.right + 1, bounds.y, options.width, options.height);
         },
 
@@ -75,7 +78,9 @@ export function Tooltip(selector: JQuery, options: any, webMavenHost: IGridConte
             webMavenHost.CloseHover();
         },
         dblclick: function(event) {
-            //Todo: Popout
+            webMavenHost.CloseHover();
+            const bounds = makeTooltip();
+            webMavenHost.OpenPopup(tooltip[0].outerHTML, bounds.right, bounds.y, options.width, options.height);
         }
     });
 
