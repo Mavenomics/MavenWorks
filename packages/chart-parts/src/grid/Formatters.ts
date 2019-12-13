@@ -213,7 +213,11 @@ export const RowDetailFormatter = Formatter(function (row: any, cell: number, va
         return ErrorFormatter();
     }
     return '<span class="row-detail row-detail-image"></span>';
-});
+// Caveat to note: By setting this as a style formatter, we open a papercut
+// setting NullRule to Show will render null cell values, which is likely _not_
+// what the user wanted if they're rendering row details (but we can't be _sure_
+// of that).
+}, true);
 
 export const SparklineLoadingFormatter = function (context: IGridContext) {
     const func = Formatter(function (row: any, cell: number, value: any, columnDef: any, dataContext: any, data: any) {
