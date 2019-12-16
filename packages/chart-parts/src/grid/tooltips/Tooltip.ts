@@ -4,6 +4,8 @@
 
 import * as $ from "jquery";
 import { IGridContext } from "../interfaces";
+import { HoverManager } from "@mavenomics/ui";
+import { Widget } from "@phosphor/widgets";
 
 // TODO: options typing
 export function Tooltip(selector: JQuery, options: any, webMavenHost: IGridContext) {
@@ -62,31 +64,49 @@ export function Tooltip(selector: JQuery, options: any, webMavenHost: IGridConte
             position: "absolute",
             zIndex: 9999999
         }));
-
-        var bounds = $(selector)[0].getBoundingClientRect() as DOMRect;
-        return bounds;
     }
+
+    let model: HoverManager.HoverViewModel | undefined;
+    const mgr = HoverManager.GetManager();
 
     selector.on({
         mouseenter: function (event) {
             webMavenHost.CloseHover();
-            const bounds = makeTooltip();
-            webMavenHost.OpenHover(tooltip[0].outerHTML, bounds.right + 1, bounds.y, options.width, options.height);
-        },
-
-        mouseleave: function (event) {
-            webMavenHost.CloseHover();
+            if (model) mgr.closeHover(model, { disposeAtExit: true });
+            makeTooltip();
+            const owner = new Widget({node: $(selector)[0]});
+            const hover = new Widget({node: tooltip[0]});
+            hover.disposed.connect(i => owner.dispose());
+            model = mgr.openHover({
+                    hover,
+                    mode: "tooltip",
+                    offsetMode: "relative",
+                    owner,
+                    x: 10,
+                    y: 10,
+                    width: options.width,
+                    height: options.height
+                });
         },
         dblclick: function(event) {
             webMavenHost.CloseHover();
-            const bounds = makeTooltip();
-            webMavenHost.OpenPopup(tooltip[0].outerHTML, bounds.right, bounds.y, options.width, options.height);
+            if (model) mgr.closeHover(model, { disposeAtExit: true });
+            makeTooltip();
+            const owner = new Widget({node: $(selector)[0]});
+            const hover = new Widget({node: tooltip[0]});
+            hover.disposed.connect(i => owner.dispose());
+            mgr.openDialog({
+                hover,
+                owner,
+                width: options.width + 10,
+                height: options.height + 50
+            });
         }
     });
 
     function disable () {
-        selector.off("mousemove");
-        selector.off("mouseout");
+        selector.off("mouseenter");
+        selector.off("dblclick");
     }
 
     return {off: disable, disable: disable};

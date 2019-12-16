@@ -106,9 +106,20 @@ export function SparklineRenderer(
         .x(function (d) { return x(d.date) })
         .y(function (d) { return y(d.value) });
 
-    var svg = d3.select(el[0]).append("svg")
-        .attr("style", "width:100%;height:" + el.height() + "px; font-size:10px;font-weight:100;")
-        .append("g");
+    const root = d3.select(el[0]).append("svg")
+        .style({
+            width: "100%",
+            height: el.height() + "px",
+            fontSize: "10px",
+            fontWeight: "100"
+        });
+
+    var svg = root.append("g");
+
+    if (showAxes) {
+        svg.style("pointer-events", "auto")
+    }
+    const timeFormatter = d3.time.format("%b '%y");
 
     var graphOffset = 0;
 
@@ -118,13 +129,25 @@ export function SparklineRenderer(
     if (showAxes === true) {
         if ($(el).find("#d3-css").length === 0)
             $(el).append($('<style type="text/css" id="d3-css">')
-                .append(".axis path, .axis line {fill:none; stroke:black; shape-rendering:crispEdges}"));
+                .append(`.axis path, .axis line {
+                    fill:none;
+                    stroke:black;
+                    shape-rendering:crispEdges;
+                }
+
+                .m-Sparkline-hover-label {
+                    fill: black;
+                    stroke: white;
+                    stroke-width: 5px;
+                    paint-order: stroke;
+                    transform: translate(10px, 10px)
+                }`));
 
         var xAxis = d3.svg.axis()
             .scale(x)
             .orient("bottom")
             .tickValues(x.domain())
-            .tickFormat(d3.time.format("%b '%y"));
+            .tickFormat(timeFormatter);
 
         var yAxis = d3.svg.axis()
             .scale(y)
@@ -141,6 +164,53 @@ export function SparklineRenderer(
             .attr("class", "y axis")
             .attr("transform", "translate(30,5)")
             .call(yAxis);
+
+        let activeHover: d3.Selection<any> | null = null;
+
+        root.on("mouseenter", () => {
+            activeHover = svg.append("g")
+                .attr("class", "hover")
+                .attr("transform", "translate(" + graphOffset + ", 0)");
+            activeHover.append("circle")
+                .attr("r", 3)
+                .style({
+                    fill: "steelblue",
+                    strokeWidth: "1px",
+                    stroke: "black"
+                })
+                .attr("class", "highlight");
+            activeHover.append("text")
+                .text("")
+                .classed("m-Sparkline-hover-label", true);
+        });
+        root.on("mouseleave", () => {
+            if (!activeHover) return;
+            activeHover.remove();
+        })
+        root.on("mousemove", () => {
+            if (!activeHover) return;
+            // find the closest date under the mouse, pick the corresponding pt
+            const xPos = x.invert((d3.event as MouseEvent).offsetX - graphOffset);
+            let minCandidate = data[0];
+            let lastDiff = +data[0].date;
+            // date monotonically increases in the sparkline, so only advance
+            // until we find a diff that grows
+            for (const pt of data) {
+                const diff = Math.abs(+pt.date - +xPos);
+                if (diff > lastDiff) break;
+                minCandidate = pt;
+                lastDiff = diff;
+            }
+            // create a highlight there
+            activeHover
+                .attr(
+                    "transform",
+                    `translate(${graphOffset + x(minCandidate.date)},${y(minCandidate.value)})`
+                );
+            activeHover
+                .select("text")
+                .text(`${timeFormatter(minCandidate.date)}: ${minCandidate.value.toLocaleString()}`)
+        });
 
         graphOffset = 31;
     }
