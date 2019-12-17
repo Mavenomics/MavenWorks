@@ -3,6 +3,32 @@ import { ReactPart, OptionsBag } from "@mavenomics/parts";
 import { Table } from "@mavenomics/table";
 import * as React from "react";
 
+function sanitize(input: unknown) {
+    if (input == null) {
+        return input === null ? "null" : "undefined";
+    }
+    switch (typeof input) {
+        case "string":
+            return input;
+        case "number":
+        case "bigint":
+            return input.toLocaleString();
+        case "boolean":
+            return input ? "True" : "False";
+        case "object":
+            if (input instanceof Table) {
+                return input.length + " row table";
+            }
+            try {
+                return JSON.stringify(input, null, "  ");
+            } catch (e) {
+                return "" + input;
+            }
+        default:
+            return "" + input;
+    }
+}
+
 export class RowViewPart extends ReactPart {
     public static GetMetadata() {
         const metadata = super.GetMetadata();
@@ -26,9 +52,8 @@ export class RowViewPart extends ReactPart {
         const cols: React.ReactElement[] = [];
 
         for (const col of table.columnNames) {
-            const val = row.getValue(col);
-            if (val == null) continue;
-            cols.push(<tr id={col}>
+            const val = sanitize(row.getValue(col));
+            cols.push(<tr id={col} key={col}>
                 <td>{col}</td>
                 <td>{val}</td>
             </tr>);
