@@ -5,7 +5,7 @@ const { DefinePlugin } = require("webpack");
 
 const config = {
   entry: './lib/worker',
-  mode: "production",
+  mode: process.env.NODE_ENV || "development",
   output: {
     filename: 'mql.worker.js',
     path: path.resolve(__dirname)
@@ -28,7 +28,8 @@ const config = {
         'process.env.GIT_COMMIT': JSON.stringify(process.env.GIT_COMMIT || "develop"),
         'process.env.BUILD_DATE': JSON.stringify(Date.now())
     })
-  ]
+  ],
+  devtool: process.env.NODE_ENV !== "production" ? void 0 : "eval-source-map"
 };
 
 if (process.argv.includes("--analyze")) {
