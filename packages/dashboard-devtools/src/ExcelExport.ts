@@ -148,6 +148,7 @@ function AddHeaders(
             let lastParent: string | null = null;
             let lastParentIdx: number | null = null;
             function merge(idx: number) {
+                if (!config.mergeCells) return;
                 if (idx === lastParentIdx) {
                     return; // don't merge same-cells
                 }
@@ -195,6 +196,7 @@ function AddHeaders(
                     mergeTo = rowIdx;
                 }
                 if (mergeTo < maxColDepth - 1) {
+                    if (!config.mergeCells) return;
                     // a merge needs to happen
                     // add one to everything since it's all 1-indexed
                     sheet.mergeCells(1 + mergeTo, 1 + col, maxColDepth, 1 + col);
@@ -260,7 +262,7 @@ export function ExportToWorkbook(
     config?: Partial<IExcelExportConfig>,
     formatting?: { [col: string]: any }
 ) {
-    config = config || {};
+    config = configWithDefaults(config);
     formatting = formatting || {};
 
     let maxRowDepth = 0;
@@ -327,4 +329,19 @@ export interface IExcelExportConfig {
     showPath: boolean;
     rowGrouping: boolean;
     columnGrouping: boolean;
+    mergeCells: boolean;
+}
+
+const defaults: IExcelExportConfig = {
+    showPath: true,
+    rowGrouping: true,
+    columnGrouping: true,
+    mergeCells: false
+};
+
+export function configWithDefaults(config?: Partial<IExcelExportConfig>) {
+    return {
+        ...defaults,
+        ...config
+    };
 }
