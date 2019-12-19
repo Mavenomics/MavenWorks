@@ -160,9 +160,14 @@ export class StaticCacheFunction extends IFunction {
             blocking = blocking === true ? blocking : false;
 
             return void StartTimingAsync("StaticCacheLock", async () => {
+                if (key === "*" && mode !== "Delete") {
+                    return cb(new Error("Cache key cannot be * for operations other than delete"));
+                }
+
                 //Acquire lock if we are blocking
                 let lockId = void 0;
                 let isLocked = false;
+
                 if (blocking) {
                     let isWrite = mode !== "ReadOnly";
                     let lock = await this.SendMessage({
@@ -176,91 +181,100 @@ export class StaticCacheFunction extends IFunction {
                     isLocked = true;
                 }
 
-                try {
-                    if (key === "*" && mode !== "Delete")
-                        return cb(new Error("Cache key cannot be * for operations other than delete"));
+                const self = this;
+                function unlockIfLocked() {
+                    if (!isLocked) return;
+                    return self.SendMessage({
+                        cmd: "UNLOCK",
+                        blocking,
+                        lockId,
+                        key,
+                        mode
+                    }, context);
+                }
 
-                    if (mode === "WriteOnly") {
-                        optionLookup["value"](row, (err, value) => {
-                            if (err) return cb(err);
+                if (mode === "WriteOnly") {
+                    optionLookup["value"](row, (err, value) => {
+                        if (err) {
+                            unlockIfLocked();
+                            return cb(err);
+                        }
+                        return Callbacks.AsCallback(
+                            this.SendMessage({
+                                    cmd: "PUT",
+                                    key,
+                                    blocking,
+                                    lockId,
+                                    value: JSON.stringify(serialize(value))
+                                },
+                                context
+                            )
+                            .then(unlockIfLocked, (err) => { unlockIfLocked(); return Promise.reject(err); })
+                            .then(() => value)
+                        )(cb);
+                    });
+                } else if (mode === "Delete") {
+                    return Callbacks.AsCallback(
+                        this.SendMessage({
+                            cmd: "DELETE",
+                            key,
+                            blocking,
+                            lockId,
+                        }, context)
+                        .then(unlockIfLocked, (err) => { unlockIfLocked(); return Promise.reject(err); })
+                    )(cb);
+                }
+
+                return Callbacks.AsCallback(
+                    this.SendMessage({
+                        cmd: "GET",
+                        key,
+                        blocking,
+                        lockId,
+                    }, context),
+                )((err, resp: any) => {
+                    if (err) {
+                        unlockIfLocked();
+                        return cb(err);
+                    }
+
+                    //Cache miss
+                    if (resp.type === "MISS") {
+                        //Cache miss in readonly mode results in a null return
+                        if (mode === "ReadOnly") {
+                            unlockIfLocked();
+                            return cb(void 0, null);
+                        }
+
+                        //Cache miss, lets evaluate value and update the cache
+                        optionLookup["value"](row, (err, res) => {
+                            if (err) {
+                                unlockIfLocked();
+                                return cb(err);
+                            }
                             return Callbacks.AsCallback(
                                 this.SendMessage({
                                         cmd: "PUT",
                                         key,
                                         blocking,
                                         lockId,
-                                        value: JSON.stringify(serialize(value))
-                                    }, context
-                                ).then(i => value)
+                                        value: JSON.stringify(serialize(res))
+                                    },
+                                    context
+                                )
+                                .then(unlockIfLocked, (err) => { unlockIfLocked(); return Promise.reject(err); })
+                                .then(() => res)
                             )(cb);
                         });
-                    } else if (mode === "Delete") {
-                        return Callbacks.AsCallback(
-                            this.SendMessage({
-                                cmd: "DELETE",
-                                key,
-                                blocking,
-                                lockId,
-                            }, context)
-                        )(cb);
+                    } else {
+                        //Eagerly unlock the cache key. That way other workers
+                        // can access the cache while we deserialize.
+                        unlockIfLocked();
+                        StartTimingAsync("StaticCacheLock_Deserialize", async () => {
+                            return deserialize(JSON.parse(resp.value));
+                        }).then(val => cb(void 0, val), err => cb(err));
                     }
-
-                    return Callbacks.AsCallback(
-                        this.SendMessage({
-                            cmd: "GET",
-                            key,
-                            blocking,
-                            lockId,
-                        }, context),
-                    )((err, resp: any) => {
-                        if (err) return cb(err);
-
-                        //Cache miss
-                        if (resp.type === "MISS") {
-                            //Cache miss in readonly mode results in a null return
-                            if (mode === "ReadOnly")
-                                return cb(void 0, null);
-
-                            //Cache miss, lets evaluate value and update the cache
-                            optionLookup["value"](row, (err, res) => {
-                                if (err) return cb(err);
-                                return Callbacks.AsCallback(
-                                    this.SendMessage({
-                                        cmd: "PUT",
-                                        key,
-                                        blocking,
-                                        lockId,
-                                        value: JSON.stringify(serialize(res))
-                                    }, context).then(() => res)
-                                )(cb);
-                            });
-                        } else {
-                            //Eagerly unlock the cache key. That way other workers
-                            // can access the cache while we deserialize.
-                            if (isLocked) {
-                                this.SendMessage({
-                                    cmd: "UNLOCK",
-                                    blocking,
-                                    lockId,
-                                    key,
-                                    mode
-                                }, context);
-                                isLocked = false;
-                            }
-                            StartTimingAsync("StaticCacheLock_Deserialize", async () => {
-                                return deserialize(JSON.parse(resp.value));
-                            }).then(val => cb(void 0, val), err => cb(err));
-                        }
-                    });
-                } finally {
-                    // Make sure we unlock the cache
-                    // In JS, finally blocks are guaranteed to execute even if
-                    // a function returns within a `try`.
-                    if (isLocked) {
-                        this.SendMessage({ cmd: "UNLOCK", blocking, lockId, key, mode }, context);
-                        isLocked = false;
-                    }
-                }
+                });
             });
         });
     }
