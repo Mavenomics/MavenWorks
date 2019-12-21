@@ -145,7 +145,7 @@ class GridContext implements IGridContext {
     public pathColumn: -1 | 0 | 1 = -1;
     public grid: Slick.Grid<any> | undefined;
     public version: string;
-    public readonly partId: string;
+    public partId: string;
     private bag: OptionsBag | null = null;
     private hoverHandle: HoverManager.HoverViewModel | null = null;
 
@@ -251,6 +251,8 @@ class GridContext implements IGridContext {
     ) {
         this.CloseHover();
         const context = new GridContext(this.services, this.owner);
+        // Generate a new grid ID for the hover to ensure that styles don't conflict
+        context["partId"] = UUID.uuid4();
 
         const bag = new OptionsBag(SlickGridPart.GetMetadata());
         bag.set(PartUtils.INPUT_OPTION, table);
