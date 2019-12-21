@@ -195,6 +195,9 @@ export class StaticCacheFunction extends IFunction {
 
                 if (mode === "WriteOnly") {
                     optionLookup["value"](row, (err, value) => {
+                        if (!err && value instanceof Error) {
+                            err = value;
+                        }
                         if (err) {
                             unlockIfLocked();
                             return cb(err);
@@ -248,6 +251,10 @@ export class StaticCacheFunction extends IFunction {
 
                         //Cache miss, lets evaluate value and update the cache
                         optionLookup["value"](row, (err, res) => {
+                            // don't cache errors
+                            if (!err && res instanceof Error) {
+                                err = res;
+                            }
                             if (err) {
                                 unlockIfLocked();
                                 return cb(err);
