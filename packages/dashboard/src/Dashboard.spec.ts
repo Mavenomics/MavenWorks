@@ -99,7 +99,7 @@ describe("Dashboard", () => {
         await AsyncTools.wait(10);
         expect(dashboard.isDirty).toBeFalsy();
         const bag = dashboard.partManager.getBagById("bar")!;
-        bag.set("baz", "test test 1 2 3");
+        bag._setExternal("baz", "test test 1 2 3");
         await AsyncTools.wait(10); // allow part manager state to settle
         expect(dashboard.isDirty).toBeTruthy();
         expect(dashboard.shouldNotifyDirty).toBeTruthy();
@@ -110,7 +110,7 @@ describe("Dashboard", () => {
         await AsyncTools.wait(10);
         expect(dashboard.isDirty).toBeFalsy();
         const bag = dashboard.partManager.getBagById("bar")!;
-        bag.set("baz", "test test 1 2 3");
+        bag._setExternal("baz", "test test 1 2 3");
         await AsyncTools.wait(10); // allow part manager state to settle
         expect(dashboard.isDirty).toBeTruthy();
         dashboard.setClean();

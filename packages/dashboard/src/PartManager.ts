@@ -78,7 +78,7 @@ export class PartManager implements IDirtyable, IDisposable {
                 const optionMetadata = bag.getMetadata(sub.option);
                 const bindingModel = optionMetadata.binding!;
                 if (bindingModel.type === "Global") {
-                    bag.set(sub.option, i.value);
+                    bag._setExternal(sub.option, i.value);
                 }
                 bag.setStale([[sub.option, optionMetadata]]);
                 this.evaluateOrWaitForUser(sub.partId);
@@ -250,12 +250,12 @@ export class PartManager implements IDirtyable, IDisposable {
 
         if (!model) {
             bag.clearBinding(name);
-            bag.set(name, null);
+            bag._setExternal(name, null);
             return;
         }
         if (model.hasOwnProperty("typeName")) {
             bag.clearBinding(name);
-            bag.set(name, Converters.deserialize(model as JSONObject));
+            bag._setExternal(name, Converters.deserialize(model as JSONObject));
             return;
         }
         // narrow the type
@@ -273,7 +273,7 @@ export class PartManager implements IDirtyable, IDisposable {
                 const error = new Error("No global named " + model.expr + " exists!");
                 part.error(error, "option-error");
             } else {
-                bag.set(name, this.globals.get(model.expr));
+                bag._setExternal(name, this.globals.get(model.expr));
             }
         }
         this.setSubscriptions(part.uuid, bag.getMetadata(name));
@@ -388,12 +388,19 @@ export class PartManager implements IDirtyable, IDisposable {
         const part = this.getPartById(id);
         const bag = this.optionsBags.get(id);
         const evals = this.partEvaluations.get(id);
+        let shouldRender = true;
         if (bag == null || part == null || evals == null) {
             return;
         }
         if (!part.isError && !part.isCanceled) {
+            if (bag.isSelfChange) {
+                shouldRender = false;
+            }
             bag.setFresh();
             MessageLoop.sendMessage(part, Part.Lifecycle.AfterCalculate);
+        }
+        if (!shouldRender) {
+            return;
         }
         this.renderPart(part.uuid);
     }

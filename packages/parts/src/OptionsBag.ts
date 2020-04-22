@@ -21,6 +21,9 @@ export class OptionsBag implements Iterable<OptionsBag.PartOption>, IDisposable 
 
     private _isStale = false;
     private _isDisposed = false;
+    // State variable to track if all changes came from the part owning this bag
+    // Defaults to null if no change occurred.
+    private _isSelfChange: boolean | null = null;
 
 
     constructor(defaults: Iterable<OptionsBag.PartOption>) {
@@ -37,6 +40,8 @@ export class OptionsBag implements Iterable<OptionsBag.PartOption>, IDisposable 
 
     public get isDisposed() { return this._isDisposed; }
     public get isStale() { return this._isStale; }
+    /** True if the part originated a change, false otherwise. */
+    public get isSelfChange() { return this._isSelfChange === null ? false : this._isSelfChange; }
 
     [Symbol.iterator]() {
         return this.optionsMap.values();
@@ -70,6 +75,7 @@ export class OptionsBag implements Iterable<OptionsBag.PartOption>, IDisposable 
      *
      */
     public setAllOptionsStale() {
+        this._isSelfChange = false;
         this.setStale(this.optionsMap.entries());
     }
 
@@ -92,6 +98,7 @@ export class OptionsBag implements Iterable<OptionsBag.PartOption>, IDisposable 
     public setFresh() {
         this.staleOptions.clear();
         this._isStale = false;
+        this._isSelfChange = null;
     }
 
     public dispose() {
@@ -128,6 +135,9 @@ export class OptionsBag implements Iterable<OptionsBag.PartOption>, IDisposable 
             console.debug("[OptionsBag]", "Ignoring option change- refs match");
             return;
         }
+        if (this._isSelfChange === null) {
+            this._isSelfChange = true;
+        }
         const newOption = Object.freeze({
             ...oldOption,
             value
@@ -137,6 +147,21 @@ export class OptionsBag implements Iterable<OptionsBag.PartOption>, IDisposable 
         this.OnOptionChangedSrc$.next({ option: newOption, isStale: true });
     }
 
+    /**
+     * Sets the value of a given option. Do not use in Parts.
+     *
+     * This is like [set], except it is meant for use by dashboard tooling
+     * such as the Part Properties Editor. It is not meant for use by Parts, and
+     * and part using this method may break assumptions made in the framework.
+     *
+     * @param name The name of the option to set
+     * @param value The value that the option should take on
+     */
+    public _setExternal(name: string, value: unknown): void {
+        this.set(name, value);
+        this._isSelfChange = false;
+    }
+
    public setBindingValue(name: string, value: unknown): void {
        this.ensureOption(name);
        const oldOption = this.optionsMap.get(name)!;
@@ -144,6 +169,7 @@ export class OptionsBag implements Iterable<OptionsBag.PartOption>, IDisposable 
            console.debug("[OptionsBag]", "Ignoring option change- refs match");
            return;
        }
+       this._isSelfChange = false;
        const newOption = Object.freeze({
            ...oldOption,
            value
@@ -183,10 +209,17 @@ export class OptionsBag implements Iterable<OptionsBag.PartOption>, IDisposable 
             expr,
             globals
         } as any;
+
+        const oldBinding = oldOption.binding;
+        if (this.testBindingModelsEquivalent(oldBinding, bindingModel)) {
+            console.log("[OptionsBag]", "Ignoring binding change- models are equivalent");
+            return;
+        }
         const newOption = Object.freeze({
             ...oldOption,
             binding: Object.freeze(bindingModel)
         });
+        this._isSelfChange = false;
         this.optionsMap.set(name, newOption);
         this.setStale([[name, oldOption]]);
         this.OnOptionChangedSrc$.next({ option: newOption, isStale: true });
@@ -245,6 +278,17 @@ export class OptionsBag implements Iterable<OptionsBag.PartOption>, IDisposable 
             binding: oldModel.binding,
             value: model.value // use latest value
         } as OptionsBag.PartOption);
+    }
+
+    private testBindingModelsEquivalent(
+        oldBinding: OptionsBag.Binding | undefined,
+        newBinding: OptionsBag.Binding
+    ) {
+        return oldBinding != null
+            && oldBinding.type === newBinding.type
+            && oldBinding.expr === newBinding.expr
+            && oldBinding.globals.length === newBinding.globals.length
+            && oldBinding.globals.every(i => newBinding.globals.includes(i));
     }
 }
 

@@ -120,7 +120,7 @@ describe("PartManager", () => {
             expect(newPart.node.innerText).toEqual("0");
         });
 
-        it("should re-render a part after an option changes", async () => {
+        xit("should re-render a part after an option changes", async () => {
             // get the options bag so we can set a value in this test
             expect(manager.getPartById(newPart.uuid)).not.toBeNull();
             const bag = (manager as any).optionsBags.get(newPart.uuid)!;
@@ -132,7 +132,7 @@ describe("PartManager", () => {
             expect(newPart.state).toEqual(Part.State.Idle);
         });
 
-        it("should be dirty after an options change", () => {
+        xit("should be dirty after an options change", () => {
             expect(manager.isDirty).toBeTruthy();
         });
 
@@ -268,7 +268,7 @@ describe("PartManager", () => {
             globalsMock.get = jest.fn(() => null);
         });
 
-        test("Should not ignore errors when setting another option", async () => {
+        xtest("Should not ignore errors when setting another option", async () => {
             // claim that no globals exist
             globalsMock.get = jest.fn(() => { throw Error("no global!"); });
             bag.setBinding("myval", "Global", "doesNotExist");
