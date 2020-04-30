@@ -46,7 +46,7 @@
     "@phosphor/widgets": "^1.6.0",
     "arraybuffer-loader": "^1.0.7",
     "d3": "^3.5.12",
-    "jquery": "1.11.0",
+    "jquery": "3.5.0",
     "numeral": "^2.0.6",
     "stable": "^0.1.8",
     "worker-loader": "^2.0.0"
